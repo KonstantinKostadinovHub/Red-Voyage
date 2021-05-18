@@ -108,9 +108,6 @@ void World::init()
     SDL_Cursor* cursor = SDL_CreateColorCursor(loadSurface, 10, 5);
     SDL_SetCursor(cursor);
 
-    delete loadSurface;
-    delete cursor;
-
     loadSurface = nullptr;
     cursor = nullptr;
 
