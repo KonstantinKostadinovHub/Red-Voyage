@@ -1,0 +1,3 @@
+Rect: 2040 1035 150 150
+Img: Fix_Fuel_Task.bmp
+string: FILL_FUEL

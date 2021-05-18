@@ -1,0 +1,493 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="img">
+      <UniqueIdentifier>{baf9efa3-97de-4e75-b500-d55be6b73538}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config">
+      <UniqueIdentifier>{ad400bd1-ba2d-45fa-b387-6f6eff7ab69f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="music">
+      <UniqueIdentifier>{71de1ba1-0805-45b1-b82e-3adc744cc2ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ttf">
+      <UniqueIdentifier>{c59f54ba-440d-4362-b5d4-7bdb85ef1088}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data">
+      <UniqueIdentifier>{1a61eaa5-2ec4-4e95-8486-2fa736478fdc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Header Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Animator.cpp">
+      <Filter>Header Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Bullet.cpp">
+      <Filter>Header Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera.cpp">
+      <Filter>Header Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ChickenWing.cpp">
+      <Filter>Header Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ConfigManager.cpp">
+      <Filter>Header Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Credits.cpp">
+      <Filter>Header Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Endgame.cpp">
+      <Filter>Header Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Enemy.cpp">
+      <Filter>Header Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EnemyBullet.cpp">
+      <Filter>Header Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EnemyShooter.cpp">
+      <Filter>Header Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine.cpp">
+      <Filter>Header Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Food.cpp">
+      <Filter>Header Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Generator.cpp">
+      <Filter>Header Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Gun.cpp">
+      <Filter>Header Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HealthBar.cpp">
+      <Filter>Header Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Menu.cpp">
+      <Filter>Header Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ore.cpp">
+      <Filter>Header Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Player.cpp">
+      <Filter>Header Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SoundManager.cpp">
+      <Filter>Header Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Task.cpp">
+      <Filter>Header Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tutorial.cpp">
+      <Filter>Header Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UI.cpp">
+      <Filter>Header Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UIObject.cpp">
+      <Filter>Header Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\World.cpp">
+      <Filter>Header Files\Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Animator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Bullet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ChickenWing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ConfigManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Credits.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\defines.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Endgame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Enemy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\EnemyBullet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\EnemyShooter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Engine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Food.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Generator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Gun.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\HealthBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Ore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SoundManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Task.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Tutorial.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\UI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\UIObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\World.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="config\assassin.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\bullet.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\chicken_selectable.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\collpoints.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\configManager.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\credits.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\endgame.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\enemyBullet.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\food.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\food_object.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\generator.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\healthBar1.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\healthBar2.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\iron_selectable.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\ironOre.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\menu.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\player1.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\player2.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\soundManager.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\task1.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\task2.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\task3.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\task4.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\task5.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\task6.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\task7.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\titanium_selectable.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\titaniumOre.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\tutorial.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\ui.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\world.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\alien.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\aluminium_selectable.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\aluminiumOre.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="data\tutorial.txt">
+      <Filter>data</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="img\Aluminium_Ore.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Aluminium_Ore_UI.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\archer.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\archerFlip.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\bullet_red.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Chicken_leg.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Chicken_UI.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\chicken_wing.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\credit.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\credits.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\cursor.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\EndGame_Screen.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\enemyBullet.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Exit_Button.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Fix_Electric_Task.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Fix_Engine_Task.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Fix_Front_Panel_Task.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Fix_Fuel_Task.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Fix_GPS_Task.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Fix_Left_Wing_Task.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Fix_Right_Wing_Task.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Game_Background.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\green.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\health_bar1.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\health_bar2.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\health_border.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Iron_Ore.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Iron_Ore_Ui.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Mars_Menu_Logo.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Mars_Spaceship.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Mars_Spaceship_Inside_FInal.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Menu_Background.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\NiTe_logo1.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\orange.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Pause_Button.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Pause_Button.png">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\player_bullet.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\player1.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\player1_reversed.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\player2.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\player2_reversed.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Proceed_Button.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Start_Button.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\test.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\testRange.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Titanium_Ore.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Titanium_Ore_Ui.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\TitleImg1.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\transparentBackground.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\tutorial.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\User_Interface.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\warrior.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\warriorFlip.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Win_Screen.bmp">
+      <Filter>img</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="music\Food.mp3">
+      <Filter>music</Filter>
+    </Media>
+    <Media Include="music\Lose.mp3">
+      <Filter>music</Filter>
+    </Media>
+    <Media Include="music\Mine.mp3">
+      <Filter>music</Filter>
+    </Media>
+    <Media Include="music\Player_Death.mp3">
+      <Filter>music</Filter>
+    </Media>
+    <Media Include="music\Shoot.mp3">
+      <Filter>music</Filter>
+    </Media>
+    <Media Include="music\Show_Task.mp3">
+      <Filter>music</Filter>
+    </Media>
+    <Media Include="music\Win.mp3">
+      <Filter>music</Filter>
+    </Media>
+    <Media Include="music\Background_Music.mp3">
+      <Filter>music</Filter>
+    </Media>
+    <Media Include="music\Button_Click.mp3">
+      <Filter>music</Filter>
+    </Media>
+    <Media Include="music\Enemy_Death.mp3">
+      <Filter>music</Filter>
+    </Media>
+    <Media Include="music\Finished_Task.mp3">
+      <Filter>music</Filter>
+    </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="ttf\ARCADECLASSIC.TTF">
+      <Filter>ttf</Filter>
+    </Font>
+  </ItemGroup>
+</Project>

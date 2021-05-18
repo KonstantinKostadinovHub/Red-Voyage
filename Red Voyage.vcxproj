@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{62949D86-B8FA-4D7E-B27F-76555388B8B3}</ProjectGuid>
+    <RootNamespace>RedVoyage</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\Konstantin\Documents\C++ PROGRAMING\NiTe\Red Voyage\Red Voyage\include;C:\Users\Konstantin\Documents\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>C:\Users\Konstantin\Documents\SDL2\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_mixer.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\Konstantin\Documents\SDL2\include;C:\Users\Konstantin\Documents\C++ PROGRAMING\NiTe\Red Voyage\Red Voyage\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_mixer.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Konstantin\Documents\SDL2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\Konstantin\Documents\C++ PROGRAMING\NiTe\Red Voyage\Red Voyage\include;C:\Users\Konstantin\Documents\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>C:\Users\Konstantin\Documents\SDL2\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_mixer.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\Konstantin\Documents\SDL2\include;C:\Users\Konstantin\Documents\C++ PROGRAMING\NiTe\Red Voyage\Red Voyage\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_mixer.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Konstantin\Documents\SDL2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\Animator.cpp" />
+    <ClCompile Include="src\Bullet.cpp" />
+    <ClCompile Include="src\Camera.cpp" />
+    <ClCompile Include="src\ChickenWing.cpp" />
+    <ClCompile Include="src\ConfigManager.cpp" />
+    <ClCompile Include="src\Credits.cpp" />
+    <ClCompile Include="src\Endgame.cpp" />
+    <ClCompile Include="src\Enemy.cpp" />
+    <ClCompile Include="src\EnemyBullet.cpp" />
+    <ClCompile Include="src\EnemyShooter.cpp" />
+    <ClCompile Include="src\Engine.cpp" />
+    <ClCompile Include="src\Food.cpp" />
+    <ClCompile Include="src\Generator.cpp" />
+    <ClCompile Include="src\Gun.cpp" />
+    <ClCompile Include="src\HealthBar.cpp" />
+    <ClCompile Include="src\Menu.cpp" />
+    <ClCompile Include="src\Ore.cpp" />
+    <ClCompile Include="src\Player.cpp" />
+    <ClCompile Include="src\SoundManager.cpp" />
+    <ClCompile Include="src\Task.cpp" />
+    <ClCompile Include="src\Tutorial.cpp" />
+    <ClCompile Include="src\UI.cpp" />
+    <ClCompile Include="src\UIObject.cpp" />
+    <ClCompile Include="src\World.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Animator.h" />
+    <ClInclude Include="include\Bullet.h" />
+    <ClInclude Include="include\Camera.h" />
+    <ClInclude Include="include\ChickenWing.h" />
+    <ClInclude Include="include\ConfigManager.h" />
+    <ClInclude Include="include\Credits.h" />
+    <ClInclude Include="include\defines.h" />
+    <ClInclude Include="include\Endgame.h" />
+    <ClInclude Include="include\Enemy.h" />
+    <ClInclude Include="include\EnemyBullet.h" />
+    <ClInclude Include="include\EnemyShooter.h" />
+    <ClInclude Include="include\Engine.h" />
+    <ClInclude Include="include\Food.h" />
+    <ClInclude Include="include\Generator.h" />
+    <ClInclude Include="include\Gun.h" />
+    <ClInclude Include="include\HealthBar.h" />
+    <ClInclude Include="include\Menu.h" />
+    <ClInclude Include="include\Ore.h" />
+    <ClInclude Include="include\Player.h" />
+    <ClInclude Include="include\SoundManager.h" />
+    <ClInclude Include="include\Task.h" />
+    <ClInclude Include="include\Tutorial.h" />
+    <ClInclude Include="include\UI.h" />
+    <ClInclude Include="include\UIObject.h" />
+    <ClInclude Include="include\World.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="config\alien.txt" />
+    <Text Include="config\aluminiumOre.txt" />
+    <Text Include="config\aluminium_selectable.txt" />
+    <Text Include="config\assassin.txt" />
+    <Text Include="config\bullet.txt" />
+    <Text Include="config\chicken_selectable.txt" />
+    <Text Include="config\collpoints.txt" />
+    <Text Include="config\configManager.txt" />
+    <Text Include="config\credits.txt" />
+    <Text Include="config\endgame.txt" />
+    <Text Include="config\enemyBullet.txt" />
+    <Text Include="config\food.txt" />
+    <Text Include="config\food_object.txt" />
+    <Text Include="config\generator.txt" />
+    <Text Include="config\healthBar1.txt" />
+    <Text Include="config\healthBar2.txt" />
+    <Text Include="config\ironOre.txt" />
+    <Text Include="config\iron_selectable.txt" />
+    <Text Include="config\menu.txt" />
+    <Text Include="config\player1.txt" />
+    <Text Include="config\player2.txt" />
+    <Text Include="config\soundManager.txt" />
+    <Text Include="config\task1.txt" />
+    <Text Include="config\task2.txt" />
+    <Text Include="config\task3.txt" />
+    <Text Include="config\task4.txt" />
+    <Text Include="config\task5.txt" />
+    <Text Include="config\task6.txt" />
+    <Text Include="config\task7.txt" />
+    <Text Include="config\titaniumOre.txt" />
+    <Text Include="config\titanium_selectable.txt" />
+    <Text Include="config\tutorial.txt" />
+    <Text Include="config\ui.txt" />
+    <Text Include="config\world.txt" />
+    <Text Include="data\tutorial.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="img\Aluminium_Ore.bmp" />
+    <Image Include="img\Aluminium_Ore_UI.bmp" />
+    <Image Include="img\archer.bmp" />
+    <Image Include="img\archerFlip.bmp" />
+    <Image Include="img\bullet_red.bmp" />
+    <Image Include="img\Chicken_leg.bmp" />
+    <Image Include="img\Chicken_UI.bmp" />
+    <Image Include="img\chicken_wing.bmp" />
+    <Image Include="img\credit.bmp" />
+    <Image Include="img\credits.bmp" />
+    <Image Include="img\cursor.bmp" />
+    <Image Include="img\EndGame_Screen.bmp" />
+    <Image Include="img\enemyBullet.bmp" />
+    <Image Include="img\Exit_Button.bmp" />
+    <Image Include="img\Fix_Electric_Task.bmp" />
+    <Image Include="img\Fix_Engine_Task.bmp" />
+    <Image Include="img\Fix_Front_Panel_Task.bmp" />
+    <Image Include="img\Fix_Fuel_Task.bmp" />
+    <Image Include="img\Fix_GPS_Task.bmp" />
+    <Image Include="img\Fix_Left_Wing_Task.bmp" />
+    <Image Include="img\Fix_Right_Wing_Task.bmp" />
+    <Image Include="img\Game_Background.bmp" />
+    <Image Include="img\green.bmp" />
+    <Image Include="img\health_bar1.bmp" />
+    <Image Include="img\health_bar2.bmp" />
+    <Image Include="img\health_border.bmp" />
+    <Image Include="img\Iron_Ore.bmp" />
+    <Image Include="img\Iron_Ore_Ui.bmp" />
+    <Image Include="img\Mars_Menu_Logo.bmp" />
+    <Image Include="img\Mars_Spaceship.bmp" />
+    <Image Include="img\Mars_Spaceship_Inside_FInal.bmp" />
+    <Image Include="img\Menu_Background.bmp" />
+    <Image Include="img\NiTe_logo1.bmp" />
+    <Image Include="img\orange.bmp" />
+    <Image Include="img\Pause_Button.bmp" />
+    <Image Include="img\Pause_Button.png" />
+    <Image Include="img\player1.bmp" />
+    <Image Include="img\player1_reversed.bmp" />
+    <Image Include="img\player2.bmp" />
+    <Image Include="img\player2_reversed.bmp" />
+    <Image Include="img\player_bullet.bmp" />
+    <Image Include="img\Proceed_Button.bmp" />
+    <Image Include="img\Start_Button.bmp" />
+    <Image Include="img\test.bmp" />
+    <Image Include="img\testRange.bmp" />
+    <Image Include="img\Titanium_Ore.bmp" />
+    <Image Include="img\Titanium_Ore_Ui.bmp" />
+    <Image Include="img\TitleImg1.bmp" />
+    <Image Include="img\transparentBackground.bmp" />
+    <Image Include="img\tutorial.bmp" />
+    <Image Include="img\User_Interface.bmp" />
+    <Image Include="img\warrior.bmp" />
+    <Image Include="img\warriorFlip.bmp" />
+    <Image Include="img\Win_Screen.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="music\Background_Music.mp3" />
+    <Media Include="music\Button_Click.mp3" />
+    <Media Include="music\Enemy_Death.mp3" />
+    <Media Include="music\Finished_Task.mp3" />
+    <Media Include="music\Food.mp3" />
+    <Media Include="music\Lose.mp3" />
+    <Media Include="music\Mine.mp3" />
+    <Media Include="music\Player_Death.mp3" />
+    <Media Include="music\Shoot.mp3" />
+    <Media Include="music\Show_Task.mp3" />
+    <Media Include="music\Win.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="ttf\ARCADECLASSIC.TTF" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

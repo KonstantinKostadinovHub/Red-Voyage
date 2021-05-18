@@ -1,0 +1,29 @@
+Player: 100 100 800 800
+
+Img: player2.bmp
+
+Speed: 10	
+
+Move_up: I
+
+Move_down: K
+
+Move_left: J
+
+Move_right: L
+
+Shoot: U
+
+Craft: O
+
+Health: 100
+
+HP: healthBar2.txt
+
+ShootCooldown: 1
+
+Anim_Rect: 0 0 320 320
+
+widthOfFrame: 320
+
+reversed: player2_reversed.bmp

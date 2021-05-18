@@ -1,0 +1,6 @@
+Image: Titanium_Ore_UI.bmp
+Width: 50
+Height: 50
+Start: 1300
+Distance: 10
+Position: 3

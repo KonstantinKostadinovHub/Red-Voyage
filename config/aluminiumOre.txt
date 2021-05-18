@@ -1,0 +1,4 @@
+Image: Aluminium_Ore.bmp
+type: 3
+Health: 48
+Width&Height: 110 110

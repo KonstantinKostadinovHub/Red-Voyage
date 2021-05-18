@@ -1,0 +1,11 @@
+Background_Music: Background_Music.mp3
+Button_Click: Button_Click.mp3
+Finished_Task: Finished_Task.mp3
+Mine: Mine.mp3
+Show_Task: Show_Task.mp3
+Shoot: Shoot.mp3
+Enemy_Death: Enemy_Death.mp3
+Food: Food.mp3
+Lose: Lose.mp3
+Player_death: Player_Death.mp3
+Win: Win.mp3

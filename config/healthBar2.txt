@@ -1,0 +1,3 @@
+Rect: 740 20 500 35
+border: health_border.bmp
+Img: health_bar2.bmp

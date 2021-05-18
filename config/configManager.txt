@@ -1,0 +1,7 @@
+ironOre.txt
+titaniumOre.txt
+aluminiumOre.txt
+bullet.txt
+alien.txt
+assassin.txt
+enemyBullet.txt

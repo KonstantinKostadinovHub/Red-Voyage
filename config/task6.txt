@@ -1,0 +1,3 @@
+Rect: 720 600 150 150
+Img: Fix_Electric_Task.bmp
+string: FIX_ELECTRICITY

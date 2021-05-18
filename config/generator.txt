@@ -1,0 +1,12 @@
+cooldownE&O: 4 3 40
+maxE&0: 8 30 3
+oreSpawnZone: 0 1620 3760 1020
+enemySpawnZone: 1000 3000 200 100
+numberOfTasks: 7
+task1.txt
+task2.txt
+task3.txt
+task4.txt
+task5.txt
+task6.txt
+task7.txt

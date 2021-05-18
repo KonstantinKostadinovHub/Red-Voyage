@@ -1,0 +1,10 @@
+Image: Menu_Background.bmp
+StartImage: Start_Button.bmp
+StartX: 140
+StartY: 40
+ExitImage: Exit_Button.bmp
+ExitX: 27
+ExitY: 27
+LogoImage: Mars_Menu_Logo.bmp
+LogoX: 210
+LogoY: 210

@@ -1,0 +1,6 @@
+spawn_cooldown: 8
+kitchen_cap: 4
+1710 400
+1810 400
+1910 400
+2010 400
