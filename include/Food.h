@@ -6,6 +6,12 @@
 #include <fstream>
 using namespace std;
 
+/*! \brief a class that is used for healing the player
+
+    With this class we create chicken nuggets that spawn on the table.
+
+*/
+
 class Food
 {
     public:

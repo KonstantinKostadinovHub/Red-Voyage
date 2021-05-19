@@ -11,41 +11,41 @@ using namespace std;
 
 class SoundManager
 {
-    public:
-        SoundManager();
-        virtual ~SoundManager();
+public:
+    SoundManager();
+    virtual ~SoundManager();
 
-        void init(string configFile);
-        void destroyChunks();
-        void play(string sound);
+    void init(string configFile);
+    void destroyChunks();
+    void play(string sound);
 
-        string Background_Music_str;
-        string Button_Click_str;
-        string Finished_Task_str;
-        string Mine_str;
-        string Show_task_str;
-        string Shoot_str;
-        string Enemy_Death_str;
-        string Food_str;
-        string Lose_str;
-        string Player_Death_str;
-        string Win_str;
+    string Background_Music_str;
+    string Button_Click_str;
+    string Finished_Task_str;
+    string Mine_str;
+    string Show_task_str;
+    string Shoot_str;
+    string Enemy_Death_str;
+    string Food_str;
+    string Lose_str;
+    string Player_Death_str;
+    string Win_str;
 
-        Mix_Chunk* Background_Music;
-        Mix_Chunk* Button_Click;
-        Mix_Chunk* Finished_Task;
-        Mix_Chunk* Mine;
-        Mix_Chunk* Show_task;
-        Mix_Chunk* Shoot;
-        Mix_Chunk* Enemy_Death;
-        Mix_Chunk* Food;
-        Mix_Chunk* Lose;
-        Mix_Chunk* Player_Death;
-        Mix_Chunk* Win;
+    Mix_Chunk* Background_Music;
+    Mix_Chunk* Button_Click;
+    Mix_Chunk* Finished_Task;
+    Mix_Chunk* Mine;
+    Mix_Chunk* Show_task;
+    Mix_Chunk* Shoot;
+    Mix_Chunk* Enemy_Death;
+    Mix_Chunk* Food;
+    Mix_Chunk* Lose;
+    Mix_Chunk* Player_Death;
+    Mix_Chunk* Win;
 
-    protected:
+protected:
 
-    private:
+private:
 };
 
 #endif // SOUNDMANAGER_H

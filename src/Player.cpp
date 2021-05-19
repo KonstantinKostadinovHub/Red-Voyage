@@ -133,9 +133,10 @@ bool Player::checkForShooting()
     if(chrono::duration_cast<chrono::milliseconds>(chrono::high_resolution_clock::now() - m_elapsed_engage) > m_engagementRate)
     {
         m_canShoot = true;
-		return true;
+        return true;
     }
-	return false;
+
+    return false;
 }
 
 void Player::update()
@@ -181,6 +182,8 @@ void Player::update()
         if(state[shoot])
         {
             shootIsPressed = true;
+
+            world.m_soundManager -> play("Shoot.mp3");
         }
         else
         {
@@ -196,21 +199,22 @@ void Player::update()
         }
     }
 
-
-    // coll by x
     m_objRect.x += m_velocity.x;
-    // coll check
-        if(world.collisionWithShip(m_objRect)){
-            m_objRect.x -= m_velocity.x;
-        }else
+
+    if(world.collisionWithShip(m_objRect))
+    {
+        m_objRect.x -= m_velocity.x;
+    }
+    else
+    {
+        for(int i = 0; i < world.m_ores.size(); i++)
         {
-            for(int i = 0; i < world.m_ores.size(); i++)
+            if(collRectRect(m_objRect, world.m_ores[i]->m_rect))
             {
-                if(collRectRect(m_objRect, world.m_ores[i]->m_rect)){
-                    m_objRect.x -= m_velocity.x;
-                }
+                m_objRect.x -= m_velocity.x;
             }
         }
+    }
 
     // coll by y
     m_objRect.y += m_velocity.y;
@@ -218,11 +222,13 @@ void Player::update()
     if(world.collisionWithShip(m_objRect))
     {
         m_objRect.y -= m_velocity.y;
-    }else
+    }
+    else
     {
         for(int i = 0; i < world.m_ores.size(); i++)
         {
-            if(collRectRect(m_objRect, world.m_ores[i]->m_rect)){
+            if(collRectRect(m_objRect, world.m_ores[i]->m_rect))
+            {
                 m_objRect.y -= m_velocity.y;
             }
         }
@@ -251,9 +257,11 @@ void Player::update()
     if(m_velocity.x == 0 && m_velocity.y == 0)
     {
         anim->doAnimation = false;
-    }else
+    }
+    else
     {
-        if(m_velocity.x != 0) m_oldvelocity.x = m_velocity.x;
+        if(m_velocity.x != 0)
+            m_oldvelocity.x = m_velocity.x;
         anim->doAnimation = true;
     }
 
@@ -284,7 +292,9 @@ void Player::update()
             if(world.m_door.start.y > m_objRect.y)
             {
                 m_inSpaceship = true;
-            }else{
+            }
+            else
+            {
                 m_inSpaceship = false;
             }
         }
@@ -297,7 +307,8 @@ void Player::update()
 
 void Player::draw()
 {
-    m_presentRect = {
+    m_presentRect =
+    {
         (int)((*m_zoom_lvl) * (double)(m_objRect.x - m_camera_rect->x)),
         (int)((*m_zoom_lvl) * (double)(m_objRect.y - m_camera_rect->y)),
         (int)((*m_zoom_lvl) * m_objRect.w),
