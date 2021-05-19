@@ -23,6 +23,10 @@ void VisualEffect::init(string configFile, SDL_Renderer* renderer)
 
 	short timePerFrame;
 
+	int a = 10;
+	a++;
+	cout << a << endl;
+
 	if(stream.is_open())
 	{
 		// Test 2
