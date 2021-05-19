@@ -116,11 +116,12 @@ void Task::init(string configFile)
 void Task::update()
 {
     string tmp;
-    m_presentRect = {
-        (int)((*m_zoom_lvl) * (double)(m_objRect.x - m_camera_rect -> x)),
-        (int)((*m_zoom_lvl) * (double)(m_objRect.y - m_camera_rect -> y)),
+    m_presentRect =
+    {
+        (int)((*m_zoom_lvl) * (double)(m_objRect.x - m_camera_rect->x)),
+        (int)((*m_zoom_lvl) * (double)(m_objRect.y - m_camera_rect->y)),
         (int)((*m_zoom_lvl) * m_objRect.w),
-        (int)((*m_zoom_lvl) * m_objRect.h),
+        (int)((*m_zoom_lvl) * m_objRect.h)
     };
 
     bool buff = false;
@@ -142,7 +143,9 @@ void Task::update()
 
             m_ironNumber = myPair.first;
         }
-    }else{
+    }
+    else
+    {
         if(!hasIron)
         {
             hasIron = true;
@@ -167,7 +170,9 @@ void Task::update()
 
             m_aluminiumNumber = myPair.first;
         }
-    }else{
+    }
+    else
+    {
         if(!hasAluminium)
         {
             hasAluminium = true;
@@ -193,7 +198,9 @@ void Task::update()
 
             m_titaniumNeededNumber = myPair.first;
         }
-    }else{
+    }
+    else
+    {
         if(!hasTitanium)
         {
             hasTitanium = true;
@@ -233,7 +240,8 @@ void Task::update()
 
     if(m_duration.count() >= 5)
     {
-        if(hasIron && hasAluminium && hasTitanium) {
+        if(hasIron && hasAluminium && hasTitanium)
+        {
             m_doneTask = true;
             m_lastButtonPressed = chrono::steady_clock::now();
             world.m_soundManager -> play("Finished_Task.mp3");

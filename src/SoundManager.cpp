@@ -62,7 +62,7 @@ void SoundManager::play(string sound)
     }
     else if(sound == Button_Click_str)
     {
-        Mix_PlayChannel(2, Button_Click, 1);
+        Mix_PlayChannel(2, Button_Click, 0);
         Mix_Volume(2, 50);
     }
     else if(sound == Finished_Task_str)
@@ -70,12 +70,12 @@ void SoundManager::play(string sound)
         Mix_PlayChannel(3, Finished_Task, 0);
         Mix_Volume(3, 50);
     }
-     else if(sound == Mine_str)
+    else if(sound == Mine_str)
     {
         Mix_PlayChannel(4, Mine, 0);
         Mix_Volume(4, 50);
     }
-     else if(sound == Show_task_str)
+    else if(sound == Show_task_str)
     {
         Mix_PlayChannel(5, Show_task, 0);
         Mix_Volume(5, 50);
