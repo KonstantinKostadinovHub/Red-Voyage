@@ -23,6 +23,12 @@ void VisualEffect::init(string configFile, SDL_Renderer* renderer)
 
 	short timePerFrame;
 
+	// Test 3 let's make a change
+
+	int a = 40;
+	a += 20;
+	cout << a << endl;
+
 	if(stream.is_open())
 	{
 		animation* anim = new animation;
