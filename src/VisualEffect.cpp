@@ -25,6 +25,7 @@ void VisualEffect::init(string configFile, SDL_Renderer* renderer)
 
 	if(stream.is_open())
 	{
+		// Test 2
 		animation* anim = new animation;
 		stream >> tmp >> textureString;
 		anim->lastFrameUpdate = chrono::high_resolution_clock::now();
