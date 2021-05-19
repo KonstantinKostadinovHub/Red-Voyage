@@ -159,6 +159,7 @@
     <ClCompile Include="src\Tutorial.cpp" />
     <ClCompile Include="src\UI.cpp" />
     <ClCompile Include="src\UIObject.cpp" />
+    <ClCompile Include="src\VisualEffect.cpp" />
     <ClCompile Include="src\World.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +187,7 @@
     <ClInclude Include="include\Tutorial.h" />
     <ClInclude Include="include\UI.h" />
     <ClInclude Include="include\UIObject.h" />
+    <ClInclude Include="include\VisualEffect.h" />
     <ClInclude Include="include\World.h" />
   </ItemGroup>
   <ItemGroup>

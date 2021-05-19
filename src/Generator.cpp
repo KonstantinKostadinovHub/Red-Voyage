@@ -26,7 +26,9 @@ void Generator::init(string configFile)
     stream.open(configFile);
     stream >> tmp >> m_enemySpawnCooldown >> m_oreSpawnCooldown >> m_TaskSpawnCooldown;
     stream >> tmp >> m_maxEnemies >> m_maxOre >> m_maxTasks;
-    stream >> tmp >> m_OreSpawnZone.x >> m_OreSpawnZone.y >> m_OreSpawnZone.w >> m_OreSpawnZone.h;
+    stream >> tmp >> m_ironSpawnZone.x >> m_ironSpawnZone.y >> m_ironSpawnZone.w >> m_ironSpawnZone.h;
+    stream >> tmp >> m_aluminumSpawnZone.x >> m_aluminumSpawnZone.y >> m_aluminumSpawnZone.w >> m_aluminumSpawnZone.h;
+    stream >> tmp >> m_titaniumSpawnZone.x >> m_titaniumSpawnZone.y >> m_titaniumSpawnZone.w >> m_titaniumSpawnZone.h;
     stream >> tmp >> m_EnemySpawnZone.x >> m_EnemySpawnZone.y >> m_EnemySpawnZone.w >> m_EnemySpawnZone.h;
     stream >> tmp >> tasks;
 
@@ -54,8 +56,8 @@ void Generator::generateOre()
             m_lastOreCreation = chrono::steady_clock::now();
 
             coordinates coor;
-            coor.x = rand() % m_OreSpawnZone.w + m_OreSpawnZone.x;
-            coor.y = rand() % m_OreSpawnZone.h + m_OreSpawnZone.y;
+            coor.x = 0;
+            coor.y = 0;
 
             Ore* ore = nullptr;
 
@@ -79,30 +81,29 @@ void Generator::generateOre()
                 break;
             }*/
 
-            bool goodCase = false;
-            while(!goodCase)
-            {
-                goodCase = true;
-                for(int i = 0; i < world.m_ores.size() && goodCase; i++)
-                {
-                    if(collRectRect(ore->m_rect, world.m_ores[i]->m_rect))
-                    {
-                        ore->m_rect.x = rand() % m_OreSpawnZone.w + m_OreSpawnZone.x;
-                        ore->m_rect.y = rand() % m_OreSpawnZone.h + m_OreSpawnZone.y;
-                        goodCase = false;
-                    }
-                }
-                for(int i = 0; i < world.m_players.size() && goodCase; i++)
-                {
-                    if(collRectRect(ore->m_rect, world.m_players[i]->m_objRect))
-                    {
-                        ore->m_rect.x = rand() % m_OreSpawnZone.w + m_OreSpawnZone.x;
-                        ore->m_rect.y = rand() % m_OreSpawnZone.h + m_OreSpawnZone.y;
-                        goodCase = false;
-                        break;
-                    }
-                }
-            }
+			
+			bool goodCase = false;
+			while (!goodCase)
+			{
+				goodCase = true;
+				for (int i = 0; i < world.m_ores.size() && goodCase; i++)
+				{
+					if (collRectRect(ore->m_rect, world.m_ores[i]->m_rect))
+					{
+						giveOreCoordinates(ore);
+						goodCase = false;
+					}
+				}
+				for (int i = 0; i < world.m_players.size() && goodCase; i++)
+				{
+					if (collRectRect(ore->m_rect, world.m_players[i]->m_objRect))
+					{
+						giveOreCoordinates(ore);
+						goodCase = false;
+						break;
+					}
+				}
+			}
 
             world.m_ores.push_back(ore);
         }
@@ -186,4 +187,29 @@ void Generator::generateEnemy()
             }
         }
     }
+}
+
+void Generator::giveOreCoordinates(Ore* ore)
+{
+	if(ore->m_type == IRON)
+	{
+		ore->m_rect.x = rand() % m_ironSpawnZone.w + m_ironSpawnZone.x;
+		ore->m_rect.y = rand() % m_ironSpawnZone.h + m_ironSpawnZone.y;
+	}
+	else if (ore->m_type == ALUMINIUM)
+	{
+		ore->m_rect.x = rand() % m_aluminumSpawnZone.w + m_aluminumSpawnZone.x;
+		ore->m_rect.y = rand() % m_aluminumSpawnZone.h + m_aluminumSpawnZone.y;
+	}
+	else if (ore->m_type == TITANIUM)
+	{
+		ore->m_rect.x = rand() % m_titaniumSpawnZone.w + m_titaniumSpawnZone.x;
+		ore->m_rect.y = rand() % m_titaniumSpawnZone.h + m_titaniumSpawnZone.y;
+	}
+	else
+	{
+		string errorText = "error: trying to give coordinates to an ore with unknown type in line: " + to_string(__LINE__) + " in file " + __FILE__;
+		fprintf(stderr, errorText.c_str());
+		exit(EXIT_FAILURE);
+	}
 }

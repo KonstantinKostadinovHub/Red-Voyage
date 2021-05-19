@@ -20,13 +20,15 @@ class Generator
 
         short m_oreSpawnCooldown;
         short m_enemySpawnCooldown;
-        short m_TaskSpawnCooldown;
+		short m_TaskSpawnCooldown;
 
         short m_maxOre;
         short m_maxEnemies;
         short m_maxTasks;
 
-        SDL_Rect m_OreSpawnZone;
+        SDL_Rect m_ironSpawnZone;
+        SDL_Rect m_aluminumSpawnZone;
+        SDL_Rect m_titaniumSpawnZone;
         SDL_Rect m_EnemySpawnZone;
         chrono::duration<double> m_duration;
 
@@ -43,6 +45,8 @@ class Generator
         void generateTask();
         void generateOre();
         void generateEnemy();
+
+		void giveOreCoordinates(Ore* ore);
 
     protected:
 

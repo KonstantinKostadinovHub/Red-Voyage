@@ -1,6 +1,8 @@
 cooldownE&O: 4 3 40
 maxE&0: 8 30 3
-oreSpawnZone: 0 1620 3760 1020
+ironSpawnZone: 0 1620 3760 1020
+aluminumSpawnZone: 0 1620 3760 1020
+titaniumSpawnZone: 0 1620 3760 1020
 enemySpawnZone: 1000 3000 200 100
 numberOfTasks: 7
 task1.txt
