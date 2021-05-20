@@ -34,7 +34,13 @@ void UIObject::load(string config)
 
     m_distance = 65;
     m_objectRect.y = 20;
-    /// Doing a mathematical ecuation to determine a UIObject's coordinates
+    ///
+    ///   ###Example 
+    ///   @code
+    ///   m_objectRect.x = m_startPos + (m_pos-1)*(m_objectRect.w + m_distance);
+    ///   @endcode
+    ///   Doing a mathematical ecuation to determine a UIObject's coordinates
+    ///
     m_objectRect.x = m_startPos + (m_pos-1)*(m_objectRect.w + m_distance);
 
     stream.close();
@@ -43,8 +49,17 @@ void UIObject::load(string config)
     m_objectTexture = LoadTexture(m_img, world.m_main_renderer);
 
     ///Making a string to write on the screen e.g. "x4"
+    /** @code
+    *   count = "x" + to_string(0);
+    *   @endcode
+    */
     count = "x" + to_string(0);
-    ///Setting the coordinates of the text
+    ///Setting the coordinates of the text.
+    /** @code
+    *       coor.x = m_objectRect.x + m_objectRect.w + 5;
+    *       coor.y = m_objectRect.y;
+    *   @endcode
+    */
     coor.x = m_objectRect.x + m_objectRect.w + 5;
     coor.y = m_objectRect.y;
 }
@@ -59,7 +74,16 @@ void UIObject::draw()
 
     SDL_RenderCopy(world.m_main_renderer, m_objectTexture , NULL , &m_objectRect);
 
-
+    ///Based on the type of a UIObject we determine witch count string to show , write and copy to the renderer.
+    /** For Example:
+    *   @code
+    *       if(m_img == "Chicken_UI.bmp"){
+    *           count = "x" + to_string(world.m_chickenCollected);
+    *       }
+    *   @endcode
+    *
+    *
+    */
     if(m_img == "Chicken_UI.bmp"){
         count = "x" + to_string(world.m_chickenCollected);
     }

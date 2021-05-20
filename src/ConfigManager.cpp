@@ -14,6 +14,7 @@ ConfigManager::~ConfigManager()
 
 void ConfigManager::init(string configFile)
 {
+    ///Opening a stream and calling the load function for every object and configuration file found.
     configFile = "config\\" + configFile;
 
     fstream stream;

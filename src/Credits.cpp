@@ -5,27 +5,33 @@ extern World world;
 
 Credits::Credits()
 {
+    
     //ctor
 }
 
 Credits::~Credits()
 {
+
     //dtor
 }
 
 void Credits::init(string config){
 
-    /// Reading the parameters from a file using a stream
-    fstream stream; ///< defining the file stream
-    string tmp; ///< A temporary variable used for better structuring in the configuration files e.g. ParameterName: param( tmp: name)
-    
+    /** Reading the parameters from a file using a stream
+    * @param    fstream stream; ///< defining the file stream
+    * @param    string tmp; ///< A temporary variable used for better structuring in the configuration files e.g. ParameterName: param( tmp: name)
+    *
+    * 
+    */
+    fstream stream; 
+    string tmp; 
     stream.open("config\\" + config);
 
     stream >> tmp >> m_credits_image;
-    /// Creating a SDL_Texture with the user-defined function LoadTexture in Engine.cpp
+    
     m_credits_texture = LoadTexture(m_credits_image, world.m_main_renderer);
 
-    stream.close()
+    stream.close();
 }
 
 void Credits::update(){

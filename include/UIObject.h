@@ -7,12 +7,12 @@
 
 
 #include "defines.h"
-
+/// \brief A class used to initialize and draw the little representations of ores and food so we can keep track of their quantity. 
 class UIObject
 {
     public:
-        UIObject(); ///\fn The class constructor
-        virtual ~UIObject(); ///\fn The class destructor
+        UIObject(); ///< The class constructor
+        virtual ~UIObject(); ///< The class destructor
 
         int m_distance; ///< A variable used to save the distance between two separate UIObjects
         int m_startPos; ///< Coordinates of the starting point where the set of UIObjects is begining to draw
