@@ -18,6 +18,7 @@ struct animation{
     chrono::duration<float> timePerFrame;
     chrono::high_resolution_clock::time_point lastFrameUpdate;
     bool doAnimation = true;
+	bool finished = false;
 };
 
 /*! \class Animator

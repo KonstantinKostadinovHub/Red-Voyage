@@ -234,11 +234,6 @@ void Player::update()
         }
     }
 
-	int b = 10;
-	b++;
-	cout << b << endl;
-
-
     for(int i = 0; i < m_guns.size(); i ++)
     {
         coordinates playerCoor;

@@ -66,7 +66,7 @@ void Generator::generateOre()
             }else if(rand() % 100 >= 15){
                 ore = new Ore(&world.m_configManager.m_aluminiumOre, world.m_main_renderer, coor);
             }else if(rand() % 100 >= 0){
-                ore = new Ore(&world.m_configManager.m_aluminiumOre, world.m_main_renderer, coor);
+                ore = new Ore(&world.m_configManager.m_titaniumOre, world.m_main_renderer, coor);
             }
             /*switch (rand() % 3)
             {

@@ -14,8 +14,6 @@ Animator::~Animator()
 
 void Animator::updateFrames()
 {
-/*! TEST 1
-*/
     for(int i = 0; i < m_animations.size(); i ++)
     {
         if(m_animations[i]->doAnimation && chrono::duration_cast<chrono::milliseconds>(chrono::high_resolution_clock::now() - m_animations[i]->lastFrameUpdate) > m_animations[i]->timePerFrame)

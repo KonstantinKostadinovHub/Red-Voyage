@@ -14,9 +14,9 @@ World::World()
     m_main_window = nullptr;
     m_soundManager = new SoundManager;
 
-    m_ironCollected = 0;
-    m_aluminiumCollected = 0;
-    m_titaniumCollected = 0;
+    m_ironCollected = 12;
+    m_aluminiumCollected = 8;
+    m_titaniumCollected = 11;
 }
 
 World::~World()
@@ -505,6 +505,16 @@ void World::cleaner()
             i--;
         }
     }
+
+	for (short i = 0; i < m_animator.m_animations.size(); i++)
+	{
+		if (m_animator.m_animations[i]->finished)
+		{
+			delete m_animator.m_animations[i];
+			m_animator.m_animations.erase(m_animator.m_animations.begin() + i);
+			i--;
+		}
+	}
 }
 
 void World::loadTitleScreen()

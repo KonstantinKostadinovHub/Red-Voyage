@@ -69,6 +69,7 @@ class Enemy
         virtual void load(string stream);
         void update();
         virtual void draw();
+		virtual void destroy();
 
     protected:
 

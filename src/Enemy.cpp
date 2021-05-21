@@ -51,7 +51,7 @@ Enemy::Enemy(const Enemy& model) {
 
 Enemy::~Enemy()
 {
-
+	m_renderer = nullptr;
 }
 
 void Enemy::load(string config) {
@@ -202,4 +202,9 @@ void Enemy::draw() {
     };
 
     SDL_RenderCopyEx(m_renderer, m_objectTexture, &m_srcRect, &m_presentRect, m_angle, NULL, SDL_FLIP_NONE);
+}
+
+void Enemy::destroy()
+{
+	anim->finished = true;
 }
