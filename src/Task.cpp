@@ -220,10 +220,8 @@ void Task::update()
 
         distance = sqrt(x * x + y * y);
 
-
         if(distance < 200)
         {
-
             if(world.m_players[i] -> craftIsPressed)
             {
                 resetTime = false;
@@ -238,13 +236,18 @@ void Task::update()
 
     m_duration = chrono::steady_clock::now() - m_lastButtonPressed;
 
-    if(m_duration.count() >= 5)
+   if(m_duration.count() >= 5)
     {
         if(hasIron && hasAluminium && hasTitanium)
         {
             m_doneTask = true;
             m_lastButtonPressed = chrono::steady_clock::now();
             world.m_soundManager -> play("Finished_Task.mp3");
+
+			if(world.m_tasks.size() == world.m_generator.m_maxTasks)
+            {
+                world.m_generator.m_lastTaskCreation = chrono::steady_clock::now();
+			}
 
             world.m_ironCollected -= m_ironNeeded;
             world.m_aluminiumCollected -= m_aluminiumNeeded;

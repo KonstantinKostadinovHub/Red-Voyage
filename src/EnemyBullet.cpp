@@ -55,11 +55,12 @@ void EnemyBullet::update() {
 }
 
 void EnemyBullet::draw(SDL_Renderer* renderer) {
+
     m_presentRect = {
         (int)(*m_zoom_lvl * (double)(m_objectRect.x - m_cameraRect->x)),
 		(int)(*m_zoom_lvl * (double)(m_objectRect.y - m_cameraRect->y)),
-		(int)*m_zoom_lvl * m_objectRect.w,
-		(int)*m_zoom_lvl * m_objectRect.h
+		(int)(*m_zoom_lvl * m_objectRect.w),
+		(int)(*m_zoom_lvl * m_objectRect.h)
     };
 
 

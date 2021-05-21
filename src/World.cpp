@@ -14,9 +14,9 @@ World::World()
     m_main_window = nullptr;
     m_soundManager = new SoundManager;
 
-    m_ironCollected = 0;
-    m_aluminiumCollected = 0;
-    m_titaniumCollected = 0;
+    m_ironCollected = 110;
+    m_aluminiumCollected = 110;
+    m_titaniumCollected = 110;
 }
 
 World::~World()
@@ -50,7 +50,6 @@ void World::init()
     string titleScreenImg, shipInsideImg, cursorImg;
 
     ifstream file;
-
 
 	file.open(config);
 
@@ -229,13 +228,13 @@ void World::update()
 
         collision();
 
-        cleaner();
-
         m_userInterface.update();
 
         m_tutorial.update();
 
         m_camera.update();
+
+        cleaner();
 
         endGameCheck();
     }

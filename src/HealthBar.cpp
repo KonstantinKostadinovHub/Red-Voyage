@@ -40,6 +40,9 @@ void HealthBar::update(int health, int maxHealth)
 
 void HealthBar::draw(SDL_Renderer* renderer)
 {
+    /* We expand the image
+    */
+
     m_barRect = m_objRect;
     m_barRect.w = (float)m_objRect.w * HP;
 

@@ -12,17 +12,11 @@ int main(int argc, char* argv[])
 {
     //ShowWindow(GetConsoleWindow(), SW_HIDE);
 
-	cout << __LINE__ << endl;
 
     world.init();
     
-	cout << __LINE__ << endl;
 	world.m_gameState = MENU;
     world.loadTitleScreen();
-
-	cout << __LINE__ << endl;
-
-	cout << "here \n";
 
     while(!world.m_endGame)
     {
