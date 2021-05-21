@@ -46,7 +46,7 @@ Task::Task(const Task& model, int m_iron, int m_titanium, int m_aluminium)
 
     myPair = writeRed(tmp, coor, world.m_main_renderer, 36);
 
-    m_titaniumNeededNumber = myPair.first;
+    m_titaniumNumber = myPair.first;
     m_titaniumNumberRect = myPair.second;
 
     m_doneTask = false;
@@ -58,8 +58,14 @@ Task::Task()
 }
 
 Task::~Task()
-{
-    //dtor
+{    
+    m_aluminiumNumber = nullptr;
+    m_titaniumNumber = nullptr;
+    m_ironNumber = nullptr;
+
+    delete m_aluminiumNumber;
+    delete m_titaniumNumber;
+    delete m_ironNumber;
 }
 
 void Task::init(string configFile)
@@ -109,7 +115,7 @@ void Task::init(string configFile)
 
     myPair = writeRed(tmp, coor, world.m_main_renderer, 36);
 
-    m_titaniumNeededNumber = myPair.first;
+    m_titaniumNumber = myPair.first;
     m_titaniumNumberRect = myPair.second;
 }
 
@@ -196,7 +202,7 @@ void Task::update()
 
             pair<SDL_Texture*, SDL_Rect> myPair = writeRed(tmp, coor, world.m_main_renderer, 36);
 
-            m_titaniumNeededNumber = myPair.first;
+            m_titaniumNumber = myPair.first;
         }
     }
     else
@@ -209,7 +215,7 @@ void Task::update()
 
             pair<SDL_Texture*, SDL_Rect> myPair = writeGreen(tmp, coor, world.m_main_renderer, 36);
 
-            m_titaniumNeededNumber = myPair.first;
+            m_titaniumNumber = myPair.first;
         }
     }
 
@@ -264,5 +270,5 @@ void Task::draw()
 
     world.drawObject(m_aluminiumNumberRect, m_aluminiumNumber);
 
-    world.drawObject(m_titaniumNumberRect, m_titaniumNeededNumber);
+    world.drawObject(m_titaniumNumberRect, m_titaniumNumber);
 }
