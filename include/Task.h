@@ -41,7 +41,7 @@ public:
 
     SDL_Texture* m_ironNumber;
     SDL_Texture* m_aluminiumNumber;
-    SDL_Texture* m_titaniumNeededNumber;
+    SDL_Texture* m_titaniumNumber;
 
     bool hasIron;
     bool hasAluminium;

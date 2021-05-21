@@ -157,6 +157,7 @@ void Generator::generateTask()
 void Generator::generateEnemy()
 {
     m_duration = chrono::steady_clock::now() - m_lastEnemyCreation;
+    
     if(m_duration.count() > m_enemySpawnCooldown)
     {
         if(world.m_enemies.size() < m_maxEnemies)

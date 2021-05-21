@@ -97,7 +97,7 @@ void World::init()
     m_userInterface.load("ui.txt");
     m_generator.init("generator.txt");
     m_soundManager -> init("soundManager.txt");
-    m_soundManager -> play("Background_Music.mp3");
+   // m_soundManager -> play("Background_Music.mp3");
     readCollisionPoints("collpoints.txt");
     m_tutorial.init("tutorial.txt");
 
