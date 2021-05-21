@@ -9,8 +9,8 @@
 #include "Animator.h"
 
 /*! \brief Used to create enemies (AI) and define their actions
-
-    This class initializes melee fighting enemies or ones that don't shoot projectiles.
+* 
+* This class initializes melee fighting enemies or ones that don't shoot projectiles.
 */
 
 class Enemy

@@ -3,9 +3,9 @@
 
 #include <Enemy.h>
 
-/*! \brief Used to create enemies that shoot bullets (AI) and define their actions
-
-    This class initializes enemy shooters and generates projectiles.
+/*! \brief Used to create enemies that shoot bullets (AI) and define their actions - inherits Enemy class
+* 
+* This class initializes enemy shooters and generates projectiles.
 */
 
 class EnemyShooter : public Enemy
