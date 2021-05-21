@@ -23,11 +23,16 @@ class VisualEffect
 {
 public:
 	VisualEffect();
+	VisualEffect(const VisualEffect* model, SDL_Rect rect);
 	virtual ~VisualEffect();
 
 	SDL_Rect m_objectRect;
 	SDL_Rect m_srcRect;
 	SDL_Texture* m_texture;
+
+	unsigned short m_inGameWidth, m_inGameHeight;
+
+	animation* anim;
 
 	void init(string configFile, SDL_Renderer* renderer);
 };

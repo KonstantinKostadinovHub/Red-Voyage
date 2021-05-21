@@ -190,7 +190,6 @@ void World::destroy()
 
 void World::update()
 {
-
     checkForPause();
     if(!m_isPaused)
     {
@@ -200,13 +199,10 @@ void World::update()
 
         m_animator.updateFrames();
 
-		cout << __LINE__ << endl;
-
         for(int i = 0; i < m_players.size(); i ++)
         {
             m_players[i] -> update();
         }
-		cout << __LINE__ << endl;
 
         for(int i = 0; i < m_bullets.size(); i ++)
         {
@@ -218,33 +214,31 @@ void World::update()
             m_tasks[i] -> update();
         }
 
-        for (auto enemy: m_enemies) {
+        for (auto enemy: m_enemies) 
+		{
             enemy->update();
         }
-        for (auto bullet: m_enemyBullets) {
+
+        for (auto bullet: m_enemyBullets) 
+		{
             bullet->update();
         }
 
         m_food_spawner.update_kitchen();
-		cout << __LINE__ << endl;
 
         shoot();
 
         collision();
 
         m_userInterface.update();
-		cout << __LINE__ << endl;
 
         m_tutorial.update();
 
         m_camera.update();
-		cout << __LINE__ << endl;
 
         cleaner();
 
         endGameCheck();
-		cout << __LINE__ << endl;
-
     }
 }
 
@@ -484,6 +478,8 @@ void World::cleaner()
         }
         if(m_bullets[i] -> m_health <= 0 || checkInOffBounds(m_bullets[i] -> m_objRect, m_backgroundRect.w, m_backgroundRect.h))
         {
+			VisualEffect* explosion = new VisualEffect(m_configManager.m_bulletExplosion);
+			m_vfxs.push_back(explosion);
             delete m_bullets[i];
             m_bullets.erase(m_bullets.begin() + i);
             i --;

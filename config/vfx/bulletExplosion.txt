@@ -1,0 +1,6 @@
+texture: bulletExplosion.bmp
+frames: 10
+timePerFrame: 50 
+widthOfFrame: 
+width&heightOfPhoto: 
+width&heightInGame:

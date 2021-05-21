@@ -27,6 +27,7 @@
 #include "Tutorial.h"
 #include "Endgame.h"
 #include "Credits.h"
+#include "VisualEffect.h"
 
 using namespace std;
 
@@ -96,13 +97,14 @@ class World
         Animator m_animator;
         Tutorial m_tutorial;
 
-        vector<line> m_collLines;
+        vector <line> m_collLines;
 		vector <Player*> m_players;
 		vector <Bullet*> m_bullets;
 		vector <Enemy*> m_enemies;
 		vector <EnemyBullet*> m_enemyBullets;
 		vector <Task*> m_tasks;
 		vector <Ore*> m_ores;
+		vector <VisualEffect*> m_vfxs;
 
         line m_door;
 
