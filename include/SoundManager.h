@@ -9,6 +9,9 @@
 
 using namespace std;
 
+/*! \brief Used to play sound effect and music
+*/
+
 class SoundManager
 {
 public:

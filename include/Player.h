@@ -18,6 +18,11 @@
 
 using namespace std;
 
+/*! \brief Responible for all player's functions
+* 
+*   We use this class to move the player, to shoot and to do tasks.
+*/
+
 class Player
 {
 public:

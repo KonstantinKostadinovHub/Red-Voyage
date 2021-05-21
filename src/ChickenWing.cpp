@@ -24,6 +24,7 @@ void ChickenWing::init(string config_file){
     stream >> tmp >> wing_rect.h;
     stream >> tmp >> regen_amount;
     stream.close();
+
     wing_texture = LoadTexture(wing_image, world.m_main_renderer);
 }
 

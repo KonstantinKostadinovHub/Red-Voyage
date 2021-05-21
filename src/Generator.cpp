@@ -81,8 +81,8 @@ void Generator::generateOre()
                 break;
             }*/
 
-			
 			bool goodCase = false;
+
 			while (!goodCase)
 			{
 				goodCase = true;
@@ -112,7 +112,6 @@ void Generator::generateOre()
 
 void Generator::generateTask()
 {
-
     m_duration = chrono::steady_clock::now() - m_lastTaskCreation;
 
     if(m_duration.count() > m_TaskSpawnCooldown)
@@ -126,6 +125,7 @@ void Generator::generateTask()
             {
                 taskNumber = rand() % m_modelTasks.size();
                 taskChosen = true;
+
                 for(int i = 0; i < world.m_tasks.size(); i++)
                 {
                     if(m_modelTasks[taskNumber]->m_taskName == world.m_tasks[i]->m_taskName)
@@ -139,11 +139,11 @@ void Generator::generateTask()
                 }
             }
 
-            int ironNeeded = rand() % 9 + 1;
+            int ironNeeded = rand() % 9 + 10;
             int titaniumNeeded = rand() % 9 + 1;
-            int aluminiumNeeded = rand() % 9 + 1;
-
-            Task* task = new Task((*m_modelTasks[0]), ironNeeded, titaniumNeeded, aluminiumNeeded);
+            int aluminiumNeeded = rand() % 9 + 8;
+            
+            Task* task = new Task((*m_modelTasks[taskNumber]), ironNeeded, titaniumNeeded, aluminiumNeeded);
 
             world.m_tasks.push_back(task);
 

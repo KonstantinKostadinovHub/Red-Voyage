@@ -53,11 +53,18 @@ void SoundManager::init(string configFile)
 
 void SoundManager::play(string sound)
 {
-    Mix_AllocateChannels(16);
+    /*  We set aside channels from which later we can play sound.
+    * 
+    *   
+    *    We check which sound we have and then load it. Set on which channel we want to play it and how many times to repeat.
+    *   Then we set volume to the channel we want.
+    */
+
+    Mix_AllocateChannels(12);
 
     if(sound == Background_Music_str)
     {
-        Mix_PlayChannel(1, Background_Music, 100000000);
+        Mix_PlayChannel(1, Background_Music, 1000000000);
         Mix_Volume(1, 50);
     }
     else if(sound == Button_Click_str)

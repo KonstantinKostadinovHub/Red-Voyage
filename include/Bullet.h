@@ -10,6 +10,10 @@
 
 using namespace std;
 
+/*! \brief Used to create bullets 
+
+*/
+
 class Bullet
 {
     public:
@@ -45,7 +49,7 @@ class Bullet
         void draw(SDL_Renderer* renderer);
         void load(string configFile);
 
-        coordinates m_coor;
+        fcoordinates m_coor;
 
     protected:
 

@@ -7,6 +7,11 @@
 
 #include "Engine.h"
 
+/*! \brief This class is responsible for the shooting of the player
+
+    With this class me create a gun with which the player can shoot.
+*/
+
 class Gun
 {
     public:

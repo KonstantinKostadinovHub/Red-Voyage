@@ -42,6 +42,9 @@ void Player::init(SDL_Renderer* renderer, string configFile)
 
     stream.close();
 
+    /*! After we read the configFile we check the controls of the player and then load it
+    */
+
     if(s_move_up == "W")
     {
         move_up = SDL_SCANCODE_W;
@@ -130,6 +133,8 @@ void Player::init(SDL_Renderer* renderer, string configFile)
 
 bool Player::checkForShooting()
 {
+    /* If the cooldown is expired, the player can shoot */
+
     if(chrono::duration_cast<chrono::milliseconds>(chrono::high_resolution_clock::now() - m_elapsed_engage) > m_engagementRate)
     {
         m_canShoot = true;
@@ -141,6 +146,9 @@ bool Player::checkForShooting()
 
 void Player::update()
 {
+    /*! Check if the player has pressed a button, then we shoot or move or do tasks.
+    *   Also check for collision and animation
+    */
 
     m_velocity.x = 0;
     m_velocity.y = 0;
@@ -150,7 +158,6 @@ void Player::update()
     const Uint8 *state = SDL_GetKeyboardState(NULL);
 
     m_screenSpeed = m_speed * SPEED_FACTOR;
-
 
     if(state != NULL)
     {
@@ -212,13 +219,13 @@ void Player::update()
             if(collRectRect(m_objRect, world.m_ores[i]->m_rect))
             {
                 m_objRect.x -= m_velocity.x;
+                break;
             }
         }
     }
 
-    // coll by y
     m_objRect.y += m_velocity.y;
-    // coll check
+
     if(world.collisionWithShip(m_objRect))
     {
         m_objRect.y -= m_velocity.y;
@@ -230,6 +237,7 @@ void Player::update()
             if(collRectRect(m_objRect, world.m_ores[i]->m_rect))
             {
                 m_objRect.y -= m_velocity.y;
+                break;
             }
         }
     }
@@ -248,7 +256,7 @@ void Player::update()
     }
 
     m_healthBar -> update(m_health, m_maxHealth);
-
+    //! if the player is not moving than don't play the moving animation
     if(m_velocity.x == 0 && m_velocity.y == 0)
     {
         anim->doAnimation = false;
@@ -260,6 +268,7 @@ void Player::update()
         anim->doAnimation = true;
     }
 
+    // Check if the player is inside or outside the ship
     top.start.x = m_objRect.x;
     top.start.y = m_objRect.y;
     top.finish.x = m_objRect.x + m_objRect.w;
@@ -296,8 +305,8 @@ void Player::update()
         m_collWithDoor = false;
     }
 
+    // restrict the player from moving outside of the bounds
     restrict(&m_objRect, world.m_backgroundRect.x, world.m_backgroundRect.y, world.m_backgroundRect.w, world.m_backgroundRect.h);
-
 }
 
 void Player::draw()
