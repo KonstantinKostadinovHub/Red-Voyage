@@ -95,7 +95,7 @@ void Task::init(string configFile)
     m_ironNumber = myPair.first;
     m_ironNumberRect = myPair.second;
 
-    coor.x = m_objRect.x + 57;
+    coor.x = m_objRect.x + 55;
     coor.y = m_objRect.y + 100;
 
     tmp = to_string(m_aluminiumNeeded);
