@@ -119,9 +119,9 @@ void World::initSession()
     addPlayer("player2.txt");
     int taskNumber = rand() % m_generator.m_modelTasks.size();
 
-    int ironNeeded = rand() % 9 + 1;
+    int ironNeeded = rand() % 9 + 10;
     int titaniumNeeded = rand() % 9 + 1;
-    int aluminiumNeeded = rand() % 9 + 1;
+    int aluminiumNeeded = rand() % 9 + 8;
 
     Task* task = new Task((*m_generator.m_modelTasks[taskNumber]), ironNeeded, titaniumNeeded, aluminiumNeeded);
 
@@ -200,10 +200,13 @@ void World::update()
 
         m_animator.updateFrames();
 
+		cout << __LINE__ << endl;
+
         for(int i = 0; i < m_players.size(); i ++)
         {
             m_players[i] -> update();
         }
+		cout << __LINE__ << endl;
 
         for(int i = 0; i < m_bullets.size(); i ++)
         {
@@ -223,20 +226,25 @@ void World::update()
         }
 
         m_food_spawner.update_kitchen();
+		cout << __LINE__ << endl;
 
         shoot();
 
         collision();
 
         m_userInterface.update();
+		cout << __LINE__ << endl;
 
         m_tutorial.update();
 
         m_camera.update();
+		cout << __LINE__ << endl;
 
         cleaner();
 
         endGameCheck();
+		cout << __LINE__ << endl;
+
     }
 }
 
@@ -289,6 +297,8 @@ void World::draw()
         bullet->draw(m_main_renderer);
     }
 
+	//drawShipCollision();
+
     m_userInterface.draw();
 
     for(int i = 0; i < m_players.size(); i ++)
@@ -337,7 +347,7 @@ void World::readCollisionPoints(string configFile)
         coor.x *= 1.5;
         coor.y *= 1.5;
         buff.finish = coor;
-        collisionLines.push_back(buff);
+        m_collLines.push_back(buff);
     }
 
     file.close();
@@ -367,18 +377,18 @@ bool World::collisionWithShip(SDL_Rect rect)
     right.start = top.finish;
     right.finish = bot.finish;
 
-    for(int i = 0; i < collisionLines.size(); i++)
+    for(int i = 0; i < m_collLines.size(); i++)
     {
-        if(collLineRect(collisionLines[i], top, bot, left, right)) return true;
+        if(collLineRect(m_collLines[i], top, bot, left, right)) return true;
     }
     return false;
 }
 
 bool World::collisionWithShip(line collLine)
 {
-    for(int i = 0; i < collisionLines.size(); i++)
+    for(int i = 0; i < m_collLines.size(); i++)
     {
-        if(collLineLine(collisionLines[i], collLine)) return true;
+        if(collLineLine(m_collLines[i], collLine)) return true;
     }
     return false;
 }
@@ -442,6 +452,9 @@ void World::shoot()
 
 void World::cleaner()
 {
+	/*! Cleans all the used/dead objects from the game
+		It deletes the object, then removes it from the scene and from the vector
+	*/
     for(int i = 0; i < m_players.size(); i ++)
     {
         if(m_players[i] -> m_health <= 0)
@@ -525,6 +538,9 @@ void World::loadTitleScreen()
 
 void World::deleteSession()
 {
+	/*! After a session is used, delete all the objects in order to save memory.
+		
+	*/
     for(int i = 0; i < m_players.size(); i++)
     {
         delete m_players[i];
@@ -596,6 +612,9 @@ void World::endGameCheck()
 
 void World::drawObject(SDL_Rect rect, SDL_Texture* texture)
 {
+	/*! Draw an object with camera view. It will take in consideration the camera's position and zoom level.
+		This function doesn't work with animated objects
+	*/
     m_presentRect = {
         (int)(m_camera.zoom_lvl * (double)(rect.x - m_camera.camera_rect.x)),
         (int)(m_camera.zoom_lvl * (double)(rect.y - m_camera.camera_rect.y)),
@@ -608,6 +627,9 @@ void World::drawObject(SDL_Rect rect, SDL_Texture* texture)
 
 void World::drawObjectWithSrc(SDL_Rect dstRect,SDL_Rect srcRect, SDL_Texture* texture)
 {
+	/*! Draw an object with camera view. It will take in consideration the camera's position and zoom level
+		Pass the srcRect if the object has animation
+	*/
     m_presentRect = {
         (int)(m_camera.zoom_lvl * (double)(dstRect.x - m_camera.camera_rect.x)),
 		(int)(m_camera.zoom_lvl * (double)(dstRect.y - m_camera.camera_rect.y)),
@@ -620,6 +642,8 @@ void World::drawObjectWithSrc(SDL_Rect dstRect,SDL_Rect srcRect, SDL_Texture* te
 
 void World::collision()
 {
+	/*! Checks for collision and makes following decisions - taking health, sometimes marking the object for delete or deleting it
+	*/
     for(int i = 0; i < 6; i++){
         if(chicken_wings[i] != nullptr){
             if(collRectRect(chicken_wings[i]->wing_rect, m_players[0]->m_objRect)){
@@ -725,4 +749,14 @@ bool World::checkForPause()
         m_quitScene = true;
         m_gameState = MENU;
     }
+}
+
+void World::drawShipCollision()
+{
+	line a;
+	for (int i = 0; i < m_collLines.size(); i++)
+	{
+		a = m_collLines[i];
+		SDL_RenderDrawLine(m_main_renderer, (int)(m_camera.zoom_lvl * (float)(a.start.x - m_camera.camera_rect.x)), (int)(m_camera.zoom_lvl * (float)(a.start.y - m_camera.camera_rect.y)), (int)(m_camera.zoom_lvl * (float)(a.finish.x - m_camera.camera_rect.x)), (int)(m_camera.zoom_lvl * (float)(a.finish.y - m_camera.camera_rect.y)));
+	}
 }

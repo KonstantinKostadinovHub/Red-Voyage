@@ -20,33 +20,36 @@ Task::Task(const Task& model, int m_iron, int m_titanium, int m_aluminium)
     hasIron = false;
     hasAluminium = false;
 
-    coor.x = m_objRect.x + 20;
-    coor.y = m_objRect.y + 100;
+	m_fontSize = 32;
+
+	m_ironNumberRect = model.m_ironNumberRect;
+	m_aluminiumNumberRect = model.m_aluminiumNumberRect;
+	m_titaniumNumberRect = model.m_titaniumNumberRect;
+
+    coor.x = m_ironNumberRect.x;
+	coor.y = m_ironNumberRect.y;
 
     string tmp = to_string(m_ironNeeded);
 
-    pair<SDL_Texture*, SDL_Rect> myPair = writeRed(tmp, coor, world.m_main_renderer, 36);
+    pair<SDL_Texture*, SDL_Rect> myPair = writeRed(tmp, coor, world.m_main_renderer, m_fontSize);
 
-    m_ironNumber = myPair.first;
     m_ironNumberRect = myPair.second;
 
-    coor.x = m_objRect.x + 60;
-    coor.y = m_objRect.y + 100;
+	coor.x = m_aluminiumNumberRect.x;
+	coor.y = m_aluminiumNumberRect.y;
 
     tmp = to_string(m_aluminiumNeeded);
 
-    myPair = writeRed(tmp, coor, world.m_main_renderer, 36);
+    myPair = writeRed(tmp, coor, world.m_main_renderer, m_fontSize);
 
-    m_aluminiumNumber = myPair.first;
     m_aluminiumNumberRect = myPair.second;
 
-    coor.x = m_objRect.x + 100;
-    coor.y = m_objRect.y + 100;
+    coor.x = m_titaniumNumberRect.x;
+    coor.y = m_titaniumNumberRect.y;
     tmp = to_string(m_titaniumNeeded);
 
-    myPair = writeRed(tmp, coor, world.m_main_renderer, 36);
+    myPair = writeRed(tmp, coor, world.m_main_renderer, m_fontSize);
 
-    m_titaniumNeededNumber = myPair.first;
     m_titaniumNumberRect = myPair.second;
 
     m_doneTask = false;
@@ -82,22 +85,22 @@ void Task::init(string configFile)
     m_camera_rect = &world.m_camera.camera_rect;
     m_zoom_lvl = &world.m_camera.zoom_lvl;
 
-    coor.x = m_objRect.x + 20;
+    coor.x = m_objRect.x + 10;
     coor.y = m_objRect.y + 100;
 
     tmp = to_string(m_ironNeeded);
 
-    pair<SDL_Texture*, SDL_Rect> myPair = writeRed(tmp, coor, world.m_main_renderer, 36);
+    pair<SDL_Texture*, SDL_Rect> myPair = writeRed(tmp, coor, world.m_main_renderer, m_fontSize);
 
     m_ironNumber = myPair.first;
     m_ironNumberRect = myPair.second;
 
-    coor.x = m_objRect.x + 60;
+    coor.x = m_objRect.x + 57;
     coor.y = m_objRect.y + 100;
 
     tmp = to_string(m_aluminiumNeeded);
 
-    myPair = writeRed(tmp, coor, world.m_main_renderer, 36);
+    myPair = writeRed(tmp, coor, world.m_main_renderer, m_fontSize);
 
     m_aluminiumNumber = myPair.first;
     m_aluminiumNumberRect = myPair.second;
@@ -107,7 +110,7 @@ void Task::init(string configFile)
 
     tmp = to_string(m_titaniumNeeded);
 
-    myPair = writeRed(tmp, coor, world.m_main_renderer, 36);
+    myPair = writeRed(tmp, coor, world.m_main_renderer, m_fontSize);
 
     m_titaniumNeededNumber = myPair.first;
     m_titaniumNumberRect = myPair.second;
