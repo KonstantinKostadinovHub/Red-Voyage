@@ -34,7 +34,16 @@ void UI::load(string config)
 
     for(int i = 0 ; i < 4;i++)
     {
-
+        /// Creating a new UIObject and checking what type it is so we can draw it on the UI
+        /**
+        *   @code
+        *       case 0:
+        *       object->load("iron_selectable.txt");
+        *       break;
+        *
+        *   @endcode
+        *
+        */
         object = new UIObject();
         switch(i){
 
@@ -60,7 +69,7 @@ void UI::load(string config)
 }
 void UI::update()
 {
-
+    /// Used to update all of the UIObjects in the vector
     for(int i =0 ; i < m_uiSelectables.size();i++){
 
         m_uiSelectables[i] -> update();
@@ -71,7 +80,7 @@ void UI::update()
 }
 void UI::draw()
 {
-
+    /// Drawing the UI and the vector of UIObjects aswell
     SDL_RenderCopy(world.m_main_renderer, m_objectTexture , NULL , &m_objectRect);
 
     for(int i =0 ; i < m_uiSelectables.size();i++){

@@ -10,24 +10,27 @@
 #include "EnemyBullet.h"
 
 using namespace std;
-
+///\brief A class used to achieve higher framerate and faster performance .
+/** That is achieved by loading the objects from the config file once and then 
+* passing the parameters forward instead of loading every time thei are needed.
+*/
 class ConfigManager
 {
     public:
-        ConfigManager();
-        virtual ~ConfigManager();
+        ConfigManager(); ///<The class constructor
+        virtual ~ConfigManager(); ///<The class destructor
 
-        Ore m_ironOre;
-        Ore m_titaniumOre;
-        Ore m_aluminiumOre;
+        Ore m_ironOre; ///< Ore object wich is assigned for iron
+        Ore m_titaniumOre; ///< Ore object wich is assigned for titanium
+        Ore m_aluminiumOre; ///< Ore object wich is assigned for aluminium
 
-        Bullet m_bullet;
-        EnemyBullet m_enemyBullet;
+        Bullet m_bullet; ///<A Bullet object
+        EnemyBullet m_enemyBullet; ///< An EnemyBullet object
 
-        Enemy m_meleeEnemy;
-        EnemyShooter m_rangedEnemy;
+        Enemy m_meleeEnemy; ///< A Enemy object
+        EnemyShooter m_rangedEnemy; ///< A EnemyShooter object
 
-        void init(string configFile);
+        void init(string configFile); ///<Initializating function
 
     protected:
 
