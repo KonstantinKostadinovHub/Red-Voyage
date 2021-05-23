@@ -37,8 +37,8 @@ void Gun::update(coordinates velocity, coordinates playerCoor, bool shootIsPress
         m_oldVelocity = velocity;
     }
 
-    m_objRect.x = playerCoor.x + velocity.x * 70;
-    m_objRect.y = playerCoor.y + velocity.y * 70;
+    m_objRect.x = playerCoor.x + velocity.x * 55;
+    m_objRect.y = playerCoor.y + velocity.y * 80;
 
     if(chrono::duration_cast<chrono::milliseconds>(chrono::high_resolution_clock::now() - m_elapsed_engage) > m_engagementRate && shootIsPressed)
     {
