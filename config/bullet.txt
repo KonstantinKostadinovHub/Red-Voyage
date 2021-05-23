@@ -1,6 +1,6 @@
 size: 16 12
 
-speed: 3
+speed: 20
 
 damage: 15
 

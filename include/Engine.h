@@ -27,5 +27,6 @@ void restrict(SDL_Rect* rect, int zone_x, int zone_y, int zone_w, int zone_h);
 void write(string text, coordinates coor, SDL_Renderer* renderer, int FONT_SIZE);
 pair<SDL_Texture*, SDL_Rect> writeRed(string text, coordinates coor, SDL_Renderer* renderer, int FONT_SIZE);
 pair<SDL_Texture*, SDL_Rect>  writeGreen(string text, coordinates coor, SDL_Renderer* renderer, int FONT_SIZE);
+float returnAngleByCoordinates(coordinates direction);
 
 #endif // ENGINE_H

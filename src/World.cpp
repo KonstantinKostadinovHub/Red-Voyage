@@ -91,7 +91,6 @@ void World::init()
     exitButton.objRect.x = 1920 / 2 + 10;
     exitButton.objRect.y = 1080 / 2 - exitButton.objRect.h / 2;
 
-
     m_configManager.init("configManager.txt");
     m_menu.load("menu.txt");
     m_userInterface.load("ui.txt");
@@ -109,7 +108,6 @@ void World::init()
 
     loadSurface = nullptr;
     cursor = nullptr;
-
 }
 
 void World::initSession()
@@ -126,8 +124,6 @@ void World::initSession()
     Task* task = new Task((*m_generator.m_modelTasks[taskNumber]), ironNeeded, titaniumNeeded, aluminiumNeeded);
 
     m_tasks.push_back(task);
-
-    m_soundManager->play("Show_Task.mp3");
 
     m_generator.m_lastTaskCreation = chrono::steady_clock::now();
 }
@@ -169,12 +165,10 @@ void World::improveRenderer()
     m_MOUSE_MULTIPLY_X = (double) m_SCREEN_WIDTH / (double)desktopWidth;
     m_MOUSE_MULTIPLY_Y = (double) m_SCREEN_HEIGHT / (double)desktopHeight;
 
-
     if(SDL_SetWindowFullscreen(m_main_window, SDL_WINDOW_FULLSCREEN_DESKTOP) < 0)
     {
         cout << "SDL_IMPROVE_RENDERER FAILED: %s\n" << SDL_GetError() << endl;
     }
-
 
     SDL_RenderSetLogicalSize(m_main_renderer, 1920, 1080);
     SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
@@ -191,6 +185,7 @@ void World::destroy()
 void World::update()
 {
     checkForPause();
+
     if(!m_isPaused)
     {
         m_generator.generateOre();
@@ -203,6 +198,9 @@ void World::update()
         {
             m_players[i] -> update();
         }
+
+        collision();
+
 
         for(int i = 0; i < m_bullets.size(); i ++)
         {
@@ -228,8 +226,6 @@ void World::update()
 
         shoot();
 
-        collision();
-
         m_userInterface.update();
 
         m_tutorial.update();
@@ -239,6 +235,12 @@ void World::update()
         cleaner();
 
         endGameCheck();
+
+        SDL_ShowCursor(SDL_DISABLE);        
+    }
+    else
+    {
+        SDL_ShowCursor(SDL_ENABLE);
     }
 }
 
@@ -325,7 +327,6 @@ void World::readCollisionPoints(string configFile)
     file >> img;
 
     m_spaceshipTexture = LoadTexture(img, m_main_renderer);
-
 
     file >> img >> m_spaceshipRect.x >> m_spaceshipRect.y >> m_spaceshipRect.w >> m_spaceshipRect.h;
     m_spaceshipRect.w *= 1.5;
@@ -428,19 +429,16 @@ void World::addBullet(SDL_Rect rect, coordinates coor)
     m_bullets.push_back(bullet);
 }
 
-
 void World::shoot()
 {
     for(int i = 0; i < m_players.size(); i ++)
-    {
-        for(int j = 0; j < m_players[i] -> m_guns.size(); j ++)
+    {      
+        if(m_players[i] -> m_gun -> m_canShoot)
         {
-            if(m_players[i] -> m_guns[j] -> m_canShoot)
-            {
-                addBullet(m_players[i] -> m_guns[j] -> m_objRect, m_players[i] -> m_guns[j] -> m_oldVelocity);
-                m_players[i] -> m_guns[j] -> m_elapsed_engage = chrono::high_resolution_clock::now();
-            }
-        }
+            addBullet(m_players[i] -> m_gun-> m_objRect, m_players[i] -> m_gun-> m_oldVelocity);
+            m_soundManager->play("Shoot.mp3");
+            m_players[i] -> m_gun -> m_elapsed_engage = chrono::high_resolution_clock::now();
+        }  
     }
 }
 
@@ -464,13 +462,13 @@ void World::cleaner()
     for(int i = 0; i < m_enemies.size(); i ++){
         if(m_enemies[i] -> m_health <= 0)
         {
-            m_soundManager -> play("Enemy_Death.mp3");
-
             delete m_enemies[i];
             m_enemies.erase(m_enemies.begin() + i);
             i --;
+            m_soundManager -> play("Enemy_Death.mp3");
         }
     }
+
     for(int i = 0; i < m_bullets.size(); i ++)
     {
         if(collisionWithShip(m_bullets[i]->collLine)){
@@ -724,6 +722,105 @@ void World::collision()
             }
         }
     }
+
+    for (int i = 0; i < m_players.size(); i++)
+    {
+        if (m_players[i]->shootIsPressed)
+        {
+            for (int j = 0; j < m_enemies.size(); j++)
+            {
+                x = abs(m_players[i]->m_objRect.x + m_players[i]->m_objRect.w / 2 - m_enemies[j]->m_objectRect.x - m_enemies[j]->m_objectRect.w / 2);
+                y = abs(m_players[i]->m_objRect.y + m_players[i]->m_objRect.h / 2 - m_enemies[j]->m_objectRect.y - m_enemies[j]->m_objectRect.h / 2);
+
+                m_distance = sqrt(x * x + y * y);
+
+                if (m_distance > m_players[i]->m_distance)
+                {
+                    continue;
+                }
+                else
+                {
+                    m_directionCoor.x = m_enemies[j]->m_objectRect.x - m_players[i]->m_objRect.x;
+                    m_directionCoor.y = m_enemies[j]->m_objectRect.y - m_players[i]->m_objRect.y;
+
+                    m_angle = returnAngleByCoordinates(m_directionCoor);
+
+                    if (m_players[i]->m_gun->m_oldVelocity.x == 1 && m_players[i]->m_gun->m_oldVelocity.y == 0)
+                    {
+                        if (m_angle >= -45.0f && m_angle <= 45.0f)
+                        {
+                            m_players[i]->m_gun->m_canShoot = false;
+                            m_enemies[j]->m_health -= m_players[i]->m_dmg;
+                            //cout << "right" << endl;
+                        }
+                    }
+                    else if (m_players[i]->m_gun->m_oldVelocity.x == -1 && m_players[i]->m_gun->m_oldVelocity.y == 0)
+                    {
+                        if (m_angle <= -135.0f || m_angle >= 135.0f)
+                        {
+                            m_players[i]->m_gun->m_canShoot = false;
+                            m_enemies[j]->m_health -= m_players[i]->m_dmg;
+                            //cout << "left" << endl;
+                        }
+                    }
+                    else if (m_players[i]->m_gun->m_oldVelocity.x == 0 && m_players[i]->m_gun->m_oldVelocity.y == 1)
+                    {
+                        if (m_angle <= 135.0f && m_angle >= 45.0f)
+                        {
+                            m_players[i]->m_gun->m_canShoot = false;
+                            m_enemies[j]->m_health -= m_players[i]->m_dmg;
+                            //cout << "down" << endl;
+                        }
+                    }
+                    else if (m_players[i]->m_gun->m_oldVelocity.x == 0 && m_players[i]->m_gun->m_oldVelocity.y == -1)
+                    {
+                        if (m_angle >= -135.0f && m_angle <= -45.0f)
+                        {
+                            m_players[i]->m_gun->m_canShoot = false;
+                            m_enemies[j]->m_health -= m_players[i]->m_dmg;
+                            //cout << "up" << endl;
+                        }
+                    }
+                    else if (m_players[i]->m_gun->m_oldVelocity.x == 1 && m_players[i]->m_gun->m_oldVelocity.y == 1)
+                    {
+                        if (m_angle >= 0.0f && m_angle <= 90.0f)
+                        {
+                            m_players[i]->m_gun->m_canShoot = false;
+                            m_enemies[j]->m_health -= m_players[i]->m_dmg;
+                            //cout << "down right" << endl;
+                        }
+                    }
+                    else if (m_players[i]->m_gun->m_oldVelocity.x == -1 && m_players[i]->m_gun->m_oldVelocity.y == -1)
+                    {
+                        if (m_angle >= -90.0f && m_angle <= 0.0f)
+                        {
+                            m_players[i]->m_gun->m_canShoot = false;
+                            m_enemies[j]->m_health -= m_players[i]->m_dmg;
+                            //cout << "up left" << endl;
+                        }
+                    }
+                    else if (m_players[i]->m_gun->m_oldVelocity.x == -1 && m_players[i]->m_gun->m_oldVelocity.y == 1)
+                    {
+                        if (m_angle >= 90.0f)
+                        {
+                            m_players[i]->m_gun->m_canShoot = false;
+                            m_enemies[j]->m_health -= m_players[i]->m_dmg;
+                            //cout << "down left" << endl;
+                        }
+                    }
+                    else if (m_players[i]->m_gun->m_oldVelocity.x == 1 && m_players[i]->m_gun->m_oldVelocity.y == -1)
+                    {
+                        if (m_angle >= -90 && m_angle <= 135)
+                        {
+                            m_players[i]->m_gun->m_canShoot = false;                       
+                            m_enemies[j]->m_health -= m_players[i]->m_dmg;
+                            //cout << "up right" << endl;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 bool World::checkForPause()
@@ -735,13 +832,16 @@ bool World::checkForPause()
     {
         m_isPaused = true;
         return true;
-    }else if(m_mouseIsPressed && (MouseIsInRect(m_mouseCoordinates, resumeButton.objRect)) && m_isPaused)
+    }
+    else if(m_mouseIsPressed && (MouseIsInRect(m_mouseCoordinates, resumeButton.objRect)) && m_isPaused)
     {
+        m_soundManager->play("Button_Click.mp3");
         m_isPaused = false;
         return false;
     }
     if(m_mouseIsPressed && (MouseIsInRect(m_mouseCoordinates, exitButton.objRect)))
     {
+        m_soundManager->play("Button_Click.mp3");
         m_quitScene = true;
         m_gameState = MENU;
     }
@@ -750,6 +850,7 @@ bool World::checkForPause()
 void World::drawShipCollision()
 {
 	line a;
+
 	for (int i = 0; i < m_collLines.size(); i++)
 	{
 		a = m_collLines[i];
