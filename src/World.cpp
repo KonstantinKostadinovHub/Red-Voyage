@@ -599,6 +599,12 @@ void World::deleteSession()
     }
     m_animator.m_animations.clear();
 
+    for (int i = 0; i < m_vfxs.size(); i++)
+    {
+        delete m_vfxs[i];
+    }
+    m_vfxs.clear();
+
     m_ironCollected = 0;
     m_chickenCollected = 0;
     m_aluminiumCollected = 0;
@@ -763,7 +769,7 @@ void World::collision()
 
                     if (m_players[i]->m_gun->m_oldVelocity.x == 1 && m_players[i]->m_gun->m_oldVelocity.y == 0)
                     {
-                        if (m_angle >= -45.0f && m_angle <= 45.0f)
+                        if (m_angle >= -67.5f && m_angle <= 67.5f)
                         {
                             m_players[i]->m_gun->m_canShoot = false;
                             m_enemies[j]->m_health -= m_players[i]->m_dmg;
@@ -772,7 +778,7 @@ void World::collision()
                     }
                     else if (m_players[i]->m_gun->m_oldVelocity.x == -1 && m_players[i]->m_gun->m_oldVelocity.y == 0)
                     {
-                        if (m_angle <= -135.0f || m_angle >= 135.0f)
+                        if (m_angle <= -112.5 || m_angle >= 112.5f)
                         {
                             m_players[i]->m_gun->m_canShoot = false;
                             m_enemies[j]->m_health -= m_players[i]->m_dmg;
@@ -781,7 +787,7 @@ void World::collision()
                     }
                     else if (m_players[i]->m_gun->m_oldVelocity.x == 0 && m_players[i]->m_gun->m_oldVelocity.y == 1)
                     {
-                        if (m_angle <= 135.0f && m_angle >= 45.0f)
+                        if (m_angle <= 157.5f && m_angle >= 22.5f)
                         {
                             m_players[i]->m_gun->m_canShoot = false;
                             m_enemies[j]->m_health -= m_players[i]->m_dmg;
@@ -790,7 +796,7 @@ void World::collision()
                     }
                     else if (m_players[i]->m_gun->m_oldVelocity.x == 0 && m_players[i]->m_gun->m_oldVelocity.y == -1)
                     {
-                        if (m_angle >= -135.0f && m_angle <= -45.0f)
+                        if (m_angle >= -157.5f && m_angle <= -22.5f)
                         {
                             m_players[i]->m_gun->m_canShoot = false;
                             m_enemies[j]->m_health -= m_players[i]->m_dmg;
@@ -799,7 +805,7 @@ void World::collision()
                     }
                     else if (m_players[i]->m_gun->m_oldVelocity.x == 1 && m_players[i]->m_gun->m_oldVelocity.y == 1)
                     {
-                        if (m_angle >= 0.0f && m_angle <= 90.0f)
+                        if (m_angle >= 22.5f && m_angle <= 112.5f)
                         {
                             m_players[i]->m_gun->m_canShoot = false;
                             m_enemies[j]->m_health -= m_players[i]->m_dmg;
@@ -808,7 +814,7 @@ void World::collision()
                     }
                     else if (m_players[i]->m_gun->m_oldVelocity.x == -1 && m_players[i]->m_gun->m_oldVelocity.y == -1)
                     {
-                        if (m_angle >= -90.0f && m_angle <= 0.0f)
+                        if (m_angle >= 157.5f || m_angle <= -67.5f)
                         {
                             m_players[i]->m_gun->m_canShoot = false;
                             m_enemies[j]->m_health -= m_players[i]->m_dmg;
@@ -817,7 +823,7 @@ void World::collision()
                     }
                     else if (m_players[i]->m_gun->m_oldVelocity.x == -1 && m_players[i]->m_gun->m_oldVelocity.y == 1)
                     {
-                        if (m_angle >= 90.0f)
+                        if (m_angle <= -157.5f || m_angle >= 67.5f)
                         {
                             m_players[i]->m_gun->m_canShoot = false;
                             m_enemies[j]->m_health -= m_players[i]->m_dmg;
@@ -826,7 +832,7 @@ void World::collision()
                     }
                     else if (m_players[i]->m_gun->m_oldVelocity.x == 1 && m_players[i]->m_gun->m_oldVelocity.y == -1)
                     {
-                        if (m_angle >= -90.0f && m_angle <= 135.0f)
+                        if (m_angle >= -112.5f && m_angle <= 22.5f)
                         {
                             m_players[i]->m_gun->m_canShoot = false;                       
                             m_enemies[j]->m_health -= m_players[i]->m_dmg;
