@@ -28,6 +28,7 @@ EnemyShooter::EnemyShooter(const EnemyShooter& model) {
     m_chargeTime = chrono::high_resolution_clock::now();
     m_pathIndex = m_pathCoord.size() - 1;
     m_inSpaceship = false;
+    m_engage = false;
     m_engagementIndex = -1;
 
     m_zoom_lvl = model.m_zoom_lvl;

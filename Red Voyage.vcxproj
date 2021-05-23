@@ -202,6 +202,7 @@
     <Text Include="config\credits.txt" />
     <Text Include="config\endgame.txt" />
     <Text Include="config\enemyBullet.txt" />
+    <Text Include="config\enemyPath.txt" />
     <Text Include="config\food.txt" />
     <Text Include="config\food_object.txt" />
     <Text Include="config\generator.txt" />

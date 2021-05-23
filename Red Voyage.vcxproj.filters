@@ -300,6 +300,9 @@
     <Text Include="config\vfx\bulletExplosion.txt">
       <Filter>config\vfx</Filter>
     </Text>
+    <Text Include="config\enemyPath.txt">
+      <Filter>config</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <Image Include="img\Aluminium_Ore.bmp">
