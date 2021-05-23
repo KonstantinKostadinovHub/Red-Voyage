@@ -27,7 +27,7 @@ class Enemy
         SDL_Renderer* m_renderer;
 
         const short ACCURACY = 35;
-        short m_entryRange;
+        const short SMOOTH = 12;
 
         short m_width;
         short m_height;
@@ -40,9 +40,7 @@ class Enemy
         double m_angle;
         double m_targetAngle;
         bool m_inSpaceship;
-        bool m_targetSpaceship;
-        bool m_targetOutside;
-        bool m_stepSpaceship;
+        bool m_engage;
 
         int m_widthOfFrame;
 
@@ -52,7 +50,10 @@ class Enemy
         SDL_Rect m_srcRect;
 
         coordinates m_targetCoord;
-        coordinates m_spaceshipCoord;
+        vector<coordinates> m_pathCoord;
+        string m_pathData;
+        short m_pathIndex;
+
         chrono::high_resolution_clock::time_point m_chargeTime;
         chrono::duration<float> m_chargeMax;
 
@@ -62,6 +63,7 @@ class Enemy
         SDL_Rect m_objectRect;
 
 
+        void search();
         void engage();
         void step();
         virtual void attack();

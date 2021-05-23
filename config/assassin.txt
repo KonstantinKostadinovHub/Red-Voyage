@@ -1,10 +1,8 @@
 Width: 100
 Height: 100
-SpaceshipX: 1080
-SpaceshipY: 930
-Entry_range: 30
 Image: testRange.bmp
 Bullet_config: enemyBullet.txt
+Path_config: enemyPath.txt
 Velocity: 7
 Health: 100
 Maximum_charge_time: 1600

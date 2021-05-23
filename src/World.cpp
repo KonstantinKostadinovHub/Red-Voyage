@@ -478,8 +478,8 @@ void World::cleaner()
         }
         if(m_bullets[i] -> m_health <= 0 || checkInOffBounds(m_bullets[i] -> m_objRect, m_backgroundRect.w, m_backgroundRect.h))
         {
-			VisualEffect* explosion = new VisualEffect(m_configManager.m_bulletExplosion);
-			m_vfxs.push_back(explosion);
+			//VisualEffect* explosion = new VisualEffect(m_configManager.m_bulletExplosion);
+			//m_vfxs.push_back(explosion);
             delete m_bullets[i];
             m_bullets.erase(m_bullets.begin() + i);
             i --;
