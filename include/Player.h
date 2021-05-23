@@ -34,6 +34,7 @@ public:
     coordinates m_center;
     coordinates m_velocity;
     coordinates m_oldvelocity;
+    coordinates m_direction;
 
     int m_widthOfFrame;
 
@@ -58,8 +59,6 @@ public:
 
     float m_speed;
     float m_screenSpeed;
-
-    bool moveing;
 
     string s_move_up;
     string s_move_down;
@@ -87,7 +86,7 @@ public:
     chrono::high_resolution_clock::time_point m_elapsed_engage;
     chrono::duration<float> m_engagementRate;
 
-    vector <Gun*> m_guns;
+    Gun* m_gun;
 
     SDL_Texture* playerTexture;
     SDL_Texture* flipTexture;
@@ -96,11 +95,11 @@ public:
     bool m_canShoot;
     bool shootIsPressed;
     bool craftIsPressed;
-
     bool m_collWithDoor;
 
     line top, bot, left, right;
-
+    
+    int m_dmg, m_distance;
 
     SDL_Rect m_srcRect;
 

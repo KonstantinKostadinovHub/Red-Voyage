@@ -77,7 +77,6 @@ void Menu::load(string config)
     m_exitRect.x = 1920 - 10 - m_exitRect.w;
     m_exitRect.y = 10;
 
-
     m_logoRect.x = (1920 - m_logoRect.w) / 2 - 10;
     m_logoRect.y = -100;
 
@@ -102,14 +101,14 @@ void Menu::update()
 
     if(world.m_mouseIsPressed){
 
-        if(MouseIsInRect(world.m_mouseCoordinates, m_exitRect)){
-
+        if(MouseIsInRect(world.m_mouseCoordinates, m_exitRect)){ 
+            world.m_soundManager->play("Button_Click.mp3");
             world.m_gameState = EXIT;
             world.m_quitScene = true;
         }
 
         if(MouseIsInRect(world.m_mouseCoordinates, m_startRect)){
-
+            world.m_soundManager->play("Button_Click.mp3");
             world.m_gameState = GAME;
             world.m_quitScene = true;
         }
@@ -128,7 +127,6 @@ void Menu::update()
 
 void Menu::draw()
 {
-
     ///Copying the textures and handing them to the renderer a.k.a. drawing them on our window
     SDL_RenderClear(world.m_main_renderer);
 
@@ -138,9 +136,7 @@ void Menu::draw()
     SDL_RenderCopy(world.m_main_renderer, m_exitTexture , NULL , &m_exitRect);
     SDL_RenderCopy(world.m_main_renderer, m_logoTexture , NULL , &m_logoRect);
 
-
     SDL_RenderPresent(world.m_main_renderer);
-
 }
 
 void Menu::EnlargeButtons(coordinates coor ,SDL_Rect &rect ,SDL_Rect startRect)
@@ -181,10 +177,5 @@ void Menu::EnlargeButtons(coordinates coor ,SDL_Rect &rect ,SDL_Rect startRect)
         currentBH = 0;
 
         rect = startRect;
-
     }
-
-
 }
-
-

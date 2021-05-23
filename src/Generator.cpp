@@ -169,6 +169,7 @@ void Generator::generateEnemy()
             coor.y = rand() % m_EnemySpawnZone.h + m_EnemySpawnZone.y;
 
             int random = rand() % 2;
+            
             if(random == 0)
             {
                 Enemy* enemy = new Enemy(world.m_configManager.m_meleeEnemy);

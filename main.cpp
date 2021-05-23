@@ -12,11 +12,10 @@ int main(int argc, char* argv[])
 {
     //ShowWindow(GetConsoleWindow(), SW_HIDE);
 
-
     world.init();
     
 	world.m_gameState = MENU;
-    world.loadTitleScreen();
+    //world.loadTitleScreen();
 
     while(!world.m_endGame)
     {
@@ -48,6 +47,8 @@ int main(int argc, char* argv[])
         }
         if(world.m_gameState == CREDITS)
         {
+            SDL_ShowCursor(SDL_ENABLE);
+
             world.credits.init("credits.txt");
             while(!world.m_quitScene)
             {
@@ -66,6 +67,8 @@ int main(int argc, char* argv[])
 
         if(world.m_gameState == ENDGAME)
         {
+            SDL_ShowCursor(SDL_ENABLE);
+
             world.endgame.init("endgame.txt");
             while(!world.m_quitScene)
             {

@@ -209,3 +209,8 @@ pair<SDL_Texture*, SDL_Rect> writeGreen(string text, coordinates coor, SDL_Rende
     myRect.second = rect;
     return myRect;
 }
+
+float returnAngleByCoordinates(coordinates direction)
+{
+    return atan2(direction.y, direction.x) * 180 / PI;
+}
