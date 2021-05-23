@@ -20,33 +20,36 @@ Task::Task(const Task& model, int m_iron, int m_titanium, int m_aluminium)
     hasIron = false;
     hasAluminium = false;
 
-    coor.x = m_objRect.x + 20;
-    coor.y = m_objRect.y + 100;
+	m_fontSize = 32;
+
+	m_ironNumberRect = model.m_ironNumberRect;
+	m_aluminiumNumberRect = model.m_aluminiumNumberRect;
+	m_titaniumNumberRect = model.m_titaniumNumberRect;
+
+    coor.x = m_ironNumberRect.x;
+	coor.y = m_ironNumberRect.y;
 
     string tmp = to_string(m_ironNeeded);
 
-    pair<SDL_Texture*, SDL_Rect> myPair = writeRed(tmp, coor, world.m_main_renderer, 36);
+    pair<SDL_Texture*, SDL_Rect> myPair = writeRed(tmp, coor, world.m_main_renderer, m_fontSize);
 
-    m_ironNumber = myPair.first;
     m_ironNumberRect = myPair.second;
 
-    coor.x = m_objRect.x + 60;
-    coor.y = m_objRect.y + 100;
+	coor.x = m_aluminiumNumberRect.x;
+	coor.y = m_aluminiumNumberRect.y;
 
     tmp = to_string(m_aluminiumNeeded);
 
-    myPair = writeRed(tmp, coor, world.m_main_renderer, 36);
+    myPair = writeRed(tmp, coor, world.m_main_renderer, m_fontSize);
 
-    m_aluminiumNumber = myPair.first;
     m_aluminiumNumberRect = myPair.second;
 
-    coor.x = m_objRect.x + 100;
-    coor.y = m_objRect.y + 100;
+    coor.x = m_titaniumNumberRect.x;
+    coor.y = m_titaniumNumberRect.y;
     tmp = to_string(m_titaniumNeeded);
 
-    myPair = writeRed(tmp, coor, world.m_main_renderer, 36);
+    myPair = writeRed(tmp, coor, world.m_main_renderer, m_fontSize);
 
-    m_titaniumNeededNumber = myPair.first;
     m_titaniumNumberRect = myPair.second;
 
     m_doneTask = false;
@@ -58,8 +61,14 @@ Task::Task()
 }
 
 Task::~Task()
-{
-    //dtor
+{    
+    m_aluminiumNumber = nullptr;
+    m_titaniumNumber = nullptr;
+    m_ironNumber = nullptr;
+
+    delete m_aluminiumNumber;
+    delete m_titaniumNumber;
+    delete m_ironNumber;
 }
 
 void Task::init(string configFile)
@@ -82,22 +91,22 @@ void Task::init(string configFile)
     m_camera_rect = &world.m_camera.camera_rect;
     m_zoom_lvl = &world.m_camera.zoom_lvl;
 
-    coor.x = m_objRect.x + 20;
+    coor.x = m_objRect.x + 10;
     coor.y = m_objRect.y + 100;
 
     tmp = to_string(m_ironNeeded);
 
-    pair<SDL_Texture*, SDL_Rect> myPair = writeRed(tmp, coor, world.m_main_renderer, 36);
+    pair<SDL_Texture*, SDL_Rect> myPair = writeRed(tmp, coor, world.m_main_renderer, m_fontSize);
 
     m_ironNumber = myPair.first;
     m_ironNumberRect = myPair.second;
 
-    coor.x = m_objRect.x + 60;
+    coor.x = m_objRect.x + 55;
     coor.y = m_objRect.y + 100;
 
     tmp = to_string(m_aluminiumNeeded);
 
-    myPair = writeRed(tmp, coor, world.m_main_renderer, 36);
+    myPair = writeRed(tmp, coor, world.m_main_renderer, m_fontSize);
 
     m_aluminiumNumber = myPair.first;
     m_aluminiumNumberRect = myPair.second;
@@ -107,9 +116,9 @@ void Task::init(string configFile)
 
     tmp = to_string(m_titaniumNeeded);
 
-    myPair = writeRed(tmp, coor, world.m_main_renderer, 36);
+    myPair = writeRed(tmp, coor, world.m_main_renderer, m_fontSize);
 
-    m_titaniumNeededNumber = myPair.first;
+    m_titaniumNumber = myPair.first;
     m_titaniumNumberRect = myPair.second;
 }
 
@@ -196,7 +205,7 @@ void Task::update()
 
             pair<SDL_Texture*, SDL_Rect> myPair = writeRed(tmp, coor, world.m_main_renderer, 36);
 
-            m_titaniumNeededNumber = myPair.first;
+            m_titaniumNumber = myPair.first;
         }
     }
     else
@@ -209,7 +218,7 @@ void Task::update()
 
             pair<SDL_Texture*, SDL_Rect> myPair = writeGreen(tmp, coor, world.m_main_renderer, 36);
 
-            m_titaniumNeededNumber = myPair.first;
+            m_titaniumNumber = myPair.first;
         }
     }
 
@@ -220,10 +229,8 @@ void Task::update()
 
         distance = sqrt(x * x + y * y);
 
-
         if(distance < 200)
         {
-
             if(world.m_players[i] -> craftIsPressed)
             {
                 resetTime = false;
@@ -238,13 +245,18 @@ void Task::update()
 
     m_duration = chrono::steady_clock::now() - m_lastButtonPressed;
 
-    if(m_duration.count() >= 5)
+   if(m_duration.count() >= 5)
     {
         if(hasIron && hasAluminium && hasTitanium)
         {
             m_doneTask = true;
             m_lastButtonPressed = chrono::steady_clock::now();
             world.m_soundManager -> play("Finished_Task.mp3");
+
+			if(world.m_tasks.size() == world.m_generator.m_maxTasks)
+            {
+                world.m_generator.m_lastTaskCreation = chrono::steady_clock::now();
+			}
 
             world.m_ironCollected -= m_ironNeeded;
             world.m_aluminiumCollected -= m_aluminiumNeeded;
@@ -261,5 +273,5 @@ void Task::draw()
 
     world.drawObject(m_aluminiumNumberRect, m_aluminiumNumber);
 
-    world.drawObject(m_titaniumNumberRect, m_titaniumNeededNumber);
+    world.drawObject(m_titaniumNumberRect, m_titaniumNumber);
 }

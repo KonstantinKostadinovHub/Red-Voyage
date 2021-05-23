@@ -66,7 +66,7 @@ void Generator::generateOre()
             }else if(rand() % 100 >= 15){
                 ore = new Ore(&world.m_configManager.m_aluminiumOre, world.m_main_renderer, coor);
             }else if(rand() % 100 >= 0){
-                ore = new Ore(&world.m_configManager.m_aluminiumOre, world.m_main_renderer, coor);
+                ore = new Ore(&world.m_configManager.m_titaniumOre, world.m_main_renderer, coor);
             }
             /*switch (rand() % 3)
             {
@@ -81,8 +81,8 @@ void Generator::generateOre()
                 break;
             }*/
 
-			
 			bool goodCase = false;
+
 			while (!goodCase)
 			{
 				goodCase = true;
@@ -112,7 +112,6 @@ void Generator::generateOre()
 
 void Generator::generateTask()
 {
-
     m_duration = chrono::steady_clock::now() - m_lastTaskCreation;
 
     if(m_duration.count() > m_TaskSpawnCooldown)
@@ -126,6 +125,7 @@ void Generator::generateTask()
             {
                 taskNumber = rand() % m_modelTasks.size();
                 taskChosen = true;
+
                 for(int i = 0; i < world.m_tasks.size(); i++)
                 {
                     if(m_modelTasks[taskNumber]->m_taskName == world.m_tasks[i]->m_taskName)
@@ -139,11 +139,11 @@ void Generator::generateTask()
                 }
             }
 
-            int ironNeeded = rand() % 9 + 1;
+            int ironNeeded = rand() % 9 + 10;
             int titaniumNeeded = rand() % 9 + 1;
-            int aluminiumNeeded = rand() % 9 + 1;
-
-            Task* task = new Task((*m_modelTasks[0]), ironNeeded, titaniumNeeded, aluminiumNeeded);
+            int aluminiumNeeded = rand() % 9 + 8;
+            
+            Task* task = new Task((*m_modelTasks[taskNumber]), ironNeeded, titaniumNeeded, aluminiumNeeded);
 
             world.m_tasks.push_back(task);
 
@@ -157,6 +157,7 @@ void Generator::generateTask()
 void Generator::generateEnemy()
 {
     m_duration = chrono::steady_clock::now() - m_lastEnemyCreation;
+    
     if(m_duration.count() > m_enemySpawnCooldown)
     {
         if(world.m_enemies.size() < m_maxEnemies)

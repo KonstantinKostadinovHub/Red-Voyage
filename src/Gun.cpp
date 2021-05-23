@@ -19,11 +19,15 @@ void Gun::init(float attackSpeed)
     m_engagementRate = chrono::milliseconds((int)attackSpeed);
     m_elapsed_engage = chrono::high_resolution_clock::now();
     m_canShoot = false;
-
 }
 
 void Gun::update(coordinates velocity, coordinates playerCoor, bool shootIsPressed)
 {
+    /*! We calculate the velocity and position the gun to player's coordinates.
+    *    
+    *   We calculate the cooldown and if it is expired the player can shoot
+    */
+
     if(velocity.x == 0 && velocity.y == 0)
     {
         velocity = m_oldVelocity;

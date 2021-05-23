@@ -58,6 +58,16 @@ void Bullet::load(string configFile)
 
 void Bullet::update()
 {
+    /*! 
+    *   We move the bullet every frame, using the velocity in the X and Y direction.
+    * 
+    *   We use m_coor to calculate with precision the position of the bullet then convert it to the objectRect.
+    * 
+    *   We make a line, the one end is the old position and the other end is the new. Than we check if this line
+        has collision with the ship. We use this check, because otherwise the bullet may teleport trough the ship
+        and miss the collision check.
+    */
+
     m_coor.x += (float)m_velocity.x * m_speed * SPEED_FACTOR;
     m_coor.y += (float)m_velocity.y * m_speed * SPEED_FACTOR;
 

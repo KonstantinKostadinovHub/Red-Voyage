@@ -27,9 +27,16 @@
 #include "Tutorial.h"
 #include "Endgame.h"
 #include "Credits.h"
+#include "VisualEffect.h"
 
 using namespace std;
 
+/*	\brief Responsible for handling the game
+	
+	Generating the main window and renderer.
+	Handling the update of all objects and their drawing.
+	Cleaning all the used/dead objects in the scene.
+*/
 class World
 {
     public:
@@ -90,6 +97,15 @@ class World
         Animator m_animator;
         Tutorial m_tutorial;
 
+        vector <line> m_collLines;
+		vector <Player*> m_players;
+		vector <Bullet*> m_bullets;
+		vector <Enemy*> m_enemies;
+		vector <EnemyBullet*> m_enemyBullets;
+		vector <Task*> m_tasks;
+		vector <Ore*> m_ores;
+		vector <VisualEffect*> m_vfxs;
+
         line m_door;
 
         UI m_userInterface;
@@ -98,7 +114,6 @@ class World
         bool m_endGame;
         GAME_STATE m_gameState;
 
-        vector<line> collisionLines;
 
 		string m_backgroundImg = " ";
 
@@ -131,12 +146,7 @@ class World
 
         bool checkForPause();
 
-        vector <Player*> m_players;
-        vector <Bullet*> m_bullets;
-        vector <Enemy*> m_enemies;
-        vector <EnemyBullet*> m_enemyBullets;
-        vector <Task*> m_tasks;
-        vector <Ore*> m_ores;
+		void drawShipCollision(); //! Draw the collision lines of the spaceship
 
     protected:
 

@@ -224,6 +224,7 @@
     <Text Include="config\titanium_selectable.txt" />
     <Text Include="config\tutorial.txt" />
     <Text Include="config\ui.txt" />
+    <Text Include="config\vfx\bulletExplosion.txt" />
     <Text Include="config\world.txt" />
     <Text Include="data\tutorial.txt" />
   </ItemGroup>

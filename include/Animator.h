@@ -14,10 +14,11 @@ struct animation{
     unsigned short currFrame = 0;
     unsigned short widthOfFrame;
     SDL_Rect* srcRect;
-    // ms
+	
     chrono::duration<float> timePerFrame;
     chrono::high_resolution_clock::time_point lastFrameUpdate;
     bool doAnimation = true;
+	bool finished = false;
 };
 
 /*! \class Animator

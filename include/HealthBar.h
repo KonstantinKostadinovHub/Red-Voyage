@@ -10,6 +10,10 @@
 
 using namespace std;
 
+/*! \brief Used to create player's health bars
+
+*/
+
 class HealthBar
 {
     public:
@@ -21,7 +25,6 @@ class HealthBar
         void draw(SDL_Renderer* renderer);
         SDL_Rect m_barRect;
 
-    protected:
         float HP;
         string m_configFile;
         string m_borderImg;
@@ -31,6 +34,8 @@ class HealthBar
         SDL_Texture* m_healthTexture;
 
         SDL_Rect m_objRect;
+
+    protected:
 
     private:
 };

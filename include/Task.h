@@ -29,6 +29,7 @@ public:
     int m_titaniumNeeded;
     int m_aluminiumNeeded;
     int x, y, distance;
+	unsigned short m_fontSize = 32;
 
     float* m_zoom_lvl;
     SDL_Rect* m_camera_rect;
@@ -40,7 +41,7 @@ public:
 
     SDL_Texture* m_ironNumber;
     SDL_Texture* m_aluminiumNumber;
-    SDL_Texture* m_titaniumNeededNumber;
+    SDL_Texture* m_titaniumNumber;
 
     bool hasIron;
     bool hasAluminium;

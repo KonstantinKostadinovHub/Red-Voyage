@@ -107,8 +107,8 @@ void EnemyShooter::draw() {
     m_presentRect = {
 		(int)(*m_zoom_lvl * (double)(m_objectRect.x - m_cameraRect->x)),
 		(int)(*m_zoom_lvl * (double)(m_objectRect.y - m_cameraRect->y)),
-		(int)*m_zoom_lvl * m_objectRect.w,
-		(int)*m_zoom_lvl * m_objectRect.h
+		(int)(*m_zoom_lvl * m_objectRect.w),
+		(int)(*m_zoom_lvl * m_objectRect.h)
     };
 
     SDL_RenderCopyEx(m_renderer, m_objectTexture, NULL, &m_presentRect, m_angle, NULL, SDL_FLIP_NONE);
