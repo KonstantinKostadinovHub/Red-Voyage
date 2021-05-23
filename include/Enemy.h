@@ -27,7 +27,7 @@ class Enemy
         SDL_Renderer* m_renderer;
 
         const short ACCURACY = 35;
-        const short SMOOTH = 12;
+        const short SMOOTH = 100;
 
         short m_width;
         short m_height;

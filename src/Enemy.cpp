@@ -130,10 +130,10 @@ void Enemy::search() {
         m_targetCoord.x = m_pathCoord[m_pathIndex].x;
         m_targetCoord.y = m_pathCoord[m_pathIndex].y;
 
-        if (m_pathIndex == 0) {
+        if (!m_inSpaceship && m_pathIndex == 0) {
             m_inSpaceship = true;
         }
-        if (m_pathIndex == m_pathCoord.size() - 1) {
+        if (m_inSpaceship && m_pathIndex == m_pathCoord.size() - 1) {
             m_inSpaceship = false;
         }
     }
@@ -147,7 +147,7 @@ void Enemy::engage() {
     int current;
 
     for (int i = 0; i != world.m_players.size(); i++) {
-        if (world.m_players[i]->m_inSpaceship != collRectRect(world.m_spaceshipRect, m_objectRect)) continue;
+        if (world.m_players[i]->m_inSpaceship != m_inSpaceship) continue;
 
         current = sqrt((world.m_players[i]->m_objRect.x - m_objectRect.x) * (world.m_players[i]->m_objRect.x - m_objectRect.x) +
             (world.m_players[i]->m_objRect.y - m_objectRect.y) * (world.m_players[i]->m_objRect.y - m_objectRect.y));
