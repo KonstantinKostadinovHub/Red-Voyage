@@ -118,8 +118,8 @@ void World::initSession()
     int taskNumber = rand() % m_generator.m_modelTasks.size();
 
     int ironNeeded = rand() % 9 + 10;
-    int titaniumNeeded = rand() % 9 + 1;
     int aluminiumNeeded = rand() % 9 + 8;
+    int titaniumNeeded = rand() % 9 + 1;
 
     Task* task = new Task((*m_generator.m_modelTasks[taskNumber]), ironNeeded, titaniumNeeded, aluminiumNeeded);
 
@@ -388,15 +388,20 @@ bool World::collisionWithShip(line collLine)
     return false;
 }
 
-bool World::isPlayerInShip(){
+bool World::isPlayerInShip()
+{
     SDL_Rect ship = {0, 0, 2880, 1620};
-    if(collRectRect(ship, m_players[0] -> m_objRect)){
-        return 1;
-    }else if(collRectRect(ship, m_players[1] -> m_objRect)){
-        return 1;
-    }else{
-        return 0;
+
+    bool isInside = false;
+   
+    for (int i = 0; i < m_players.size(); i++)
+    {
+        if (collRectRect(ship, m_players[i]->m_objRect)) 
+        {
+            isInside = true;
+        }
     }
+    return isInside;
 }
 
 void World::addPlayer(string configFile)
@@ -638,30 +643,24 @@ void World::collision()
 {
 	/*! Checks for collision and makes following decisions - taking health, sometimes marking the object for delete or deleting it
 	*/
-    for(int i = 0; i < 6; i++){
-        if(chicken_wings[i] != nullptr){
-            if(collRectRect(chicken_wings[i]->wing_rect, m_players[0]->m_objRect)){
+    for (int j = 0; j < m_players.size(); j++)
+    {
+        for (int i = 0; i < 4; i++) {
+            if (chicken_wings[i] != nullptr) {
+                if (collRectRect(chicken_wings[i]->wing_rect, m_players[j]->m_objRect)) {
 
-                m_soundManager->play("Food.mp3");
-                m_players[0]->m_health += chicken_wings[i]->regen_amount;
-                m_chickenCollected++;
+                    m_soundManager->play("Food.mp3");
+                    m_players[j]->m_health += chicken_wings[i]->regen_amount;
+                    m_chickenCollected++;
 
-                delete chicken_wings[i];
-                chicken_wings[i] = nullptr;
-                break;
-            }
-            if(collRectRect(chicken_wings[i]->wing_rect, m_players[1]->m_objRect)){
-                m_soundManager->play("Food.mp3");
-
-                m_players[1]->m_health += chicken_wings[i]->regen_amount;
-                m_chickenCollected++;
-
-                delete chicken_wings[i];
-                chicken_wings[i] = nullptr;
-                break;
+                    delete chicken_wings[i];
+                    chicken_wings[i] = nullptr;
+                    break;
+                }
             }
         }
     }
+    
     for(int i = 0; i < m_bullets.size(); i ++)
     {
         for(int j = 0; j < m_ores.size(); j++){
@@ -810,7 +809,7 @@ void World::collision()
                     }
                     else if (m_players[i]->m_gun->m_oldVelocity.x == 1 && m_players[i]->m_gun->m_oldVelocity.y == -1)
                     {
-                        if (m_angle >= -90 && m_angle <= 135)
+                        if (m_angle >= -90.0f && m_angle <= 135.0f)
                         {
                             m_players[i]->m_gun->m_canShoot = false;                       
                             m_enemies[j]->m_health -= m_players[i]->m_dmg;

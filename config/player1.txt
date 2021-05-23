@@ -28,6 +28,6 @@ widthOfFrame: 320
 
 reversedPhoto: player1_reversed.bmp
 
-distance: 500
+distance: 300
 
 dmg: 10
