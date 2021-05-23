@@ -5,7 +5,7 @@ extern World world;
 
 Gun::Gun()
 {
-    m_oldVelocity.x = 10;
+    m_oldVelocity.x = 1;
     m_oldVelocity.y = 0;
 }
 
@@ -37,8 +37,8 @@ void Gun::update(coordinates velocity, coordinates playerCoor, bool shootIsPress
         m_oldVelocity = velocity;
     }
 
-    m_objRect.x = playerCoor.x + velocity.x * 5;
-    m_objRect.y = playerCoor.y + velocity.y * 5;
+    m_objRect.x = playerCoor.x + velocity.x * 70;
+    m_objRect.y = playerCoor.y + velocity.y * 70;
 
     if(chrono::duration_cast<chrono::milliseconds>(chrono::high_resolution_clock::now() - m_elapsed_engage) > m_engagementRate && shootIsPressed)
     {

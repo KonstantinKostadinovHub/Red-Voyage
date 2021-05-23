@@ -27,3 +27,7 @@ Anim_Rect: 0 0 220 320
 widthOfFrame: 220
 
 reversedPhoto: player1_reversed.bmp
+
+distance: 500
+
+dmg: 10

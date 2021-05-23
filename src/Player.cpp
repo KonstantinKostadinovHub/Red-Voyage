@@ -39,6 +39,8 @@ void Player::init(SDL_Renderer* renderer, string configFile)
     stream >> tmp >> m_animRect.x >> m_animRect.y >> m_animRect.w >> m_animRect.h;
     stream >> tmp >> m_widthOfFrame;
     stream >> tmp >> m_flipImg;
+    stream >> tmp >> m_distance;
+    stream >> tmp >> m_dmg;
 
     stream.close();
 
@@ -95,9 +97,8 @@ void Player::init(SDL_Renderer* renderer, string configFile)
         shoot = SDL_SCANCODE_U;
     }
 
-    Gun* gun = new Gun;
-    gun -> init(100);
-    m_guns.push_back(gun);
+    m_gun = new Gun;
+    m_gun -> init(100);
 
     m_elapsed_engage = chrono::high_resolution_clock::now();
     m_engagementRate = chrono::milliseconds(m_shootCooldown);
@@ -163,34 +164,30 @@ void Player::update()
     {
         if(state[shoot] && !m_canShoot)
         {
-            for(int i = 0; i < m_guns.size(); i ++)
-            {
-                m_guns[i] -> m_canShoot = true;
-            }
+            m_gun -> m_canShoot = true;
+            
             m_elapsed_engage = chrono::high_resolution_clock::now();
             m_canShoot = false;
         }
         if(state[move_up])
         {
-            m_velocity.y = -m_speed;
+            m_velocity.y = -1;
         }
         else if(state[move_down])
         {
-            m_velocity.y = m_speed;
+            m_velocity.y = 1;
         }
         if(state[move_left])
         {
-            m_velocity.x = -m_speed;
+            m_velocity.x = -1;
         }
         else if(state[move_right])
         {
-            m_velocity.x = m_speed;
+            m_velocity.x = 1;
         }
         if(state[shoot])
         {
             shootIsPressed = true;
-
-            world.m_soundManager -> play("Shoot.mp3");
         }
         else
         {
@@ -206,11 +203,11 @@ void Player::update()
         }
     }
 
-    m_objRect.x += m_velocity.x;
+    m_objRect.x += m_velocity.x * m_speed;
 
     if(world.collisionWithShip(m_objRect))
     {
-        m_objRect.x -= m_velocity.x;
+        m_objRect.x -= m_velocity.x * m_speed;
     }
     else
     {
@@ -218,17 +215,17 @@ void Player::update()
         {
             if(collRectRect(m_objRect, world.m_ores[i]->m_rect))
             {
-                m_objRect.x -= m_velocity.x;
+                m_objRect.x -= m_velocity.x * m_speed;
                 break;
             }
         }
     }
 
-    m_objRect.y += m_velocity.y;
+    m_objRect.y += m_velocity.y * m_speed;
 
     if(world.collisionWithShip(m_objRect))
     {
-        m_objRect.y -= m_velocity.y;
+        m_objRect.y -= m_velocity.y * m_speed;
     }
     else
     {
@@ -236,20 +233,17 @@ void Player::update()
         {
             if(collRectRect(m_objRect, world.m_ores[i]->m_rect))
             {
-                m_objRect.y -= m_velocity.y;
+                m_objRect.y -= m_velocity.y * m_speed;
                 break;
             }
         }
     }
-
-    for(int i = 0; i < m_guns.size(); i ++)
-    {
-        coordinates playerCoor;
-        playerCoor.x = m_objRect.x + m_objRect.w / 2;
-        playerCoor.y = m_objRect.y + m_objRect.h / 2;
-        m_guns[i] -> update(m_velocity, playerCoor, shootIsPressed);
-    }
-
+  
+    coordinates playerCoor;
+    playerCoor.x = m_objRect.x + m_objRect.w / 2;
+    playerCoor.y = m_objRect.y + m_objRect.h / 2;
+    m_gun -> update(m_velocity, playerCoor, shootIsPressed);
+    
     if(m_health > m_maxHealth)
     {
         m_health = m_maxHealth;
@@ -265,6 +259,8 @@ void Player::update()
     {
         if(m_velocity.x != 0)
             m_oldvelocity.x = m_velocity.x;
+        if (m_velocity.y != 0)
+            m_oldvelocity.y = m_velocity.y;
         anim->pause = false;
     }
 

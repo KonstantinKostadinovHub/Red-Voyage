@@ -6,10 +6,15 @@ extern World world;
 
 EnemyBullet::EnemyBullet()
 {
-    //ctor
+    /*
+    * Basic constructor.
+    */
 }
 
 EnemyBullet::EnemyBullet(const EnemyBullet& model) {
+    /*
+    * Constructor that uses a constant model and copies the variables.
+    */
     m_objectRect = model.m_objectRect;
     m_objectTexture = model.m_objectTexture;
     m_velocity = model.m_velocity;
@@ -21,9 +26,16 @@ EnemyBullet::EnemyBullet(const EnemyBullet& model) {
     m_zoom_lvl = &world.m_camera.zoom_lvl;
 }
 
-EnemyBullet::~EnemyBullet(){}
+EnemyBullet::~EnemyBullet() {
+    /*
+    * Destructor.
+    */
+}
 
 void EnemyBullet::load(string config) {
+    /*
+    * Loads variables for the first time.
+    */
     config = "config\\" + config;
     ifstream stream;
     stream.open(config.c_str());
@@ -45,6 +57,9 @@ void EnemyBullet::load(string config) {
 }
 
 void EnemyBullet::update() {
+    /*
+    * Moves the bullet.
+    */
     if (m_updateAngle) {
         m_angle += rand()%(2*LIMIT) - LIMIT;
         m_updateAngle = false;
@@ -55,7 +70,9 @@ void EnemyBullet::update() {
 }
 
 void EnemyBullet::draw(SDL_Renderer* renderer) {
-
+    /*
+    * Draws the bullet.
+    */
     m_presentRect = {
         (int)(*m_zoom_lvl * (double)(m_objectRect.x - m_cameraRect->x)),
 		(int)(*m_zoom_lvl * (double)(m_objectRect.y - m_cameraRect->y)),

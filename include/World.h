@@ -56,6 +56,8 @@ class World
         UI_object resumeButton;
         string m_resumeButtonImg;
 
+        int x, y, m_distance;
+
         UI_object exitButton;
         string m_exitButtonImg;
 
@@ -79,8 +81,13 @@ class World
 
         Camera m_camera;
         coordinates m_mouseCoordinates;
+        coordinates m_directionCoor;
+
         double m_MOUSE_MULTIPLY_X;
         double m_MOUSE_MULTIPLY_Y;
+
+        float m_angle;
+
         bool m_mouseIsPressed;
         bool m_mouseIsDoubleClicked;
         bool m_isPaused;
@@ -113,7 +120,6 @@ class World
         bool m_quitScene;
         bool m_endGame;
         GAME_STATE m_gameState;
-
 
 		string m_backgroundImg = " ";
 

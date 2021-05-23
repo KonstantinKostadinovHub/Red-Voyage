@@ -5,7 +5,7 @@
 
 /*! \brief Used to create bullets for enemy shooters
 * 
-    This class initializes projectiles and defines their movement.
+* This class initializes projectiles and defines their movement.
 */
 
 class EnemyBullet
