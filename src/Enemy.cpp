@@ -8,12 +8,6 @@ Enemy::Enemy()
     /*
     * Basic constructor.
     */
-    m_chargeMax = chrono::milliseconds(0);
-    m_chargeTime = chrono::high_resolution_clock::now();
-    m_pathIndex = m_pathCoord.size() - 1;
-    m_inSpaceship = false;
-    m_engage = false;
-    m_engagementIndex = -1;
 }
 
 Enemy::Enemy(const Enemy& model) {
