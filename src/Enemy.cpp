@@ -29,7 +29,6 @@ Enemy::Enemy(const Enemy& model) {
     m_pathIndex = m_pathCoord.size() - 1;
     m_inSpaceship = false;
     m_engage = false;
-    m_engagementIndex = -1;
 
     m_cameraRect = &world.m_camera.camera_rect;
     m_zoom_lvl = &world.m_camera.zoom_lvl;
@@ -146,6 +145,8 @@ void Enemy::engage() {
     int closest = world.m_SCREEN_WIDTH * world.m_SCREEN_WIDTH + world.m_SCREEN_HEIGHT * world.m_SCREEN_HEIGHT;
     int current;
 
+    m_engagementIndex = -1;
+
     for (int i = 0; i != world.m_players.size(); i++) {
         if (world.m_players[i]->m_inSpaceship != m_inSpaceship) continue;
 
@@ -182,8 +183,8 @@ void Enemy::step() {
         if (sqrt(diffX * diffX + diffY * diffY) <= m_range) return;
     }
     else {
-        if (!m_inSpaceship && (diffX * diffX + diffY * diffY) <= SMOOTH) m_pathIndex--;
-        if (m_inSpaceship && (diffX * diffX + diffY * diffY) <= SMOOTH) m_pathIndex++;
+        if (!m_inSpaceship && ((diffX * diffX + diffY * diffY) <= SMOOTH || m_targetAngle == 180)) m_pathIndex--;
+        if (m_inSpaceship && ((diffX * diffX + diffY * diffY) <= SMOOTH || m_targetAngle == 0)) m_pathIndex++;
     }
 
     if (!(abs(m_angle - m_targetAngle) <= ACCURACY)) {
