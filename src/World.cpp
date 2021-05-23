@@ -298,7 +298,7 @@ void World::draw()
 		m_vfxs[i]->draw();
 	}
 
-	drawShipCollision();
+	//drawShipCollision();
 
     m_userInterface.draw();
 

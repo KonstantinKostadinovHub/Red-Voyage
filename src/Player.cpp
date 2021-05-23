@@ -103,6 +103,9 @@ void Player::init(SDL_Renderer* renderer, string configFile)
     m_elapsed_engage = chrono::high_resolution_clock::now();
     m_engagementRate = chrono::milliseconds(m_shootCooldown);
 
+    m_playerImg = "\\player\\" + m_playerImg;
+    m_flipImg = "\\player\\" + m_flipImg;
+
     playerTexture = LoadTexture(m_playerImg, world.m_main_renderer);
     flipTexture = LoadTexture(m_flipImg, world.m_main_renderer);
 

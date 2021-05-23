@@ -23,7 +23,7 @@ SDL_Texture* LoadTexture(string configFile, SDL_Renderer* renderer)
     {
         if(i < 0)
         {
-            cout << "NO TEXTURE LOADED: " << configFile;
+            cout << "NO TEXTURE LOADED: " << configFile << endl;
         }
     }
     return texture;

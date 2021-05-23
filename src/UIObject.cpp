@@ -45,6 +45,7 @@ void UIObject::load(string config)
 
     stream.close();
 
+    m_img = "\\ores\\" + m_img;
 
     m_objectTexture = LoadTexture(m_img, world.m_main_renderer);
 
@@ -84,20 +85,18 @@ void UIObject::draw()
     *
     *
     */
-    if(m_img == "Chicken_UI.bmp"){
+    if(m_img == "\\ores\\Chicken_UI.bmp"){
         count = "x" + to_string(world.m_chickenCollected);
     }
-    if(m_img == "Aluminium_Ore_UI.bmp"){
+    if(m_img == "\\ores\\Aluminium_Ore_UI.bmp"){
         count = "x" + to_string(world.m_aluminiumCollected);
     }
-    if(m_img == "Titanium_Ore_UI.bmp"){
+    if(m_img == "\\ores\\Titanium_Ore_UI.bmp"){
         count = "x" + to_string(world.m_titaniumCollected);
     }
-    if(m_img == "Iron_Ore_UI.bmp"){
+    if(m_img == "\\ores\\Iron_Ore_UI.bmp"){
         count = "x" + to_string(world.m_ironCollected);
     }
 
     write(count,coor,world.m_main_renderer,30);
-
-
 }

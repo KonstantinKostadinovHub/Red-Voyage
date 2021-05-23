@@ -86,6 +86,8 @@ void Task::init(string configFile)
 
     stream.close();
 
+    m_img = "\\tasks\\" + m_img;
+
     m_taskTexture = LoadTexture(m_img, world.m_main_renderer);
 
     m_camera_rect = &world.m_camera.camera_rect;

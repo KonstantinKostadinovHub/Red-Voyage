@@ -46,6 +46,8 @@ void Ore::load(string configFile)
     stream.close();
 
     m_type = (ORE)type;
+
+    img = "\\ores\\" + img;
     m_texture = LoadTexture(img, world.m_main_renderer);
 }
 
