@@ -1,4 +1,4 @@
-Player: 100 100 800 800
+Player: 88 104 800 800
 
 Img: player1.bmp
 
@@ -22,8 +22,8 @@ HP: healthBar1.txt
 
 ShootCooldown: 1
 
-Anim_Rect: 0 0 320 320
+Anim_Rect: 0 0 220 320
 
-widthOfFrame: 320
+widthOfFrame: 220
 
 reversedPhoto: player1_reversed.bmp

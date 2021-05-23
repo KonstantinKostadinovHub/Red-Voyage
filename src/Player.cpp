@@ -259,13 +259,13 @@ void Player::update()
     //! if the player is not moving than don't play the moving animation
     if(m_velocity.x == 0 && m_velocity.y == 0)
     {
-        anim->doAnimation = false;
+        anim->pause = true;
     }
     else
     {
         if(m_velocity.x != 0)
             m_oldvelocity.x = m_velocity.x;
-        anim->doAnimation = true;
+        anim->pause = false;
     }
 
     // Check if the player is inside or outside the ship

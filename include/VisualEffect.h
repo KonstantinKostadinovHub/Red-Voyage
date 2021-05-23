@@ -34,6 +34,8 @@ public:
 
 	animation* anim;
 
-	void init(string configFile, SDL_Renderer* renderer);
+	void init(string configFile);
+
+	void draw();
 };
 

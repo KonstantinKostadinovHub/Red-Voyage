@@ -27,6 +27,9 @@
     <Filter Include="config\vfx">
       <UniqueIdentifier>{6031b8bf-4ce5-4eb2-83f6-70ed393ccecd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="img\vfx">
+      <UniqueIdentifier>{4af95125-5f86-498a-973e-ffdfb25a63ee}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -460,6 +463,9 @@
     </Image>
     <Image Include="img\Win_Screen.bmp">
       <Filter>img</Filter>
+    </Image>
+    <Image Include="img\vfx\ExplosionSpriteSheet.bmp">
+      <Filter>img\vfx</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
