@@ -5,6 +5,9 @@ extern World world;
 
 Enemy::Enemy()
 {
+    /*
+    * Basic constructor.
+    */
     m_chargeMax = chrono::milliseconds(0);
     m_chargeTime = chrono::high_resolution_clock::now();
     m_inSpaceship = false;
@@ -13,6 +16,9 @@ Enemy::Enemy()
 }
 
 Enemy::Enemy(const Enemy& model) {
+    /*
+    * Constructor that uses a constant model and copies the variables.
+    */
     m_objectRect = model.m_objectRect;
     m_objectTexture = model.m_objectTexture;
     m_spaceshipCoord.x = model.m_spaceshipCoord.x;
@@ -55,6 +61,9 @@ Enemy::~Enemy()
 }
 
 void Enemy::load(string config) {
+    /*
+    * Loads variables for the first time.
+    */
     ifstream stream;
     config = "config\\" + config;
     stream.open(config);
@@ -87,6 +96,9 @@ void Enemy::load(string config) {
 }
 
 void Enemy::engage() {
+    /*
+    * Chooses a target for the enemy.
+    */
     m_targetSpaceship = true;
     m_targetOutside = true;
 
@@ -125,6 +137,9 @@ void Enemy::engage() {
 }
 
 void Enemy::step() {
+    /*
+    * Moves the enemy.
+    */
     int diffX = m_targetCoord.x - m_objectRect.x;
     int diffY = m_targetCoord.y - m_objectRect.y;
 
@@ -174,6 +189,9 @@ void Enemy::step() {
 }
 
 void Enemy::attack() {
+    /*
+    * Attack target.
+    */
     for (auto player: world.m_players) {
         if (sqrt((player->m_objRect.x - m_objectRect.x)*(player->m_objRect.x - m_objectRect.x) +
             (player->m_objRect.y - m_objectRect.y)*(player->m_objRect.y - m_objectRect.y)) <= m_range) {
@@ -188,12 +206,18 @@ void Enemy::attack() {
 }
 
 void Enemy::update() {
+    /*
+    * Update the enemy.
+    */
     engage();
     step();
     attack();
 }
 
 void Enemy::draw() {
+    /*
+    * Draw the enemy;
+    */
     m_presentRect = {
 		static_cast<int>(*m_zoom_lvl * static_cast<double>(m_objectRect.x - m_cameraRect->x)),
 		static_cast<int>(*m_zoom_lvl * static_cast<double>(m_objectRect.y - m_cameraRect->y)),

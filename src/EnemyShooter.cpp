@@ -5,10 +5,15 @@ extern World world;
 
 EnemyShooter::EnemyShooter()
 {
-    //ctor
+    /*
+    * Basic constructor.
+    */
 }
 
 EnemyShooter::EnemyShooter(const EnemyShooter& model) {
+    /*
+    * Constructor that uses a constant model and copies the variables.
+    */
     m_objectRect = model.m_objectRect;
     m_objectTexture = model.m_objectTexture;
     m_bulletConfig = model.m_bulletConfig;
@@ -33,10 +38,15 @@ EnemyShooter::EnemyShooter(const EnemyShooter& model) {
 
 EnemyShooter::~EnemyShooter()
 {
-
+    /*
+    * Destructor.
+    */
 }
 
 void EnemyShooter::load(string config) {
+    /*
+    * Loads variables for the first time.
+    */
     ifstream stream;
     config = "config\\" + config;
     stream.open(config);
@@ -67,6 +77,9 @@ void EnemyShooter::load(string config) {
 }
 
 void EnemyShooter::attack() {
+    /*
+    * Enemy shooter's attack target.
+    */
     for (auto player: world.m_players) {
         if (sqrt((player->m_objRect.x - m_objectRect.x)*(player->m_objRect.x - m_objectRect.x) +
             (player->m_objRect.y - m_objectRect.y)*(player->m_objRect.y - m_objectRect.y)) <= m_range
@@ -88,6 +101,9 @@ void EnemyShooter::attack() {
 }
 
 void EnemyShooter::draw() {
+    /*
+    * Draw the enemy
+    */
     m_presentRect = {
 		(int)(*m_zoom_lvl * (double)(m_objectRect.x - m_cameraRect->x)),
 		(int)(*m_zoom_lvl * (double)(m_objectRect.y - m_cameraRect->y)),
