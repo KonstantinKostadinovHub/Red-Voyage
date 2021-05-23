@@ -1,4 +1,4 @@
-Player: 88 104 1000 800
+Player: 88 128 1000 800
 
 Img: player2.bmp
 
