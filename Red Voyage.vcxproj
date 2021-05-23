@@ -280,6 +280,7 @@
     <Image Include="img\transparentBackground.bmp" />
     <Image Include="img\tutorial.bmp" />
     <Image Include="img\User_Interface.bmp" />
+    <Image Include="img\vfx\ExplosionSpriteSheet.bmp" />
     <Image Include="img\warrior.bmp" />
     <Image Include="img\warriorFlip.bmp" />
     <Image Include="img\Win_Screen.bmp" />

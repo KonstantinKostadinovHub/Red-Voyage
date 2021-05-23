@@ -8,6 +8,7 @@
 #include "Enemy.h"
 #include "EnemyShooter.h"
 #include "EnemyBullet.h"
+#include "VisualEffect.h"
 
 using namespace std;
 ///\brief A class used to achieve higher framerate and faster performance .
@@ -29,6 +30,8 @@ class ConfigManager
 
         Enemy m_meleeEnemy; ///< A Enemy object
         EnemyShooter m_rangedEnemy; ///< A EnemyShooter object
+
+		VisualEffect m_bulletExplosion;
 
         void init(string configFile); ///<Initializating function
 

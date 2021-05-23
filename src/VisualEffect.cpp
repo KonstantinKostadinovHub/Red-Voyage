@@ -17,23 +17,26 @@ VisualEffect::VisualEffect(const VisualEffect* model, SDL_Rect rect)
 	anim->frames = model->anim->frames;
 	anim->timePerFrame = model->anim->timePerFrame;
 	anim->widthOfFrame = model->anim->widthOfFrame;
+	anim->srcRect = &m_srcRect;
 	anim->srcRect->w = model->anim->srcRect->w;
 	anim->srcRect->h = model->anim->srcRect->h;
 	anim->srcRect->x = 0;
 	anim->srcRect->y = 0;
+	anim->loop = model->anim->loop;
 	world.m_animator.m_animations.push_back(anim);
 	
 	m_texture = model->m_texture;
-	m_objectRect = rect;
-	m_objectRect.w = m_inGameWidth;
-	m_objectRect.h = m_inGameHeight;
+	m_objectRect.x = rect.x + rect.w / 2 - model->m_inGameWidth / 2;
+	m_objectRect.y = rect.y + rect.h / 2 - model->m_inGameHeight / 2;
+	m_objectRect.w = model->m_inGameWidth;
+	m_objectRect.h = model->m_inGameHeight;
 }
 
 VisualEffect::~VisualEffect()
 {
 }
 
-void VisualEffect::init(string configFile, SDL_Renderer* renderer)
+void VisualEffect::init(string configFile)
 {
 	/*! \brief inits the model visual effect
 		
@@ -57,14 +60,23 @@ void VisualEffect::init(string configFile, SDL_Renderer* renderer)
 		stream >> tmp >> timePerFrame;
 		anim->timePerFrame = chrono::milliseconds(timePerFrame);
 		stream >> tmp >> anim->widthOfFrame;
-		stream >> tmp >> anim->srcRect->w >> anim->srcRect->h;
+		stream >> tmp >> anim->srcRect->h;
 		stream >> tmp >> m_inGameWidth >> m_inGameHeight;
+		anim->srcRect->w = anim->widthOfFrame;
 		anim->srcRect->x = 0;
 		anim->srcRect->y = 0;
-	
-		m_texture = LoadTexture(textureString, renderer);
+		anim->loop = false;
+
+		textureString = "vfx\\" + textureString;
+
+		m_texture = LoadTexture(textureString, world.m_main_renderer);
 
 		stream.close();
 	}
 
+}
+
+void VisualEffect::draw()
+{
+	world.drawObjectWithSrc(m_objectRect, m_srcRect, m_texture);
 }

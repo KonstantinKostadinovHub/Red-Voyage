@@ -293,7 +293,12 @@ void World::draw()
         bullet->draw(m_main_renderer);
     }
 
-	//drawShipCollision();
+	for (int i = 0; i < m_vfxs.size(); i ++)
+	{
+		m_vfxs[i]->draw();
+	}
+
+	drawShipCollision();
 
     m_userInterface.draw();
 
@@ -477,12 +482,14 @@ void World::cleaner()
     for(int i = 0; i < m_bullets.size(); i ++)
     {
         if(collisionWithShip(m_bullets[i]->collLine)){
-            m_bullets[i] -> m_health --;
+            m_bullets[i] -> m_health = 0;
         }
         if(m_bullets[i] -> m_health <= 0 || checkInOffBounds(m_bullets[i] -> m_objRect, m_backgroundRect.w, m_backgroundRect.h))
         {
-			//VisualEffect* explosion = new VisualEffect(m_configManager.m_bulletExplosion);
-			//m_vfxs.push_back(explosion);
+			m_bullets[i]->m_objRect.x = m_bullets[i]->collLine.finish.x;
+			m_bullets[i]->m_objRect.y = m_bullets[i]->collLine.finish.y;
+			VisualEffect* explosion = new VisualEffect(&(m_configManager.m_bulletExplosion), m_bullets[i]->m_objRect);
+			m_vfxs.push_back(explosion);
             delete m_bullets[i];
             m_bullets.erase(m_bullets.begin() + i);
             i --;
@@ -516,6 +523,16 @@ void World::cleaner()
             i--;
         }
     }
+
+	for (short i = 0; i < m_vfxs.size(); i++)
+	{
+		if (m_vfxs[i]->anim->finished)
+		{
+			delete m_vfxs[i];
+			m_vfxs.erase(m_vfxs.begin() + i);
+			i--;
+		}
+	}
 
 	for (short i = 0; i < m_animator.m_animations.size(); i++)
 	{

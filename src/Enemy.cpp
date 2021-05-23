@@ -10,8 +10,9 @@ Enemy::Enemy()
     */
     m_chargeMax = chrono::milliseconds(0);
     m_chargeTime = chrono::high_resolution_clock::now();
+    m_pathIndex = m_pathCoord.size() - 1;
     m_inSpaceship = false;
-    m_stepSpaceship = false;
+    m_engage = false;
     m_engagementIndex = -1;
 }
 
@@ -21,9 +22,7 @@ Enemy::Enemy(const Enemy& model) {
     */
     m_objectRect = model.m_objectRect;
     m_objectTexture = model.m_objectTexture;
-    m_spaceshipCoord.x = model.m_spaceshipCoord.x;
-    m_spaceshipCoord.y = model.m_spaceshipCoord.y;
-    m_entryRange = model.m_entryRange;
+    m_pathCoord = model.m_pathCoord;
     m_angle = model.m_angle;
     m_velocity = model.m_velocity;
     m_health = model.m_health;
@@ -33,8 +32,9 @@ Enemy::Enemy(const Enemy& model) {
 
     m_chargeMax = chrono::milliseconds(m_readChargeMax);
     m_chargeTime = chrono::high_resolution_clock::now();
+    m_pathIndex = m_pathCoord.size() - 1;
     m_inSpaceship = false;
-    m_stepSpaceship = false;
+    m_engage = false;
     m_engagementIndex = -1;
 
     m_cameraRect = &world.m_camera.camera_rect;
@@ -65,16 +65,15 @@ void Enemy::load(string config) {
     * Loads variables for the first time.
     */
     ifstream stream;
+
     config = "config\\" + config;
     stream.open(config);
 
     string tmp;
     stream >> tmp >> m_width;
     stream >> tmp >> m_height;
-    stream >> tmp >> m_spaceshipCoord.x;
-    stream >> tmp >> m_spaceshipCoord.y;
-    stream >> tmp >> m_entryRange;
     stream >> tmp >> m_img;
+    stream >> tmp >> m_pathData;
     stream >> tmp >> m_velocity;
     stream >> tmp >> m_health;
     stream >> tmp >> m_readChargeMax;
@@ -85,54 +84,89 @@ void Enemy::load(string config) {
 
     stream.close();
 
+    m_pathData = "config\\" + m_pathData;
+    stream.open(m_pathData);
+
+    short tmpValX;
+    short tmpValY;
+    coordinates tmpCoord;
+
+    while (!stream.eof()) {
+        stream >> tmpValX >> tmpValY;
+        tmpCoord.x = tmpValX;
+        tmpCoord.y = tmpValY;
+
+        m_pathCoord.push_back(tmpCoord);
+    }
+
+    stream.close();
+
     m_objectRect.w = m_width;
     m_objectRect.h = m_height;
     m_angle = 0;
 
     m_renderer = world.m_main_renderer;
-
     m_objectTexture = LoadTexture(m_img, m_renderer);
+}
 
+void Enemy::search() {
+    /*
+    * Searches for players on the same path level or switches to the opposite
+    */
+    bool level = false;
+
+    if (!m_inSpaceship) {
+        for (auto player : world.m_players) {
+            if (!player->m_inSpaceship) level = true;
+        }
+    }
+    else {
+        for (auto player : world.m_players) {
+            if (player->m_inSpaceship) level = true;
+        }
+    }
+
+    if (level) { 
+        engage(); 
+        m_engage = true;
+    }
+    else {
+        m_engage = false;
+
+        m_targetCoord.x = m_pathCoord[m_pathIndex].x;
+        m_targetCoord.y = m_pathCoord[m_pathIndex].y;
+
+        if (m_pathIndex == 0) {
+            m_inSpaceship = true;
+        }
+        if (m_pathIndex == m_pathCoord.size() - 1) {
+            m_inSpaceship = false;
+        }
+    }
 }
 
 void Enemy::engage() {
     /*
-    * Chooses a target for the enemy.
+    * Chooses a player target for the enemy.
     */
-    m_targetSpaceship = true;
-    m_targetOutside = true;
+    int closest = world.m_SCREEN_WIDTH * world.m_SCREEN_WIDTH + world.m_SCREEN_HEIGHT * world.m_SCREEN_HEIGHT;
+    int current;
 
-    for (auto player: world.m_players) {
-        if (!player->m_inSpaceship) m_targetSpaceship = false;
-        if (player->m_inSpaceship) m_targetOutside = false;
+    for (int i = 0; i != world.m_players.size(); i++) {
+        if (world.m_players[i]->m_inSpaceship != collRectRect(world.m_spaceshipRect, m_objectRect)) continue;
+
+        current = sqrt((world.m_players[i]->m_objRect.x - m_objectRect.x) * (world.m_players[i]->m_objRect.x - m_objectRect.x) +
+            (world.m_players[i]->m_objRect.y - m_objectRect.y) * (world.m_players[i]->m_objRect.y - m_objectRect.y));
+
+        if (current <= closest) {
+            closest = current;
+            m_engagementIndex = i;
+        }
     }
 
-    if ((m_targetOutside && m_inSpaceship) || (m_targetSpaceship && !m_inSpaceship)) {
-        m_targetCoord.x = m_spaceshipCoord.x;
-        m_targetCoord.y = m_spaceshipCoord.y;
-
-        m_stepSpaceship = true;
-    } else {
-        m_stepSpaceship = false;
-
-        int closest = world.m_SCREEN_WIDTH*world.m_SCREEN_WIDTH + world.m_SCREEN_HEIGHT*world.m_SCREEN_HEIGHT;
-        int current;
-
-        for (int i = 0; i != world.m_players.size(); i++) {
-            if (world.m_players[i]->m_inSpaceship != m_inSpaceship) continue;
-
-            current = sqrt((world.m_players[i]->m_objRect.x - m_objectRect.x)*(world.m_players[i]->m_objRect.x - m_objectRect.x) +
-                           (world.m_players[i]->m_objRect.y - m_objectRect.y)*(world.m_players[i]->m_objRect.y - m_objectRect.y));
-            if (current <= closest) {
-                closest = current;
-                m_engagementIndex = i;
-            }
-        }
-
-        if (m_engagementIndex != -1) {
-            m_targetCoord.x = world.m_players[m_engagementIndex]->m_objRect.x;
-            m_targetCoord.y = world.m_players[m_engagementIndex]->m_objRect.y;
-        }
+    if (m_engagementIndex != -1) {
+        m_targetCoord.x = world.m_players[m_engagementIndex]->m_objRect.x;
+        m_targetCoord.y = world.m_players[m_engagementIndex]->m_objRect.y;
     }
 }
 
@@ -150,18 +184,12 @@ void Enemy::step() {
     if (diffX < 0 && diffY < 0) m_targetAngle = - m_targetAngle;
     if (m_targetAngle < 0) m_targetAngle += 360;
 
-    if (!m_stepSpaceship) {
-        if (!m_inSpaceship && m_targetSpaceship && sqrt(diffX*diffX + diffY*diffY) <= m_range) {
-            m_inSpaceship = true;
-        } else if (m_inSpaceship && m_targetOutside && sqrt(diffX*diffX + diffY*diffY) <= m_range) {
-            m_inSpaceship = false;
-        } else if (sqrt(diffX*diffX + diffY*diffY) <= m_range) return;
-    } else {
-        if (!m_inSpaceship && m_targetSpaceship && sqrt(diffX*diffX + diffY*diffY) <= m_entryRange) {
-            m_inSpaceship = true;
-        } else if (m_inSpaceship && m_targetOutside && sqrt(diffX*diffX + diffY*diffY) <= m_entryRange) {
-            m_inSpaceship = false;
-        } else if (sqrt(diffX*diffX + diffY*diffY) <= m_entryRange) return;
+    if (m_engage) {
+        if (sqrt(diffX * diffX + diffY * diffY) <= m_range) return;
+    }
+    else {
+        if (!m_inSpaceship && (diffX * diffX + diffY * diffY) <= SMOOTH) m_pathIndex--;
+        if (m_inSpaceship && (diffX * diffX + diffY * diffY) <= SMOOTH) m_pathIndex++;
     }
 
     if (!(abs(m_angle - m_targetAngle) <= ACCURACY)) {
@@ -209,7 +237,7 @@ void Enemy::update() {
     /*
     * Update the enemy.
     */
-    engage();
+    search();
     step();
     attack();
 }
