@@ -52,23 +52,6 @@ void TitleScreen::update()
 
 void TitleScreen::draw(SDL_Renderer* renderer)
 {
-    //{
-        //m_objectRect.x = m_currState*m_objectRect.w;
-
-        /*if(m_currState >= m_numberOfStates/2){
-
-            m_objectRect.x = (m_currState-m_numberOfStates/2)*m_objectRect.w;
-            m_objectRect.y = 1080;
-
-
-        }else{
-
-             m_objectRect.y = 0;
-
-        }
-        D(m_objectRect.y);*/
-        //}
-
     m_imgCurr = m_img + to_string(m_currState + 1) + ".bmp";
 
     m_objectTexture = LoadTexture(m_imgCurr, renderer);

@@ -26,6 +26,7 @@ public:
 	void drawCollision(SDL_Rect rect); //< Draw the collision box of an object by passing it's rect
 
 	bool SHOW_ALL_RECTS;
+	bool MAX_ORES;
 
 private:
 	SDL_Renderer* m_renderer;

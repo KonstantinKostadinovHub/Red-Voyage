@@ -13,10 +13,6 @@ World::World()
     m_main_renderer = nullptr;
     m_main_window = nullptr;
     m_soundManager = new SoundManager;
-
-    m_ironCollected = 110;
-    m_aluminiumCollected = 110;
-    m_titaniumCollected = 110;
 }
 
 World::~World()
@@ -128,6 +124,13 @@ void World::initSession()
     m_generator.m_lastTaskCreation = chrono::steady_clock::now();
 
 	m_helper = new Helper(&m_players, m_main_renderer, &(m_camera.zoom_lvl), &(m_camera.camera_rect));
+
+	if (m_helper->MAX_ORES)
+	{
+		m_ironCollected = 110;
+		m_aluminiumCollected = 110;
+		m_titaniumCollected = 110;
+	}
 }
 
 void World::input()

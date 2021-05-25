@@ -80,6 +80,21 @@
     <Filter Include="src\Menu">
       <UniqueIdentifier>{6d84e8a8-08ae-41ea-881b-b2be5525f740}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Main">
+      <UniqueIdentifier>{79bf4c7a-5c9e-4fe1-afaf-932a12cc4a8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Menu">
+      <UniqueIdentifier>{0c9fe326-86d5-44e9-b3e2-81b0e154d5eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Player">
+      <UniqueIdentifier>{2136964d-32bf-4217-91ce-cd12182b426a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enemy">
+      <UniqueIdentifier>{b946111e-8687-48b7-a54c-d2504dd72241}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UI">
+      <UniqueIdentifier>{6d182369-4179-4e6d-9f95-539b3f399cf0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ChickenWing.cpp">
@@ -171,92 +186,92 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\Animator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Bullet.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Camera.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\ChickenWing.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\ConfigManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Credits.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\defines.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Endgame.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Enemy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\EnemyBullet.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\EnemyShooter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Engine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Food.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Generator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Gun.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\HealthBar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Menu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Ore.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SoundManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Task.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Tutorial.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="include\Animator.h">
+      <Filter>Header Files\Main</Filter>
     </ClInclude>
-    <ClInclude Include="include\UI.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="include\Camera.h">
+      <Filter>Header Files\Main</Filter>
     </ClInclude>
-    <ClInclude Include="include\UIObject.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="include\ConfigManager.h">
+      <Filter>Header Files\Main</Filter>
     </ClInclude>
-    <ClInclude Include="include\World.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="include\defines.h">
+      <Filter>Header Files\Main</Filter>
     </ClInclude>
-    <ClInclude Include="include\VisualEffect.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="include\Generator.h">
+      <Filter>Header Files\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Engine.h">
+      <Filter>Header Files\Main</Filter>
     </ClInclude>
     <ClInclude Include="include\Helper.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Main</Filter>
     </ClInclude>
     <ClInclude Include="include\PowerUp.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SoundManager.h">
+      <Filter>Header Files\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="include\World.h">
+      <Filter>Header Files\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="include\VisualEffect.h">
+      <Filter>Header Files\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Bullet.h">
+      <Filter>Header Files\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Gun.h">
+      <Filter>Header Files\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Player.h">
+      <Filter>Header Files\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Credits.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Endgame.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Menu.h">
+      <Filter>Header Files\Menu</Filter>
     </ClInclude>
     <ClInclude Include="include\TitleScreen.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Tutorial.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Enemy.h">
+      <Filter>Header Files\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="include\EnemyBullet.h">
+      <Filter>Header Files\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="include\EnemyShooter.h">
+      <Filter>Header Files\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="include\UIObject.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\UI.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\HealthBar.h">
+      <Filter>Header Files\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
