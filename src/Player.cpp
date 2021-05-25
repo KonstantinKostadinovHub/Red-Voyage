@@ -41,6 +41,7 @@ void Player::init(SDL_Renderer* renderer, string configFile)
     stream >> tmp >> m_flipImg;
     stream >> tmp >> m_distance;
     stream >> tmp >> m_dmg;
+	stream >> tmp >> m_timeBetweenDustEffects;
 
     stream.close();
 
@@ -257,6 +258,7 @@ void Player::update()
     if(m_velocity.x == 0 && m_velocity.y == 0)
     {
         anim->pause = true;
+		m_lastDustEffect = time(NULL);
     }
     else
     {
@@ -266,6 +268,16 @@ void Player::update()
             m_oldvelocity.y = m_velocity.y;
         anim->pause = false;
     }
+
+	if(time(NULL) - m_lastDustEffect >= m_timeBetweenDustEffects)
+	{
+		coordinates coor;
+		coor.x = m_objRect.x + m_objRect.w / 2;
+		coor.y = m_objRect.y + m_objRect.h * 8 / 10;
+		VisualEffect* dust = new VisualEffect(&(world.m_configManager.m_dust), coor);
+		world.m_vfxs.push_back(dust);
+		m_lastDustEffect = time(NULL);
+	}
 
     // Check if the player is inside or outside the ship
     top.start.x = m_objRect.x;

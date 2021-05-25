@@ -6,3 +6,4 @@ alien.txt
 assassin.txt
 enemyBullet.txt
 bulletExplosion.txt
+dust.txt

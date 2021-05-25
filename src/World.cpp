@@ -534,7 +534,10 @@ void World::cleaner()
         {
 			m_bullets[i]->m_objRect.x = m_bullets[i]->collLine.finish.x;
 			m_bullets[i]->m_objRect.y = m_bullets[i]->collLine.finish.y;
-			VisualEffect* explosion = new VisualEffect(&(m_configManager.m_bulletExplosion), m_bullets[i]->m_objRect);
+			coordinates coorBuff;
+			coorBuff.x = m_bullets[i]->m_objRect.x;
+			coorBuff.y = m_bullets[i]->m_objRect.y;
+			VisualEffect* explosion = new VisualEffect(&(m_configManager.m_bulletExplosion), coorBuff);
 			m_vfxs.push_back(explosion);
             delete m_bullets[i];
             m_bullets.erase(m_bullets.begin() + i);

@@ -31,3 +31,5 @@ reversedPhoto: player1_reversed.bmp
 distance: 300
 
 dmg: 10
+
+timeBetweenDustSpawn: 1

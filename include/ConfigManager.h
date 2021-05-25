@@ -32,6 +32,7 @@ class ConfigManager
         EnemyShooter m_rangedEnemy; ///< A EnemyShooter object
 
 		VisualEffect m_bulletExplosion;
+		VisualEffect m_dust;
 
         void init(string configFile); ///<Initializating function
 

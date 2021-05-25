@@ -1,0 +1,6 @@
+texture: dust.bmp
+frames: 11
+timePerFrame: 30 
+widthOfFrame: 32
+heightOfPhoto: 32
+width&heightInGame: 64 64

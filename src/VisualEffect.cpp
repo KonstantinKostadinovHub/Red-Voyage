@@ -6,10 +6,10 @@ extern World world;
 
 VisualEffect::VisualEffect()
 {
+
 }
 
-
-VisualEffect::VisualEffect(const VisualEffect* model, SDL_Rect rect)
+VisualEffect::VisualEffect(const VisualEffect* model, coordinates coor)
 {
 	anim = new animation;
 	anim->currFrame = 0;
@@ -26,8 +26,8 @@ VisualEffect::VisualEffect(const VisualEffect* model, SDL_Rect rect)
 	world.m_animator.m_animations.push_back(anim);
 	
 	m_texture = model->m_texture;
-	m_objectRect.x = rect.x + rect.w / 2 - model->m_inGameWidth / 2;
-	m_objectRect.y = rect.y + rect.h / 2 - model->m_inGameHeight / 2;
+	m_objectRect.x = coor.x - model->m_inGameWidth / 2;
+	m_objectRect.y = coor.y - model->m_inGameHeight / 2;
 	m_objectRect.w = model->m_inGameWidth;
 	m_objectRect.h = model->m_inGameHeight;
 }
@@ -42,6 +42,7 @@ void VisualEffect::init(string configFile)
 		
 		we use model to take the needed parameters of a vfx.
 		we pass the config file, which must be put in the vfx folder.
+		if you want the animation to loop change the parameter after initialization
 	*/
 	configFile = "config\\vfx\\" + configFile;
 

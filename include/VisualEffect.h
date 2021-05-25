@@ -6,6 +6,7 @@
 #include <SDL.h>
 
 #include "Animator.h"
+#include "Engine.h"
 
 using namespace std;
 
@@ -23,7 +24,7 @@ class VisualEffect
 {
 public:
 	VisualEffect();
-	VisualEffect(const VisualEffect* model, SDL_Rect rect);
+	VisualEffect(const VisualEffect* model, coordinates coor);
 	virtual ~VisualEffect();
 
 	SDL_Rect m_objectRect; //< The position of the vfx in the world
