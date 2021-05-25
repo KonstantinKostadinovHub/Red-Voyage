@@ -11,9 +11,9 @@
 #include "VisualEffect.h"
 
 using namespace std;
-///\brief A class used to achieve higher framerate and faster performance .
+/// \brief Creates models of all the objects that are later used in the session
 /** That is achieved by loading the objects from the config file once and then 
-* passing the parameters forward instead of loading every time thei are needed.
+* passing the parameters forward instead of opening files every time when we create a new instanse.
 */
 class ConfigManager
 {

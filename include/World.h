@@ -28,6 +28,7 @@
 #include "Endgame.h"
 #include "Credits.h"
 #include "VisualEffect.h"
+#include "Helper.h"
 
 using namespace std;
 
@@ -103,6 +104,7 @@ class World
         ChickenWing* chicken_wings[6];
         Animator m_animator;
         Tutorial m_tutorial;
+		Helper* m_helper;
 
         vector <line> m_collLines;
 		vector <Player*> m_players;

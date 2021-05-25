@@ -7,6 +7,9 @@
 
 using namespace std;
 
+/** \brief Show a tutorial to the pllayer the first time they open the game. 
+	When space is pressed the tutorial will never be shown again.
+*/
 class Tutorial
 {
     public:

@@ -26,13 +26,13 @@ public:
 	VisualEffect(const VisualEffect* model, SDL_Rect rect);
 	virtual ~VisualEffect();
 
-	SDL_Rect m_objectRect;
+	SDL_Rect m_objectRect; //< The position of the vfx in the world
 	SDL_Rect m_srcRect;
 	SDL_Texture* m_texture;
 
 	unsigned short m_inGameWidth, m_inGameHeight;
 
-	animation* anim;
+	animation* anim; //< The animation variable that changes the srcRect
 
 	void init(string configFile);
 

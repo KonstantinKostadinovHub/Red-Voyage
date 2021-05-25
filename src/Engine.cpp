@@ -214,3 +214,25 @@ float returnAngleByCoordinates(coordinates direction)
 {
     return atan2(direction.y, direction.x) * 180 / PI;
 }
+
+void drawRectCollision(SDL_Rect rect, SDL_Renderer* renderer)
+{
+	short x2 = rect.x + rect.w;
+	short y2 = rect.y + rect.h;
+	SDL_RenderDrawLine(renderer, rect.x, rect.y, x2, rect.y);
+	SDL_RenderDrawLine(renderer, rect.x, rect.y, rect.x, y2);
+	SDL_RenderDrawLine(renderer, rect.x, y2, x2, y2);
+	SDL_RenderDrawLine(renderer, x2, rect.y, x2, y2);
+	/*
+	if (
+		!SDL_RenderDrawLine(renderer, rect.x, rect.y, x2, rect.y) ||
+		!SDL_RenderDrawLine(renderer, rect.x, rect.y, rect.x, y2) ||
+		!SDL_RenderDrawLine(renderer, rect.x, y2, x2, y2) ||
+		!SDL_RenderDrawLine(renderer, x2, rect.y, x2, y2)
+		)
+	{
+		string error = SDL_GetError();
+		cout << "Error " << error << " in drawRectCollision() \n";
+	}
+	*/
+}

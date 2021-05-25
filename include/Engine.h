@@ -28,5 +28,6 @@ void write(string text, coordinates coor, SDL_Renderer* renderer, int FONT_SIZE)
 pair<SDL_Texture*, SDL_Rect> writeRed(string text, coordinates coor, SDL_Renderer* renderer, int FONT_SIZE);
 pair<SDL_Texture*, SDL_Rect>  writeGreen(string text, coordinates coor, SDL_Renderer* renderer, int FONT_SIZE);
 float returnAngleByCoordinates(coordinates direction);
+void drawRectCollision(SDL_Rect rect, SDL_Renderer* renderer);
 
 #endif // ENGINE_H

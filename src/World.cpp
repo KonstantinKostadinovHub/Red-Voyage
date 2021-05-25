@@ -126,6 +126,8 @@ void World::initSession()
     m_tasks.push_back(task);
 
     m_generator.m_lastTaskCreation = chrono::steady_clock::now();
+
+	m_helper = new Helper(&m_players, m_main_renderer, &(m_camera.zoom_lvl), &(m_camera.camera_rect));
 }
 
 void World::input()
@@ -188,6 +190,8 @@ void World::update()
 
     if(!m_isPaused)
     {
+		m_helper->update();
+
         m_generator.generateOre();
         m_generator.generateEnemy();
         m_generator.generateTask();
@@ -282,6 +286,7 @@ void World::draw()
 
     for (auto enemy: m_enemies) {
         enemy->draw();
+		m_helper->drawCollision(enemy->m_objectRect);
     }
 
     for(int i = 0; i < m_bullets.size(); i ++)
@@ -298,7 +303,47 @@ void World::draw()
 		m_vfxs[i]->draw();
 	}
 
-	//drawShipCollision();
+	if (m_helper->SHOW_ALL_RECTS)
+	{
+		drawShipCollision();
+
+		for (int i = 0; i < 6; i++) 
+		{
+			if (chicken_wings[i] != nullptr) 
+			{
+				m_helper->drawCollision(chicken_wings[i]->wing_rect);
+			}
+		}
+
+		for (int i = 0; i < m_ores.size(); i++)
+		{
+			m_helper->drawCollision(m_ores[i]->m_rect);
+		}
+
+		for (int i = 0; i < m_players.size(); i++)
+		{
+			m_helper->drawCollision(m_players[i]->m_objRect);
+		}
+
+		for (auto enemy : m_enemies) {
+			m_helper->drawCollision(enemy->m_objectRect);
+		}
+
+		for (int i = 0; i < m_bullets.size(); i++)
+		{
+			m_helper->drawCollision(m_bullets[i]->m_objRect);
+		}
+
+		for (auto bullet : m_enemyBullets) {
+			m_helper->drawCollision(bullet->m_objectRect);
+		}
+
+		for (int i = 0; i < m_vfxs.size(); i++)
+		{
+			m_helper->drawCollision(m_vfxs[i]->m_objectRect);
+		}
+	}
+
 
     m_userInterface.draw();
 

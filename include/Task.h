@@ -13,6 +13,9 @@
 
 using namespace std;
 
+/*! \brief Complete tasks in order to win the game
+	The player must collect resources and check if it is possible to fix a task
+*/
 class Task
 {
 public:
