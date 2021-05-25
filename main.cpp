@@ -1,4 +1,5 @@
 #include "World.h"
+#include "TitleScreen.h"
 
 #ifndef _WIN32_WINNT
 #define _WIN32_WINNT 0x0500
@@ -7,6 +8,7 @@
 #include <windows.h>
 
 World world;
+TitleScreen screen;
 
 int main(int argc, char* argv[])
 {
@@ -14,11 +16,22 @@ int main(int argc, char* argv[])
 
     world.init();
     
-	world.m_gameState = MENU;
-    //world.loadTitleScreen();
+	world.m_gameState = MENU; // TITLESCREEN
+
+    screen.load("NiTe_logo.txt", world.m_main_renderer);
 
     while(!world.m_endGame)
     {
+        if (world.m_gameState == TITLESCREEN)
+        {
+            while (!world.m_quitScene)
+            {
+                world.input();
+                screen.update();
+                screen.draw(world.m_main_renderer);
+            }
+            world.m_quitScene = false;
+        }
         if(world.m_gameState == MENU)
         {
             while(!world.m_quitScene)

@@ -16,7 +16,7 @@ HealthBar::~HealthBar()
 
 void HealthBar::init(string configFile)
 {
-    m_configFile = "config\\" + configFile;
+    m_configFile = "config\\UI\\" + configFile;
 
     fstream stream;
     string tmp;
@@ -28,6 +28,9 @@ void HealthBar::init(string configFile)
     stream >> tmp >> m_healthImg;
 
     stream.close();
+
+    m_borderImg = "\\UI\\" + m_borderImg;
+    m_healthImg = "\\UI\\" + m_healthImg;
 
     m_borderTexture = LoadTexture(m_borderImg, world.m_main_renderer);
     m_healthTexture = LoadTexture(m_healthImg, world.m_main_renderer);

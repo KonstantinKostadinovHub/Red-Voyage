@@ -50,6 +50,8 @@ void Bullet::load(string configFile)
 
     stream.close();
 
+    m_img = "\\player\\" + m_img;
+
     m_bulletTexture = LoadTexture(m_img, world.m_main_renderer);
 
     m_cameraRect = &world.m_camera.camera_rect;

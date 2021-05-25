@@ -48,7 +48,7 @@ void EnemyShooter::load(string config) {
     */
     ifstream stream;
 
-    config = "config\\" + config;
+    config = "config\\enemy\\" + config;
     stream.open(config);
 
     string tmp;
@@ -64,7 +64,9 @@ void EnemyShooter::load(string config) {
 
     stream.close();
 
-    m_pathData = "config\\" + m_pathData;
+    m_img = "\\enemy\\" + m_img;
+
+    m_pathData = "config\\enemy\\" + m_pathData;
     stream.open(m_pathData);
 
     short tmpValX;

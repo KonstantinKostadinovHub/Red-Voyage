@@ -7,14 +7,15 @@ UI::UI()
 {
     //ctor
 }
+
 UI::~UI()
 {
     //dtor
 }
+
 void UI::load(string config)
 {
-    config = "config//" + config;
-
+    config = "config\\menu\\" + config;
 
     fstream stream;
     stream.open(config.c_str());
@@ -24,8 +25,9 @@ void UI::load(string config)
     stream >> tmp >> m_objectRect.w;
     stream >> tmp >> m_objectRect.h;
 
-
     stream.close();
+
+    m_img = "\\UI\\" + m_img;
 
     m_objectRect.x = 0;
     m_objectRect.y = 0;

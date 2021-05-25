@@ -140,7 +140,6 @@ class World
         bool collisionWithShip(SDL_Rect rect);
         bool collisionWithShip(line collLine);
         bool isPlayerInShip();
-        void loadTitleScreen();
 
         void addPlayer(string configFile);
         void addBullet(SDL_Rect rect, coordinates coor);

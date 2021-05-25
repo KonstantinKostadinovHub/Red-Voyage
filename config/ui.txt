@@ -1,3 +1,0 @@
-Image: User_Interface.bmp
-Width: 1920
-Height: 1080

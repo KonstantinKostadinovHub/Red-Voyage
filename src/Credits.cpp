@@ -25,13 +25,15 @@ void Credits::init(string config){
     */
     fstream stream; 
     string tmp; 
-    stream.open("config\\" + config);
+    stream.open("config\\menu\\" + config);
 
     stream >> tmp >> m_credits_image;
-    
-    m_credits_texture = LoadTexture(m_credits_image, world.m_main_renderer);
 
     stream.close();
+
+    m_credits_image = "\\menu\\" + m_credits_image;
+
+    m_credits_texture = LoadTexture(m_credits_image, world.m_main_renderer);
 }
 
 void Credits::update(){

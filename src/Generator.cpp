@@ -35,6 +35,7 @@ void Generator::init(string configFile)
     for(int i = 0; i < tasks; i ++)
     {
         stream >> tmp;
+        tmp = "\\task\\" + tmp;
         Task* task = new Task;
         task -> init(tmp);
         m_modelTasks.push_back(task);

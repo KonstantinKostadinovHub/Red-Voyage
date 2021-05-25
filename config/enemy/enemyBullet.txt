@@ -1,0 +1,5 @@
+Width: 20
+Heigth: 20
+Image: enemyBullet.bmp
+Velocity: 14
+Damage: 3

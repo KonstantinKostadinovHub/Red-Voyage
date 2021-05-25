@@ -1,3 +1,0 @@
-Rect: 832 1014 150 150
-Img: Fix_GPS_Task.bmp
-string: FIX_GPS

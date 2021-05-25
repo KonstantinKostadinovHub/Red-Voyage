@@ -1,4 +1,0 @@
-Image: Iron_Ore.bmp
-type: 1
-Health: 48
-Width&Height: 110 110

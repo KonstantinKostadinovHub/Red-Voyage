@@ -1,0 +1,4 @@
+Image: Titanium_Ore.bmp
+type: 2
+Health: 48
+Width&Height: 110 110

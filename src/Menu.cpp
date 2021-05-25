@@ -19,7 +19,7 @@ Menu::~Menu()
 
 void Menu::load(string config)
 {
-    config = "config//" + config;
+    config = "config\\menu\\" + config;
 
     ifstream stream;
     stream.open(config.c_str());
@@ -84,6 +84,11 @@ void Menu::load(string config)
     m_startExitRect = m_exitRect;
 
     ///Load textures from the input images so that they appear on the screen
+
+    m_img = "\\menu\\" + m_img;
+    m_startImg = "\\menu\\" + m_startImg;
+    m_exitImg = "\\menu\\" + m_exitImg;
+    m_logoImg = "\\menu\\" + m_logoImg;
 
     m_objectTexture = LoadTexture(m_img,world.m_main_renderer);
 

@@ -17,7 +17,7 @@ Tutorial::~Tutorial()
 
 void Tutorial::init(string configFile)
 {
-    configFile = "config//" + configFile;
+    configFile = "config\\menu\\" + configFile;
 
     fstream stream;
 
@@ -29,6 +29,8 @@ void Tutorial::init(string configFile)
     stream >> tmp >> dataInfo;
 
     stream.close();
+
+    img = "\\menu\\" + img;
 
     m_texture = LoadTexture(img, world.m_main_renderer);
 

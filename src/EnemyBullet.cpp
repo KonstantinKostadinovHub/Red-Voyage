@@ -49,6 +49,8 @@ void EnemyBullet::load(string config) {
 
     stream.close();
 
+    m_img = "\\enemy\\" + m_img;
+
     m_objectRect.w = m_width;
     m_objectRect.h = m_heigth;
     m_angle = 0;

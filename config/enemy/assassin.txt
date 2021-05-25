@@ -1,0 +1,9 @@
+Width: 100
+Height: 100
+Image: testRange.bmp
+Bullet_config: enemyBullet.txt
+Path_config: enemyPath.txt
+Velocity: 7
+Health: 100
+Maximum_charge_time: 1600
+Range: 400

@@ -1,0 +1,3 @@
+Rect: 391 798 150 150
+Img: Fix_Front_Panel_Task.bmp
+string: FIX_FRONT_PANEL

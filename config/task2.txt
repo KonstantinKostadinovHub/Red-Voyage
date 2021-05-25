@@ -1,3 +1,0 @@
-Rect: 2250 1440 150 150 
-Img: Fix_Left_Wing_Task.bmp
-string: FIX_LEFT_WING

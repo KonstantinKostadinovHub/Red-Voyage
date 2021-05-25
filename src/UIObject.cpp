@@ -17,7 +17,7 @@ UIObject::~UIObject()
 void UIObject::load(string config)
 {
     ///Modifying the inputed config file so we can make the actual path
-    config = "config//" + config;
+    config = "config\\ores\\" + config;
 
 
     ifstream stream;
@@ -30,7 +30,6 @@ void UIObject::load(string config)
     stream >> tmp >> m_startPos;
     stream >> tmp >> m_distance;
     stream >> tmp >> m_pos;
-
 
     m_distance = 65;
     m_objectRect.y = 20;
@@ -66,9 +65,6 @@ void UIObject::load(string config)
 }
 void UIObject::update()
 {
-
-
-
 }
 void UIObject::draw()
 {

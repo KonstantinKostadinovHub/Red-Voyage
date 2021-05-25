@@ -1,0 +1,3 @@
+win_image: win_screen.bmp
+loss_image: EndGame_Screen.bmp
+button_w_h: Proceed_Button.bmp 350 350

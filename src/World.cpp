@@ -47,7 +47,7 @@ void World::init()
 
     string config = "config\\world.txt";
 
-    string titleScreenImg, shipInsideImg, cursorImg;
+    string shipInsideImg, cursorImg;
 
     ifstream file;
 
@@ -55,10 +55,9 @@ void World::init()
 
 	if(file.is_open())
 	{ 
-	
 		string tmp;
+
 		file >> tmp >> m_backgroundImg;
-		file >> tmp >> titleScreenImg;
 		file >> tmp >> shipInsideImg;
 		file >> tmp >> cursorImg;
 		file >> tmp >> m_resumeButtonImg;
@@ -73,12 +72,13 @@ void World::init()
 		file >> tmp >> exitButton.objRect.w;
 		file >> tmp >> exitButton.objRect.h;
 
-		file.close();
-	
+		file.close();	
 	}
 
+    m_exitButtonImg = "\\menu\\" + m_exitButtonImg;
+    m_resumeButtonImg = "\\menu\\" + m_resumeButtonImg;
+
     m_backgroundTexture = LoadTexture(m_backgroundImg, m_main_renderer);
-    m_titleScreenTexture = LoadTexture(titleScreenImg, m_main_renderer);
     m_spaceshipInsideTexture = LoadTexture(shipInsideImg, m_main_renderer);
 
     resumeButton.objTexture = LoadTexture(m_resumeButtonImg, m_main_renderer);
@@ -100,7 +100,7 @@ void World::init()
     readCollisionPoints("collpoints.txt");
     m_tutorial.init("tutorial.txt");
 
-    cursorImg = "img\\" + cursorImg;
+    cursorImg = "img\\menu\\" + cursorImg;
 
     SDL_Surface* loadSurface = SDL_LoadBMP((cursorImg.c_str()));
     SDL_Cursor* cursor = SDL_CreateColorCursor(loadSurface, 10, 5);
@@ -192,7 +192,7 @@ void World::update()
     {
 		m_helper->update();
 
-        m_generator.generateOre();
+        m_generator.generateOre();  
         m_generator.generateEnemy();
         m_generator.generateTask();
 
@@ -204,7 +204,6 @@ void World::update()
         }
 
         collision();
-
 
         for(int i = 0; i < m_bullets.size(); i ++)
         {
@@ -225,7 +224,6 @@ void World::update()
 		{
             bullet->update();
         }
-
         m_food_spawner.update_kitchen();
 
         shoot();
@@ -591,13 +589,6 @@ void World::cleaner()
 			i--;
 		}
 	}
-}
-
-void World::loadTitleScreen()
-{
-    SDL_RenderCopy(m_main_renderer, m_titleScreenTexture, NULL, NULL);
-    SDL_RenderPresent(m_main_renderer);
-    SDL_Delay(3000);
 }
 
 void World::deleteSession()

@@ -1,14 +1,13 @@
 #include "PowerUp.h"
 
-
-
 PowerUp::PowerUp()
 {
-}
 
+}
 
 PowerUp::~PowerUp()
 {
+
 }
 
 void PowerUp::load(string configFile)

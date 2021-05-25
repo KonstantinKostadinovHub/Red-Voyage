@@ -1,0 +1,11 @@
+Width: 100
+Height: 100
+Image: test.bmp
+Path_config: enemyPath.txt
+Velocity: 5
+Health: 100
+Maximum_charge_time: 2000
+Range: 100
+Damage: 10
+rect: 0 0 320 320
+widthOfFrame: 320

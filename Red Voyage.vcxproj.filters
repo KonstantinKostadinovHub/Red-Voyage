@@ -30,6 +30,42 @@
     <Filter Include="img\vfx">
       <UniqueIdentifier>{4af95125-5f86-498a-973e-ffdfb25a63ee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="img\ores">
+      <UniqueIdentifier>{a950d567-a514-4e1a-ae47-aa6a9d2526a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="img\player">
+      <UniqueIdentifier>{beaceffc-c096-491c-8bb4-35c0b59cbb45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="img\tasks">
+      <UniqueIdentifier>{b20528df-7f32-4fd3-afd5-5d9580e7c343}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="img\enemy">
+      <UniqueIdentifier>{a1296566-a8ed-4e60-882b-845c097b21e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="img\menu">
+      <UniqueIdentifier>{f750e97d-9e5b-4dec-89b4-263718282c21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="img\UI">
+      <UniqueIdentifier>{1d183078-308a-4e2a-ab16-8d9d5bf0d82a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\enemy">
+      <UniqueIdentifier>{ee9a230d-6784-40ed-9f21-01cbb5d4b70e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\menu">
+      <UniqueIdentifier>{843c6e73-7780-4e84-86c5-f6522e242490}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\ores">
+      <UniqueIdentifier>{b4130d6c-db17-49c8-a6e6-ca4fa8d703c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\player">
+      <UniqueIdentifier>{ddf2324d-fa90-4bc6-b91e-082631f8549e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\task">
+      <UniqueIdentifier>{ffbd6714-deae-4171-82f1-de457c86e5f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\UI">
+      <UniqueIdentifier>{44db253d-453b-404c-b76c-eadbf3639648}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -114,6 +150,9 @@
       <Filter>Header Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\PowerUp.cpp">
+      <Filter>Header Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TitleScreen.cpp">
       <Filter>Header Files\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -202,30 +241,15 @@
     <ClInclude Include="include\PowerUp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\TitleScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="config\assassin.txt">
-      <Filter>config</Filter>
-    </Text>
-    <Text Include="config\bullet.txt">
-      <Filter>config</Filter>
-    </Text>
-    <Text Include="config\chicken_selectable.txt">
-      <Filter>config</Filter>
-    </Text>
     <Text Include="config\collpoints.txt">
       <Filter>config</Filter>
     </Text>
     <Text Include="config\configManager.txt">
-      <Filter>config</Filter>
-    </Text>
-    <Text Include="config\credits.txt">
-      <Filter>config</Filter>
-    </Text>
-    <Text Include="config\endgame.txt">
-      <Filter>config</Filter>
-    </Text>
-    <Text Include="config\enemyBullet.txt">
       <Filter>config</Filter>
     </Text>
     <Text Include="config\food.txt">
@@ -237,73 +261,10 @@
     <Text Include="config\generator.txt">
       <Filter>config</Filter>
     </Text>
-    <Text Include="config\healthBar1.txt">
-      <Filter>config</Filter>
-    </Text>
-    <Text Include="config\healthBar2.txt">
-      <Filter>config</Filter>
-    </Text>
-    <Text Include="config\iron_selectable.txt">
-      <Filter>config</Filter>
-    </Text>
-    <Text Include="config\ironOre.txt">
-      <Filter>config</Filter>
-    </Text>
-    <Text Include="config\menu.txt">
-      <Filter>config</Filter>
-    </Text>
-    <Text Include="config\player1.txt">
-      <Filter>config</Filter>
-    </Text>
-    <Text Include="config\player2.txt">
-      <Filter>config</Filter>
-    </Text>
     <Text Include="config\soundManager.txt">
       <Filter>config</Filter>
     </Text>
-    <Text Include="config\task1.txt">
-      <Filter>config</Filter>
-    </Text>
-    <Text Include="config\task2.txt">
-      <Filter>config</Filter>
-    </Text>
-    <Text Include="config\task3.txt">
-      <Filter>config</Filter>
-    </Text>
-    <Text Include="config\task4.txt">
-      <Filter>config</Filter>
-    </Text>
-    <Text Include="config\task5.txt">
-      <Filter>config</Filter>
-    </Text>
-    <Text Include="config\task6.txt">
-      <Filter>config</Filter>
-    </Text>
-    <Text Include="config\task7.txt">
-      <Filter>config</Filter>
-    </Text>
-    <Text Include="config\titanium_selectable.txt">
-      <Filter>config</Filter>
-    </Text>
-    <Text Include="config\titaniumOre.txt">
-      <Filter>config</Filter>
-    </Text>
-    <Text Include="config\tutorial.txt">
-      <Filter>config</Filter>
-    </Text>
-    <Text Include="config\ui.txt">
-      <Filter>config</Filter>
-    </Text>
     <Text Include="config\world.txt">
-      <Filter>config</Filter>
-    </Text>
-    <Text Include="config\alien.txt">
-      <Filter>config</Filter>
-    </Text>
-    <Text Include="config\aluminium_selectable.txt">
-      <Filter>config</Filter>
-    </Text>
-    <Text Include="config\aluminiumOre.txt">
       <Filter>config</Filter>
     </Text>
     <Text Include="data\tutorial.txt">
@@ -312,96 +273,96 @@
     <Text Include="config\vfx\bulletExplosion.txt">
       <Filter>config\vfx</Filter>
     </Text>
-    <Text Include="config\enemyPath.txt">
-      <Filter>config</Filter>
+    <Text Include="config\enemy\alien.txt">
+      <Filter>config\enemy</Filter>
+    </Text>
+    <Text Include="config\enemy\assassin.txt">
+      <Filter>config\enemy</Filter>
+    </Text>
+    <Text Include="config\enemy\enemyBullet.txt">
+      <Filter>config\enemy</Filter>
+    </Text>
+    <Text Include="config\enemy\enemyPath.txt">
+      <Filter>config\enemy</Filter>
+    </Text>
+    <Text Include="config\menu\credits.txt">
+      <Filter>config\menu</Filter>
+    </Text>
+    <Text Include="config\menu\endgame.txt">
+      <Filter>config\menu</Filter>
+    </Text>
+    <Text Include="config\menu\menu.txt">
+      <Filter>config\menu</Filter>
+    </Text>
+    <Text Include="config\menu\tutorial.txt">
+      <Filter>config\menu</Filter>
+    </Text>
+    <Text Include="config\menu\ui.txt">
+      <Filter>config\menu</Filter>
+    </Text>
+    <Text Include="config\ores\aluminium_selectable.txt">
+      <Filter>config\ores</Filter>
+    </Text>
+    <Text Include="config\ores\aluminiumOre.txt">
+      <Filter>config\ores</Filter>
+    </Text>
+    <Text Include="config\ores\chicken_selectable.txt">
+      <Filter>config\ores</Filter>
+    </Text>
+    <Text Include="config\ores\iron_selectable.txt">
+      <Filter>config\ores</Filter>
+    </Text>
+    <Text Include="config\ores\ironOre.txt">
+      <Filter>config\ores</Filter>
+    </Text>
+    <Text Include="config\ores\titanium_selectable.txt">
+      <Filter>config\ores</Filter>
+    </Text>
+    <Text Include="config\ores\titaniumOre.txt">
+      <Filter>config\ores</Filter>
+    </Text>
+    <Text Include="config\player\bullet.txt">
+      <Filter>config\player</Filter>
+    </Text>
+    <Text Include="config\player\player1.txt">
+      <Filter>config\player</Filter>
+    </Text>
+    <Text Include="config\player\player2.txt">
+      <Filter>config\player</Filter>
+    </Text>
+    <Text Include="config\task\task1.txt">
+      <Filter>config\task</Filter>
+    </Text>
+    <Text Include="config\task\task2.txt">
+      <Filter>config\task</Filter>
+    </Text>
+    <Text Include="config\task\task3.txt">
+      <Filter>config\task</Filter>
+    </Text>
+    <Text Include="config\task\task4.txt">
+      <Filter>config\task</Filter>
+    </Text>
+    <Text Include="config\task\task5.txt">
+      <Filter>config\task</Filter>
+    </Text>
+    <Text Include="config\task\task6.txt">
+      <Filter>config\task</Filter>
+    </Text>
+    <Text Include="config\task\task7.txt">
+      <Filter>config\task</Filter>
+    </Text>
+    <Text Include="config\UI\healthBar1.txt">
+      <Filter>config\UI</Filter>
+    </Text>
+    <Text Include="config\UI\healthBar2.txt">
+      <Filter>config\UI</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="img\Aluminium_Ore.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\Aluminium_Ore_UI.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\archer.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\archerFlip.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\bullet_red.bmp">
-      <Filter>img</Filter>
-    </Image>
     <Image Include="img\Chicken_leg.bmp">
       <Filter>img</Filter>
     </Image>
-    <Image Include="img\Chicken_UI.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\chicken_wing.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\credit.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\credits.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\cursor.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\EndGame_Screen.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\enemyBullet.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\Exit_Button.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\Fix_Electric_Task.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\Fix_Engine_Task.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\Fix_Front_Panel_Task.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\Fix_Fuel_Task.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\Fix_GPS_Task.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\Fix_Left_Wing_Task.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\Fix_Right_Wing_Task.bmp">
-      <Filter>img</Filter>
-    </Image>
     <Image Include="img\Game_Background.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\green.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\health_bar1.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\health_bar2.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\health_border.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\Iron_Ore.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\Iron_Ore_Ui.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\Mars_Menu_Logo.bmp">
       <Filter>img</Filter>
     </Image>
     <Image Include="img\Mars_Spaceship.bmp">
@@ -410,77 +371,122 @@
     <Image Include="img\Mars_Spaceship_Inside_FInal.bmp">
       <Filter>img</Filter>
     </Image>
-    <Image Include="img\Menu_Background.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\NiTe_logo1.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\orange.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\Pause_Button.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\Pause_Button.png">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\player_bullet.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\player1.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\player1_reversed.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\player2.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\player2_reversed.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\Proceed_Button.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\Start_Button.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\test.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\testRange.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\Titanium_Ore.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\Titanium_Ore_Ui.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\TitleImg1.bmp">
-      <Filter>img</Filter>
-    </Image>
     <Image Include="img\transparentBackground.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\tutorial.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\User_Interface.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\warrior.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\warriorFlip.bmp">
-      <Filter>img</Filter>
-    </Image>
-    <Image Include="img\Win_Screen.bmp">
       <Filter>img</Filter>
     </Image>
     <Image Include="img\vfx\ExplosionSpriteSheet.bmp">
       <Filter>img\vfx</Filter>
+    </Image>
+    <Image Include="img\Aluminium_Ore.bmp">
+      <Filter>img\ores</Filter>
+    </Image>
+    <Image Include="img\Aluminium_Ore_UI.bmp">
+      <Filter>img\ores</Filter>
+    </Image>
+    <Image Include="img\Chicken_UI.bmp">
+      <Filter>img\ores</Filter>
+    </Image>
+    <Image Include="img\Iron_Ore.bmp">
+      <Filter>img\ores</Filter>
+    </Image>
+    <Image Include="img\Iron_Ore_Ui.bmp">
+      <Filter>img\ores</Filter>
+    </Image>
+    <Image Include="img\Titanium_Ore.bmp">
+      <Filter>img\ores</Filter>
+    </Image>
+    <Image Include="img\Titanium_Ore_Ui.bmp">
+      <Filter>img\ores</Filter>
+    </Image>
+    <Image Include="img\player1.bmp">
+      <Filter>img\player</Filter>
+    </Image>
+    <Image Include="img\player1_reversed.bmp">
+      <Filter>img\player</Filter>
+    </Image>
+    <Image Include="img\player2.bmp">
+      <Filter>img\player</Filter>
+    </Image>
+    <Image Include="img\player2_reversed.bmp">
+      <Filter>img\player</Filter>
+    </Image>
+    <Image Include="img\Fix_Electric_Task.bmp">
+      <Filter>img\tasks</Filter>
+    </Image>
+    <Image Include="img\Fix_Engine_Task.bmp">
+      <Filter>img\tasks</Filter>
+    </Image>
+    <Image Include="img\Fix_Fuel_Task.bmp">
+      <Filter>img\tasks</Filter>
+    </Image>
+    <Image Include="img\Fix_Front_Panel_Task.bmp">
+      <Filter>img\tasks</Filter>
+    </Image>
+    <Image Include="img\Fix_GPS_Task.bmp">
+      <Filter>img\tasks</Filter>
+    </Image>
+    <Image Include="img\Fix_Left_Wing_Task.bmp">
+      <Filter>img\tasks</Filter>
+    </Image>
+    <Image Include="img\Fix_Right_Wing_Task.bmp">
+      <Filter>img\tasks</Filter>
+    </Image>
+    <Image Include="img\UI\health_bar1.bmp">
+      <Filter>img\UI</Filter>
+    </Image>
+    <Image Include="img\UI\health_bar2.bmp">
+      <Filter>img\UI</Filter>
+    </Image>
+    <Image Include="img\UI\health_border.bmp">
+      <Filter>img\UI</Filter>
+    </Image>
+    <Image Include="img\UI\User_Interface.bmp">
+      <Filter>img\UI</Filter>
+    </Image>
+    <Image Include="img\menu\credit.bmp">
+      <Filter>img\menu</Filter>
+    </Image>
+    <Image Include="img\menu\cursor.bmp">
+      <Filter>img\menu</Filter>
+    </Image>
+    <Image Include="img\menu\EndGame_Screen.bmp">
+      <Filter>img\menu</Filter>
+    </Image>
+    <Image Include="img\menu\Exit_Button.bmp">
+      <Filter>img\menu</Filter>
+    </Image>
+    <Image Include="img\menu\Mars_Menu_Logo.bmp">
+      <Filter>img\menu</Filter>
+    </Image>
+    <Image Include="img\menu\Menu_Background.bmp">
+      <Filter>img\menu</Filter>
+    </Image>
+    <Image Include="img\menu\Pause_Button.bmp">
+      <Filter>img\menu</Filter>
+    </Image>
+    <Image Include="img\menu\Proceed_Button.bmp">
+      <Filter>img\menu</Filter>
+    </Image>
+    <Image Include="img\menu\Start_Button.bmp">
+      <Filter>img\menu</Filter>
+    </Image>
+    <Image Include="img\menu\tutorial.bmp">
+      <Filter>img\menu</Filter>
+    </Image>
+    <Image Include="img\menu\Win_Screen.bmp">
+      <Filter>img\menu</Filter>
+    </Image>
+    <Image Include="img\enemy\enemyBullet.bmp">
+      <Filter>img\enemy</Filter>
+    </Image>
+    <Image Include="img\enemy\test.bmp">
+      <Filter>img\enemy</Filter>
+    </Image>
+    <Image Include="img\enemy\testRange.bmp">
+      <Filter>img\enemy</Filter>
+    </Image>
+    <Image Include="img\player\player_bullet.bmp">
+      <Filter>img\player</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>

@@ -1,3 +1,0 @@
-Rect: 2260 813 150 150
-Img: Fix_Engine_Task.bmp
-string: FIX_ENGINE

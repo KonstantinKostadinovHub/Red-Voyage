@@ -35,7 +35,8 @@ enum GAME_STATE
     GAME = 2, ///< GAME
     CREDITS = 3, ///< CREDITS
     EXIT = 4, ///< EXIT
-    ENDGAME = 5 ///< ENDGAME
+    ENDGAME = 5, ///< ENDGAME
+    TITLESCREEN = 6 //< TITLE SCREEN
 }; ///< Game state enumerator defining 5 game states to use
 
 struct coordinates

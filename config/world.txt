@@ -1,5 +1,4 @@
 Image: Game_Background.bmp
-Title_Screen: TitleImg1.bmp
 InsideSHip: Mars_Spaceship_Inside_FInal.bmp
 Cursor_Image: cursor.bmp
 Pause_Button: Pause_Button.bmp

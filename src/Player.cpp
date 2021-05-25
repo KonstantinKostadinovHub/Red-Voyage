@@ -18,7 +18,7 @@ void Player::init(SDL_Renderer* renderer, string configFile)
 {
     m_healthBar = new HealthBar();
 
-    m_configFile = "config\\" + configFile;
+    m_configFile = "config\\player\\" + configFile;
     fstream stream;
     string tmp, m_flipImg;
 

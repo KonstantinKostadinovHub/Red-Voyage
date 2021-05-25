@@ -1,0 +1,10 @@
+size: 16 12
+
+speed: 20
+
+damage: 15
+
+img: player_bullet.bmp
+
+health: 1
+

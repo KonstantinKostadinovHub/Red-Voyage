@@ -19,7 +19,7 @@ void Endgame::init(string config)
     /// Getting the values of some variables from a configuration file and doing some basic math to give values to others.
     fstream stream;
     string tmp;
-    stream.open("config\\" + config);
+    stream.open("config\\menu\\" + config);
     stream >> tmp >> m_winImage;
     stream >> tmp >> m_lossImage;
     stream >> tmp >> m_poceedImage >> m_proceed_button.w >> m_proceed_button.h;
@@ -30,6 +30,10 @@ void Endgame::init(string config)
     m_proceed_button.y = (1920 - m_proceed_button.h)/2;
 
     m_start_proceed_button = m_proceed_button;
+
+    m_winImage = "\\menu\\" + m_winImage;
+    m_lossImage = "\\menu\\" + m_lossImage;
+    m_poceedImage = "\\menu\\" + m_poceedImage;
 
     m_win_texture = LoadTexture(m_winImage, world.m_main_renderer);
     m_loss_texture = LoadTexture(m_lossImage, world.m_main_renderer);
