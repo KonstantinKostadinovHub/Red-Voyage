@@ -29,6 +29,7 @@
 #include "Credits.h"
 #include "VisualEffect.h"
 #include "Helper.h"
+#include "PowerUp.h"
 
 using namespace std;
 
@@ -114,6 +115,7 @@ class World
 		vector <Task*> m_tasks;
 		vector <Ore*> m_ores;
 		vector <VisualEffect*> m_vfxs;
+		vector <PowerUp*> m_powerUps;
 
         line m_door;
 

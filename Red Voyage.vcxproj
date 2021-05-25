@@ -155,6 +155,7 @@
     <ClCompile Include="src\Menu.cpp" />
     <ClCompile Include="src\Ore.cpp" />
     <ClCompile Include="src\Player.cpp" />
+    <ClCompile Include="src\PowerUp.cpp" />
     <ClCompile Include="src\SoundManager.cpp" />
     <ClCompile Include="src\Task.cpp" />
     <ClCompile Include="src\Tutorial.cpp" />
@@ -184,6 +185,7 @@
     <ClInclude Include="include\Menu.h" />
     <ClInclude Include="include\Ore.h" />
     <ClInclude Include="include\Player.h" />
+    <ClInclude Include="include\PowerUp.h" />
     <ClInclude Include="include\SoundManager.h" />
     <ClInclude Include="include\Task.h" />
     <ClInclude Include="include\Tutorial.h" />

@@ -229,6 +229,11 @@ void World::update()
         m_food_spawner.update_kitchen();
 
         shoot();
+		
+		for (int i = 0; i < m_powerUps.size(); i++)
+		{
+			m_powerUps[i]->update();
+		}
 
         m_userInterface.update();
 
@@ -286,7 +291,6 @@ void World::draw()
 
     for (auto enemy: m_enemies) {
         enemy->draw();
-		m_helper->drawCollision(enemy->m_objectRect);
     }
 
     for(int i = 0; i < m_bullets.size(); i ++)
@@ -343,7 +347,6 @@ void World::draw()
 			m_helper->drawCollision(m_vfxs[i]->m_objectRect);
 		}
 	}
-
 
     m_userInterface.draw();
 
