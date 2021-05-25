@@ -62,94 +62,97 @@
     <Filter Include="config\UI">
       <UniqueIdentifier>{44db253d-453b-404c-b76c-eadbf3639648}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{7a412503-8b4a-4b97-82ab-6181fa07538f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Animator.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Bullet.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Camera.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\ChickenWing.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\ConfigManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Credits.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Endgame.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Enemy.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\EnemyBullet.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\EnemyShooter.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Food.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Generator.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Gun.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\HealthBar.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Menu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Ore.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Player.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SoundManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Task.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Tutorial.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UIObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\World.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\VisualEffect.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Helper.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Menu.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ore.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Player.cpp">
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\PowerUp.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SoundManager.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Task.cpp">
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\TitleScreen.cpp">
-      <Filter>Header Files\Source Files</Filter>
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tutorial.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UI.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UIObject.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\VisualEffect.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\World.cpp">
+      <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
