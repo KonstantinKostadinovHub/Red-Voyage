@@ -1,4 +1,5 @@
 #include "ConfigManager.h"
+
 #include "World.h"
 extern World world;
 
@@ -52,6 +53,9 @@ void ConfigManager::init(string configFile)
 
 	stream >> tmp;
 	m_dust.init(tmp);
+
+    stream >> tmp;
+    m_chickenBuff.init(tmp);
 
     stream.close();
 }

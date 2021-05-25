@@ -9,6 +9,7 @@
 #include "EnemyShooter.h"
 #include "EnemyBullet.h"
 #include "VisualEffect.h"
+#include "ChickenBuff.h"
 
 using namespace std;
 /// \brief Creates models of all the objects that are later used in the session
@@ -33,6 +34,8 @@ class ConfigManager
 
 		VisualEffect m_bulletExplosion;
 		VisualEffect m_dust;
+
+        ChickenBuff m_chickenBuff;
 
         void init(string configFile); ///<Initializating function
 

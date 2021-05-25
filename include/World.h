@@ -93,6 +93,7 @@ class World
         bool m_mouseIsPressed;
         bool m_mouseIsDoubleClicked;
         bool m_isPaused;
+
         SDL_Event m_event;
 
         Endgame endgame;
@@ -123,6 +124,8 @@ class World
 
         bool m_quitScene;
         bool m_endGame;
+        bool m_drag;
+
         GAME_STATE m_gameState;
 
 		string m_backgroundImg = " ";

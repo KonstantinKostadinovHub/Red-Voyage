@@ -95,6 +95,15 @@
     <Filter Include="Header Files\UI">
       <UniqueIdentifier>{6d182369-4179-4e6d-9f95-539b3f399cf0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\PowerUps">
+      <UniqueIdentifier>{ccb5ec65-e77a-4644-9691-3d8287605594}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\PowerUps">
+      <UniqueIdentifier>{c8d7b817-c0e7-4fbe-8673-ee0933b0c355}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\powerUps">
+      <UniqueIdentifier>{b55b9027-fd9c-4005-b183-fe6dcdf889d0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ChickenWing.cpp">
@@ -142,9 +151,6 @@
     <ClCompile Include="src\Helper.cpp">
       <Filter>src\Main</Filter>
     </ClCompile>
-    <ClCompile Include="src\PowerUp.cpp">
-      <Filter>src\Main</Filter>
-    </ClCompile>
     <ClCompile Include="src\SoundManager.cpp">
       <Filter>src\Main</Filter>
     </ClCompile>
@@ -184,6 +190,12 @@
     <ClCompile Include="src\Tutorial.cpp">
       <Filter>src\Menu</Filter>
     </ClCompile>
+    <ClCompile Include="src\PowerUp.cpp">
+      <Filter>src\PowerUps</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ChickenBuff.cpp">
+      <Filter>src\PowerUps</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\ChickenWing.h">
@@ -217,9 +229,6 @@
       <Filter>Header Files\Main</Filter>
     </ClInclude>
     <ClInclude Include="include\Helper.h">
-      <Filter>Header Files\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="include\PowerUp.h">
       <Filter>Header Files\Main</Filter>
     </ClInclude>
     <ClInclude Include="include\SoundManager.h">
@@ -272,6 +281,12 @@
     </ClInclude>
     <ClInclude Include="include\HealthBar.h">
       <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PowerUp.h">
+      <Filter>Header Files\PowerUps</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ChickenBuff.h">
+      <Filter>Header Files\PowerUps</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -388,6 +403,9 @@
     </Text>
     <Text Include="dust.txt">
       <Filter>config\vfx</Filter>
+    </Text>
+    <Text Include="config\chickenBuff.txt">
+      <Filter>config\powerUps</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>

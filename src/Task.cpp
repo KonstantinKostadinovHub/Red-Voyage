@@ -20,7 +20,7 @@ Task::Task(const Task& model, int m_iron, int m_titanium, int m_aluminium)
     hasIron = false;
     hasAluminium = false;
 
-	m_fontSize = 32;
+	m_fontSize = model.m_fontSize;
 
 	m_ironNumberRect = model.m_ironNumberRect;
 	m_aluminiumNumberRect = model.m_aluminiumNumberRect;
@@ -33,6 +33,7 @@ Task::Task(const Task& model, int m_iron, int m_titanium, int m_aluminium)
 
     pair<SDL_Texture*, SDL_Rect> myPair = writeRed(tmp, coor, world.m_main_renderer, m_fontSize);
 
+    m_ironNumber = myPair.first;
     m_ironNumberRect = myPair.second;
 
 	coor.x = m_aluminiumNumberRect.x;
@@ -42,6 +43,7 @@ Task::Task(const Task& model, int m_iron, int m_titanium, int m_aluminium)
 
     myPair = writeRed(tmp, coor, world.m_main_renderer, m_fontSize);
 
+    m_aluminiumNumber = myPair.first;
     m_aluminiumNumberRect = myPair.second;
 
     coor.x = m_titaniumNumberRect.x;
@@ -50,6 +52,7 @@ Task::Task(const Task& model, int m_iron, int m_titanium, int m_aluminium)
 
     myPair = writeRed(tmp, coor, world.m_main_renderer, m_fontSize);
 
+    m_titaniumNumber = myPair.first;
     m_titaniumNumberRect = myPair.second;
 
     m_doneTask = false;
@@ -98,7 +101,10 @@ void Task::init(string configFile)
 
     tmp = to_string(m_ironNeeded);
 
+    m_fontSize = 32;
+
     pair<SDL_Texture*, SDL_Rect> myPair = writeRed(tmp, coor, world.m_main_renderer, m_fontSize);
+
 
     m_ironNumber = myPair.first;
     m_ironNumberRect = myPair.second;
