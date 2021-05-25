@@ -74,45 +74,27 @@
     <Filter Include="src\UI">
       <UniqueIdentifier>{e8835a82-bbaa-4a7e-afdf-a2be0d57c453}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Player">
+      <UniqueIdentifier>{2aa263c5-4c2f-40ea-8cdc-4227bafc7d58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Menu">
+      <UniqueIdentifier>{6d84e8a8-08ae-41ea-881b-b2be5525f740}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Bullet.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\ChickenWing.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Credits.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Endgame.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Food.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Gun.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Menu.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Ore.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Player.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\Task.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\TitleScreen.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Tutorial.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Animator.cpp">
@@ -162,6 +144,30 @@
     </ClCompile>
     <ClCompile Include="src\VisualEffect.cpp">
       <Filter>src\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Bullet.cpp">
+      <Filter>src\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Gun.cpp">
+      <Filter>src\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Player.cpp">
+      <Filter>src\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Credits.cpp">
+      <Filter>src\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Endgame.cpp">
+      <Filter>src\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Menu.cpp">
+      <Filter>src\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TitleScreen.cpp">
+      <Filter>src\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tutorial.cpp">
+      <Filter>src\Menu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
