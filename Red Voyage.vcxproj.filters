@@ -65,48 +65,27 @@
     <Filter Include="src">
       <UniqueIdentifier>{7a412503-8b4a-4b97-82ab-6181fa07538f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Menu">
-      <UniqueIdentifier>{506a077f-a5d7-4936-8725-20a827b176c5}</UniqueIdentifier>
+    <Filter Include="src\Main">
+      <UniqueIdentifier>{a62d4199-3df3-42ee-86bb-7176263840f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Enemy">
+      <UniqueIdentifier>{1bf1de3b-b957-407b-9799-eef75a469e02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\UI">
+      <UniqueIdentifier>{e8835a82-bbaa-4a7e-afdf-a2be0d57c453}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Player">
-      <UniqueIdentifier>{75ac20ee-d6e5-4e94-90d7-49c7599e95f2}</UniqueIdentifier>
+      <UniqueIdentifier>{2aa263c5-4c2f-40ea-8cdc-4227bafc7d58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Menu">
+      <UniqueIdentifier>{6d84e8a8-08ae-41ea-881b-b2be5525f740}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Animator.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Camera.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\ChickenWing.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\ConfigManager.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Enemy.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\EnemyBullet.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\EnemyShooter.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\Food.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Generator.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\HealthBar.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Helper.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
@@ -115,26 +94,80 @@
     <ClCompile Include="src\Ore.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\PowerUp.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SoundManager.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\Task.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Animator.cpp">
+      <Filter>src\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera.cpp">
+      <Filter>src\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ConfigManager.cpp">
+      <Filter>src\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Enemy.cpp">
+      <Filter>src\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EnemyBullet.cpp">
+      <Filter>src\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EnemyShooter.cpp">
+      <Filter>src\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine.cpp">
+      <Filter>src\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Generator.cpp">
+      <Filter>src\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HealthBar.cpp">
+      <Filter>src\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Helper.cpp">
+      <Filter>src\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PowerUp.cpp">
+      <Filter>src\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SoundManager.cpp">
+      <Filter>src\Main</Filter>
+    </ClCompile>
     <ClCompile Include="src\UI.cpp">
-      <Filter>src</Filter>
+      <Filter>src\UI</Filter>
     </ClCompile>
     <ClCompile Include="src\UIObject.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\VisualEffect.cpp">
-      <Filter>src</Filter>
+      <Filter>src\UI</Filter>
     </ClCompile>
     <ClCompile Include="src\World.cpp">
-      <Filter>src</Filter>
+      <Filter>src\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\VisualEffect.cpp">
+      <Filter>src\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Bullet.cpp">
+      <Filter>src\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Gun.cpp">
+      <Filter>src\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Player.cpp">
+      <Filter>src\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Credits.cpp">
+      <Filter>src\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Endgame.cpp">
+      <Filter>src\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Menu.cpp">
+      <Filter>src\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TitleScreen.cpp">
+      <Filter>src\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tutorial.cpp">
+      <Filter>src\Menu</Filter>
     </ClCompile>
     <ClCompile Include="src\Bullet.cpp">
       <Filter>src\Player</Filter>
