@@ -169,30 +169,6 @@
     <ClCompile Include="src\Tutorial.cpp">
       <Filter>src\Menu</Filter>
     </ClCompile>
-    <ClCompile Include="src\Bullet.cpp">
-      <Filter>src\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Credits.cpp">
-      <Filter>src\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Endgame.cpp">
-      <Filter>src\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Gun.cpp">
-      <Filter>src\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Menu.cpp">
-      <Filter>src\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Player.cpp">
-      <Filter>src\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="src\TitleScreen.cpp">
-      <Filter>src\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Tutorial.cpp">
-      <Filter>src\Menu</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Animator.h">
