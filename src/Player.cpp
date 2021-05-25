@@ -99,7 +99,7 @@ void Player::init(SDL_Renderer* renderer, string configFile)
     }
 
     m_gun = new Gun;
-    m_gun -> init(100);
+    m_gun -> init(200);
 
     m_elapsed_engage = chrono::high_resolution_clock::now();
     m_engagementRate = chrono::milliseconds(m_shootCooldown);
