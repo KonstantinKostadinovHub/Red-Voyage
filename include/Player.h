@@ -86,7 +86,10 @@ public:
     chrono::high_resolution_clock::time_point m_elapsed_engage;
     chrono::duration<float> m_engagementRate;
 
-    Gun* m_gun;
+	time_t m_lastDustEffect; //< Remember when we last spawned a dust effect
+	unsigned short m_timeBetweenDustEffects; //< How much time should we wait before we spawn a dust effect
+
+    Gun* m_gun; //< The point from where the player shoots
 
     SDL_Texture* playerTexture;
     SDL_Texture* flipTexture;

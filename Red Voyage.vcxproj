@@ -232,6 +232,7 @@
     <Text Include="config\vfx\bulletExplosion.txt" />
     <Text Include="config\world.txt" />
     <Text Include="data\tutorial.txt" />
+    <Text Include="dust.txt" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="img\Aluminium_Ore.bmp" />

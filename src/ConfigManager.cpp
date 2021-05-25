@@ -45,5 +45,8 @@ void ConfigManager::init(string configFile)
 	stream >> tmp;
 	m_bulletExplosion.init(tmp);
 
+	stream >> tmp;
+	m_dust.init(tmp);
+
     stream.close();
 }
