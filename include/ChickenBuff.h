@@ -11,6 +11,12 @@
 
 using namespace std;
 
+/*! \brief Class that heal the player
+* 
+	We add health to the player if there is a collision with chicken wing.
+	We set the duration and the heal per second
+*/
+
 class ChickenBuff : public PowerUp
 {
 public:

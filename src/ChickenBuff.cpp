@@ -39,6 +39,10 @@ void ChickenBuff::init(string configFile)
 
 bool ChickenBuff::checkForApply()
 {
+    /* Calculate if the duration is expired and if it is we can add health.
+    *  Then we set the last health added to be now.
+    */
+
     if (time(NULL) - m_lastHealthAdded > 0)
     {
         if (time(NULL) - m_startEffect >= duration)
@@ -58,6 +62,9 @@ bool ChickenBuff::checkForApply()
 
 void ChickenBuff::applyEffect()
 {
+    /* If checkForApply is true, we apply the effect;
+    */
+
     if (m_applyEffect)
     {
         player->m_health += healPerSecond;
