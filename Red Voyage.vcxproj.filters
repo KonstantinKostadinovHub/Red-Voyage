@@ -95,8 +95,14 @@
     <Filter Include="Header Files\UI">
       <UniqueIdentifier>{6d182369-4179-4e6d-9f95-539b3f399cf0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="config\main">
-      <UniqueIdentifier>{8ceb97a9-a202-4998-8ac0-96269244d442}</UniqueIdentifier>
+    <Filter Include="src\PowerUps">
+      <UniqueIdentifier>{ccb5ec65-e77a-4644-9691-3d8287605594}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\PowerUps">
+      <UniqueIdentifier>{c8d7b817-c0e7-4fbe-8673-ee0933b0c355}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\powerUps">
+      <UniqueIdentifier>{b55b9027-fd9c-4005-b183-fe6dcdf889d0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -145,9 +151,6 @@
     <ClCompile Include="src\Helper.cpp">
       <Filter>src\Main</Filter>
     </ClCompile>
-    <ClCompile Include="src\PowerUp.cpp">
-      <Filter>src\Main</Filter>
-    </ClCompile>
     <ClCompile Include="src\SoundManager.cpp">
       <Filter>src\Main</Filter>
     </ClCompile>
@@ -187,8 +190,11 @@
     <ClCompile Include="src\Tutorial.cpp">
       <Filter>src\Menu</Filter>
     </ClCompile>
-    <ClCompile Include="src\Saver.cpp">
-      <Filter>src\Main</Filter>
+    <ClCompile Include="src\PowerUp.cpp">
+      <Filter>src\PowerUps</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ChickenBuff.cpp">
+      <Filter>src\PowerUps</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -223,9 +229,6 @@
       <Filter>Header Files\Main</Filter>
     </ClInclude>
     <ClInclude Include="include\Helper.h">
-      <Filter>Header Files\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="include\PowerUp.h">
       <Filter>Header Files\Main</Filter>
     </ClInclude>
     <ClInclude Include="include\SoundManager.h">
@@ -279,15 +282,33 @@
     <ClInclude Include="include\HealthBar.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
-    <ClInclude Include="include\Saver.h">
-      <Filter>Header Files\Main</Filter>
+    <ClInclude Include="include\PowerUp.h">
+      <Filter>Header Files\PowerUps</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ChickenBuff.h">
+      <Filter>Header Files\PowerUps</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <Text Include="config\collpoints.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\configManager.txt">
+      <Filter>config</Filter>
+    </Text>
     <Text Include="config\food.txt">
       <Filter>config</Filter>
     </Text>
     <Text Include="config\food_object.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\generator.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\soundManager.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\world.txt">
       <Filter>config</Filter>
     </Text>
     <Text Include="data\tutorial.txt">
@@ -383,20 +404,8 @@
     <Text Include="dust.txt">
       <Filter>config\vfx</Filter>
     </Text>
-    <Text Include="config\collpoints.txt">
-      <Filter>config\main</Filter>
-    </Text>
-    <Text Include="config\configManager.txt">
-      <Filter>config\main</Filter>
-    </Text>
-    <Text Include="config\generator.txt">
-      <Filter>config\main</Filter>
-    </Text>
-    <Text Include="config\soundManager.txt">
-      <Filter>config\main</Filter>
-    </Text>
-    <Text Include="config\world.txt">
-      <Filter>config\main</Filter>
+    <Text Include="config\chickenBuff.txt">
+      <Filter>config\powerUps</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>

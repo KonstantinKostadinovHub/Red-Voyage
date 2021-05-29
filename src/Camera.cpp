@@ -1,6 +1,7 @@
 #include "Camera.h"
 #include"World.h"
 extern World world;
+
 Camera::Camera()
 {
     //ctor

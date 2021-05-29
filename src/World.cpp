@@ -5,7 +5,6 @@
 
 using namespace std;
 
-
 World::World()
 {
     m_endGame = false;
@@ -127,10 +126,22 @@ void World::initSession()
 
 	if (m_helper->MAX_ORES)
 	{
-		m_ironCollected = 110;
-		m_aluminiumCollected = 110;
-		m_titaniumCollected = 110;
+		m_ironCollected = 100;
+		m_aluminiumCollected = 100;
+		m_titaniumCollected = 100;
 	}
+}
+
+void startDrag(void* input)
+{
+    World* world = (World*)input;
+    world->m_drag = true;
+}
+
+void stopDrag(void* input)
+{
+    World* world = (World*)input;
+    world->m_drag = false;
 }
 
 void World::input()
@@ -595,6 +606,16 @@ void World::cleaner()
 			i--;
 		}
 	}
+
+    for (short i = 0; i < m_powerUps.size(); i++)
+    {
+        if (m_powerUps[i]->m_destroyEffect)
+        {
+            delete m_powerUps[i];
+            m_powerUps.erase(m_powerUps.begin() + i);
+            i--;
+        }
+    }
 }
 
 void World::deleteSession()
@@ -649,6 +670,12 @@ void World::deleteSession()
         delete m_vfxs[i];
     }
     m_vfxs.clear();
+
+    for (int i = 0; i < m_powerUps.size(); i++)
+    {
+        delete m_powerUps[i];
+    }
+    m_powerUps.clear();
 
     m_ironCollected = 0;
     m_chickenCollected = 0;
@@ -718,12 +745,19 @@ void World::collision()
                 if (collRectRect(chicken_wings[i]->wing_rect, m_players[j]->m_objRect)) {
 
                     m_soundManager->play("Food.mp3");
-                    m_players[j]->m_health += chicken_wings[i]->regen_amount;
                     m_chickenCollected++;
+
+                    ChickenBuff* chickenBuff = new ChickenBuff(&(m_configManager.m_chickenBuff));
+                    chickenBuff->player = m_players[j];
+                    m_powerUps.push_back(chickenBuff);
 
                     delete chicken_wings[i];
                     chicken_wings[i] = nullptr;
                     break;
+                }
+                else
+                {
+                    m_chickenCollected = false;
                 }
             }
         }
