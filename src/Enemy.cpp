@@ -144,7 +144,7 @@ void Enemy::engage() {
     /*
     * Chooses a player target for the enemy.
     */
-    int closest = world.m_SCREEN_WIDTH * world.m_SCREEN_WIDTH + world.m_SCREEN_HEIGHT * world.m_SCREEN_HEIGHT;
+    int closest = INT_MAX;
     int current;
 
     m_engagementIndex = -1;

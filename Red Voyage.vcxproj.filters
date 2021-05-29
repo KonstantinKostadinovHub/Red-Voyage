@@ -95,6 +95,9 @@
     <Filter Include="Header Files\UI">
       <UniqueIdentifier>{6d182369-4179-4e6d-9f95-539b3f399cf0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="config\main">
+      <UniqueIdentifier>{8ceb97a9-a202-4998-8ac0-96269244d442}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ChickenWing.cpp">
@@ -183,6 +186,9 @@
     </ClCompile>
     <ClCompile Include="src\Tutorial.cpp">
       <Filter>src\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Saver.cpp">
+      <Filter>src\Main</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -273,27 +279,15 @@
     <ClInclude Include="include\HealthBar.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
+    <ClInclude Include="include\Saver.h">
+      <Filter>Header Files\Main</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="config\collpoints.txt">
-      <Filter>config</Filter>
-    </Text>
-    <Text Include="config\configManager.txt">
-      <Filter>config</Filter>
-    </Text>
     <Text Include="config\food.txt">
       <Filter>config</Filter>
     </Text>
     <Text Include="config\food_object.txt">
-      <Filter>config</Filter>
-    </Text>
-    <Text Include="config\generator.txt">
-      <Filter>config</Filter>
-    </Text>
-    <Text Include="config\soundManager.txt">
-      <Filter>config</Filter>
-    </Text>
-    <Text Include="config\world.txt">
       <Filter>config</Filter>
     </Text>
     <Text Include="data\tutorial.txt">
@@ -388,6 +382,21 @@
     </Text>
     <Text Include="dust.txt">
       <Filter>config\vfx</Filter>
+    </Text>
+    <Text Include="config\collpoints.txt">
+      <Filter>config\main</Filter>
+    </Text>
+    <Text Include="config\configManager.txt">
+      <Filter>config\main</Filter>
+    </Text>
+    <Text Include="config\generator.txt">
+      <Filter>config\main</Filter>
+    </Text>
+    <Text Include="config\soundManager.txt">
+      <Filter>config\main</Filter>
+    </Text>
+    <Text Include="config\world.txt">
+      <Filter>config\main</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>
