@@ -157,6 +157,7 @@
     <ClCompile Include="src\Ore.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\PowerUp.cpp" />
+    <ClCompile Include="src\Saver.cpp" />
     <ClCompile Include="src\SoundManager.cpp" />
     <ClCompile Include="src\Task.cpp" />
     <ClCompile Include="src\TitleScreen.cpp" />
@@ -189,6 +190,7 @@
     <ClInclude Include="include\Ore.h" />
     <ClInclude Include="include\Player.h" />
     <ClInclude Include="include\PowerUp.h" />
+    <ClInclude Include="include\Saver.h" />
     <ClInclude Include="include\SoundManager.h" />
     <ClInclude Include="include\Task.h" />
     <ClInclude Include="include\TitleScreen.h" />
