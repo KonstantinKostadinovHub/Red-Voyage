@@ -64,7 +64,7 @@ void SoundManager::play(string sound)
 
     if(sound == Background_Music_str)
     {
-        Mix_PlayChannel(1, Background_Music, 1000000000);
+        Mix_PlayChannel(1, Background_Music, INT_MAX);
         Mix_Volume(1, 50);
     }
     else if(sound == Button_Click_str)

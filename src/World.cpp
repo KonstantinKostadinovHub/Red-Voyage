@@ -122,7 +122,7 @@ void World::initSession()
 
     m_generator.m_lastTaskCreation = chrono::steady_clock::now();
 
-	m_helper = new Helper(&m_players, m_main_renderer, &(m_camera.zoom_lvl), &(m_camera.camera_rect));
+	m_helper = new Helper(&m_players, m_main_renderer, &(m_camera.zoom_lvl), &(m_camera.camera_rect), &m_bullets);
 
 	if (m_helper->MAX_ORES)
 	{
@@ -207,7 +207,7 @@ void World::update()
 		m_helper->update();
 
         m_generator.generateOre();  
-        m_generator.generateEnemy();
+        m_generator.generateEnemy(); 
         m_generator.generateTask();
 
         m_animator.updateFrames();
