@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Red Voyage: D:/Desktop/Creations/Programming/Red_Voyage_VS/src/SoundManager.cpp Source File</title>
+<title>Red Voyage: src/SoundManager.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,12 +20,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="Mars_Menu_Logo.bmp"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Red Voyage
-   &#160;<span id="projectnumber">Alpha (KGJ 2021 Release</span>
    </div>
-   <div id="projectbrief">Survive on Mars with your friends</div>
   </td>
  </tr>
  </tbody>
@@ -127,127 +124,134 @@ $(function() {
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
 <div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="class_sound_manager.html#a8f8463168250014840e966bd326e249b">   54</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_sound_manager.html#a8f8463168250014840e966bd326e249b">SoundManager::play</a>(<span class="keywordtype">string</span> sound)</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    Mix_AllocateChannels(16);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">if</span>(sound == <a class="code" href="class_sound_manager.html#a513ec44f4019ee18a735cbc5057240de">Background_Music_str</a>)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        Mix_PlayChannel(1, <a class="code" href="class_sound_manager.html#a1cb312151c818ea12c5daba3dcf21f87">Background_Music</a>, 100000000);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        Mix_Volume(1, 50);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(sound == <a class="code" href="class_sound_manager.html#a70a193573071c612c688b2080eb3bbf5">Button_Click_str</a>)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        Mix_PlayChannel(2, <a class="code" href="class_sound_manager.html#a67d6c7261cfe816dc1733ce3a8158078">Button_Click</a>, 0);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        Mix_Volume(2, 50);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(sound == <a class="code" href="class_sound_manager.html#a8752374ad1e7a8ddfcb5710ca27d8ae1">Finished_Task_str</a>)</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        Mix_PlayChannel(3, <a class="code" href="class_sound_manager.html#a7ce975c7e8c56433f185d02604525d60">Finished_Task</a>, 0);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        Mix_Volume(3, 50);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(sound == <a class="code" href="class_sound_manager.html#acb8fd19e16dc7f22b91a4eff6913fa35">Mine_str</a>)</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        Mix_PlayChannel(4, <a class="code" href="class_sound_manager.html#af0d58b37ded380eb54b3b8ffcf032e3e">Mine</a>, 0);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        Mix_Volume(4, 50);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    }</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(sound == <a class="code" href="class_sound_manager.html#a3f652d76655446aee5abcfbd76c98f53">Show_task_str</a>)</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    {</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        Mix_PlayChannel(5, <a class="code" href="class_sound_manager.html#a696bb41d38c3e5d80fe50cd4c0719bad">Show_task</a>, 0);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        Mix_Volume(5, 50);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(sound == <a class="code" href="class_sound_manager.html#a2d5ac320ef6a8d336c3cdae3e8dfd476">Shoot_str</a>)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        Mix_PlayChannel(6, <a class="code" href="class_sound_manager.html#a460d2e4497e09e875d394bb204fed106">Shoot</a>, 0);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        Mix_Volume(6, 50);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(sound == <a class="code" href="class_sound_manager.html#ad7ecfc7a3abaff4cfdce5aba1c7cf096">Enemy_Death_str</a>)</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        Mix_PlayChannel(7, <a class="code" href="class_sound_manager.html#afa78b7244127dcb3ddc962553e0cf23d">Enemy_Death</a>, 0);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        Mix_Volume(7, 50);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    }</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(sound == <a class="code" href="class_sound_manager.html#a46c15f46c943c10f95bcd20451ac6e8f">Food_str</a>)</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    {</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        Mix_PlayChannel(8, <a class="code" href="class_food.html">Food</a>, 0);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        Mix_Volume(8, 50);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(sound == <a class="code" href="class_sound_manager.html#aea88aa7b95cc91832eb4e1221b34cd85">Lose_str</a>)</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    {</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        Mix_PlayChannel(9, <a class="code" href="class_sound_manager.html#a9659981257daca30986f7c6261e02f4e">Lose</a>, 0);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        Mix_Volume(9, 50);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    }</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(sound == <a class="code" href="class_sound_manager.html#aee4fb599d482c77af5b1d8ab0efc7e80">Player_Death_str</a>)</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    {</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        Mix_PlayChannel(10, <a class="code" href="class_sound_manager.html#a69ac7efafdecf0be1fe4d049e294a206">Player_Death</a>, 0);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        Mix_Volume(10, 50);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    }</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(sound == <a class="code" href="class_sound_manager.html#a11937a13506bddcfdf1ac479a0923df7">Win_str</a>)</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    {</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        Mix_PlayChannel(11, <a class="code" href="class_sound_manager.html#ab8d38ee1e225a3a7827c6b816f95310f">Win</a>, 0);</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        Mix_Volume(11, 60);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    }</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
-<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="class_sound_manager.html#abdaa6eae164653f441add09f093d94d2">  115</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_sound_manager.html#abdaa6eae164653f441add09f093d94d2">SoundManager::destroyChunks</a>()</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;{</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    Mix_FreeChunk(<a class="code" href="class_sound_manager.html#a1cb312151c818ea12c5daba3dcf21f87">Background_Music</a>);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <a class="code" href="class_sound_manager.html#a1cb312151c818ea12c5daba3dcf21f87">Background_Music</a> = NULL;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    Mix_FreeChunk(<a class="code" href="class_sound_manager.html#a67d6c7261cfe816dc1733ce3a8158078">Button_Click</a>);</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <a class="code" href="class_sound_manager.html#a67d6c7261cfe816dc1733ce3a8158078">Button_Click</a> = NULL;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    Mix_FreeChunk(<a class="code" href="class_sound_manager.html#a7ce975c7e8c56433f185d02604525d60">Finished_Task</a>);</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <a class="code" href="class_sound_manager.html#a7ce975c7e8c56433f185d02604525d60">Finished_Task</a> = NULL;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    Mix_FreeChunk(<a class="code" href="class_food.html">Food</a>);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <a class="code" href="class_food.html">Food</a> = NULL;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    Mix_FreeChunk(<a class="code" href="class_sound_manager.html#a9659981257daca30986f7c6261e02f4e">Lose</a>);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <a class="code" href="class_sound_manager.html#a9659981257daca30986f7c6261e02f4e">Lose</a> = NULL;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    Mix_FreeChunk(<a class="code" href="class_sound_manager.html#a69ac7efafdecf0be1fe4d049e294a206">Player_Death</a>);</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <a class="code" href="class_sound_manager.html#a69ac7efafdecf0be1fe4d049e294a206">Player_Death</a> = NULL;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    Mix_FreeChunk(<a class="code" href="class_sound_manager.html#afa78b7244127dcb3ddc962553e0cf23d">Enemy_Death</a>);</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <a class="code" href="class_sound_manager.html#afa78b7244127dcb3ddc962553e0cf23d">Enemy_Death</a> = NULL;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    Mix_FreeChunk(<a class="code" href="class_sound_manager.html#ab8d38ee1e225a3a7827c6b816f95310f">Win</a>);</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <a class="code" href="class_sound_manager.html#ab8d38ee1e225a3a7827c6b816f95310f">Win</a> = NULL;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    Mix_FreeChunk(<a class="code" href="class_sound_manager.html#a460d2e4497e09e875d394bb204fed106">Shoot</a>);</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <a class="code" href="class_sound_manager.html#a460d2e4497e09e875d394bb204fed106">Shoot</a> = NULL;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    Mix_FreeChunk(<a class="code" href="class_sound_manager.html#a696bb41d38c3e5d80fe50cd4c0719bad">Show_task</a>);</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <a class="code" href="class_sound_manager.html#a696bb41d38c3e5d80fe50cd4c0719bad">Show_task</a> = NULL;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    Mix_FreeChunk(<a class="code" href="class_sound_manager.html#af0d58b37ded380eb54b3b8ffcf032e3e">Mine</a>);</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <a class="code" href="class_sound_manager.html#af0d58b37ded380eb54b3b8ffcf032e3e">Mine</a> = NULL;</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;}</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">/*  We set aside channels from which later we can play sound.</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">    * </span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">    *   </span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">    *    We check which sound we have and then load it. Set on which channel we want to play it and how many times to repeat.</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">    *   Then we set volume to the channel we want.</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">    */</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    Mix_AllocateChannels(12);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">if</span>(sound == <a class="code" href="class_sound_manager.html#a513ec44f4019ee18a735cbc5057240de">Background_Music_str</a>)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        Mix_PlayChannel(1, <a class="code" href="class_sound_manager.html#a1cb312151c818ea12c5daba3dcf21f87">Background_Music</a>, 1000000000);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        Mix_Volume(1, 50);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(sound == <a class="code" href="class_sound_manager.html#a70a193573071c612c688b2080eb3bbf5">Button_Click_str</a>)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        Mix_PlayChannel(2, <a class="code" href="class_sound_manager.html#a67d6c7261cfe816dc1733ce3a8158078">Button_Click</a>, 0);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        Mix_Volume(2, 50);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(sound == <a class="code" href="class_sound_manager.html#a8752374ad1e7a8ddfcb5710ca27d8ae1">Finished_Task_str</a>)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        Mix_PlayChannel(3, <a class="code" href="class_sound_manager.html#a7ce975c7e8c56433f185d02604525d60">Finished_Task</a>, 0);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        Mix_Volume(3, 50);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(sound == <a class="code" href="class_sound_manager.html#acb8fd19e16dc7f22b91a4eff6913fa35">Mine_str</a>)</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        Mix_PlayChannel(4, <a class="code" href="class_sound_manager.html#af0d58b37ded380eb54b3b8ffcf032e3e">Mine</a>, 0);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        Mix_Volume(4, 50);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(sound == <a class="code" href="class_sound_manager.html#a3f652d76655446aee5abcfbd76c98f53">Show_task_str</a>)</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        Mix_PlayChannel(5, <a class="code" href="class_sound_manager.html#a696bb41d38c3e5d80fe50cd4c0719bad">Show_task</a>, 0);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        Mix_Volume(5, 50);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(sound == <a class="code" href="class_sound_manager.html#a2d5ac320ef6a8d336c3cdae3e8dfd476">Shoot_str</a>)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    {</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        Mix_PlayChannel(6, <a class="code" href="class_sound_manager.html#a460d2e4497e09e875d394bb204fed106">Shoot</a>, 0);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        Mix_Volume(6, 50);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(sound == <a class="code" href="class_sound_manager.html#ad7ecfc7a3abaff4cfdce5aba1c7cf096">Enemy_Death_str</a>)</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        Mix_PlayChannel(7, <a class="code" href="class_sound_manager.html#afa78b7244127dcb3ddc962553e0cf23d">Enemy_Death</a>, 0);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        Mix_Volume(7, 50);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(sound == <a class="code" href="class_sound_manager.html#a46c15f46c943c10f95bcd20451ac6e8f">Food_str</a>)</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        Mix_PlayChannel(8, <a class="code" href="class_food.html">Food</a>, 0);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        Mix_Volume(8, 50);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(sound == <a class="code" href="class_sound_manager.html#aea88aa7b95cc91832eb4e1221b34cd85">Lose_str</a>)</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        Mix_PlayChannel(9, <a class="code" href="class_sound_manager.html#a9659981257daca30986f7c6261e02f4e">Lose</a>, 0);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        Mix_Volume(9, 50);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(sound == <a class="code" href="class_sound_manager.html#aee4fb599d482c77af5b1d8ab0efc7e80">Player_Death_str</a>)</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    {</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        Mix_PlayChannel(10, <a class="code" href="class_sound_manager.html#a69ac7efafdecf0be1fe4d049e294a206">Player_Death</a>, 0);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        Mix_Volume(10, 50);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(sound == <a class="code" href="class_sound_manager.html#a11937a13506bddcfdf1ac479a0923df7">Win_str</a>)</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    {</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        Mix_PlayChannel(11, <a class="code" href="class_sound_manager.html#ab8d38ee1e225a3a7827c6b816f95310f">Win</a>, 0);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        Mix_Volume(11, 60);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    }</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;}</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="class_sound_manager.html#abdaa6eae164653f441add09f093d94d2">  122</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_sound_manager.html#abdaa6eae164653f441add09f093d94d2">SoundManager::destroyChunks</a>()</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;{</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    Mix_FreeChunk(<a class="code" href="class_sound_manager.html#a1cb312151c818ea12c5daba3dcf21f87">Background_Music</a>);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <a class="code" href="class_sound_manager.html#a1cb312151c818ea12c5daba3dcf21f87">Background_Music</a> = NULL;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    Mix_FreeChunk(<a class="code" href="class_sound_manager.html#a67d6c7261cfe816dc1733ce3a8158078">Button_Click</a>);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <a class="code" href="class_sound_manager.html#a67d6c7261cfe816dc1733ce3a8158078">Button_Click</a> = NULL;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    Mix_FreeChunk(<a class="code" href="class_sound_manager.html#a7ce975c7e8c56433f185d02604525d60">Finished_Task</a>);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <a class="code" href="class_sound_manager.html#a7ce975c7e8c56433f185d02604525d60">Finished_Task</a> = NULL;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    Mix_FreeChunk(<a class="code" href="class_food.html">Food</a>);</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <a class="code" href="class_food.html">Food</a> = NULL;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    Mix_FreeChunk(<a class="code" href="class_sound_manager.html#a9659981257daca30986f7c6261e02f4e">Lose</a>);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <a class="code" href="class_sound_manager.html#a9659981257daca30986f7c6261e02f4e">Lose</a> = NULL;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    Mix_FreeChunk(<a class="code" href="class_sound_manager.html#a69ac7efafdecf0be1fe4d049e294a206">Player_Death</a>);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <a class="code" href="class_sound_manager.html#a69ac7efafdecf0be1fe4d049e294a206">Player_Death</a> = NULL;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    Mix_FreeChunk(<a class="code" href="class_sound_manager.html#afa78b7244127dcb3ddc962553e0cf23d">Enemy_Death</a>);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <a class="code" href="class_sound_manager.html#afa78b7244127dcb3ddc962553e0cf23d">Enemy_Death</a> = NULL;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    Mix_FreeChunk(<a class="code" href="class_sound_manager.html#ab8d38ee1e225a3a7827c6b816f95310f">Win</a>);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <a class="code" href="class_sound_manager.html#ab8d38ee1e225a3a7827c6b816f95310f">Win</a> = NULL;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    Mix_FreeChunk(<a class="code" href="class_sound_manager.html#a460d2e4497e09e875d394bb204fed106">Shoot</a>);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <a class="code" href="class_sound_manager.html#a460d2e4497e09e875d394bb204fed106">Shoot</a> = NULL;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    Mix_FreeChunk(<a class="code" href="class_sound_manager.html#a696bb41d38c3e5d80fe50cd4c0719bad">Show_task</a>);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <a class="code" href="class_sound_manager.html#a696bb41d38c3e5d80fe50cd4c0719bad">Show_task</a> = NULL;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    Mix_FreeChunk(<a class="code" href="class_sound_manager.html#af0d58b37ded380eb54b3b8ffcf032e3e">Mine</a>);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <a class="code" href="class_sound_manager.html#af0d58b37ded380eb54b3b8ffcf032e3e">Mine</a> = NULL;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;}</div>
 <div class="ttc" id="a_sound_manager_8h_html"><div class="ttname"><a href="_sound_manager_8h.html">SoundManager.h</a></div></div>
 <div class="ttc" id="aclass_food_html"><div class="ttname"><a href="class_food.html">Food</a></div><div class="ttdoc">a class that is used for healing the player</div><div class="ttdef"><b>Definition:</b> <a href="_food_8h_source.html#l00015">Food.h:16</a></div></div>
-<div class="ttc" id="aclass_sound_manager_html_a11937a13506bddcfdf1ac479a0923df7"><div class="ttname"><a href="class_sound_manager.html#a11937a13506bddcfdf1ac479a0923df7">SoundManager::Win_str</a></div><div class="ttdeci">string Win_str</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00032">SoundManager.h:32</a></div></div>
-<div class="ttc" id="aclass_sound_manager_html_a1cb312151c818ea12c5daba3dcf21f87"><div class="ttname"><a href="class_sound_manager.html#a1cb312151c818ea12c5daba3dcf21f87">SoundManager::Background_Music</a></div><div class="ttdeci">Mix_Chunk * Background_Music</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00034">SoundManager.h:34</a></div></div>
-<div class="ttc" id="aclass_sound_manager_html_a2d5ac320ef6a8d336c3cdae3e8dfd476"><div class="ttname"><a href="class_sound_manager.html#a2d5ac320ef6a8d336c3cdae3e8dfd476">SoundManager::Shoot_str</a></div><div class="ttdeci">string Shoot_str</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00027">SoundManager.h:27</a></div></div>
-<div class="ttc" id="aclass_sound_manager_html_a3f652d76655446aee5abcfbd76c98f53"><div class="ttname"><a href="class_sound_manager.html#a3f652d76655446aee5abcfbd76c98f53">SoundManager::Show_task_str</a></div><div class="ttdeci">string Show_task_str</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00026">SoundManager.h:26</a></div></div>
-<div class="ttc" id="aclass_sound_manager_html_a460d2e4497e09e875d394bb204fed106"><div class="ttname"><a href="class_sound_manager.html#a460d2e4497e09e875d394bb204fed106">SoundManager::Shoot</a></div><div class="ttdeci">Mix_Chunk * Shoot</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00039">SoundManager.h:39</a></div></div>
-<div class="ttc" id="aclass_sound_manager_html_a46c15f46c943c10f95bcd20451ac6e8f"><div class="ttname"><a href="class_sound_manager.html#a46c15f46c943c10f95bcd20451ac6e8f">SoundManager::Food_str</a></div><div class="ttdeci">string Food_str</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00029">SoundManager.h:29</a></div></div>
-<div class="ttc" id="aclass_sound_manager_html_a513ec44f4019ee18a735cbc5057240de"><div class="ttname"><a href="class_sound_manager.html#a513ec44f4019ee18a735cbc5057240de">SoundManager::Background_Music_str</a></div><div class="ttdeci">string Background_Music_str</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00022">SoundManager.h:22</a></div></div>
-<div class="ttc" id="aclass_sound_manager_html_a67d6c7261cfe816dc1733ce3a8158078"><div class="ttname"><a href="class_sound_manager.html#a67d6c7261cfe816dc1733ce3a8158078">SoundManager::Button_Click</a></div><div class="ttdeci">Mix_Chunk * Button_Click</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00035">SoundManager.h:35</a></div></div>
-<div class="ttc" id="aclass_sound_manager_html_a696bb41d38c3e5d80fe50cd4c0719bad"><div class="ttname"><a href="class_sound_manager.html#a696bb41d38c3e5d80fe50cd4c0719bad">SoundManager::Show_task</a></div><div class="ttdeci">Mix_Chunk * Show_task</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00038">SoundManager.h:38</a></div></div>
-<div class="ttc" id="aclass_sound_manager_html_a69ac7efafdecf0be1fe4d049e294a206"><div class="ttname"><a href="class_sound_manager.html#a69ac7efafdecf0be1fe4d049e294a206">SoundManager::Player_Death</a></div><div class="ttdeci">Mix_Chunk * Player_Death</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00043">SoundManager.h:43</a></div></div>
-<div class="ttc" id="aclass_sound_manager_html_a70a193573071c612c688b2080eb3bbf5"><div class="ttname"><a href="class_sound_manager.html#a70a193573071c612c688b2080eb3bbf5">SoundManager::Button_Click_str</a></div><div class="ttdeci">string Button_Click_str</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00023">SoundManager.h:23</a></div></div>
-<div class="ttc" id="aclass_sound_manager_html_a7ce975c7e8c56433f185d02604525d60"><div class="ttname"><a href="class_sound_manager.html#a7ce975c7e8c56433f185d02604525d60">SoundManager::Finished_Task</a></div><div class="ttdeci">Mix_Chunk * Finished_Task</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00036">SoundManager.h:36</a></div></div>
-<div class="ttc" id="aclass_sound_manager_html_a8752374ad1e7a8ddfcb5710ca27d8ae1"><div class="ttname"><a href="class_sound_manager.html#a8752374ad1e7a8ddfcb5710ca27d8ae1">SoundManager::Finished_Task_str</a></div><div class="ttdeci">string Finished_Task_str</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00024">SoundManager.h:24</a></div></div>
+<div class="ttc" id="aclass_sound_manager_html_a11937a13506bddcfdf1ac479a0923df7"><div class="ttname"><a href="class_sound_manager.html#a11937a13506bddcfdf1ac479a0923df7">SoundManager::Win_str</a></div><div class="ttdeci">string Win_str</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00035">SoundManager.h:35</a></div></div>
+<div class="ttc" id="aclass_sound_manager_html_a1cb312151c818ea12c5daba3dcf21f87"><div class="ttname"><a href="class_sound_manager.html#a1cb312151c818ea12c5daba3dcf21f87">SoundManager::Background_Music</a></div><div class="ttdeci">Mix_Chunk * Background_Music</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00037">SoundManager.h:37</a></div></div>
+<div class="ttc" id="aclass_sound_manager_html_a2d5ac320ef6a8d336c3cdae3e8dfd476"><div class="ttname"><a href="class_sound_manager.html#a2d5ac320ef6a8d336c3cdae3e8dfd476">SoundManager::Shoot_str</a></div><div class="ttdeci">string Shoot_str</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00030">SoundManager.h:30</a></div></div>
+<div class="ttc" id="aclass_sound_manager_html_a3f652d76655446aee5abcfbd76c98f53"><div class="ttname"><a href="class_sound_manager.html#a3f652d76655446aee5abcfbd76c98f53">SoundManager::Show_task_str</a></div><div class="ttdeci">string Show_task_str</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00029">SoundManager.h:29</a></div></div>
+<div class="ttc" id="aclass_sound_manager_html_a460d2e4497e09e875d394bb204fed106"><div class="ttname"><a href="class_sound_manager.html#a460d2e4497e09e875d394bb204fed106">SoundManager::Shoot</a></div><div class="ttdeci">Mix_Chunk * Shoot</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00042">SoundManager.h:42</a></div></div>
+<div class="ttc" id="aclass_sound_manager_html_a46c15f46c943c10f95bcd20451ac6e8f"><div class="ttname"><a href="class_sound_manager.html#a46c15f46c943c10f95bcd20451ac6e8f">SoundManager::Food_str</a></div><div class="ttdeci">string Food_str</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00032">SoundManager.h:32</a></div></div>
+<div class="ttc" id="aclass_sound_manager_html_a513ec44f4019ee18a735cbc5057240de"><div class="ttname"><a href="class_sound_manager.html#a513ec44f4019ee18a735cbc5057240de">SoundManager::Background_Music_str</a></div><div class="ttdeci">string Background_Music_str</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00025">SoundManager.h:25</a></div></div>
+<div class="ttc" id="aclass_sound_manager_html_a67d6c7261cfe816dc1733ce3a8158078"><div class="ttname"><a href="class_sound_manager.html#a67d6c7261cfe816dc1733ce3a8158078">SoundManager::Button_Click</a></div><div class="ttdeci">Mix_Chunk * Button_Click</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00038">SoundManager.h:38</a></div></div>
+<div class="ttc" id="aclass_sound_manager_html_a696bb41d38c3e5d80fe50cd4c0719bad"><div class="ttname"><a href="class_sound_manager.html#a696bb41d38c3e5d80fe50cd4c0719bad">SoundManager::Show_task</a></div><div class="ttdeci">Mix_Chunk * Show_task</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00041">SoundManager.h:41</a></div></div>
+<div class="ttc" id="aclass_sound_manager_html_a69ac7efafdecf0be1fe4d049e294a206"><div class="ttname"><a href="class_sound_manager.html#a69ac7efafdecf0be1fe4d049e294a206">SoundManager::Player_Death</a></div><div class="ttdeci">Mix_Chunk * Player_Death</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00046">SoundManager.h:46</a></div></div>
+<div class="ttc" id="aclass_sound_manager_html_a70a193573071c612c688b2080eb3bbf5"><div class="ttname"><a href="class_sound_manager.html#a70a193573071c612c688b2080eb3bbf5">SoundManager::Button_Click_str</a></div><div class="ttdeci">string Button_Click_str</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00026">SoundManager.h:26</a></div></div>
+<div class="ttc" id="aclass_sound_manager_html_a7ce975c7e8c56433f185d02604525d60"><div class="ttname"><a href="class_sound_manager.html#a7ce975c7e8c56433f185d02604525d60">SoundManager::Finished_Task</a></div><div class="ttdeci">Mix_Chunk * Finished_Task</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00039">SoundManager.h:39</a></div></div>
+<div class="ttc" id="aclass_sound_manager_html_a8752374ad1e7a8ddfcb5710ca27d8ae1"><div class="ttname"><a href="class_sound_manager.html#a8752374ad1e7a8ddfcb5710ca27d8ae1">SoundManager::Finished_Task_str</a></div><div class="ttdeci">string Finished_Task_str</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00027">SoundManager.h:27</a></div></div>
 <div class="ttc" id="aclass_sound_manager_html_a8f8463168250014840e966bd326e249b"><div class="ttname"><a href="class_sound_manager.html#a8f8463168250014840e966bd326e249b">SoundManager::play</a></div><div class="ttdeci">void play(string sound)</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8cpp_source.html#l00054">SoundManager.cpp:54</a></div></div>
-<div class="ttc" id="aclass_sound_manager_html_a9659981257daca30986f7c6261e02f4e"><div class="ttname"><a href="class_sound_manager.html#a9659981257daca30986f7c6261e02f4e">SoundManager::Lose</a></div><div class="ttdeci">Mix_Chunk * Lose</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00042">SoundManager.h:42</a></div></div>
-<div class="ttc" id="aclass_sound_manager_html_ab8d38ee1e225a3a7827c6b816f95310f"><div class="ttname"><a href="class_sound_manager.html#ab8d38ee1e225a3a7827c6b816f95310f">SoundManager::Win</a></div><div class="ttdeci">Mix_Chunk * Win</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00044">SoundManager.h:44</a></div></div>
+<div class="ttc" id="aclass_sound_manager_html_a9659981257daca30986f7c6261e02f4e"><div class="ttname"><a href="class_sound_manager.html#a9659981257daca30986f7c6261e02f4e">SoundManager::Lose</a></div><div class="ttdeci">Mix_Chunk * Lose</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00045">SoundManager.h:45</a></div></div>
+<div class="ttc" id="aclass_sound_manager_html_ab8d38ee1e225a3a7827c6b816f95310f"><div class="ttname"><a href="class_sound_manager.html#ab8d38ee1e225a3a7827c6b816f95310f">SoundManager::Win</a></div><div class="ttdeci">Mix_Chunk * Win</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00047">SoundManager.h:47</a></div></div>
 <div class="ttc" id="aclass_sound_manager_html_abcc1fbf3488be5788a42c9a4fe56df35"><div class="ttname"><a href="class_sound_manager.html#abcc1fbf3488be5788a42c9a4fe56df35">SoundManager::SoundManager</a></div><div class="ttdeci">SoundManager()</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8cpp_source.html#l00003">SoundManager.cpp:3</a></div></div>
-<div class="ttc" id="aclass_sound_manager_html_abdaa6eae164653f441add09f093d94d2"><div class="ttname"><a href="class_sound_manager.html#abdaa6eae164653f441add09f093d94d2">SoundManager::destroyChunks</a></div><div class="ttdeci">void destroyChunks()</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8cpp_source.html#l00115">SoundManager.cpp:115</a></div></div>
-<div class="ttc" id="aclass_sound_manager_html_acb8fd19e16dc7f22b91a4eff6913fa35"><div class="ttname"><a href="class_sound_manager.html#acb8fd19e16dc7f22b91a4eff6913fa35">SoundManager::Mine_str</a></div><div class="ttdeci">string Mine_str</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00025">SoundManager.h:25</a></div></div>
+<div class="ttc" id="aclass_sound_manager_html_abdaa6eae164653f441add09f093d94d2"><div class="ttname"><a href="class_sound_manager.html#abdaa6eae164653f441add09f093d94d2">SoundManager::destroyChunks</a></div><div class="ttdeci">void destroyChunks()</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8cpp_source.html#l00122">SoundManager.cpp:122</a></div></div>
+<div class="ttc" id="aclass_sound_manager_html_acb8fd19e16dc7f22b91a4eff6913fa35"><div class="ttname"><a href="class_sound_manager.html#acb8fd19e16dc7f22b91a4eff6913fa35">SoundManager::Mine_str</a></div><div class="ttdeci">string Mine_str</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00028">SoundManager.h:28</a></div></div>
 <div class="ttc" id="aclass_sound_manager_html_ad5dbf8eab22db48ff8f3db51b02f8938"><div class="ttname"><a href="class_sound_manager.html#ad5dbf8eab22db48ff8f3db51b02f8938">SoundManager::~SoundManager</a></div><div class="ttdeci">virtual ~SoundManager()</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8cpp_source.html#l00008">SoundManager.cpp:8</a></div></div>
-<div class="ttc" id="aclass_sound_manager_html_ad7ecfc7a3abaff4cfdce5aba1c7cf096"><div class="ttname"><a href="class_sound_manager.html#ad7ecfc7a3abaff4cfdce5aba1c7cf096">SoundManager::Enemy_Death_str</a></div><div class="ttdeci">string Enemy_Death_str</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00028">SoundManager.h:28</a></div></div>
-<div class="ttc" id="aclass_sound_manager_html_aea88aa7b95cc91832eb4e1221b34cd85"><div class="ttname"><a href="class_sound_manager.html#aea88aa7b95cc91832eb4e1221b34cd85">SoundManager::Lose_str</a></div><div class="ttdeci">string Lose_str</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00030">SoundManager.h:30</a></div></div>
-<div class="ttc" id="aclass_sound_manager_html_aee4fb599d482c77af5b1d8ab0efc7e80"><div class="ttname"><a href="class_sound_manager.html#aee4fb599d482c77af5b1d8ab0efc7e80">SoundManager::Player_Death_str</a></div><div class="ttdeci">string Player_Death_str</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00031">SoundManager.h:31</a></div></div>
-<div class="ttc" id="aclass_sound_manager_html_af0d58b37ded380eb54b3b8ffcf032e3e"><div class="ttname"><a href="class_sound_manager.html#af0d58b37ded380eb54b3b8ffcf032e3e">SoundManager::Mine</a></div><div class="ttdeci">Mix_Chunk * Mine</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00037">SoundManager.h:37</a></div></div>
-<div class="ttc" id="aclass_sound_manager_html_afa78b7244127dcb3ddc962553e0cf23d"><div class="ttname"><a href="class_sound_manager.html#afa78b7244127dcb3ddc962553e0cf23d">SoundManager::Enemy_Death</a></div><div class="ttdeci">Mix_Chunk * Enemy_Death</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00040">SoundManager.h:40</a></div></div>
+<div class="ttc" id="aclass_sound_manager_html_ad7ecfc7a3abaff4cfdce5aba1c7cf096"><div class="ttname"><a href="class_sound_manager.html#ad7ecfc7a3abaff4cfdce5aba1c7cf096">SoundManager::Enemy_Death_str</a></div><div class="ttdeci">string Enemy_Death_str</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00031">SoundManager.h:31</a></div></div>
+<div class="ttc" id="aclass_sound_manager_html_aea88aa7b95cc91832eb4e1221b34cd85"><div class="ttname"><a href="class_sound_manager.html#aea88aa7b95cc91832eb4e1221b34cd85">SoundManager::Lose_str</a></div><div class="ttdeci">string Lose_str</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00033">SoundManager.h:33</a></div></div>
+<div class="ttc" id="aclass_sound_manager_html_aee4fb599d482c77af5b1d8ab0efc7e80"><div class="ttname"><a href="class_sound_manager.html#aee4fb599d482c77af5b1d8ab0efc7e80">SoundManager::Player_Death_str</a></div><div class="ttdeci">string Player_Death_str</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00034">SoundManager.h:34</a></div></div>
+<div class="ttc" id="aclass_sound_manager_html_af0d58b37ded380eb54b3b8ffcf032e3e"><div class="ttname"><a href="class_sound_manager.html#af0d58b37ded380eb54b3b8ffcf032e3e">SoundManager::Mine</a></div><div class="ttdeci">Mix_Chunk * Mine</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00040">SoundManager.h:40</a></div></div>
+<div class="ttc" id="aclass_sound_manager_html_afa78b7244127dcb3ddc962553e0cf23d"><div class="ttname"><a href="class_sound_manager.html#afa78b7244127dcb3ddc962553e0cf23d">SoundManager::Enemy_Death</a></div><div class="ttdeci">Mix_Chunk * Enemy_Death</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8h_source.html#l00043">SoundManager.h:43</a></div></div>
 <div class="ttc" id="aclass_sound_manager_html_afb894f8668ea2487e2b950346697b5fe"><div class="ttname"><a href="class_sound_manager.html#afb894f8668ea2487e2b950346697b5fe">SoundManager::init</a></div><div class="ttdeci">void init(string configFile)</div><div class="ttdef"><b>Definition:</b> <a href="_sound_manager_8cpp_source.html#l00013">SoundManager.cpp:13</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

@@ -20,12 +20,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="Mars_Menu_Logo.bmp"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Red Voyage
-   &#160;<span id="projectnumber">Alpha (KGJ 2021 Release</span>
    </div>
-   <div id="projectbrief">Survive on Mars with your friends</div>
   </td>
  </tr>
  </tbody>
@@ -72,6 +69,9 @@ $(function() {
 <div class="title">Bullet Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Used to create bullets.  
+ <a href="class_bullet.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_bullet_8h_source.html">Bullet.h</a>&gt;</code></p>
 <table class="memberdecls">
@@ -122,12 +122,13 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a7e8beb8bc68218c1d1c5acf3add2220e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c7826275b0edc4ad4ebf343f9ac7aca"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bullet.html#a5c7826275b0edc4ad4ebf343f9ac7aca">m_bulletTexture</a></td></tr>
 <tr class="separator:a5c7826275b0edc4ad4ebf343f9ac7aca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1886b4eb91ab2dbb8d43c25f50975594"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcoordinates.html">coordinates</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bullet.html#a1886b4eb91ab2dbb8d43c25f50975594">m_coor</a></td></tr>
-<tr class="separator:a1886b4eb91ab2dbb8d43c25f50975594"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f4faf8be1f60ec8bbd7e53e29f94a99"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structfcoordinates.html">fcoordinates</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bullet.html#a9f4faf8be1f60ec8bbd7e53e29f94a99">m_coor</a></td></tr>
+<tr class="separator:a9f4faf8be1f60ec8bbd7e53e29f94a99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00013">13</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
+<div class="textblock"><p>Used to create bullets. </p>
+
+<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00017">17</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="acd7befc0bc18907cc1d871d37bbdddeb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acd7befc0bc18907cc1d871d37bbdddeb">&#9670;&nbsp;</a></span>Bullet() <span class="overload">[1/2]</span></h2>
@@ -228,7 +229,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_bullet_8cpp_source.html#l00072">72</a> of file <a class="el" href="_bullet_8cpp_source.html">Bullet.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bullet_8cpp_source.html#l00084">84</a> of file <a class="el" href="_bullet_8cpp_source.html">Bullet.cpp</a>.</p>
 
 </div>
 </div>
@@ -294,8 +295,11 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>We move the bullet every frame, using the velocity in the X and Y direction.</p>
+<p>We use m_coor to calculate with precision the position of the bullet then convert it to the objectRect.</p>
+<p>We make a line, the one end is the old position and the other end is the new. Than we check if this line has collision with the ship. We use this check, because otherwise the bullet may teleport trough the ship and miss the collision check.</p>
 
-<p class="definition">Definition at line <a class="el" href="_bullet_8cpp_source.html#l00059">59</a> of file <a class="el" href="_bullet_8cpp_source.html">Bullet.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bullet_8cpp_source.html#l00061">61</a> of file <a class="el" href="_bullet_8cpp_source.html">Bullet.cpp</a>.</p>
 
 </div>
 </div>
@@ -312,7 +316,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00033">33</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00037">37</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
 
 </div>
 </div>
@@ -328,7 +332,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00037">37</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00041">41</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
 
 </div>
 </div>
@@ -344,7 +348,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00041">41</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00045">45</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
 
 </div>
 </div>
@@ -360,7 +364,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00027">27</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00031">31</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
 
 </div>
 </div>
@@ -376,23 +380,23 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00022">22</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00026">26</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
 
 </div>
 </div>
-<a id="a1886b4eb91ab2dbb8d43c25f50975594"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1886b4eb91ab2dbb8d43c25f50975594">&#9670;&nbsp;</a></span>m_coor</h2>
+<a id="a9f4faf8be1f60ec8bbd7e53e29f94a99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f4faf8be1f60ec8bbd7e53e29f94a99">&#9670;&nbsp;</a></span>m_coor</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structcoordinates.html">coordinates</a> Bullet::m_coor</td>
+          <td class="memname"><a class="el" href="structfcoordinates.html">fcoordinates</a> Bullet::m_coor</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00048">48</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00052">52</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
 
 </div>
 </div>
@@ -408,7 +412,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00036">36</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00040">40</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
 
 </div>
 </div>
@@ -424,7 +428,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00025">25</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00029">29</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
 
 </div>
 </div>
@@ -440,7 +444,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00023">23</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00027">27</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
 
 </div>
 </div>
@@ -456,7 +460,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00031">31</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00035">35</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
 
 </div>
 </div>
@@ -472,7 +476,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00030">30</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00034">34</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
 
 </div>
 </div>
@@ -488,7 +492,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00020">20</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00024">24</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
 
 </div>
 </div>
@@ -504,7 +508,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00035">35</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00039">39</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
 
 </div>
 </div>
@@ -520,7 +524,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00039">39</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00043">43</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
 
 </div>
 </div>
@@ -536,10 +540,14 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00028">28</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bullet_8h_source.html#l00032">32</a> of file <a class="el" href="_bullet_8h_source.html">Bullet.h</a>.</p>
 
 </div>
 </div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>include/<a class="el" href="_bullet_8h_source.html">Bullet.h</a></li>
+<li>src/<a class="el" href="_bullet_8cpp_source.html">Bullet.cpp</a></li>
+</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

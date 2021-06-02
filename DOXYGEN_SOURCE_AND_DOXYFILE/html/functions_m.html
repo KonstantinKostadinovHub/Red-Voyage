@@ -20,12 +20,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="Mars_Menu_Logo.bmp"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Red Voyage
-   &#160;<span id="projectnumber">Alpha (KGJ 2021 Release</span>
    </div>
-   <div id="projectbrief">Survive on Mars with your friends</div>
   </td>
  </tr>
  </tbody>
@@ -88,6 +85,7 @@ $(function() {
 <li>m_angle
 : <a class="el" href="class_enemy.html#a24521416d903c1b4bb964c40f21673c4">Enemy</a>
 , <a class="el" href="class_enemy_bullet.html#a1f5a4e9a36434199d20535e08f95b3e3">EnemyBullet</a>
+, <a class="el" href="class_world.html#a066db3e639804118c81806941a73c806">World</a>
 </li>
 <li>m_animations
 : <a class="el" href="class_animator.html#a97cd23e95561ff76265ee702985d31dc">Animator</a>
@@ -98,6 +96,9 @@ $(function() {
 <li>m_animRect
 : <a class="el" href="class_enemy.html#a6d6cdbf24da1a45b8adc6e507a3e9338">Enemy</a>
 , <a class="el" href="class_player.html#a4ba4a9127c4ae68a5d50661b4d958f77">Player</a>
+</li>
+<li>m_applyEffect
+: <a class="el" href="class_power_up.html#af818c02da12c0d6be1373f6edae59cdf">PowerUp</a>
 </li>
 <li>m_backgroundImg
 : <a class="el" href="class_world.html#afeb38ac9a1fbe2b7e722d69a1c4f0d3d">World</a>
@@ -122,6 +123,9 @@ $(function() {
 </li>
 <li>m_bulletConfig
 : <a class="el" href="class_enemy_shooter.html#a6b7166eb772dd9251d6b60d5f343545b">EnemyShooter</a>
+</li>
+<li>m_bulletExplosion
+: <a class="el" href="class_config_manager.html#ac7fde4b3e13c7fdb97f9e0ee2af8e5bf">ConfigManager</a>
 </li>
 <li>m_bullets
 : <a class="el" href="class_world.html#a3034c22e73b8028c2b0b5cea0e2dce49">World</a>
@@ -155,8 +159,14 @@ $(function() {
 <li>m_chargeTime
 : <a class="el" href="class_enemy.html#a8e986c598b27beebdcc0b1dc7d927672">Enemy</a>
 </li>
+<li>m_chickenBuff
+: <a class="el" href="class_config_manager.html#a5edb33f37431859da17f54c4083732c3">ConfigManager</a>
+</li>
 <li>m_chickenCollected
 : <a class="el" href="class_world.html#a4f6f4c83de70cd51425f984a10758a3f">World</a>
+</li>
+<li>m_collLines
+: <a class="el" href="class_world.html#a10f87ff05af399412ce5053d9a4cc2b4">World</a>
 </li>
 <li>m_collWithDoor
 : <a class="el" href="class_player.html#a056615e0090991654df5baab36ef026c">Player</a>
@@ -170,7 +180,7 @@ $(function() {
 : <a class="el" href="class_world.html#a0beecf9818819bad40664da3cb5e5d47">World</a>
 </li>
 <li>m_coor
-: <a class="el" href="class_bullet.html#a1886b4eb91ab2dbb8d43c25f50975594">Bullet</a>
+: <a class="el" href="class_bullet.html#a9f4faf8be1f60ec8bbd7e53e29f94a99">Bullet</a>
 , <a class="el" href="class_gun.html#abe7425332a00300f696ead4f7f0f2f00">Gun</a>
 , <a class="el" href="class_player.html#a5bdc6c4f959fc27f09214fe84a61824e">Player</a>
 </li>
@@ -180,13 +190,30 @@ $(function() {
 <li>m_credits_texture
 : <a class="el" href="class_credits.html#ad43ca22d713adfe21c55ac8e2a14de6e">Credits</a>
 </li>
+<li>m_currState
+: <a class="el" href="class_title_screen.html#ab1916298a4c6f07d6f8a9f942fb9fb37">TitleScreen</a>
+</li>
 <li>m_damage
 : <a class="el" href="class_bullet.html#a16cac99197faf27e6b1a49b013b01a23">Bullet</a>
 , <a class="el" href="class_enemy.html#aa0ce824e28f9443160bac496a371a38a">Enemy</a>
 , <a class="el" href="class_enemy_bullet.html#a714e2c51754024d7e26954342bd52e2d">EnemyBullet</a>
 </li>
+<li>m_destroyEffect
+: <a class="el" href="class_power_up.html#ac439e2467073c8994c142e1d8541c55f">PowerUp</a>
+</li>
+<li>m_direction
+: <a class="el" href="class_player.html#acbf8886a03aba8ba58773bc60f5629cf">Player</a>
+</li>
+<li>m_directionCoor
+: <a class="el" href="class_world.html#a8cc1ace134d226304c139013ff7b9025">World</a>
+</li>
 <li>m_distance
-: <a class="el" href="class_u_i_object.html#a14c09dcb8c59191a20d46ce71a43a95f">UIObject</a>
+: <a class="el" href="class_player.html#a9844e6dc24fd3f29ce76ab52077c868e">Player</a>
+, <a class="el" href="class_u_i_object.html#a14c09dcb8c59191a20d46ce71a43a95f">UIObject</a>
+, <a class="el" href="class_world.html#a5f973daf3c348a0686508a930dd32c9f">World</a>
+</li>
+<li>m_dmg
+: <a class="el" href="class_player.html#a3ded2a06636d33ae835967d55f90ec96">Player</a>
 </li>
 <li>m_doneTask
 : <a class="el" href="class_task.html#a4ca4cb94fa4625daf3fb1f3eeb3cdb5e">Task</a>
@@ -194,11 +221,20 @@ $(function() {
 <li>m_door
 : <a class="el" href="class_world.html#a9fdd626f520f98fcdb53ede39dd02234">World</a>
 </li>
+<li>m_drag
+: <a class="el" href="class_world.html#a7482015e54e094dd502cad3b3d6ee91b">World</a>
+</li>
 <li>m_duration
 : <a class="el" href="class_animator.html#a86ea53dd958640edeec7cb1ec45e1a8e">Animator</a>
 , <a class="el" href="class_food.html#a38b246e202dda209a54c696bf14ed3a5">Food</a>
 , <a class="el" href="class_generator.html#a09b96b918b28ff178b31b9c3991e9c41">Generator</a>
 , <a class="el" href="class_task.html#a25620fe7ce51bc28d9e5c437b10c9bda">Task</a>
+</li>
+<li>m_dust
+: <a class="el" href="class_config_manager.html#aa41f31ad5311635571e72cf9940a2794">ConfigManager</a>
+</li>
+<li>m_effectName
+: <a class="el" href="class_power_up.html#a91e3d32a6ec72d8a40843ac171454da1">PowerUp</a>
 </li>
 <li>m_elapsed_engage
 : <a class="el" href="class_gun.html#ac65b130616193b88b007ee0e36f87b6b">Gun</a>
@@ -222,15 +258,15 @@ $(function() {
 <li>m_EnemySpawnZone
 : <a class="el" href="class_generator.html#aa2ed6048ac9176ce53ed4eefaf23b65e">Generator</a>
 </li>
+<li>m_engage
+: <a class="el" href="class_enemy.html#af8f01c66ce78ee662a5f1fe9cfd248fd">Enemy</a>
+</li>
 <li>m_engagementIndex
 : <a class="el" href="class_enemy.html#add4516d40ec577955138d33a64ad4777">Enemy</a>
 </li>
 <li>m_engagementRate
 : <a class="el" href="class_gun.html#a381cd62fd74f094327f5602ca41dd0ab">Gun</a>
 , <a class="el" href="class_player.html#a1977c12c8cf6237c4898a65834923d38">Player</a>
-</li>
-<li>m_entryRange
-: <a class="el" href="class_enemy.html#a6ceeff1c3ecc72ee149e48fc69d9c033">Enemy</a>
 </li>
 <li>m_event
 : <a class="el" href="class_world.html#a605b960aa8a4160a8fa9098c6afbf0d9">World</a>
@@ -247,6 +283,9 @@ $(function() {
 <li>m_exitTexture
 : <a class="el" href="class_menu.html#add2c4119db6f5e1af181b9ea66c2f876">Menu</a>
 </li>
+<li>m_fontSize
+: <a class="el" href="class_task.html#a517a39ec7e2d9c032915622c6b26d9fd">Task</a>
+</li>
 <li>m_food_spawner
 : <a class="el" href="class_world.html#ac82c7baefcc908edfa8c27e548c742e4">World</a>
 </li>
@@ -256,8 +295,8 @@ $(function() {
 <li>m_generator
 : <a class="el" href="class_world.html#af782e03a2d3727d36cb442861a4136ee">World</a>
 </li>
-<li>m_guns
-: <a class="el" href="class_player.html#af657f010f8ffb9a73a96feb0911660db">Player</a>
+<li>m_gun
+: <a class="el" href="class_player.html#a5f5b95a34d17ff284b537bb94470df00">Player</a>
 </li>
 <li>m_health
 : <a class="el" href="class_bullet.html#a6ef8af01bc936ab4fc1cd2ec8d103748">Bullet</a>
@@ -280,13 +319,26 @@ $(function() {
 <li>m_heigth
 : <a class="el" href="class_enemy_bullet.html#aae7caee8780afe6084242a0636a31abd">EnemyBullet</a>
 </li>
+<li>m_helper
+: <a class="el" href="class_world.html#a8ba7758191311333084a995ee8a95474">World</a>
+</li>
 <li>m_img
 : <a class="el" href="class_bullet.html#aaac3be4992a6e993134c593ba36fff7f">Bullet</a>
 , <a class="el" href="class_enemy.html#a59ef8eb0044af02905e28bb6f7496eea">Enemy</a>
 , <a class="el" href="class_enemy_bullet.html#a17a491994d7125c220aded7ea8380c86">EnemyBullet</a>
 , <a class="el" href="class_menu.html#ac20adeeb8fb9111bc7995de729a98c90">Menu</a>
+, <a class="el" href="class_title_screen.html#a9d01597ffbd47978b455dd34b2e1d28c">TitleScreen</a>
 , <a class="el" href="class_u_i.html#ab320c3c316a40249ef40da3806c53ae1">UI</a>
 , <a class="el" href="class_u_i_object.html#ac4cc078f9cd86af841df88d9ac8b5351">UIObject</a>
+</li>
+<li>m_imgCurr
+: <a class="el" href="class_title_screen.html#a3984f9534dbdd6805494bf74da7a9d59">TitleScreen</a>
+</li>
+<li>m_inGameHeight
+: <a class="el" href="class_visual_effect.html#a163fbabf4819c0a2535bf58165027d2b">VisualEffect</a>
+</li>
+<li>m_inGameWidth
+: <a class="el" href="class_visual_effect.html#ac9efa79b64fb6c18432004f91e647614">VisualEffect</a>
 </li>
 <li>m_inSpaceship
 : <a class="el" href="class_enemy.html#ab945e6b4d1c17e58b7aee8d1730b274e">Enemy</a>
@@ -316,8 +368,14 @@ $(function() {
 <li>m_lastButtonPressed
 : <a class="el" href="class_task.html#a17b4830f96551eda2c2cf54c5ff92304">Task</a>
 </li>
+<li>m_lastDustEffect
+: <a class="el" href="class_player.html#aa24b6cddfd25f2184ebe22166f1e1afd">Player</a>
+</li>
 <li>m_lastEnemyCreation
 : <a class="el" href="class_generator.html#ad5649bacb6bb8079b09ea40b9802b542">Generator</a>
+</li>
+<li>m_lastHealthAdded
+: <a class="el" href="class_chicken_buff.html#a4ffe303a4f1f8ea828fadc5e6a3ae451">ChickenBuff</a>
 </li>
 <li>m_lastOreCreation
 : <a class="el" href="class_generator.html#a12b343474bc9a8d3971421f0c90f4d52">Generator</a>
@@ -385,9 +443,13 @@ $(function() {
 <li>m_mouseIsPressed
 : <a class="el" href="class_world.html#ae76ea72fabed853c61c3a929203d1689">World</a>
 </li>
+<li>m_numberOfStates
+: <a class="el" href="class_title_screen.html#ac17c55ddacd4101b8093d333676bb7ae">TitleScreen</a>
+</li>
 <li>m_objectRect
 : <a class="el" href="class_enemy.html#af95c9c4ea211fe514df5709e4bc254b5">Enemy</a>
 , <a class="el" href="class_enemy_bullet.html#afe510966d7fb610c6391959e0fb85443">EnemyBullet</a>
+, <a class="el" href="class_title_screen.html#a0aae51a0f496e27a6c45d02efa6b2c10">TitleScreen</a>
 , <a class="el" href="class_u_i.html#a1c5b53fad2924b563d2d04738e32f87e">UI</a>
 , <a class="el" href="class_u_i_object.html#aaeacce454087a406eb09880c4597ee53">UIObject</a>
 , <a class="el" href="class_visual_effect.html#a7512a8a2f5930f547d0cb20ea55d5598">VisualEffect</a>
@@ -396,6 +458,7 @@ $(function() {
 : <a class="el" href="class_enemy.html#ab4e3517adba7d3272596e772a0108314">Enemy</a>
 , <a class="el" href="class_enemy_bullet.html#a7baf59bdaee241bb4d7c2fdf7c505a48">EnemyBullet</a>
 , <a class="el" href="class_menu.html#aaa781829710d40257c20ce4bbccfe1e9">Menu</a>
+, <a class="el" href="class_title_screen.html#a3791024b0370f7c9ceccd8b4d05f16b9">TitleScreen</a>
 , <a class="el" href="class_u_i.html#aadc6d940f7f8f336653535c4ca0258fe">UI</a>
 , <a class="el" href="class_u_i_object.html#a89f5b749eaa703814ce33d76e076c480">UIObject</a>
 </li>
@@ -421,6 +484,15 @@ $(function() {
 <li>m_oreSpawnCooldown
 : <a class="el" href="class_generator.html#ad6c10c9c713b041e6746943a36b4186d">Generator</a>
 </li>
+<li>m_pathCoord
+: <a class="el" href="class_enemy.html#a5f50ad2bc2d7d6ffc06e84bcf949f480">Enemy</a>
+</li>
+<li>m_pathData
+: <a class="el" href="class_enemy.html#aae32df498e3165e8ee4d779913af28e6">Enemy</a>
+</li>
+<li>m_pathIndex
+: <a class="el" href="class_enemy.html#a2ab9b8b5b007fd84aaec53ab3901717c">Enemy</a>
+</li>
 <li>m_pausedBackgroundImg
 : <a class="el" href="class_world.html#a05ebf5fcdd061bf2d188f300aafd4d9a">World</a>
 </li>
@@ -441,6 +513,9 @@ $(function() {
 </li>
 <li>m_pos
 : <a class="el" href="class_u_i_object.html#a93dd10a3e230d40ba580b06fa7c54540">UIObject</a>
+</li>
+<li>m_powerUps
+: <a class="el" href="class_world.html#ab4dea5f5ff16a6a857831ff441ba111c">World</a>
 </li>
 <li>m_presentRect
 : <a class="el" href="class_bullet.html#adbe9be21b46bf29b696a3ecea02369ac">Bullet</a>
@@ -502,9 +577,6 @@ $(function() {
 <li>m_soundManager
 : <a class="el" href="class_world.html#aa50b22f54acdc6a17d09077985bc6bed">World</a>
 </li>
-<li>m_spaceshipCoord
-: <a class="el" href="class_enemy.html#a350248cc8ea391608e003ca27fbce8ae">Enemy</a>
-</li>
 <li>m_spaceshipInsideTexture
 : <a class="el" href="class_world.html#a10e19c57f45871e3406720d5d15e5cd9">World</a>
 </li>
@@ -525,6 +597,9 @@ $(function() {
 </li>
 <li>m_start_proceed_button
 : <a class="el" href="class_endgame.html#a2c0f7d9cbcbcedc01e70c68c61729e5c">Endgame</a>
+</li>
+<li>m_startEffect
+: <a class="el" href="class_chicken_buff.html#a9034726fa931894d66eaea0c5c67d690">ChickenBuff</a>
 </li>
 <li>m_startExitRect
 : <a class="el" href="class_menu.html#a091f5385b545c0efe301d88c53d91326">Menu</a>
@@ -548,20 +623,11 @@ $(function() {
 <li>m_startTexture
 : <a class="el" href="class_menu.html#a909ebdd91599ecbcc6f5ceac2712f80c">Menu</a>
 </li>
-<li>m_stepSpaceship
-: <a class="el" href="class_enemy.html#a56332754f7d1bf309d528f81f7bc1d9e">Enemy</a>
-</li>
 <li>m_targetAngle
 : <a class="el" href="class_enemy.html#ab4f055a07019d8ad113b67051baf4631">Enemy</a>
 </li>
 <li>m_targetCoord
 : <a class="el" href="class_enemy.html#a83178e3f221249b45334ac785f7361cf">Enemy</a>
-</li>
-<li>m_targetOutside
-: <a class="el" href="class_enemy.html#a579bbb792951163c4873a663f1d47330">Enemy</a>
-</li>
-<li>m_targetSpaceship
-: <a class="el" href="class_enemy.html#a8ae21f79ef884bf54a174e7d61b5111b">Enemy</a>
 </li>
 <li>m_taskName
 : <a class="el" href="class_task.html#a25d3affa04f74487d9c09641d35d4e28">Task</a>
@@ -580,14 +646,17 @@ $(function() {
 , <a class="el" href="class_tutorial.html#a45ab89735fc4884d39b876d23b9975ec">Tutorial</a>
 , <a class="el" href="class_visual_effect.html#ac0ddc8962e5672f6203b62e6d1b45a6d">VisualEffect</a>
 </li>
+<li>m_timeBetweenDustEffects
+: <a class="el" href="class_player.html#a6a77ce9e1875f826de4376e5d4e9488d">Player</a>
+</li>
 <li>m_titaniumCollected
 : <a class="el" href="class_world.html#a665352bcbf40fedecd0da6336c062ad5">World</a>
 </li>
 <li>m_titaniumNeeded
 : <a class="el" href="class_task.html#ad7acb611c4c84bb2251b071e07f18266">Task</a>
 </li>
-<li>m_titaniumNeededNumber
-: <a class="el" href="class_task.html#a5daec576c9db60981d0775cf3996d17e">Task</a>
+<li>m_titaniumNumber
+: <a class="el" href="class_task.html#abeb648d2d961ba877e305bbea5da948a">Task</a>
 </li>
 <li>m_titaniumNumberRect
 : <a class="el" href="class_task.html#afdc162127796ca219888e8d729113212">Task</a>
@@ -622,6 +691,9 @@ $(function() {
 , <a class="el" href="class_enemy_bullet.html#a0189224df4414390116ce6bfd83b78f9">EnemyBullet</a>
 , <a class="el" href="class_player.html#aceaf179eb06831edaa5e2e2010a62b25">Player</a>
 </li>
+<li>m_vfxs
+: <a class="el" href="class_world.html#ad1dcc68da6a3ef6630d90d6ccbd6f330">World</a>
+</li>
 <li>m_width
 : <a class="el" href="class_enemy.html#a351f785bafa79ce46361e29e0ed4ac58">Enemy</a>
 , <a class="el" href="class_enemy_bullet.html#aa975be39fa84261c696a6a509c9f7aac">EnemyBullet</a>
@@ -649,6 +721,9 @@ $(function() {
 , <a class="el" href="class_ore.html#a0f327ec63c48562cf0805add7b7faba7">Ore</a>
 , <a class="el" href="class_player.html#ae085cea8c65b4480cb174e2d00f7914a">Player</a>
 , <a class="el" href="class_task.html#ac71e88e6cc03034ecb6703a37ee853bd">Task</a>
+</li>
+<li>MAX_ORES
+: <a class="el" href="class_helper.html#ae9aa81c935e0f3e872ae8dacf881bf26">Helper</a>
 </li>
 <li>max_wings_waiting
 : <a class="el" href="class_food.html#a9ac3fda9bde910de5a0631e882316175">Food</a>
@@ -679,9 +754,6 @@ $(function() {
 </li>
 <li>move_up
 : <a class="el" href="class_player.html#a73ccbd94fdfffa499e293e3d0dd1d104">Player</a>
-</li>
-<li>moveing
-: <a class="el" href="class_player.html#a22dc44a9caa84c8411143321cc363635">Player</a>
 </li>
 </ul>
 </div><!-- contents -->

@@ -59,6 +59,7 @@ void UIObject::load(string config)
     *       coor.x = m_objectRect.x + m_objectRect.w + 5;
     *       coor.y = m_objectRect.y;
     *   @endcode
+    * 
     */
     coor.x = m_objectRect.x + m_objectRect.w + 5;
     coor.y = m_objectRect.y;

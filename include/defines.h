@@ -30,13 +30,14 @@ using namespace std;
 
 enum GAME_STATE
 {
-    NONE = 0, ///< NONE
-    MENU = 1, ///< MENU
-    GAME = 2, ///< GAME
-    CREDITS = 3, ///< CREDITS
-    EXIT = 4, ///< EXIT
-    ENDGAME = 5, ///< ENDGAME
-    TITLESCREEN = 6 //< TITLE SCREEN
+    NONE = 0, 
+    MENU = 1, 
+    GAME = 2, 
+    CREDITS = 3, 
+    EXIT = 4, 
+    ENDGAME = 5,
+    TITLESCREEN = 6,
+    CAVES = 7
 }; ///< Game state enumerator defining 5 game states to use
 
 struct coordinates

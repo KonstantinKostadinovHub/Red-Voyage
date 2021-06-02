@@ -196,6 +196,10 @@
     <ClCompile Include="src\ChickenBuff.cpp">
       <Filter>src\PowerUps</Filter>
     </ClCompile>
+    <ClCompile Include="src\Saver.cpp" />
+    <ClCompile Include="src\Cave.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\ChickenWing.h">
@@ -287,6 +291,12 @@
     </ClInclude>
     <ClInclude Include="include\ChickenBuff.h">
       <Filter>Header Files\PowerUps</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Saver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Cave.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

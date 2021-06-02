@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Red Voyage: D:/Desktop/Creations/Programming/Red_Voyage_VS/src/Gun.cpp Source File</title>
+<title>Red Voyage: src/Gun.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,12 +20,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="Mars_Menu_Logo.bmp"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Red Voyage
-   &#160;<span id="projectnumber">Alpha (KGJ 2021 Release</span>
    </div>
-   <div id="projectbrief">Survive on Mars with your friends</div>
   </td>
  </tr>
  </tbody>
@@ -79,7 +76,7 @@ $(function() {
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
 <div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_gun.html#aa529c226353680e377e8ccbfe9a41365">    6</a></span>&#160;<a class="code" href="class_gun.html#aa529c226353680e377e8ccbfe9a41365">Gun::Gun</a>()</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_gun.html#a9063cb681db1f27d82b3ecc085fba749">m_oldVelocity</a>.<a class="code" href="structcoordinates.html#a1047b469a6d5827293066e71649b9acc">x</a> = 10;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_gun.html#a9063cb681db1f27d82b3ecc085fba749">m_oldVelocity</a>.<a class="code" href="structcoordinates.html#a1047b469a6d5827293066e71649b9acc">x</a> = 1;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="class_gun.html#a9063cb681db1f27d82b3ecc085fba749">m_oldVelocity</a>.<a class="code" href="structcoordinates.html#af7fe5145df74388a36fd7b283992e9a5">y</a> = 0;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;}</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
@@ -93,47 +90,46 @@ $(function() {
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_gun.html#a381cd62fd74f094327f5602ca41dd0ab">m_engagementRate</a> = chrono::milliseconds((<span class="keywordtype">int</span>)attackSpeed);</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_gun.html#ac65b130616193b88b007ee0e36f87b6b">m_elapsed_engage</a> = chrono::high_resolution_clock::now();</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="class_gun.html#ada0534af407f70260ae35ea673dd7dc8">m_canShoot</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_gun.html#af20047aa9ca99ab18c2e8c7ad9de67ef">   25</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_gun.html#af20047aa9ca99ab18c2e8c7ad9de67ef">Gun::update</a>(<a class="code" href="structcoordinates.html">coordinates</a> velocity, <a class="code" href="structcoordinates.html">coordinates</a> playerCoor, <span class="keywordtype">bool</span> shootIsPressed)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">if</span>(velocity.<a class="code" href="structcoordinates.html#a1047b469a6d5827293066e71649b9acc">x</a> == 0 &amp;&amp; velocity.<a class="code" href="structcoordinates.html#af7fe5145df74388a36fd7b283992e9a5">y</a> == 0)</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        velocity = <a class="code" href="class_gun.html#a9063cb681db1f27d82b3ecc085fba749">m_oldVelocity</a>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_gun.html#af20047aa9ca99ab18c2e8c7ad9de67ef">   24</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_gun.html#af20047aa9ca99ab18c2e8c7ad9de67ef">Gun::update</a>(<a class="code" href="structcoordinates.html">coordinates</a> velocity, <a class="code" href="structcoordinates.html">coordinates</a> playerCoor, <span class="keywordtype">bool</span> shootIsPressed)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">if</span>(velocity.<a class="code" href="structcoordinates.html#a1047b469a6d5827293066e71649b9acc">x</a> == 0 &amp;&amp; velocity.<a class="code" href="structcoordinates.html#af7fe5145df74388a36fd7b283992e9a5">y</a> == 0)</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="class_gun.html#a9063cb681db1f27d82b3ecc085fba749">m_oldVelocity</a> = velocity;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        velocity = <a class="code" href="class_gun.html#a9063cb681db1f27d82b3ecc085fba749">m_oldVelocity</a>;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="class_gun.html#abb3f28035e5ca52af5a969b68970cbeb">m_objRect</a>.x = playerCoor.<a class="code" href="structcoordinates.html#a1047b469a6d5827293066e71649b9acc">x</a> + velocity.<a class="code" href="structcoordinates.html#a1047b469a6d5827293066e71649b9acc">x</a> * 5;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="class_gun.html#abb3f28035e5ca52af5a969b68970cbeb">m_objRect</a>.y = playerCoor.<a class="code" href="structcoordinates.html#af7fe5145df74388a36fd7b283992e9a5">y</a> + velocity.<a class="code" href="structcoordinates.html#af7fe5145df74388a36fd7b283992e9a5">y</a> * 5;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">if</span>(chrono::duration_cast&lt;chrono::milliseconds&gt;(chrono::high_resolution_clock::now() - <a class="code" href="class_gun.html#ac65b130616193b88b007ee0e36f87b6b">m_elapsed_engage</a>) &gt; <a class="code" href="class_gun.html#a381cd62fd74f094327f5602ca41dd0ab">m_engagementRate</a> &amp;&amp; shootIsPressed)</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="class_gun.html#ada0534af407f70260ae35ea673dd7dc8">m_canShoot</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="class_gun.html#ada0534af407f70260ae35ea673dd7dc8">m_canShoot</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
-<div class="ttc" id="a_gun_8cpp_html_a8524210767eebeb4926a5f30f8bbbb68"><div class="ttname"><a href="_gun_8cpp.html#a8524210767eebeb4926a5f30f8bbbb68">world</a></div><div class="ttdeci">World world</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00009">main.cpp:9</a></div></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="class_gun.html#a9063cb681db1f27d82b3ecc085fba749">m_oldVelocity</a> = velocity;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="class_gun.html#abb3f28035e5ca52af5a969b68970cbeb">m_objRect</a>.x = playerCoor.<a class="code" href="structcoordinates.html#a1047b469a6d5827293066e71649b9acc">x</a> + velocity.<a class="code" href="structcoordinates.html#a1047b469a6d5827293066e71649b9acc">x</a> * 55;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="class_gun.html#abb3f28035e5ca52af5a969b68970cbeb">m_objRect</a>.y = playerCoor.<a class="code" href="structcoordinates.html#af7fe5145df74388a36fd7b283992e9a5">y</a> + velocity.<a class="code" href="structcoordinates.html#af7fe5145df74388a36fd7b283992e9a5">y</a> * 80;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">if</span>(chrono::duration_cast&lt;chrono::milliseconds&gt;(chrono::high_resolution_clock::now() - <a class="code" href="class_gun.html#ac65b130616193b88b007ee0e36f87b6b">m_elapsed_engage</a>) &gt; <a class="code" href="class_gun.html#a381cd62fd74f094327f5602ca41dd0ab">m_engagementRate</a> &amp;&amp; shootIsPressed)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="class_gun.html#ada0534af407f70260ae35ea673dd7dc8">m_canShoot</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="class_gun.html#ada0534af407f70260ae35ea673dd7dc8">m_canShoot</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
+<div class="ttc" id="a_gun_8cpp_html_a8524210767eebeb4926a5f30f8bbbb68"><div class="ttname"><a href="_gun_8cpp.html#a8524210767eebeb4926a5f30f8bbbb68">world</a></div><div class="ttdeci">World world</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00010">main.cpp:10</a></div></div>
 <div class="ttc" id="a_gun_8h_html"><div class="ttname"><a href="_gun_8h.html">Gun.h</a></div></div>
 <div class="ttc" id="a_world_8h_html"><div class="ttname"><a href="_world_8h.html">World.h</a></div></div>
-<div class="ttc" id="aclass_gun_html_a381cd62fd74f094327f5602ca41dd0ab"><div class="ttname"><a href="class_gun.html#a381cd62fd74f094327f5602ca41dd0ab">Gun::m_engagementRate</a></div><div class="ttdeci">chrono::duration&lt; float &gt; m_engagementRate</div><div class="ttdef"><b>Definition:</b> <a href="_gun_8h_source.html#l00030">Gun.h:30</a></div></div>
+<div class="ttc" id="aclass_gun_html_a381cd62fd74f094327f5602ca41dd0ab"><div class="ttname"><a href="class_gun.html#a381cd62fd74f094327f5602ca41dd0ab">Gun::m_engagementRate</a></div><div class="ttdeci">chrono::duration&lt; float &gt; m_engagementRate</div><div class="ttdef"><b>Definition:</b> <a href="_gun_8h_source.html#l00035">Gun.h:35</a></div></div>
 <div class="ttc" id="aclass_gun_html_a7af1d587fc4cd3713eb21f6df94b5066"><div class="ttname"><a href="class_gun.html#a7af1d587fc4cd3713eb21f6df94b5066">Gun::init</a></div><div class="ttdeci">void init(float attackSpeed)</div><div class="ttdef"><b>Definition:</b> <a href="_gun_8cpp_source.html#l00017">Gun.cpp:17</a></div></div>
-<div class="ttc" id="aclass_gun_html_a9063cb681db1f27d82b3ecc085fba749"><div class="ttname"><a href="class_gun.html#a9063cb681db1f27d82b3ecc085fba749">Gun::m_oldVelocity</a></div><div class="ttdeci">coordinates m_oldVelocity</div><div class="ttdef"><b>Definition:</b> <a href="_gun_8h_source.html#l00019">Gun.h:19</a></div></div>
+<div class="ttc" id="aclass_gun_html_a9063cb681db1f27d82b3ecc085fba749"><div class="ttname"><a href="class_gun.html#a9063cb681db1f27d82b3ecc085fba749">Gun::m_oldVelocity</a></div><div class="ttdeci">coordinates m_oldVelocity</div><div class="ttdef"><b>Definition:</b> <a href="_gun_8h_source.html#l00024">Gun.h:24</a></div></div>
 <div class="ttc" id="aclass_gun_html_aa529c226353680e377e8ccbfe9a41365"><div class="ttname"><a href="class_gun.html#aa529c226353680e377e8ccbfe9a41365">Gun::Gun</a></div><div class="ttdeci">Gun()</div><div class="ttdef"><b>Definition:</b> <a href="_gun_8cpp_source.html#l00006">Gun.cpp:6</a></div></div>
-<div class="ttc" id="aclass_gun_html_abb3f28035e5ca52af5a969b68970cbeb"><div class="ttname"><a href="class_gun.html#abb3f28035e5ca52af5a969b68970cbeb">Gun::m_objRect</a></div><div class="ttdeci">SDL_Rect m_objRect</div><div class="ttdef"><b>Definition:</b> <a href="_gun_8h_source.html#l00016">Gun.h:16</a></div></div>
-<div class="ttc" id="aclass_gun_html_ac65b130616193b88b007ee0e36f87b6b"><div class="ttname"><a href="class_gun.html#ac65b130616193b88b007ee0e36f87b6b">Gun::m_elapsed_engage</a></div><div class="ttdeci">chrono::high_resolution_clock::time_point m_elapsed_engage</div><div class="ttdef"><b>Definition:</b> <a href="_gun_8h_source.html#l00029">Gun.h:29</a></div></div>
-<div class="ttc" id="aclass_gun_html_ada0534af407f70260ae35ea673dd7dc8"><div class="ttname"><a href="class_gun.html#ada0534af407f70260ae35ea673dd7dc8">Gun::m_canShoot</a></div><div class="ttdeci">bool m_canShoot</div><div class="ttdef"><b>Definition:</b> <a href="_gun_8h_source.html#l00026">Gun.h:26</a></div></div>
+<div class="ttc" id="aclass_gun_html_abb3f28035e5ca52af5a969b68970cbeb"><div class="ttname"><a href="class_gun.html#abb3f28035e5ca52af5a969b68970cbeb">Gun::m_objRect</a></div><div class="ttdeci">SDL_Rect m_objRect</div><div class="ttdef"><b>Definition:</b> <a href="_gun_8h_source.html#l00021">Gun.h:21</a></div></div>
+<div class="ttc" id="aclass_gun_html_ac65b130616193b88b007ee0e36f87b6b"><div class="ttname"><a href="class_gun.html#ac65b130616193b88b007ee0e36f87b6b">Gun::m_elapsed_engage</a></div><div class="ttdeci">chrono::high_resolution_clock::time_point m_elapsed_engage</div><div class="ttdef"><b>Definition:</b> <a href="_gun_8h_source.html#l00034">Gun.h:34</a></div></div>
+<div class="ttc" id="aclass_gun_html_ada0534af407f70260ae35ea673dd7dc8"><div class="ttname"><a href="class_gun.html#ada0534af407f70260ae35ea673dd7dc8">Gun::m_canShoot</a></div><div class="ttdeci">bool m_canShoot</div><div class="ttdef"><b>Definition:</b> <a href="_gun_8h_source.html#l00031">Gun.h:31</a></div></div>
 <div class="ttc" id="aclass_gun_html_af107f78d608720fef712c14b148afcdd"><div class="ttname"><a href="class_gun.html#af107f78d608720fef712c14b148afcdd">Gun::~Gun</a></div><div class="ttdeci">virtual ~Gun()</div><div class="ttdef"><b>Definition:</b> <a href="_gun_8cpp_source.html#l00012">Gun.cpp:12</a></div></div>
-<div class="ttc" id="aclass_gun_html_af20047aa9ca99ab18c2e8c7ad9de67ef"><div class="ttname"><a href="class_gun.html#af20047aa9ca99ab18c2e8c7ad9de67ef">Gun::update</a></div><div class="ttdeci">void update(coordinates, coordinates playerCoor, bool shootIsPressed)</div><div class="ttdef"><b>Definition:</b> <a href="_gun_8cpp_source.html#l00025">Gun.cpp:25</a></div></div>
-<div class="ttc" id="aclass_world_html"><div class="ttname"><a href="class_world.html">World</a></div><div class="ttdef"><b>Definition:</b> <a href="_world_8h_source.html#l00033">World.h:34</a></div></div>
-<div class="ttc" id="astructcoordinates_html"><div class="ttname"><a href="structcoordinates.html">coordinates</a></div><div class="ttdoc">A useful structure containing x and y axis of an object.</div><div class="ttdef"><b>Definition:</b> <a href="defines_8h_source.html#l00041">defines.h:42</a></div></div>
-<div class="ttc" id="astructcoordinates_html_a1047b469a6d5827293066e71649b9acc"><div class="ttname"><a href="structcoordinates.html#a1047b469a6d5827293066e71649b9acc">coordinates::x</a></div><div class="ttdeci">int x</div><div class="ttdef"><b>Definition:</b> <a href="defines_8h_source.html#l00043">defines.h:43</a></div></div>
-<div class="ttc" id="astructcoordinates_html_af7fe5145df74388a36fd7b283992e9a5"><div class="ttname"><a href="structcoordinates.html#af7fe5145df74388a36fd7b283992e9a5">coordinates::y</a></div><div class="ttdeci">int y</div><div class="ttdef"><b>Definition:</b> <a href="defines_8h_source.html#l00044">defines.h:44</a></div></div>
+<div class="ttc" id="aclass_gun_html_af20047aa9ca99ab18c2e8c7ad9de67ef"><div class="ttname"><a href="class_gun.html#af20047aa9ca99ab18c2e8c7ad9de67ef">Gun::update</a></div><div class="ttdeci">void update(coordinates, coordinates playerCoor, bool shootIsPressed)</div><div class="ttdef"><b>Definition:</b> <a href="_gun_8cpp_source.html#l00024">Gun.cpp:24</a></div></div>
+<div class="ttc" id="aclass_world_html"><div class="ttname"><a href="class_world.html">World</a></div><div class="ttdef"><b>Definition:</b> <a href="_world_8h_source.html#l00042">World.h:43</a></div></div>
+<div class="ttc" id="astructcoordinates_html"><div class="ttname"><a href="structcoordinates.html">coordinates</a></div><div class="ttdoc">A useful structure containing x and y axis of an object.</div><div class="ttdef"><b>Definition:</b> <a href="defines_8h_source.html#l00042">defines.h:43</a></div></div>
+<div class="ttc" id="astructcoordinates_html_a1047b469a6d5827293066e71649b9acc"><div class="ttname"><a href="structcoordinates.html#a1047b469a6d5827293066e71649b9acc">coordinates::x</a></div><div class="ttdeci">int x</div><div class="ttdef"><b>Definition:</b> <a href="defines_8h_source.html#l00044">defines.h:44</a></div></div>
+<div class="ttc" id="astructcoordinates_html_af7fe5145df74388a36fd7b283992e9a5"><div class="ttname"><a href="structcoordinates.html#af7fe5145df74388a36fd7b283992e9a5">coordinates::y</a></div><div class="ttdeci">int y</div><div class="ttdef"><b>Definition:</b> <a href="defines_8h_source.html#l00045">defines.h:45</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
