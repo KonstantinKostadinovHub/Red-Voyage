@@ -10,7 +10,7 @@ Camera::Camera()
     fcamera_rect.x = 0;
     fcamera_rect.y = 0;
     camera_rect.w = 1920;
-    camera_rect.h = 1080;
+    m_engagementRate = chrono::milliseconds((int)100);
 }
 
 Camera::~Camera()
@@ -23,13 +23,20 @@ void Camera::init(SDL_Rect* p1_rect, SDL_Rect* p2_rect){
 }
 
 void Camera::update(){
+    if (chrono::duration_cast<chrono::milliseconds>(chrono::high_resolution_clock::now() - m_elapsed_engage) < m_engagementRate) {
+        var_shake(&fcamera_rect.x, 8);
+        var_shake(&fcamera_rect.y, 8);
+    }
+
     dis_between = sqrt(abs(player1->x - player2->x) * abs(player1->x - player2->x) + abs(player1->y - player2->y) * abs(player1->y - player2->y));
     if(camera_rect.w >= 2880){camera_rect.w = 2880; camera_rect.h = 1620;}
     zoom_lvl = world.m_SCREEN_WIDTH / (0.0 + camera_rect.w);
+
     if(fcamera_rect.x <= world.m_backgroundRect.x) fcamera_rect.x = world.m_backgroundRect.y;
     if(fcamera_rect.y <= world.m_backgroundRect.x) fcamera_rect.y = world.m_backgroundRect.y;
     if(fcamera_rect.x + camera_rect.w >= world.m_backgroundRect.w) fcamera_rect.x = world.m_backgroundRect.w - camera_rect.w;
     if(fcamera_rect.y + camera_rect.h >= world.m_backgroundRect.h) fcamera_rect.y = world.m_backgroundRect.h - camera_rect.h;
+
     follow();
 }
 
@@ -58,4 +65,8 @@ void Camera::zoom(){
         camera_rect.w = 1366;
         camera_rect.h = 768;
     }
+}
+
+void Camera::shake() {
+    m_elapsed_engage = chrono::high_resolution_clock::now();
 }

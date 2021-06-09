@@ -796,6 +796,7 @@ void World::collision()
                 m_players[j] -> m_health -= m_enemyBullets[i] -> m_damage;
                 delete m_enemyBullets[i];
                 m_enemyBullets.erase(m_enemyBullets.begin() + i);
+                m_camera.shake();
                 i --;
                 buffBool = false;
             }
