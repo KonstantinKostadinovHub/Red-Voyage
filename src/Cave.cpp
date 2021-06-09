@@ -15,6 +15,24 @@ Cave::~Cave()
 
 }
 
+void Cave::initEntrance(string config)
+{
+	config = "config\\" + config;
+
+	ifstream stream;
+	stream.open(config.c_str());
+
+	string tmp;
+	stream >> tmp >> m_img;
+	stream >> tmp >> m_entranceRect.x >> m_entranceRect.y >> m_entranceRect.w >> m_entranceRect.h;
+
+	stream.close();
+
+	m_objectTexture = LoadTexture(m_img, world.m_main_renderer);
+
+
+}
+
 void Cave::init(string config)
 {
 	config = "config\\" + config;
@@ -35,16 +53,15 @@ void Cave::init(string config)
 
 void Cave::update()
 {
-	if (m_isInCave)
-	{
-		world.m_quitScene = true;
-		world.m_gameState = CAVES;
-	}
+	//cout << __LINE__ << endl;
 }
 
 void Cave::draw()
 {
+	SDL_RenderClear(world.m_main_renderer);
+	//cout << __LINE__ << endl;
 	SDL_RenderCopy(world.m_main_renderer, m_objectTexture, NULL, NULL);
+	SDL_RenderPresent(world.m_main_renderer);
 }
 
 

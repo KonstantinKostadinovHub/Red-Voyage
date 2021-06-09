@@ -12,6 +12,7 @@ World::World()
     m_main_renderer = nullptr;
     m_main_window = nullptr;
     m_soundManager = new SoundManager;
+
 }
 
 World::~World()
@@ -94,6 +95,7 @@ void World::init()
    // m_soundManager -> play("Background_Music.mp3");
     readCollisionPoints("collpoints.txt");
     m_tutorial.init("tutorial.txt");
+    m_cave.initEntrance("cave.txt");
 
     cursorImg = "img\\menu\\" + cursorImg;
 
@@ -253,6 +255,15 @@ void World::update()
 
         m_camera.update();
 
+        for (int i = 0; i < m_players.size(); i++)
+        {
+            if (collRectRect(m_players[i]->m_objRect, m_cave.m_entranceRect))
+            {
+                m_quitScene = true;
+                m_gameState = CAVES;
+            }
+        }
+
         cleaner();
 
         endGameCheck();
@@ -358,6 +369,8 @@ void World::draw()
 		{
 			m_helper->drawCollision(m_vfxs[i]->m_objectRect);
 		}
+
+        m_helper->drawCollision(m_cave.m_entranceRect);
 	}
 
     m_userInterface.draw();

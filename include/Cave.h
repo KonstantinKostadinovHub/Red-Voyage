@@ -26,6 +26,7 @@ class Cave
 		bool m_isInCave;
 
 		void init(string config);
+		void initEntrance(string config);
 		void update();
 		void draw();
 

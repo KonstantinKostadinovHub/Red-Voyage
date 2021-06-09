@@ -1,2 +1,2 @@
 Image: CaveType1.bmp
-Entrance_X_Y_W_H: 1000 1000 100 100
+Entrance_X_Y_W_H: 1500 1500 100 100

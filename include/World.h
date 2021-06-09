@@ -30,6 +30,7 @@
 #include "VisualEffect.h"
 #include "Helper.h"
 #include "PowerUp.h"
+#include "Cave.h"
 
 using namespace std;
 
@@ -80,6 +81,7 @@ class World
         int m_ironCollected = 0;
 
         bool buffBool;
+        bool m_isInCave;
 
         Camera m_camera;
         coordinates m_mouseCoordinates;
@@ -107,6 +109,7 @@ class World
         Animator m_animator;
         Tutorial m_tutorial;
 		Helper* m_helper;
+        Cave m_cave;
 
         vector <line> m_collLines;
 		vector <Player*> m_players;

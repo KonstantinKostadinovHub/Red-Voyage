@@ -1,5 +1,6 @@
 #include "World.h"
 #include "TitleScreen.h"
+#include "Cave.h"
 
 #ifndef _WIN32_WINNT
 #define _WIN32_WINNT 0x0500
@@ -9,6 +10,7 @@
 
 World world;
 TitleScreen screen;
+Cave cave;
 
 int main(int argc, char* argv[])
 {
@@ -57,6 +59,20 @@ int main(int argc, char* argv[])
             }
             world.deleteSession();
             world.m_quitScene = false;
+        }
+        if (world.m_gameState == CAVES)
+        {
+
+            while (!world.m_quitScene)
+            {
+                world.input();
+                cave.update();
+                cave.draw();
+                SDL_Delay(25);
+
+            }
+            world.m_quitScene = false;
+
         }
         if(world.m_gameState == CREDITS)
         {
