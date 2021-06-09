@@ -4,6 +4,7 @@
 
 #include "Engine.h"
 #include "Player.h"
+#include "Bullet.h"
 
 using namespace std;
 
@@ -18,7 +19,8 @@ class Helper
 {
 public:
 	Helper();
-	Helper(vector<Player*>* players, SDL_Renderer* renderer, float* zoom, SDL_Rect* camera);
+	Helper(vector<Player*>* players, SDL_Renderer* renderer, float* zoom, SDL_Rect* camera, vector<Bullet*>* bullets);
+	
 	virtual ~Helper();
 
 	void update();
@@ -32,6 +34,7 @@ private:
 	SDL_Renderer* m_renderer;
 
 	vector<Player*>* m_players; //< Pointer to the vector with players in the World
+	vector<Bullet*>* m_bullets; //< Pointer to the vector with bullets in the World
 
 	bool MAX_HEALTH;
 	bool MAX_DAMAGE;

@@ -5,18 +5,20 @@ Helper::Helper()
 
 }
 
-Helper::Helper(vector<Player*>* players, SDL_Renderer* renderer, float* zoom, SDL_Rect* camera)
+Helper::Helper(vector<Player*>* players, SDL_Renderer* renderer, float* zoom, SDL_Rect* camera, vector<Bullet*>*  bullets)
 {
 	// Change these values to true if you want any of these cheats
 	MAX_HEALTH = false;
-	MAX_DAMAGE = false;
+	MAX_DAMAGE = true;
 	MAX_SPEED = false;
-	MAX_ORES = false;
+	MAX_ORES = true;
 	SHOW_ALL_RECTS = false;
 
 	m_renderer = renderer;
 
 	m_players = players;
+
+	m_bullets = bullets;
 
 	zoom_lvl = zoom;
 	cameraRect = camera;
@@ -44,6 +46,10 @@ void Helper::update()
 			for (short i = 0; i < m_players->size(); i++)
 			{
 				(*m_players)[i]->m_dmg = 10000;
+			}
+			for (short i = 0; i < m_bullets->size(); i++)
+			{
+				(*m_bullets)[i]->m_damage = 10000;
 			}
 		}
 		if (MAX_SPEED)
