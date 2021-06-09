@@ -6,6 +6,8 @@
 
 #include "Engine.h"
 
+#include<chrono>
+
 class Camera
 {
     public:
@@ -19,10 +21,15 @@ class Camera
         float zoom_lvl = 2;
         float zoomMulti = 2;
         float dis_between;
+
+        chrono::high_resolution_clock::time_point m_elapsed_engage;
+        chrono::duration<float> m_engagementRate;
+
         void init(SDL_Rect* player_rect1, SDL_Rect* player_rect2);
         void update();
         void follow();
         void zoom();
+        void shake();
 
     protected:
 
