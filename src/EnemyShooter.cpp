@@ -30,6 +30,8 @@ EnemyShooter::EnemyShooter(const EnemyShooter& model) {
     m_inSpaceship = false;
     m_engage = false;
 
+    m_type = ENEMY::SHOOTER;
+
     m_zoom_lvl = model.m_zoom_lvl;
     m_cameraRect = model.m_cameraRect;
     m_renderer = model.m_renderer;

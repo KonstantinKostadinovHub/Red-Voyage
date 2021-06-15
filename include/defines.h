@@ -86,10 +86,23 @@ struct Button
 
 }; ///< An Button object structure with its parameters
 
+enum class ENEMY {
+    NONE = 0,
+    MELEE = 1,
+    SHOOTER = 2
+};
+
+enum class ITEM {
+    NONE = 0,
+    MELEE = 1,
+    RANGED = 2
+};
+
 struct UI_object
 {
     SDL_Texture* objTexture = NULL;
     SDL_Rect objRect;
 }; ///< An UI_Object object structure with its parameters
+
 
 #endif // DEFINES_H_INCLUDED

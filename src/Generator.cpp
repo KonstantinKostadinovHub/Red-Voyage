@@ -216,3 +216,29 @@ void Generator::giveOreCoordinates(Ore* ore)
 		exit(EXIT_FAILURE);
 	}
 }
+
+void Generator::generateEnemy(ENEMY type, coordinates coor, short health)
+{
+    if (type == ENEMY::MELEE)
+    {
+        Enemy* enemy = new Enemy(world.m_configManager.m_meleeEnemy);
+
+        enemy->m_objectRect.x = coor.x;
+        enemy->m_objectRect.y = coor.y;
+
+        enemy->m_health = health;
+
+        world.m_enemies.push_back(enemy);
+    }
+    else if(type == ENEMY::SHOOTER) 
+    {
+        EnemyShooter* enemy = new EnemyShooter(world.m_configManager.m_rangedEnemy);
+
+        enemy->m_objectRect.x = coor.x;
+        enemy->m_objectRect.y = coor.y;
+
+        enemy->m_health = health;
+
+        world.m_enemies.push_back(enemy);
+    }
+}

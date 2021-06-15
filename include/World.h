@@ -30,6 +30,7 @@
 #include "VisualEffect.h"
 #include "Helper.h"
 #include "PowerUp.h"
+#include "Saver.h"
 
 using namespace std;
 
@@ -107,6 +108,7 @@ class World
         Animator m_animator;
         Tutorial m_tutorial;
 		Helper* m_helper;
+        Saver* m_saver;
 
         vector <line> m_collLines;
 		vector <Player*> m_players;

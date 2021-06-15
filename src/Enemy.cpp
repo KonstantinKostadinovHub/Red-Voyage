@@ -34,6 +34,8 @@ Enemy::Enemy(const Enemy& model) {
     m_zoom_lvl = &world.m_camera.zoom_lvl;
     m_renderer = model.m_renderer;
 
+    m_type = ENEMY::MELEE;
+
     anim = new animation;
     anim -> frames = 3;
     anim -> lastFrameUpdate = chrono::high_resolution_clock::now();

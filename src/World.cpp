@@ -12,6 +12,7 @@ World::World()
     m_main_renderer = nullptr;
     m_main_window = nullptr;
     m_soundManager = new SoundManager;
+    m_saver = nullptr;
 }
 
 World::~World()
@@ -86,11 +87,14 @@ void World::init()
     exitButton.objRect.x = 1920 / 2 + 10;
     exitButton.objRect.y = 1080 / 2 - exitButton.objRect.h / 2;
 
+    m_saver = new Saver("saves\\session1.txt");
+
     m_configManager.init("configManager.txt");
     m_menu.load("menu.txt");
     m_userInterface.load("ui.txt");
     m_generator.init("generator.txt");
     m_soundManager -> init("soundManager.txt");
+
    // m_soundManager -> play("Background_Music.mp3");
     readCollisionPoints("collpoints.txt");
     m_tutorial.init("tutorial.txt");
@@ -933,6 +937,7 @@ bool World::checkForPause()
     if(state[SDL_SCANCODE_ESCAPE] && !m_isPaused)
     {
         m_isPaused = true;
+        m_saver->saveSession();
         return true;
     }
     else if(m_mouseIsPressed && (MouseIsInRect(m_mouseCoordinates, resumeButton.objRect)) && m_isPaused)
