@@ -4,6 +4,7 @@
 #include <istream>
 
 using namespace std;
+
 class Saver
 {
 public:

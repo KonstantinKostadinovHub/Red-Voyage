@@ -90,8 +90,8 @@ void EnemyShooter::load(string config) {
     m_angle = 0;
 
     m_renderer = world.m_main_renderer;
-    m_zoom_lvl = &world.m_camera.zoom_lvl;
-    m_cameraRect = &world.m_camera.camera_rect;
+    m_zoom_lvl = &world.m_gameManager.m_camera.zoom_lvl;
+    m_cameraRect = &world.m_gameManager.m_camera.camera_rect;
 
     m_objectTexture = LoadTexture(m_img, m_renderer);
 }
@@ -100,18 +100,18 @@ void EnemyShooter::attack() {
     /*
     * Enemy shooter's attack target.
     */
-    for (auto player: world.m_players) {
+    for (auto player: world.m_gameManager.m_players) {
         if (sqrt((player->m_objRect.x - m_objectRect.x)*(player->m_objRect.x - m_objectRect.x) +
             (player->m_objRect.y - m_objectRect.y)*(player->m_objRect.y - m_objectRect.y)) <= m_range) {
             if (chrono::duration_cast<chrono::milliseconds>(chrono::high_resolution_clock::now() - m_chargeTime) >= m_chargeMax) {
 
-                EnemyBullet* bullet = new EnemyBullet(world.m_configManager.m_enemyBullet);
+                EnemyBullet* bullet = new EnemyBullet(world.m_gameManager.m_configManager.m_enemyBullet);
 
                 bullet->m_objectRect.x = m_objectRect.x + bullet->m_objectRect.w/2;
                 bullet->m_objectRect.y = m_objectRect.y + bullet->m_objectRect.h/2;
                 bullet->m_angle = m_targetAngle;
 
-                world.m_enemyBullets.push_back(bullet);
+                world.m_gameManager.m_enemyBullets.push_back(bullet);
 
                 m_chargeTime = chrono::high_resolution_clock::now();
             }

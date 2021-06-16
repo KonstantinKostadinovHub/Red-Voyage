@@ -16,8 +16,8 @@ Ore::Ore(const Ore* model, SDL_Renderer* renderer, coordinates coor)
     m_texture = model->m_texture;
     m_type = model->m_type;
 
-    m_zoom_lvl = &world.m_camera.zoom_lvl;
-    m_cameraRect = &world.m_camera.camera_rect;
+    m_zoom_lvl = &world.m_gameManager.m_camera.zoom_lvl;
+    m_cameraRect = &world.m_gameManager.m_camera.camera_rect;
 
     m_rect.x = coor.x;
     m_rect.y = coor.y;
@@ -58,5 +58,5 @@ void Ore::takeHit()
 
 void Ore::draw()
 {
-    world.drawObject(m_rect, m_texture);
+    world.m_gameManager.drawObject(m_rect, m_texture);
 }

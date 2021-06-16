@@ -1,5 +1,4 @@
-#ifndef DEFINES_H_INCLUDED
-#define DEFINES_H_INCLUDED
+#pragma once
 
 #include <iostream>
 #include <string>
@@ -30,14 +29,20 @@ using namespace std;
 
 enum GAME_STATE
 {
-    NONE = 0, ///< NONE
-    MENU = 1, ///< MENU
-    GAME = 2, ///< GAME
-    CREDITS = 3, ///< CREDITS
-    EXIT = 4, ///< EXIT
-    ENDGAME = 5, ///< ENDGAME
-    TITLESCREEN = 6 //< TITLE SCREEN
-}; ///< Game state enumerator defining 5 game states to use
+    NONE = 0, 
+    MENU = 1, 
+    GAME = 2, 
+    CREDITS = 3, 
+    EXIT = 4, 
+    ENDGAME = 5, 
+    TITLESCREEN = 6 
+}; ///< Game state enumerator defining game states to use
+
+static string ENEMY_FOLDER = "enemy\\";
+static string PLAYER_FOLDER = "player\\";
+static string UI_FOLDER = "UI\\";
+static string ORE_FOLDER = "ores\\";
+static string MENU_FOLDER = "menu\\";
 
 struct coordinates
 {
@@ -104,5 +109,3 @@ struct UI_object
     SDL_Rect objRect;
 }; ///< An UI_Object object structure with its parameters
 
-
-#endif // DEFINES_H_INCLUDED

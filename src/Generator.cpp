@@ -52,7 +52,7 @@ void Generator::generateOre()
     m_duration = chrono::steady_clock::now() - m_lastOreCreation;
     if(m_duration.count() > m_oreSpawnCooldown)
     {
-        if(world.m_ores.size() < m_maxOre)
+        if(world.m_gameManager.m_ores.size() < m_maxOre)
         {
             m_lastOreCreation = chrono::steady_clock::now();
 
@@ -63,11 +63,11 @@ void Generator::generateOre()
             Ore* ore = nullptr;
 
             if(rand() % 100 >= 60){
-                ore = new Ore(&world.m_configManager.m_ironOre, world.m_main_renderer, coor);
+                ore = new Ore(&world.m_gameManager.m_configManager.m_ironOre, world.m_main_renderer, coor);
             }else if(rand() % 100 >= 15){
-                ore = new Ore(&world.m_configManager.m_aluminiumOre, world.m_main_renderer, coor);
+                ore = new Ore(&world.m_gameManager.m_configManager.m_aluminiumOre, world.m_main_renderer, coor);
             }else if(rand() % 100 >= 0){
-                ore = new Ore(&world.m_configManager.m_titaniumOre, world.m_main_renderer, coor);
+                ore = new Ore(&world.m_gameManager.m_configManager.m_titaniumOre, world.m_main_renderer, coor);
             }
             /*switch (rand() % 3)
             {
@@ -87,17 +87,17 @@ void Generator::generateOre()
 			while (!goodCase)
 			{
 				goodCase = true;
-				for (int i = 0; i < world.m_ores.size() && goodCase; i++)
+				for (int i = 0; i < world.m_gameManager.m_ores.size() && goodCase; i++)
 				{
-					if (collRectRect(ore->m_rect, world.m_ores[i]->m_rect))
+					if (collRectRect(ore->m_rect, world.m_gameManager.m_ores[i]->m_rect))
 					{
 						giveOreCoordinates(ore);
 						goodCase = false;
 					}
 				}
-				for (int i = 0; i < world.m_players.size() && goodCase; i++)
+				for (int i = 0; i < world.m_gameManager.m_players.size() && goodCase; i++)
 				{
-					if (collRectRect(ore->m_rect, world.m_players[i]->m_objRect))
+					if (collRectRect(ore->m_rect, world.m_gameManager.m_players[i]->m_objRect))
 					{
 						giveOreCoordinates(ore);
 						goodCase = false;
@@ -106,7 +106,7 @@ void Generator::generateOre()
 				}
 			}
 
-            world.m_ores.push_back(ore);
+            world.m_gameManager.m_ores.push_back(ore);
         }
     }
 }
@@ -117,7 +117,7 @@ void Generator::generateTask()
 
     if(m_duration.count() > m_TaskSpawnCooldown)
     {
-        if(world.m_tasks.size() < m_maxTasks)
+        if(world.m_gameManager.m_tasks.size() < m_maxTasks)
         {
             int taskNumber;
             bool taskChosen = false;
@@ -127,14 +127,14 @@ void Generator::generateTask()
                 taskNumber = rand() % m_modelTasks.size();
                 taskChosen = true;
 
-                for(int i = 0; i < world.m_tasks.size(); i++)
+                for(int i = 0; i < world.m_gameManager.m_tasks.size(); i++)
                 {
-                    if(m_modelTasks[taskNumber]->m_taskName == world.m_tasks[i]->m_taskName)
+                    if(m_modelTasks[taskNumber]->m_taskName == world.m_gameManager.m_tasks[i]->m_taskName)
                     {
                         taskChosen = false;
                     }
                 }
-                if(world.m_tasks.size() == 0)
+                if(world.m_gameManager.m_tasks.size() == 0)
                 {
                     taskChosen = true;
                 }
@@ -146,7 +146,7 @@ void Generator::generateTask()
             
             Task* task = new Task((*m_modelTasks[taskNumber]), ironNeeded, titaniumNeeded, aluminiumNeeded);
 
-            world.m_tasks.push_back(task);
+            world.m_gameManager.m_tasks.push_back(task);
 
             world.m_soundManager->play("Show_Task.mp3");
 
@@ -161,7 +161,7 @@ void Generator::generateEnemy()
     
     if(m_duration.count() > m_enemySpawnCooldown)
     {
-        if(world.m_enemies.size() < m_maxEnemies)
+        if(world.m_gameManager.m_enemies.size() < m_maxEnemies)
         {
             m_lastEnemyCreation= chrono::steady_clock::now();
 
@@ -173,20 +173,20 @@ void Generator::generateEnemy()
             
             if(random == 0)
             {
-                Enemy* enemy = new Enemy(world.m_configManager.m_meleeEnemy);
+                Enemy* enemy = new Enemy(world.m_gameManager.m_configManager.m_meleeEnemy);
 
                 enemy->m_objectRect.x = coor.x;
                 enemy->m_objectRect.y = coor.y;
 
-                world.m_enemies.push_back(enemy);
+                world.m_gameManager.m_enemies.push_back(enemy);
             }
             else{
-                EnemyShooter* enemy = new EnemyShooter(world.m_configManager.m_rangedEnemy);
+                EnemyShooter* enemy = new EnemyShooter(world.m_gameManager.m_configManager.m_rangedEnemy);
 
                 enemy->m_objectRect.x = coor.x;
                 enemy->m_objectRect.y = coor.y;
 
-                world.m_enemies.push_back(enemy);
+                world.m_gameManager.m_enemies.push_back(enemy);
             }
         }
     }
@@ -221,24 +221,24 @@ void Generator::generateEnemy(ENEMY type, coordinates coor, short health)
 {
     if (type == ENEMY::MELEE)
     {
-        Enemy* enemy = new Enemy(world.m_configManager.m_meleeEnemy);
+        Enemy* enemy = new Enemy(world.m_gameManager.m_configManager.m_meleeEnemy);
 
         enemy->m_objectRect.x = coor.x;
         enemy->m_objectRect.y = coor.y;
 
         enemy->m_health = health;
 
-        world.m_enemies.push_back(enemy);
+        world.m_gameManager.m_enemies.push_back(enemy);
     }
     else if(type == ENEMY::SHOOTER) 
     {
-        EnemyShooter* enemy = new EnemyShooter(world.m_configManager.m_rangedEnemy);
+        EnemyShooter* enemy = new EnemyShooter(world.m_gameManager.m_configManager.m_rangedEnemy);
 
         enemy->m_objectRect.x = coor.x;
         enemy->m_objectRect.y = coor.y;
 
         enemy->m_health = health;
 
-        world.m_enemies.push_back(enemy);
+        world.m_gameManager.m_enemies.push_back(enemy);
     }
 }

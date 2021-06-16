@@ -93,8 +93,8 @@ void Task::init(string configFile)
 
     m_taskTexture = LoadTexture(m_img, world.m_main_renderer);
 
-    m_camera_rect = &world.m_camera.camera_rect;
-    m_zoom_lvl = &world.m_camera.zoom_lvl;
+    m_camera_rect = &world.m_gameManager.m_camera.camera_rect;
+    m_zoom_lvl = &world.m_gameManager.m_camera.zoom_lvl;
 
     coor.x = m_objRect.x + 10;
     coor.y = m_objRect.y + 100;
@@ -148,7 +148,7 @@ void Task::update()
     bool resetTime = true;
     SDL_RenderCopy(world.m_main_renderer, m_taskTexture, NULL, &m_presentRect);
 
-    if(m_ironNeeded > world.m_ironCollected)
+    if(m_ironNeeded > world.m_gameManager.m_ironCollected)
     {
         if(hasIron)
         {
@@ -175,7 +175,7 @@ void Task::update()
         }
     }
 
-    if(m_aluminiumNeeded > world.m_aluminiumCollected)
+    if(m_aluminiumNeeded > world.m_gameManager.m_aluminiumCollected)
     {
         if(hasAluminium)
         {
@@ -203,7 +203,7 @@ void Task::update()
         }
     }
 
-    if(m_titaniumNeeded > world.m_titaniumCollected)
+    if(m_titaniumNeeded > world.m_gameManager.m_titaniumCollected)
     {
         if(hasTitanium)
         {
@@ -230,16 +230,16 @@ void Task::update()
         }
     }
 
-    for(int i = 0; i < world.m_players.size(); i ++)
+    for(int i = 0; i < world.m_gameManager.m_players.size(); i ++)
     {
-        x = abs(world.m_players[i] -> m_objRect.x + world.m_players[i] -> m_objRect.w / 2 - m_objRect.x - m_objRect.w / 2);
-        y = abs(world.m_players[i] -> m_objRect.y + world.m_players[i] -> m_objRect.h / 2 - m_objRect.y - m_objRect.h / 2);
+        x = abs(world.m_gameManager.m_players[i] -> m_objRect.x + world.m_gameManager.m_players[i] -> m_objRect.w / 2 - m_objRect.x - m_objRect.w / 2);
+        y = abs(world.m_gameManager.m_players[i] -> m_objRect.y + world.m_gameManager.m_players[i] -> m_objRect.h / 2 - m_objRect.y - m_objRect.h / 2);
 
         distance = sqrt(x * x + y * y);
 
         if(distance < 200)
         {
-            if(world.m_players[i] -> craftIsPressed)
+            if(world.m_gameManager.m_players[i] -> craftIsPressed)
             {
                 resetTime = false;
             }
@@ -261,25 +261,25 @@ void Task::update()
             m_lastButtonPressed = chrono::steady_clock::now();
             world.m_soundManager -> play("Finished_Task.mp3");
 
-			if(world.m_tasks.size() == world.m_generator.m_maxTasks)
+			if(world.m_gameManager.m_tasks.size() == world.m_gameManager.m_generator.m_maxTasks)
             {
-                world.m_generator.m_lastTaskCreation = chrono::steady_clock::now();
+                world.m_gameManager.m_generator.m_lastTaskCreation = chrono::steady_clock::now();
 			}
 
-            world.m_ironCollected -= m_ironNeeded;
-            world.m_aluminiumCollected -= m_aluminiumNeeded;
-            world.m_titaniumCollected -= m_titaniumNeeded;
+            world.m_gameManager.m_ironCollected -= m_ironNeeded;
+            world.m_gameManager.m_aluminiumCollected -= m_aluminiumNeeded;
+            world.m_gameManager.m_titaniumCollected -= m_titaniumNeeded;
         }
     }
 }
 
 void Task::draw()
 {
-    world.drawObject(m_objRect, m_taskTexture);
+    world.m_gameManager.drawObject(m_objRect, m_taskTexture);
 
-    world.drawObject(m_ironNumberRect, m_ironNumber);
+    world.m_gameManager.drawObject(m_ironNumberRect, m_ironNumber);
 
-    world.drawObject(m_aluminiumNumberRect, m_aluminiumNumber);
+    world.m_gameManager.drawObject(m_aluminiumNumberRect, m_aluminiumNumber);
 
-    world.drawObject(m_titaniumNumberRect, m_titaniumNumber);
+    world.m_gameManager.drawObject(m_titaniumNumberRect, m_titaniumNumber);
 }

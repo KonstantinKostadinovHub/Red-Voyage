@@ -32,22 +32,22 @@ void Camera::update(){
     if(camera_rect.w >= 2880){camera_rect.w = 2880; camera_rect.h = 1620;}
     zoom_lvl = world.m_SCREEN_WIDTH / (0.0 + camera_rect.w);
 
-    if(fcamera_rect.x <= world.m_backgroundRect.x) fcamera_rect.x = world.m_backgroundRect.y;
-    if(fcamera_rect.y <= world.m_backgroundRect.x) fcamera_rect.y = world.m_backgroundRect.y;
-    if(fcamera_rect.x + camera_rect.w >= world.m_backgroundRect.w) fcamera_rect.x = world.m_backgroundRect.w - camera_rect.w;
-    if(fcamera_rect.y + camera_rect.h >= world.m_backgroundRect.h) fcamera_rect.y = world.m_backgroundRect.h - camera_rect.h;
+    if(fcamera_rect.x <= world.m_gameManager.m_backgroundRect.x) fcamera_rect.x = world.m_gameManager.m_backgroundRect.y;
+    if(fcamera_rect.y <= world.m_gameManager.m_backgroundRect.x) fcamera_rect.y = world.m_gameManager.m_backgroundRect.y;
+    if(fcamera_rect.x + camera_rect.w >= world.m_gameManager.m_backgroundRect.w) fcamera_rect.x = world.m_gameManager.m_backgroundRect.w - camera_rect.w;
+    if(fcamera_rect.y + camera_rect.h >= world.m_gameManager.m_backgroundRect.h) fcamera_rect.y = world.m_gameManager.m_backgroundRect.h - camera_rect.h;
 
     follow();
 }
 
 void Camera::follow(){
     float dx, dy;
-    if(world.m_players.size() > 1){
+    if(world.m_gameManager.m_players.size() > 1){
         dx = (player1->x + player2->x) / 2 - camera_rect.w / 2 + player1->w / 3 + player2->w / 3;
         dy = (player1->y + player2->y) / 2 - camera_rect.h / 2 + player1->h / 3 + player2->w / 3;
     }else{
-        dx = world.m_players[0]->m_objRect.x - 684 + world.m_players[0]->m_objRect.w / 3;
-        dy = world.m_players[0]->m_objRect.y - 384 + world.m_players[0]->m_objRect.h / 3;
+        dx = world.m_gameManager.m_players[0]->m_objRect.x - 684 + world.m_gameManager.m_players[0]->m_objRect.w / 3;
+        dy = world.m_gameManager.m_players[0]->m_objRect.y - 384 + world.m_gameManager.m_players[0]->m_objRect.h / 3;
     }
     fcamera_rect.x = lerp(fcamera_rect.x, dx, 0.01 * following_speed);
     fcamera_rect.y = lerp(fcamera_rect.y, dy, 0.01 * following_speed);
@@ -56,7 +56,7 @@ void Camera::follow(){
 }
 
 void Camera::zoom(){
-    if(world.m_players.size() > 1)
+    if(world.m_gameManager.m_players.size() > 1)
     {
         if(dis_between < 700) dis_between = 700;
         camera_rect.w = dis_between * 16 / 8;

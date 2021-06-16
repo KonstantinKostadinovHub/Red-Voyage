@@ -16,7 +16,7 @@ HealthBar::~HealthBar()
 
 void HealthBar::init(string configFile)
 {
-    m_configFile = "config\\UI\\" + configFile;
+    m_configFile = "config\\" + UI_FOLDER + configFile;
 
     fstream stream;
     string tmp;
