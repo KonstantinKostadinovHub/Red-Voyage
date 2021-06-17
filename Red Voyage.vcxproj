@@ -90,12 +90,12 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Desktop\Creations\Programming\Red_Voyage_VS\include;D:\Desktop\Creations\Programming\Red_Voyage_VS\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>include;SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_mixer.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:\Desktop\Creations\Programming\Red_Voyage_VS\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>SDL2_mixer-2.0.4\lib\x86;SDL2_ttf-2.0.15\lib\x86;SDL2\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -149,6 +149,7 @@
     <ClCompile Include="src\EnemyShooter.cpp" />
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\Food.cpp" />
+    <ClCompile Include="src\GameManager.cpp" />
     <ClCompile Include="src\Generator.cpp" />
     <ClCompile Include="src\Gun.cpp" />
     <ClCompile Include="src\HealthBar.cpp" />
@@ -182,6 +183,7 @@
     <ClInclude Include="include\EnemyShooter.h" />
     <ClInclude Include="include\Engine.h" />
     <ClInclude Include="include\Food.h" />
+    <ClInclude Include="include\GameManager.h" />
     <ClInclude Include="include\Generator.h" />
     <ClInclude Include="include\Gun.h" />
     <ClInclude Include="include\HealthBar.h" />

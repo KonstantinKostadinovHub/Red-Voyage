@@ -45,17 +45,16 @@ int main(int argc, char* argv[])
         }
         if(world.m_gameState == GAME)
         {
-            world.initSession();
-            world.m_camera.init(&(world.m_players[0]->m_objRect), &(world.m_players[1]->m_objRect));
-
+            world.m_gameManager.initSession();
+            
             while(!world.m_quitScene)
             {
                 world.input();
-                world.update();
-                world.draw();
+                world.m_gameManager.update();
+                world.m_gameManager.draw();
                 SDL_Delay(25);
             }
-            world.deleteSession();
+            world.m_gameManager.deleteSession();
             world.m_quitScene = false;
         }
         if(world.m_gameState == CREDITS)

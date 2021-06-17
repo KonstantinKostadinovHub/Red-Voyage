@@ -19,7 +19,7 @@ void Endgame::init(string config)
     /// Getting the values of some variables from a configuration file and doing some basic math to give values to others.
     fstream stream;
     string tmp;
-    stream.open("config\\menu\\" + config);
+    stream.open("config\\" + MENU_FOLDER + config);
     stream >> tmp >> m_winImage;
     stream >> tmp >> m_lossImage;
     stream >> tmp >> m_poceedImage >> m_proceed_button.w >> m_proceed_button.h;
@@ -31,9 +31,9 @@ void Endgame::init(string config)
 
     m_start_proceed_button = m_proceed_button;
 
-    m_winImage = "\\menu\\" + m_winImage;
-    m_lossImage = "\\menu\\" + m_lossImage;
-    m_poceedImage = "\\menu\\" + m_poceedImage;
+    m_winImage = MENU_FOLDER + m_winImage;
+    m_lossImage = MENU_FOLDER + m_lossImage;
+    m_poceedImage = MENU_FOLDER + m_poceedImage;
 
     m_win_texture = LoadTexture(m_winImage, world.m_main_renderer);
     m_loss_texture = LoadTexture(m_lossImage, world.m_main_renderer);
@@ -48,7 +48,7 @@ void Endgame::update()
         {
             /// We check if the mouse is pressed on a certain button and than we redirect the 
             /// player/players either to the win screen or the loss screen depending on if he/they won or not.
-            if(world.win == 1)
+            if(world.m_gameManager.win == 1)
             {
                 world.m_gameState = CREDITS;
             }else{
@@ -64,11 +64,11 @@ void Endgame::draw()
     /// We draw a certain screen depending on the win/loss screen
     SDL_RenderClear(world.m_main_renderer);
 
-    if(world.win == -1)
+    if(world.m_gameManager.win == -1)
     {
         SDL_RenderCopy(world.m_main_renderer, m_loss_texture , NULL , NULL);
 
-    }else if(world.win == 1)
+    }else if(world.m_gameManager.win == 1)
     {
         SDL_RenderCopy(world.m_main_renderer, m_win_texture , NULL , NULL);
     }

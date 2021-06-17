@@ -236,3 +236,8 @@ void drawRectCollision(SDL_Rect rect, SDL_Renderer* renderer)
 	}
 	*/
 }
+
+void var_shake(float* a, float magnitude) {
+    float b = ((static_cast<float> (rand()) / static_cast<float>(RAND_MAX)) * 2.0f - 1.0f) * magnitude;
+    *a += b;
+}

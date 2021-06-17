@@ -30,5 +30,5 @@ void ChickenWing::init(string config_file){
 
 void ChickenWing::draw()
 {
-    world.drawObject(wing_rect, wing_texture);
+    world.m_gameManager.drawObject(wing_rect, wing_texture);
 }
