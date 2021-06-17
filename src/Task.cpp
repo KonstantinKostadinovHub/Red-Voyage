@@ -105,7 +105,6 @@ void Task::init(string configFile)
 
     pair<SDL_Texture*, SDL_Rect> myPair = writeRed(tmp, coor, world.m_main_renderer, m_fontSize);
 
-
     m_ironNumber = myPair.first;
     m_ironNumberRect = myPair.second;
 
@@ -133,6 +132,7 @@ void Task::init(string configFile)
 void Task::update()
 {
     string tmp;
+
     m_presentRect =
     {
         (int)((*m_zoom_lvl) * (double)(m_objRect.x - m_camera_rect->x)),
@@ -154,7 +154,7 @@ void Task::update()
         {
             hasIron = false;
 
-            string tmp = to_string(m_ironNeeded);
+            tmp = to_string(m_ironNeeded);
 
             pair<SDL_Texture*, SDL_Rect> myPair = writeRed(tmp, coor, world.m_main_renderer, 36);
 
@@ -167,7 +167,7 @@ void Task::update()
         {
             hasIron = true;
 
-            string tmp = to_string(m_ironNeeded);
+            tmp = to_string(m_ironNeeded);
 
             pair<SDL_Texture*, SDL_Rect> myPair = writeGreen(tmp, coor, world.m_main_renderer, 36);
 
