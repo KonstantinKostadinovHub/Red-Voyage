@@ -110,6 +110,9 @@
     <Filter Include="Header Files\Game\PowerUps">
       <UniqueIdentifier>{c8d7b817-c0e7-4fbe-8673-ee0933b0c355}</UniqueIdentifier>
     </Filter>
+    <Filter Include="config\item">
+      <UniqueIdentifier>{ed6daa94-46f1-4e47-8c61-c3ba922dac9a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ChickenWing.cpp">
@@ -205,6 +208,15 @@
     <ClCompile Include="src\Saver.cpp" />
     <ClCompile Include="src\GameManager.cpp">
       <Filter>src\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Writer.cpp">
+      <Filter>src\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Item.cpp">
+      <Filter>src\Game\PowerUps</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LeatherBoots.cpp">
+      <Filter>src\Game\PowerUps</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -303,6 +315,15 @@
     </ClInclude>
     <ClInclude Include="include\GameManager.h">
       <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Writer.h">
+      <Filter>Header Files\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Item.h">
+      <Filter>Header Files\Game\PowerUps</Filter>
+    </ClInclude>
+    <ClInclude Include="include\LeatherBoots.h">
+      <Filter>Header Files\Game\PowerUps</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -422,6 +443,9 @@
     </Text>
     <Text Include="config\chickenBuff.txt">
       <Filter>config\powerUps</Filter>
+    </Text>
+    <Text Include="config\item\leatherBoots.txt">
+      <Filter>config\item</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>

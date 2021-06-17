@@ -100,6 +100,7 @@ public:
     vector <Ore*> m_ores;
     vector <VisualEffect*> m_vfxs;
     vector <PowerUp*> m_powerUps;
+    vector <Item*> m_items;
 
     line m_door;
 
@@ -109,28 +110,30 @@ public:
 
     void init();
     void update();
+    void collision();
     void draw();
     void cleaner();
     void initSession();
+    void deleteSession();
 
     void readCollisionPoints(string configFile);
     bool collisionWithShip(SDL_Rect rect);
     bool collisionWithShip(line collLine);
     bool isPlayerInShip();
+    bool checkForPause();
+    void endGameCheck();
 
     void addPlayer(string configFile);
     void addBullet(SDL_Rect rect, coordinates coor);
-    void shoot();
-    void deleteSession();
+    void addItem(ITEM type, coordinates coor);
 
-    void endGameCheck();
+    void shoot();
+
 
     void drawObject(SDL_Rect rect, SDL_Texture* texture);
     void drawObjectWithSrc(SDL_Rect dstRect, SDL_Rect srcRect, SDL_Texture* texture);
 
-    void collision();
 
-    bool checkForPause();
 
     void drawShipCollision(); //! Draw the collision lines of the spaceship
 

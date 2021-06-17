@@ -93,6 +93,10 @@ void GameManager::initSession()
     m_food_spawner.init("food.txt");
     addPlayer("player1.txt");
     addPlayer("player2.txt");
+    coordinates buff;
+    buff.x = 1000;
+    buff.y = 1000;
+    addItem(ITEM::LEATHER_BOOTS, buff);
  
     m_camera.init(&(m_players[0]->m_objRect), &(m_players[1]->m_objRect));
     
@@ -279,6 +283,11 @@ void GameManager::draw()
         bullet->draw(m_renderer);
     }
 
+    for (int i = 0; i < m_items.size(); i++)
+    {
+        m_items[i]->draw();
+    }
+
     for (int i = 0; i < m_vfxs.size(); i++)
     {
         m_vfxs[i]->draw();
@@ -317,6 +326,10 @@ void GameManager::draw()
 
         for (auto bullet : m_enemyBullets) {
             m_helper->drawCollision(bullet->m_objectRect);
+        }
+
+        for (auto item : m_items) {
+            m_helper->drawCollision(item->m_objectRect);
         }
 
         for (int i = 0; i < m_vfxs.size(); i++)
@@ -671,6 +684,16 @@ void GameManager::collision()
     */
     for (int j = 0; j < m_players.size(); j++)
     {
+        for (int i = 0; i < m_items.size(); i++)
+        {
+            if (collRectRect(m_items[i]->m_objectRect, m_players[j]->m_objRect))
+            {
+                m_items[i]->onPick(m_players[i]);
+                delete m_items[i];
+                m_items.erase(m_items.begin() + i);
+                i--;
+            }
+        }
         for (int i = 0; i < 4; i++) {
             if (chicken_wings[i] != nullptr) {
                 if (collRectRect(chicken_wings[i]->wing_rect, m_players[j]->m_objRect)) {
@@ -889,5 +912,28 @@ void GameManager::drawShipCollision()
     {
         a = m_collLines[i];
         SDL_RenderDrawLine(m_renderer, (int)(m_camera.zoom_lvl * (float)(a.start.x - m_camera.camera_rect.x)), (int)(m_camera.zoom_lvl * (float)(a.start.y - m_camera.camera_rect.y)), (int)(m_camera.zoom_lvl * (float)(a.finish.x - m_camera.camera_rect.x)), (int)(m_camera.zoom_lvl * (float)(a.finish.y - m_camera.camera_rect.y)));
+    }
+}
+
+void GameManager::addItem(ITEM type, coordinates coor)
+{
+    Item* item = nullptr;
+    switch (type)
+    {
+    case ITEM::LEATHER_BOOTS:
+        item = new LeatherBoots(m_configManager.m_leatherBoots);
+        break;
+    }
+    if (item)
+    {
+        item->m_objectRect.x = coor.x;
+        item->m_objectRect.y = coor.y;
+        m_items.push_back(item);
+    }
+    else
+    {
+        string errorText = "error: trying to create an item with unknown type in line: " + to_string(__LINE__) + " in file " + __FILE__;
+        fprintf(stderr, errorText.c_str());
+        exit(EXIT_FAILURE);
     }
 }

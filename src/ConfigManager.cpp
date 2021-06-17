@@ -57,5 +57,8 @@ void ConfigManager::init(string configFile)
     stream >> tmp;
     m_chickenBuff.init(tmp);
 
+    stream >> tmp;;
+    m_leatherBoots.init(tmp);
+
     stream.close();
 }

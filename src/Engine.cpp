@@ -24,6 +24,12 @@ SDL_Texture* LoadTexture(string configFile, SDL_Renderer* renderer)
         if(i < 0)
         {
             cout << "NO TEXTURE LOADED: " << configFile << endl;
+
+            configFile = "img\\textureNotLoaded.bmp";
+           
+            SDL_Surface* loadingSurface = SDL_LoadBMP(configFile.c_str());
+            texture = SDL_CreateTextureFromSurface(renderer, loadingSurface);
+            SDL_FreeSurface(loadingSurface);
         }
     }
     return texture;
