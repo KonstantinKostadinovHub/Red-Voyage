@@ -31,6 +31,11 @@ void Item::onPick(Player* player)
 	/// Overwrite this function when inheriting
 }
 
+SDL_Rect Item::getRect()
+{
+	return m_objectRect;
+}
+
 void Item::setPos(coordinates coor)
 {
 	m_objectRect.x = coor.x;

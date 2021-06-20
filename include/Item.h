@@ -22,12 +22,12 @@ public:
 	Item(const Item* modelItem);
 	virtual ~Item();
 	
-	SDL_Rect m_objectRect;
-
+	SDL_Rect getRect();
 	virtual void onPick(Player* player); //< The impact of the item after it is picked
 	virtual void init(string configFile);
 	void setPos(coordinates pos); //< Use after the initialization of the object
 	void draw();
 protected:
+	SDL_Rect m_objectRect;
 	SDL_Texture* m_objectTexture;
 };

@@ -329,7 +329,7 @@ void GameManager::draw()
         }
 
         for (auto item : m_items) {
-            m_helper->drawCollision(item->m_objectRect);
+            m_helper->drawCollision(item->getRect());
         }
 
         for (int i = 0; i < m_vfxs.size(); i++)
@@ -686,7 +686,7 @@ void GameManager::collision()
     {
         for (int i = 0; i < m_items.size(); i++)
         {
-            if (collRectRect(m_items[i]->m_objectRect, m_players[j]->m_objRect))
+            if (collRectRect(m_items[i]->getRect(), m_players[j]->m_objRect))
             {
                 m_items[i]->onPick(m_players[i]);
                 delete m_items[i];
@@ -926,8 +926,7 @@ void GameManager::addItem(ITEM type, coordinates coor)
     }
     if (item)
     {
-        item->m_objectRect.x = coor.x;
-        item->m_objectRect.y = coor.y;
+        item->setPos(coor);
         m_items.push_back(item);
     }
     else
