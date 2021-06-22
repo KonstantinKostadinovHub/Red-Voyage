@@ -95,7 +95,8 @@ void World::init()
    // m_soundManager -> play("Background_Music.mp3");
     readCollisionPoints("collpoints.txt");
     m_tutorial.init("tutorial.txt");
-    m_cave.initEntrance("cave.txt");
+    m_cave.initEntrance("cave_entrance.txt");
+    m_cave.init("cave.txt");
 
     cursorImg = "img\\menu\\" + cursorImg;
 
@@ -206,6 +207,8 @@ void World::update()
 
     if(!m_isPaused)
     {
+        m_cave.updateEntrance();
+
 		m_helper->update();
 
         m_generator.generateOre();  
@@ -215,7 +218,7 @@ void World::update()
         m_animator.updateFrames();
 
         for(int i = 0; i < m_players.size(); i ++)
-        {
+        {   
             m_players[i] -> update();
         }
 
@@ -281,6 +284,8 @@ void World::draw()
     SDL_RenderClear(m_main_renderer);
 
     drawObject(m_backgroundRect, m_backgroundTexture);
+
+
 
     if(isPlayerInShip())
     {
@@ -372,6 +377,8 @@ void World::draw()
 
         m_helper->drawCollision(m_cave.m_entranceRect);
 	}
+
+    m_cave.drawEntrance();
 
     m_userInterface.draw();
 

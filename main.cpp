@@ -62,15 +62,19 @@ int main(int argc, char* argv[])
         }
         if (world.m_gameState == CAVES)
         {
+            SDL_ShowCursor(SDL_ENABLE);
 
+            world.m_cave.initSession();
+            world.m_camera.init(&(world.m_players[0]->m_objRect), &(world.m_players[1]->m_objRect)); 
             while (!world.m_quitScene)
             {
                 world.input();
-                cave.update();
-                cave.draw();
+                world.m_cave.update();
+                world.m_cave.draw();
                 SDL_Delay(25);
 
             }
+            world.m_cave.deleteSession();
             world.m_quitScene = false;
 
         }

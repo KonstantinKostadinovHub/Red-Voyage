@@ -1,2 +1,4 @@
 Image: CaveType1.bmp
-Entrance_X_Y_W_H: 1500 1500 100 100
+RoomCount: 10
+Room1: cave_room.txt
+

@@ -200,6 +200,9 @@
     <ClCompile Include="src\Cave.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\CaveRoom.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\ChickenWing.h">
@@ -296,6 +299,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Cave.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CaveRoom.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
