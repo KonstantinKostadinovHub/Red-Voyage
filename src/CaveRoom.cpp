@@ -7,6 +7,7 @@ extern World world;
 
 CaveRoom::CaveRoom()
 {
+	isLinked = false;
 }
 
 CaveRoom::~CaveRoom()
@@ -82,7 +83,7 @@ void CaveRoom::randomiseExits()
 	else {
 		m_hasDoor.top = false;
 	}
-	//D(m_hasDoor.top);
+	///D(m_hasDoor.top);
 
 	if (!m_hasDoor.bottom && !m_hasDoor.left && !m_hasDoor.right && !m_hasDoor.top)
 	{
@@ -98,41 +99,64 @@ void CaveRoom::changeX(int i)
 
 }
 
-CaveRoom CaveRoom::getNextRoom()
+CaveRoom CaveRoom::getNextRoom(CaveRoom& nextRoom)
 {
-	CaveRoom nextRoom;
+	//CaveRoom* nullRoom = NULL;
+	/*D(m_objRect.x);
+	D(m_objRect.y);
 
-	nextRoom.m_objRect.x = m_objRect.x;
-	nextRoom.m_objRect.y = m_objRect.y;
+	D(m_hasDoor.right);
+	D(m_hasDoor.left);
+	D(m_hasDoor.top);
+	D(m_hasDoor.bottom);
+
+
+	D(nextRoom.m_hasDoor.right);
+	D(nextRoom.m_hasDoor.left);
+	D(nextRoom.m_hasDoor.top);
+	D(nextRoom.m_hasDoor.bottom);*/
+
+	isLinked = false;
+
+	nextRoom.m_objRect.x = m_objRect.x + m_objRect.w;
+	nextRoom.m_objRect.y = m_objRect.y + m_objRect.h;
 
 	if (m_hasDoor.right && nextRoom.m_hasDoor.left)
 	{
 
 		nextRoom.m_objRect.x = m_objRect.x + m_objRect.w;
+		isLinked = true;
+		//D("RIGHT");
 
 	}else if (m_hasDoor.left && nextRoom.m_hasDoor.right)
 	{
 
 		nextRoom.m_objRect.x = m_objRect.x - nextRoom.m_objRect.w;
+		isLinked = true;
+		//D("LEFT");
 
 	}else if(m_hasDoor.top && nextRoom.m_hasDoor.bottom)
 	{
 
-		nextRoom.m_objRect.y = m_objRect.y + nextRoom.m_objRect.h;
+		nextRoom.m_objRect.y = m_objRect.y - nextRoom.m_objRect.h;
+		isLinked = true;
+		//D("TOP");
 
 	}
 	else if (m_hasDoor.bottom && nextRoom.m_hasDoor.top)
 	{
 
-		nextRoom.m_objRect.y = m_objRect.y - m_objRect.h;
+		nextRoom.m_objRect.y = m_objRect.y + m_objRect.h;
+		isLinked = true;
+		//D("BOTTOM");
 
 	}
-
+	//cout << " -----------------------------\n ";
+	//D(isLinked);
+	/*cout << " -----------------------------\n ";
 	D(nextRoom.m_objRect.x);
-	D(nextRoom.m_objRect.y);
-	D("RETURN");
+	D(nextRoom.m_objRect.y);*/
 	return nextRoom;
-	D("END");
 
 }
 

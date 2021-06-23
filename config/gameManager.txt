@@ -1,0 +1,11 @@
+Image: Game_Background.bmp
+InsideSHip: Mars_Spaceship_Inside_FInal.bmp
+Pause_Button: Pause_Button.bmp
+PauseX: 200
+PauseY: 200
+Pause_Background: transparentBackground.bmp
+ExitX: 1920
+ExitY: 1080
+Exit_Button: Exit_Button.bmp
+ExitX: 200
+ExitY: 200

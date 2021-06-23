@@ -1,5 +1,4 @@
-#ifndef DEFINES_H_INCLUDED
-#define DEFINES_H_INCLUDED
+#pragma once
 
 #include <iostream>
 #include <string>
@@ -35,16 +34,29 @@ enum GAME_STATE
     GAME = 2, 
     CREDITS = 3, 
     EXIT = 4, 
-    ENDGAME = 5,
-    TITLESCREEN = 6,
+    ENDGAME = 5, 
+    TITLESCREEN = 6 ,
     CAVES = 7
-}; ///< Game state enumerator defining 5 game states to use
+}; ///< Game state enumerator defining game states to use
+
+static string ENEMY_FOLDER = "enemy\\";
+static string PLAYER_FOLDER = "player\\";
+static string UI_FOLDER = "UI\\";
+static string ORE_FOLDER = "ores\\";
+static string MENU_FOLDER = "menu\\";
+static string MAIN_FOLDER = "main\\";
+static string ITEM_FOLDER = "item\\";
 
 struct coordinates
 {
     int x = 0;
     int y = 0;
 }; ///< A useful structure containing x and y axis of an object
+
+static coordinates parseToCoordinates(SDL_Rect rect)
+{
+    return { rect.x , rect.y };
+}
 
 struct fcoordinates
 {
@@ -87,10 +99,31 @@ struct Button
 
 }; ///< An Button object structure with its parameters
 
+enum class ENEMY {
+    NONE = 0,
+    MELEE = 1,
+    SHOOTER = 2
+};
+
+enum class ITEM {
+    NONE = 0,
+    LEATHER_BOOTS = 1
+};
+
+enum class FONT {
+    NONE = 0,
+    ARCADE_CLASSIC = 1
+};
+
+enum class COLOR {
+    NONE = 0,
+    ORANGE = 1,
+    LIGHT = 2,
+    DARK = 3
+};
+
 struct UI_object
 {
     SDL_Texture* objTexture = NULL;
     SDL_Rect objRect;
 }; ///< An UI_Object object structure with its parameters
-
-#endif // DEFINES_H_INCLUDED

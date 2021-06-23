@@ -23,7 +23,7 @@ VisualEffect::VisualEffect(const VisualEffect* model, coordinates coor)
 	anim->srcRect->x = 0;
 	anim->srcRect->y = 0;
 	anim->loop = model->anim->loop;
-	world.m_animator.m_animations.push_back(anim);
+	world.m_gameManager.m_animator.m_animations.push_back(anim);
 	
 	m_texture = model->m_texture;
 	m_objectRect.x = coor.x - model->m_inGameWidth / 2;
@@ -79,5 +79,5 @@ void VisualEffect::init(string configFile)
 
 void VisualEffect::draw()
 {
-	world.drawObjectWithSrc(m_objectRect, m_srcRect, m_texture);
+	world.m_gameManager.drawObjectWithSrc(m_objectRect, m_srcRect, m_texture);
 }

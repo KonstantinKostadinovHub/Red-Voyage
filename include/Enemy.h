@@ -62,6 +62,7 @@ class Enemy
 
         SDL_Rect m_objectRect;
 
+        ENEMY m_type;
 
         void search();
         void engage();

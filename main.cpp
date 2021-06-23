@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
 
     world.init();
     
-	world.m_gameState = MENU; // TITLESCREEN
+	world.m_gameState = GAME; // TITLESCREEN
 
     screen.load("NiTe_logo.txt", world.m_main_renderer);
 
@@ -47,34 +47,32 @@ int main(int argc, char* argv[])
         }
         if(world.m_gameState == GAME)
         {
-            world.initSession();
-            world.m_camera.init(&(world.m_players[0]->m_objRect), &(world.m_players[1]->m_objRect));
-
+            world.m_gameManager.initSession();
+            
             while(!world.m_quitScene)
             {
                 world.input();
-                world.update();
-                world.draw();
+                world.m_gameManager.update();
+                world.m_gameManager.draw();
                 SDL_Delay(25);
             }
-            world.deleteSession();
+            world.m_gameManager.deleteSession();
             world.m_quitScene = false;
         }
         if (world.m_gameState == CAVES)
         {
             SDL_ShowCursor(SDL_ENABLE);
 
-            world.m_cave.initSession();
-            world.m_camera.init(&(world.m_players[0]->m_objRect), &(world.m_players[1]->m_objRect)); 
+            world.m_gameManager.m_cave.initSession();
+            world.m_gameManager.m_camera.init(&(world.m_gameManager.m_players[0]->m_objRect), &(world.m_gameManager.m_players[1]->m_objRect));
             while (!world.m_quitScene)
             {
                 world.input();
-                world.m_cave.update();
-                world.m_cave.draw();
+                world.m_gameManager.m_cave.update();
+                world.m_gameManager.m_cave.draw();
                 SDL_Delay(25);
-
             }
-            world.m_cave.deleteSession();
+            world.m_gameManager.m_cave.deleteSession();
             world.m_quitScene = false;
 
         }

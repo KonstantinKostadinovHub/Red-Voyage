@@ -9,7 +9,7 @@ Helper::Helper(vector<Player*>* players, SDL_Renderer* renderer, float* zoom, SD
 {
 	// Change these values to true if you want any of these cheats
 	MAX_HEALTH = false;
-	MAX_DAMAGE = true;
+	MAX_DAMAGE = false;
 	MAX_SPEED = false;
 	MAX_ORES = true;
 	SHOW_ALL_RECTS = true;

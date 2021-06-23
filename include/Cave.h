@@ -4,6 +4,7 @@
 #include <string>
 #include <SDL.h>
 #include <vector>
+#include <stack>
 
 #include "defines.h"
 #include "Engine.h"
@@ -54,6 +55,11 @@ class Cave
 		SDL_Texture* m_entranceTexture;
 
 		vector<CaveRoom*> m_rooms;
+		vector<CaveRoom*> m_roomFlow;
+		vector<CaveRoom*> m_roomsLeft;
+		vector<CaveRoom*> m_roomsRight;
+		vector<CaveRoom*> m_roomsTop;
+		vector<CaveRoom*> m_roomsBottom;
 
 		bool m_isInCave;
 
@@ -70,7 +76,6 @@ class Cave
 		void checkForCaveEnter( bool& m_isInCave);
 
 		void loadAllRoooms();
-		void getNextRoom();
 
 		
 

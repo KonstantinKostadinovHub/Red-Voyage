@@ -28,6 +28,9 @@ public:
 
 	string m_roomImg;
 
+	bool isLinked;
+	bool m_isUsed;
+
 	hasDoors m_hasDoor;
 	mapcoordinates m_mapCoor;
 
@@ -42,7 +45,7 @@ public:
 
 	void changeX(int i);
 
-	CaveRoom getNextRoom();
+	CaveRoom getNextRoom(CaveRoom &nextRoom);
 
 
 

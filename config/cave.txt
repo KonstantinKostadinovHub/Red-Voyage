@@ -1,4 +1,4 @@
 Image: CaveType1.bmp
-RoomCount: 10
+RoomCount: 20
 Room1: cave_room.txt
 

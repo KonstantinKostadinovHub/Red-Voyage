@@ -68,14 +68,8 @@
     <Filter Include="src\Main">
       <UniqueIdentifier>{a62d4199-3df3-42ee-86bb-7176263840f2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Enemy">
-      <UniqueIdentifier>{1bf1de3b-b957-407b-9799-eef75a469e02}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\UI">
       <UniqueIdentifier>{e8835a82-bbaa-4a7e-afdf-a2be0d57c453}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Player">
-      <UniqueIdentifier>{2aa263c5-4c2f-40ea-8cdc-4227bafc7d58}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Menu">
       <UniqueIdentifier>{6d84e8a8-08ae-41ea-881b-b2be5525f740}</UniqueIdentifier>
@@ -86,23 +80,38 @@
     <Filter Include="Header Files\Menu">
       <UniqueIdentifier>{0c9fe326-86d5-44e9-b3e2-81b0e154d5eb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Player">
-      <UniqueIdentifier>{2136964d-32bf-4217-91ce-cd12182b426a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Enemy">
-      <UniqueIdentifier>{b946111e-8687-48b7-a54c-d2504dd72241}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\UI">
       <UniqueIdentifier>{6d182369-4179-4e6d-9f95-539b3f399cf0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\PowerUps">
-      <UniqueIdentifier>{ccb5ec65-e77a-4644-9691-3d8287605594}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\PowerUps">
-      <UniqueIdentifier>{c8d7b817-c0e7-4fbe-8673-ee0933b0c355}</UniqueIdentifier>
-    </Filter>
     <Filter Include="config\powerUps">
       <UniqueIdentifier>{b55b9027-fd9c-4005-b183-fe6dcdf889d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Game">
+      <UniqueIdentifier>{50a8e595-f670-4732-9d25-fd18825f211b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Game\Enemy">
+      <UniqueIdentifier>{1bf1de3b-b957-407b-9799-eef75a469e02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Game\Player">
+      <UniqueIdentifier>{2aa263c5-4c2f-40ea-8cdc-4227bafc7d58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Game\PowerUps">
+      <UniqueIdentifier>{ccb5ec65-e77a-4644-9691-3d8287605594}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game">
+      <UniqueIdentifier>{0b987f7b-85e8-42ed-b832-83ef8bd58625}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\Player">
+      <UniqueIdentifier>{2136964d-32bf-4217-91ce-cd12182b426a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\Enemy">
+      <UniqueIdentifier>{b946111e-8687-48b7-a54c-d2504dd72241}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\PowerUps">
+      <UniqueIdentifier>{c8d7b817-c0e7-4fbe-8673-ee0933b0c355}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\item">
+      <UniqueIdentifier>{ed6daa94-46f1-4e47-8c61-c3ba922dac9a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -131,13 +140,13 @@
       <Filter>src\Main</Filter>
     </ClCompile>
     <ClCompile Include="src\Enemy.cpp">
-      <Filter>src\Enemy</Filter>
+      <Filter>src\Game\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="src\EnemyBullet.cpp">
-      <Filter>src\Enemy</Filter>
+      <Filter>src\Game\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="src\EnemyShooter.cpp">
-      <Filter>src\Enemy</Filter>
+      <Filter>src\Game\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine.cpp">
       <Filter>src\Main</Filter>
@@ -167,13 +176,13 @@
       <Filter>src\Main</Filter>
     </ClCompile>
     <ClCompile Include="src\Bullet.cpp">
-      <Filter>src\Player</Filter>
+      <Filter>src\Game\Player</Filter>
     </ClCompile>
     <ClCompile Include="src\Gun.cpp">
-      <Filter>src\Player</Filter>
+      <Filter>src\Game\Player</Filter>
     </ClCompile>
     <ClCompile Include="src\Player.cpp">
-      <Filter>src\Player</Filter>
+      <Filter>src\Game\Player</Filter>
     </ClCompile>
     <ClCompile Include="src\Credits.cpp">
       <Filter>src\Menu</Filter>
@@ -191,10 +200,23 @@
       <Filter>src\Menu</Filter>
     </ClCompile>
     <ClCompile Include="src\PowerUp.cpp">
-      <Filter>src\PowerUps</Filter>
+      <Filter>src\Game\PowerUps</Filter>
     </ClCompile>
     <ClCompile Include="src\ChickenBuff.cpp">
-      <Filter>src\PowerUps</Filter>
+      <Filter>src\Game\PowerUps</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Saver.cpp" />
+    <ClCompile Include="src\GameManager.cpp">
+      <Filter>src\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Writer.cpp">
+      <Filter>src\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Item.cpp">
+      <Filter>src\Game\PowerUps</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LeatherBoots.cpp">
+      <Filter>src\Game\PowerUps</Filter>
     </ClCompile>
     <ClCompile Include="src\Saver.cpp" />
     <ClCompile Include="src\Cave.cpp">
@@ -248,13 +270,13 @@
       <Filter>Header Files\Main</Filter>
     </ClInclude>
     <ClInclude Include="include\Bullet.h">
-      <Filter>Header Files\Player</Filter>
+      <Filter>Header Files\Game\Player</Filter>
     </ClInclude>
     <ClInclude Include="include\Gun.h">
-      <Filter>Header Files\Player</Filter>
+      <Filter>Header Files\Game\Player</Filter>
     </ClInclude>
     <ClInclude Include="include\Player.h">
-      <Filter>Header Files\Player</Filter>
+      <Filter>Header Files\Game\Player</Filter>
     </ClInclude>
     <ClInclude Include="include\Credits.h">
       <Filter>Header Files\Menu</Filter>
@@ -272,13 +294,13 @@
       <Filter>Header Files\Menu</Filter>
     </ClInclude>
     <ClInclude Include="include\Enemy.h">
-      <Filter>Header Files\Enemy</Filter>
+      <Filter>Header Files\Game\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="include\EnemyBullet.h">
-      <Filter>Header Files\Enemy</Filter>
+      <Filter>Header Files\Game\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="include\EnemyShooter.h">
-      <Filter>Header Files\Enemy</Filter>
+      <Filter>Header Files\Game\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="include\UIObject.h">
       <Filter>Header Files\UI</Filter>
@@ -290,10 +312,25 @@
       <Filter>Header Files\UI</Filter>
     </ClInclude>
     <ClInclude Include="include\PowerUp.h">
-      <Filter>Header Files\PowerUps</Filter>
+      <Filter>Header Files\Game\PowerUps</Filter>
     </ClInclude>
     <ClInclude Include="include\ChickenBuff.h">
-      <Filter>Header Files\PowerUps</Filter>
+      <Filter>Header Files\Game\PowerUps</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Saver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameManager.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Writer.h">
+      <Filter>Header Files\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Item.h">
+      <Filter>Header Files\Game\PowerUps</Filter>
+    </ClInclude>
+    <ClInclude Include="include\LeatherBoots.h">
+      <Filter>Header Files\Game\PowerUps</Filter>
     </ClInclude>
     <ClInclude Include="include\Saver.h">
       <Filter>Header Files</Filter>
@@ -422,6 +459,9 @@
     </Text>
     <Text Include="config\chickenBuff.txt">
       <Filter>config\powerUps</Filter>
+    </Text>
+    <Text Include="config\item\leatherBoots.txt">
+      <Filter>config\item</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>

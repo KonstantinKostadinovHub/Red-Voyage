@@ -83,16 +83,16 @@ void UIObject::draw()
     *
     */
     if(m_img == "\\ores\\Chicken_UI.bmp"){
-        count = "x" + to_string(world.m_chickenCollected);
+        count = "x" + to_string(world.m_gameManager.m_chickenCollected);
     }
     if(m_img == "\\ores\\Aluminium_Ore_UI.bmp"){
-        count = "x" + to_string(world.m_aluminiumCollected);
+        count = "x" + to_string(world.m_gameManager.m_aluminiumCollected);
     }
     if(m_img == "\\ores\\Titanium_Ore_UI.bmp"){
-        count = "x" + to_string(world.m_titaniumCollected);
+        count = "x" + to_string(world.m_gameManager.m_titaniumCollected);
     }
     if(m_img == "\\ores\\Iron_Ore_UI.bmp"){
-        count = "x" + to_string(world.m_ironCollected);
+        count = "x" + to_string(world.m_gameManager.m_ironCollected);
     }
 
     write(count,coor,world.m_main_renderer,30);

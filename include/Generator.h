@@ -54,6 +54,7 @@ class Generator
         void generateTask();
         void generateOre();
         void generateEnemy();
+        void generateEnemy(ENEMY type, coordinates coor, short health);
 
 		void giveOreCoordinates(Ore* ore);
 
