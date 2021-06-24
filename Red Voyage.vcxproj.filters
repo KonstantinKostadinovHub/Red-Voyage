@@ -218,6 +218,13 @@
     <ClCompile Include="src\LeatherBoots.cpp">
       <Filter>src\Game\PowerUps</Filter>
     </ClCompile>
+    <ClCompile Include="src\Saver.cpp" />
+    <ClCompile Include="src\Cave.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CaveRoom.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
     <ClCompile Include="src\TextInputField.cpp">
       <Filter>src\Main</Filter>
     </ClCompile>
@@ -336,6 +343,15 @@
     </ClInclude>
     <ClInclude Include="include\IconManager.h">
       <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Saver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Cave.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CaveRoom.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

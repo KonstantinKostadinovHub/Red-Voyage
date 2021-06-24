@@ -35,7 +35,8 @@ enum GAME_STATE
     CREDITS = 3, 
     EXIT = 4, 
     ENDGAME = 5, 
-    TITLESCREEN = 6 
+    TITLESCREEN = 6 ,
+    CAVES = 7
 }; ///< Game state enumerator defining game states to use
 
 static string ENEMY_FOLDER = "enemy\\";

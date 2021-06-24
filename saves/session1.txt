@@ -1,6 +1,8 @@
-Player 100 100 800 800
-Player 100 100 1000 800
-Enemy 1 100 1110 2790
+Player 84 100 1400 1020
+Player 88 100 1000 800
+Enemy 2 100 1205 943
+Enemy 2 100 1146 1706
+Enemy 2 100 1112 2485
 Chicken_wing 0
 Chicken_wing 1
 Chicken_wing 2

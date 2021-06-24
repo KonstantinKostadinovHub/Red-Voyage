@@ -30,6 +30,7 @@
 #include "Helper.h"
 #include "PowerUp.h"
 #include "Saver.h"
+#include "Cave.h"
 
 class GameManager
 {
@@ -90,6 +91,7 @@ public:
     Saver* m_saver;
     SoundManager* m_soundManager;
     Animator m_animator;
+    Cave m_cave;
 
     vector <line> m_collLines;
     vector <Player*> m_players;
