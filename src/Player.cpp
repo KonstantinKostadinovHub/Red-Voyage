@@ -101,6 +101,8 @@ void Player::init(SDL_Renderer* renderer, string configFile)
     m_gun = new Gun;
     m_gun -> init(200);
 
+    m_armor = 100;
+
     m_elapsed_engage = chrono::high_resolution_clock::now();
     m_engagementRate = chrono::milliseconds(m_shootCooldown);
 
@@ -340,4 +342,24 @@ void Player::draw()
     }
 
     m_healthBar -> draw(world.m_main_renderer);
+}
+
+void Player::takeDamage(float damage)
+{
+    damage -= m_armor;
+    if (damage > 0)
+    {
+        if (m_armor <= 0)
+        {
+            m_health -= damage;
+        }
+        else
+        {
+            m_armor -= damage;
+            if (m_armor < 0)
+            {
+                m_armor = 0;
+            }
+        }
+    }
 }

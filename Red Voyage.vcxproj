@@ -154,6 +154,7 @@
     <ClCompile Include="src\Gun.cpp" />
     <ClCompile Include="src\HealthBar.cpp" />
     <ClCompile Include="src\Helper.cpp" />
+    <ClCompile Include="src\IconManager.cpp" />
     <ClCompile Include="src\Item.cpp" />
     <ClCompile Include="src\LeatherBoots.cpp" />
     <ClCompile Include="src\Menu.cpp" />
@@ -163,6 +164,7 @@
     <ClCompile Include="src\Saver.cpp" />
     <ClCompile Include="src\SoundManager.cpp" />
     <ClCompile Include="src\Task.cpp" />
+    <ClCompile Include="src\TextInputField.cpp" />
     <ClCompile Include="src\TitleScreen.cpp" />
     <ClCompile Include="src\Tutorial.cpp" />
     <ClCompile Include="src\UI.cpp" />
@@ -191,6 +193,7 @@
     <ClInclude Include="include\Gun.h" />
     <ClInclude Include="include\HealthBar.h" />
     <ClInclude Include="include\Helper.h" />
+    <ClInclude Include="include\IconManager.h" />
     <ClInclude Include="include\Item.h" />
     <ClInclude Include="include\LeatherBoots.h" />
     <ClInclude Include="include\Menu.h" />
@@ -200,6 +203,7 @@
     <ClInclude Include="include\Saver.h" />
     <ClInclude Include="include\SoundManager.h" />
     <ClInclude Include="include\Task.h" />
+    <ClInclude Include="include\TextInputField.h" />
     <ClInclude Include="include\TitleScreen.h" />
     <ClInclude Include="include\Tutorial.h" />
     <ClInclude Include="include\UI.h" />

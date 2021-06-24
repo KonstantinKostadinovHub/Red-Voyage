@@ -218,6 +218,12 @@
     <ClCompile Include="src\LeatherBoots.cpp">
       <Filter>src\Game\PowerUps</Filter>
     </ClCompile>
+    <ClCompile Include="src\TextInputField.cpp">
+      <Filter>src\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\IconManager.cpp">
+      <Filter>src\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\ChickenWing.h">
@@ -324,6 +330,12 @@
     </ClInclude>
     <ClInclude Include="include\LeatherBoots.h">
       <Filter>Header Files\Game\PowerUps</Filter>
+    </ClInclude>
+    <ClInclude Include="include\TextInputField.h">
+      <Filter>Header Files\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="include\IconManager.h">
+      <Filter>Header Files\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

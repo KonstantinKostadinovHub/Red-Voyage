@@ -46,6 +46,9 @@ void World::init()
     loadSurface = nullptr;
     cursor = nullptr;
 
+    m_iconManager = new IconManager();
+
+    m_iconManager->init("icons.txt", m_main_renderer);
     m_gameManager.init();
 }
 

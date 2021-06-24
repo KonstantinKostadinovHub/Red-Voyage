@@ -45,6 +45,9 @@ static string ORE_FOLDER = "ores\\";
 static string MENU_FOLDER = "menu\\";
 static string MAIN_FOLDER = "main\\";
 static string ITEM_FOLDER = "item\\";
+static string ICON_FOLDER = "icons\\";
+static string HERO_FOLDER = "hero\\";
+static string WEAPON_FOLDER = "weapon\\";
 
 struct coordinates
 {
@@ -107,6 +110,19 @@ enum class ENEMY {
 enum class ITEM {
     NONE = 0,
     LEATHER_BOOTS = 1
+};
+
+enum class WEAPON
+{
+    NONE = 0,
+    PLASMA_GUN = 1,
+    LASER_SWORD = 2
+};
+
+enum class HERO
+{
+    NONE = 0,
+    JERRY = 1
 };
 
 enum class FONT {

@@ -16,15 +16,11 @@ class UI
         UI(); ///<The class constructor
         virtual ~UI(); ///<The class destructor
 
-        string m_img; ///< The image of the UI
+        UIObject* m_playerUI; ///< The background of the player's UI
 
-        SDL_Texture* m_objectTexture; ///<The Texture of the UI
-
-        SDL_Rect m_objectRect; ///< The Rect of the UI
-
-        UIObject* object = NULL; ///<A new UIObject
-
-        vector<UIObject*> m_uiSelectables; ///< A vector of UIObject pointers
+        UIObject* m_heroImg; //< The img that shows the hero that is beeing played
+        UIObject* m_primaryWeaponPhoto;
+        UIObject* m_secondaryWeaponPhoto;
 
         void load(string config); ///<Initializing function
         void update(); ///< Updating function

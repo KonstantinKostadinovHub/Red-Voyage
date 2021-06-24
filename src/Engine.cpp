@@ -30,6 +30,8 @@ SDL_Texture* LoadTexture(string configFile, SDL_Renderer* renderer)
             SDL_Surface* loadingSurface = SDL_LoadBMP(configFile.c_str());
             texture = SDL_CreateTextureFromSurface(renderer, loadingSurface);
             SDL_FreeSurface(loadingSurface);
+
+            cout << "HERE \n";
         }
     }
     return texture;
