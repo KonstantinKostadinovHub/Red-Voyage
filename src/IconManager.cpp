@@ -54,7 +54,7 @@ SDL_Texture* IconManager::returnTexture(WEAPON type)
 {
 	SDL_Texture* returnTexture = nullptr;
 
-	//returnTexture = m_noTexture;
+	returnTexture = m_noTexture;
 
 	switch (type)
 	{

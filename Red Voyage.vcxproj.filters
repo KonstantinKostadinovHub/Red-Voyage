@@ -95,9 +95,6 @@
     <Filter Include="src\Game\Player">
       <UniqueIdentifier>{2aa263c5-4c2f-40ea-8cdc-4227bafc7d58}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Game\PowerUps">
-      <UniqueIdentifier>{ccb5ec65-e77a-4644-9691-3d8287605594}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Game">
       <UniqueIdentifier>{0b987f7b-85e8-42ed-b832-83ef8bd58625}</UniqueIdentifier>
     </Filter>
@@ -112,6 +109,9 @@
     </Filter>
     <Filter Include="config\item">
       <UniqueIdentifier>{ed6daa94-46f1-4e47-8c61-c3ba922dac9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Game\PowerUps">
+      <UniqueIdentifier>{ccb5ec65-e77a-4644-9691-3d8287605594}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

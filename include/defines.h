@@ -113,6 +113,15 @@ enum class ITEM {
     LEATHER_BOOTS = 1
 };
 
+enum class HIT
+{
+    NOHIT = 0,
+    LEFT = 1,
+    TOP = 2,
+    RIGHT = 3,
+    BOT = 4
+};
+
 enum class WEAPON
 {
     NONE = 0,
