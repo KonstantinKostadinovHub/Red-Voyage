@@ -30,9 +30,11 @@ Enemy::Enemy(const Enemy& model) {
     m_inSpaceship = false;
     m_engage = false;
 
-    m_cameraRect = &world.m_camera.camera_rect;
-    m_zoom_lvl = &world.m_camera.zoom_lvl;
+    m_cameraRect = &world.m_gameManager.m_camera.camera_rect;
+    m_zoom_lvl = &world.m_gameManager.m_camera.zoom_lvl;
     m_renderer = model.m_renderer;
+
+    m_type = ENEMY::MELEE;
 
     anim = new animation;
     anim -> frames = 3;
@@ -45,7 +47,7 @@ Enemy::Enemy(const Enemy& model) {
     anim -> srcRect -> w = model.m_animRect.w;
     anim -> srcRect -> h = model.m_animRect.h;
 
-    world.m_animator.m_animations.push_back(anim);
+    world.m_gameManager.m_animator.m_animations.push_back(anim);
 }
 
 Enemy::~Enemy()
@@ -111,12 +113,12 @@ void Enemy::search() {
     bool level = false;
 
     if (!m_inSpaceship) {
-        for (auto player : world.m_players) {
+        for (auto player : world.m_gameManager.m_players) {
             if (!player->m_inSpaceship) level = true;
         }
     }
     else {
-        for (auto player : world.m_players) {
+        for (auto player : world.m_gameManager.m_players) {
             if (player->m_inSpaceship) level = true;
         }
     }
@@ -149,11 +151,11 @@ void Enemy::engage() {
 
     m_engagementIndex = -1;
 
-    for (int i = 0; i != world.m_players.size(); i++) {
-        if (world.m_players[i]->m_inSpaceship != m_inSpaceship) continue;
+    for (int i = 0; i != world.m_gameManager.m_players.size(); i++) {
+        if (world.m_gameManager.m_players[i]->m_inSpaceship != m_inSpaceship) continue;
 
-        current = sqrt((world.m_players[i]->m_objRect.x - m_objectRect.x) * (world.m_players[i]->m_objRect.x - m_objectRect.x) +
-            (world.m_players[i]->m_objRect.y - m_objectRect.y) * (world.m_players[i]->m_objRect.y - m_objectRect.y));
+        current = sqrt((world.m_gameManager.m_players[i]->m_objRect.x - m_objectRect.x) * (world.m_gameManager.m_players[i]->m_objRect.x - m_objectRect.x) +
+            (world.m_gameManager.m_players[i]->m_objRect.y - m_objectRect.y) * (world.m_gameManager.m_players[i]->m_objRect.y - m_objectRect.y));
 
         if (current <= closest) {
             closest = current;
@@ -162,8 +164,8 @@ void Enemy::engage() {
     }
 
     if (m_engagementIndex != -1) {
-        m_targetCoord.x = world.m_players[m_engagementIndex]->m_objRect.x;
-        m_targetCoord.y = world.m_players[m_engagementIndex]->m_objRect.y;
+        m_targetCoord.x = world.m_gameManager.m_players[m_engagementIndex]->m_objRect.x;
+        m_targetCoord.y = world.m_gameManager.m_players[m_engagementIndex]->m_objRect.y;
     }
 }
 
@@ -217,12 +219,12 @@ void Enemy::attack() {
     /*
     * Attack target.
     */
-    for (auto player: world.m_players) {
+    for (auto player: world.m_gameManager.m_players) {
         if (sqrt((player->m_objRect.x - m_objectRect.x)*(player->m_objRect.x - m_objectRect.x) +
             (player->m_objRect.y - m_objectRect.y)*(player->m_objRect.y - m_objectRect.y)) <= m_range) {
 
             if (chrono::duration_cast<chrono::milliseconds>(chrono::high_resolution_clock::now() - m_chargeTime) >= m_chargeMax) {
-                player->m_health -= m_damage;
+                player->takeDamage(m_damage);
 
                 m_chargeTime = chrono::high_resolution_clock::now();
             }

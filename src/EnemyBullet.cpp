@@ -22,8 +22,8 @@ EnemyBullet::EnemyBullet(const EnemyBullet& model) {
 
     m_updateAngle = true;
 
-    m_cameraRect = &world.m_camera.camera_rect;
-    m_zoom_lvl = &world.m_camera.zoom_lvl;
+    m_cameraRect = &world.m_gameManager.m_camera.camera_rect;
+    m_zoom_lvl = &world.m_gameManager.m_camera.zoom_lvl;
 }
 
 EnemyBullet::~EnemyBullet() {

@@ -20,20 +20,25 @@ class HealthBar
         HealthBar();
         virtual ~HealthBar();
 
-        void init(string configFile);
-        void update(int health, int maxHealth);
+        void init(string configFile, float* health, float* maxHealth, float* shield);
+        void update();
         void draw(SDL_Renderer* renderer);
         SDL_Rect m_barRect;
 
+        float* m_health;
+        float* m_maxHealth;
+        float* m_shield;
+
         float HP;
+        float m_shieldPercentage;
         string m_configFile;
-        string m_borderImg;
-        string m_healthImg;
 
         SDL_Texture* m_borderTexture;
         SDL_Texture* m_healthTexture;
+        SDL_Texture* m_shieldTexture;
 
         SDL_Rect m_objRect;
+        SDL_Rect m_shieldRect;
 
     protected:
 

@@ -1,0 +1,5 @@
+backgroundTxt: playerUI.bmp
+backgroundRect: 384 918 1248 162
+heroRect: 470 933 134 134
+primaryWeaponRect: 1351 941 120 120
+secondaryWeaponRect: 1476 929 56 56  

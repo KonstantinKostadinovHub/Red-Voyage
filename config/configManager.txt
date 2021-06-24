@@ -8,3 +8,4 @@ enemyBullet.txt
 bulletExplosion.txt
 dust.txt
 chickenBuff.txt
+leatherBoots.txt

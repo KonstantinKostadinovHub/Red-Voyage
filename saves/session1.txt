@@ -1,0 +1,10 @@
+Player 100 100 1570 920
+Player 100 100 1000 800
+Enemy 1 100 1199 1294
+Enemy 2 100 1148 1651
+Enemy 2 100 1164 2762
+Chicken_wing 0
+Chicken_wing 1
+Chicken_wing 2
+Chicken_wing 3
+EOF

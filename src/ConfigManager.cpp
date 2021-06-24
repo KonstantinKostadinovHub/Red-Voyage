@@ -23,19 +23,19 @@ void ConfigManager::init(string configFile)
     stream.open(configFile);
 
     stream >> tmp;
-    tmp = "\\ores\\" + tmp;
+    tmp = ORE_FOLDER + tmp;
     m_ironOre.load(tmp);
 
     stream >> tmp;
-    tmp = "\\ores\\" + tmp;
+    tmp = ORE_FOLDER + tmp;
     m_titaniumOre.load(tmp);
 
     stream >> tmp;
-    tmp = "\\ores\\" + tmp;
+    tmp = ORE_FOLDER + tmp;
     m_aluminiumOre.load(tmp);
 
     stream >> tmp;
-    tmp = "\\player\\" + tmp;
+    tmp = PLAYER_FOLDER + tmp;
     m_bullet.load(tmp);
 
     stream >> tmp;
@@ -45,7 +45,7 @@ void ConfigManager::init(string configFile)
     m_rangedEnemy.load(tmp);
 
     stream >> tmp;
-    tmp = "\\enemy\\" + tmp;
+    tmp = ENEMY_FOLDER + tmp;
     m_enemyBullet.load(tmp);
 
 	stream >> tmp;
@@ -56,6 +56,9 @@ void ConfigManager::init(string configFile)
 
     stream >> tmp;
     m_chickenBuff.init(tmp);
+
+    stream >> tmp;
+    m_leatherBoots.init(tmp);
 
     stream.close();
 }

@@ -19,7 +19,7 @@ Menu::~Menu()
 
 void Menu::load(string config)
 {
-    config = "config\\menu\\" + config;
+    config = "config\\"  + MENU_FOLDER + config;
 
     ifstream stream;
     stream.open(config.c_str());

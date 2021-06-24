@@ -35,12 +35,12 @@ void Food::update_kitchen(){
     m_duration = chrono::steady_clock::now() - last_spawned;
     if(m_duration.count() > spawn_cooldown || wings_currently_waiting <= max_wings_waiting){
         for(int i = 0; i < 4; i++){
-            if(world.chicken_wings[i] == nullptr){
+            if(world.m_gameManager.chicken_wings[i] == nullptr){
 
-                world.chicken_wings[i] = new ChickenWing;
-                world.chicken_wings[i]->wing_rect.x = spawn_points_kitchen[i].x;
-                world.chicken_wings[i]->wing_rect.y = spawn_points_kitchen[i].y;
-                world.chicken_wings[i]->init("food_object.txt");
+                world.m_gameManager.chicken_wings[i] = new ChickenWing;
+                world.m_gameManager.chicken_wings[i]->wing_rect.x = spawn_points_kitchen[i].x;
+                world.m_gameManager.chicken_wings[i]->wing_rect.y = spawn_points_kitchen[i].y;
+                world.m_gameManager.chicken_wings[i]->init("food_object.txt");
                 last_spawned = chrono::steady_clock::now();
                 wings_currently_waiting++;
                 break;

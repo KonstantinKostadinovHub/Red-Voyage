@@ -43,8 +43,6 @@ public:
     HealthBar* m_healthBar;
 
     SDL_Rect rect;
-    short m_health;
-    short m_maxHealth;
 
     float* m_zoom_lvl;
     SDL_Rect* m_camera_rect;
@@ -105,6 +103,14 @@ public:
     int m_dmg, m_distance;
 
     SDL_Rect m_srcRect;
+
+    /// Stats for the player
+    float m_health;
+    float m_maxHealth;
+    float m_armor;
+    float m_shield;
+
+    void takeDamage(float damage);
 
 protected:
 

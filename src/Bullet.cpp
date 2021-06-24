@@ -17,8 +17,8 @@ Bullet::Bullet(const Bullet* model, SDL_Renderer* renderer, coordinates velocity
     m_health = model -> m_health;
     m_damage = model -> m_damage;
 
-    m_zoom_lvl = &world.m_camera.zoom_lvl;
-    m_cameraRect = &world.m_camera.camera_rect;
+    m_zoom_lvl = &world.m_gameManager.m_camera.zoom_lvl;
+    m_cameraRect = &world.m_gameManager.m_camera.camera_rect;
 
     m_velocity.x = velocity.x;
     m_velocity.y = velocity.y;
@@ -54,8 +54,8 @@ void Bullet::load(string configFile)
 
     m_bulletTexture = LoadTexture(m_img, world.m_main_renderer);
 
-    m_cameraRect = &world.m_camera.camera_rect;
-    m_zoom_lvl = &world.m_camera.zoom_lvl;
+    m_cameraRect = &world.m_gameManager.m_camera.camera_rect;
+    m_zoom_lvl = &world.m_gameManager.m_camera.zoom_lvl;
 }
 
 void Bullet::update()
@@ -83,5 +83,5 @@ void Bullet::update()
 
 void Bullet::draw(SDL_Renderer* renderer)
 {
-    world.drawObject(m_objRect, m_bulletTexture);
+    world.m_gameManager.drawObject(m_objRect, m_bulletTexture);
 }

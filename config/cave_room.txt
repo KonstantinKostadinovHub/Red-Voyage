@@ -1,0 +1,2 @@
+Img: CaveRoom.bmp
+W_H_X_Y: 108 108 300 300

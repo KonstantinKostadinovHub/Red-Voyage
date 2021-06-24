@@ -104,8 +104,8 @@ void Player::init(SDL_Renderer* renderer, string configFile)
     m_elapsed_engage = chrono::high_resolution_clock::now();
     m_engagementRate = chrono::milliseconds(m_shootCooldown);
 
-    m_playerImg = "\\player\\" + m_playerImg;
-    m_flipImg = "\\player\\" + m_flipImg;
+    m_playerImg = PLAYER_FOLDER + m_playerImg;
+    m_flipImg = PLAYER_FOLDER + m_flipImg;
 
     playerTexture = LoadTexture(m_playerImg, world.m_main_renderer);
     flipTexture = LoadTexture(m_flipImg, world.m_main_renderer);
@@ -115,9 +115,12 @@ void Player::init(SDL_Renderer* renderer, string configFile)
 
     m_maxHealth = m_health;
 
-    m_healthBar -> init(HP);
-    m_camera_rect = &world.m_camera.camera_rect;
-    m_zoom_lvl = &world.m_camera.zoom_lvl;
+    m_healthBar -> init(HP, &m_health, &m_maxHealth, &m_shield);
+    m_camera_rect = &world.m_gameManager.m_camera.camera_rect;
+    m_zoom_lvl = &world.m_gameManager.m_camera.zoom_lvl;
+
+    m_shield = 100;
+    
 
     anim = new animation;
     anim -> frames = 4;
@@ -129,7 +132,7 @@ void Player::init(SDL_Renderer* renderer, string configFile)
     anim -> srcRect -> y = m_animRect.y;
     anim -> srcRect -> w = m_animRect.w;
     anim -> srcRect -> h = m_animRect.h;
-    world.m_animator.m_animations.push_back(anim);
+    world.m_gameManager.m_animator.m_animations.push_back(anim);
 
     m_oldvelocity.x = m_speed;
 
@@ -209,33 +212,36 @@ void Player::update()
 
     m_objRect.x += m_velocity.x * m_speed;
 
-    if(world.collisionWithShip(m_objRect))
+    if (world.m_gameState == GAME)
     {
-        m_objRect.x -= m_velocity.x * m_speed;
-    }
-    else
-    {
-        for(int i = 0; i < world.m_ores.size(); i++)
+        if (world.m_gameManager.collisionWithShip(m_objRect))
         {
-            if(collRectRect(m_objRect, world.m_ores[i]->m_rect))
+            m_objRect.x -= m_velocity.x * m_speed;
+        }
+        else
+        {
+            for (int i = 0; i < world.m_gameManager.m_ores.size(); i++)
             {
-                m_objRect.x -= m_velocity.x * m_speed;
-                break;
+                if (collRectRect(m_objRect, world.m_gameManager.m_ores[i]->m_rect))
+                {
+                    m_objRect.x -= m_velocity.x * m_speed;
+                    break;
+                }
             }
         }
     }
 
     m_objRect.y += m_velocity.y * m_speed;
 
-    if(world.collisionWithShip(m_objRect))
+    if(world.m_gameManager.collisionWithShip(m_objRect))
     {
         m_objRect.y -= m_velocity.y * m_speed;
     }
     else
     {
-        for(int i = 0; i < world.m_ores.size(); i++)
+        for(int i = 0; i < world.m_gameManager.m_ores.size(); i++)
         {
-            if(collRectRect(m_objRect, world.m_ores[i]->m_rect))
+            if(collRectRect(m_objRect, world.m_gameManager.m_ores[i]->m_rect))
             {
                 m_objRect.y -= m_velocity.y * m_speed;
                 break;
@@ -253,7 +259,7 @@ void Player::update()
         m_health = m_maxHealth;
     }
 
-    m_healthBar -> update(m_health, m_maxHealth);
+    m_healthBar -> update();
     //! if the player is not moving than don't play the moving animation
     if(m_velocity.x == 0 && m_velocity.y == 0)
     {
@@ -274,8 +280,8 @@ void Player::update()
 		coordinates coor;
 		coor.x = m_objRect.x + m_objRect.w / 2;
 		coor.y = m_objRect.y + m_objRect.h * 8 / 10;
-		VisualEffect* dust = new VisualEffect(&(world.m_configManager.m_dust), coor);
-		world.m_vfxs.push_back(dust);
+		VisualEffect* dust = new VisualEffect(&(world.m_gameManager.m_configManager.m_dust), coor);
+		world.m_gameManager.m_vfxs.push_back(dust);
 		m_lastDustEffect = time(NULL);
 	}
 
@@ -296,7 +302,7 @@ void Player::update()
     right.start = top.finish;
     right.finish = bot.finish;
 
-    if(collLineRect(world.m_door, top, bot, left, right))
+    if(collLineRect(world.m_gameManager.m_door, top, bot, left, right))
     {
         m_collWithDoor = true;
     }
@@ -304,7 +310,7 @@ void Player::update()
     {
         if(m_collWithDoor)
         {
-            if(world.m_door.start.y > m_objRect.y)
+            if(world.m_gameManager.m_door.start.y > m_objRect.y)
             {
                 m_inSpaceship = true;
             }
@@ -317,7 +323,7 @@ void Player::update()
     }
 
     // restrict the player from moving outside of the bounds
-    restrict(&m_objRect, world.m_backgroundRect.x, world.m_backgroundRect.y, world.m_backgroundRect.w, world.m_backgroundRect.h);
+    restrict(&m_objRect, world.m_gameManager.m_backgroundRect.x, world.m_gameManager.m_backgroundRect.y, world.m_gameManager.m_backgroundRect.w, world.m_gameManager.m_backgroundRect.h);
 }
 
 void Player::draw()
@@ -332,12 +338,33 @@ void Player::draw()
 
     if(m_oldvelocity.x > 0)
     {
-        world.drawObjectWithSrc(m_objRect, m_srcRect, playerTexture);
+        world.m_gameManager.drawObjectWithSrc(m_objRect, m_srcRect, playerTexture);
     }
     else if(m_oldvelocity.x < 0)
     {
-        world.drawObjectWithSrc(m_objRect, m_srcRect, flipTexture);
+        world.m_gameManager.drawObjectWithSrc(m_objRect, m_srcRect, flipTexture);
     }
 
     m_healthBar -> draw(world.m_main_renderer);
+}
+
+void Player::takeDamage(float damage)
+{
+    damage -= m_armor;
+    if (damage > 0)
+    {
+        if (m_shield <= 0)
+        {
+            m_health -= damage;
+        }
+        else
+        {
+            m_shield -= damage;
+            D(m_shield);
+            if (m_shield < 0)
+            {
+                m_shield = 0;
+            }
+        }
+    }
 }

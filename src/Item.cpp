@@ -1,34 +1,48 @@
 #include "Item.h"
-#include "World.h"
-#include <fstream>
 
-using namespace std;
+#include "World.h"
 extern World world;
 
 Item::Item()
 {
-    //ctor
+
+}
+
+Item::Item(const Item* model)
+{
+	/// Read the common params from the model
+	m_objectRect = model->m_objectRect;
+	m_objectTexture = model->m_objectTexture;
 }
 
 Item::~Item()
 {
-    //dtor
+
 }
 
-void Item::init(string config_file) {
-    config_file = "config\\" + config_file;
-    fstream stream;
-    string tmp;
-    stream.open(config_file);
-    stream >> tmp >> item_image;
-    stream >> tmp >> item_rect.w;
-    stream >> tmp >> item_rect.h;
-    stream.close();
+void Item::init(string configFile)
+{
+	/// Initalize the model
+}
 
-    item_texture = LoadTexture(item_image, world.m_main_renderer);
+void Item::onPick(Player* player)
+{
+	/// The action that will be performed then the item is picked
+	/// Overwrite this function when inheriting
+}
+
+SDL_Rect Item::getRect()
+{
+	return m_objectRect;
+}
+
+void Item::setPos(coordinates coor)
+{
+	m_objectRect.x = coor.x;
+	m_objectRect.y = coor.y;
 }
 
 void Item::draw()
 {
-    world.drawObject(item_rect, item_texture);
+	world.m_gameManager.drawObject(m_objectRect, m_objectTexture);
 }

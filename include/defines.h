@@ -1,5 +1,4 @@
-#ifndef DEFINES_H_INCLUDED
-#define DEFINES_H_INCLUDED
+#pragma once
 
 #include <iostream>
 #include <string>
@@ -30,20 +29,37 @@ using namespace std;
 
 enum GAME_STATE
 {
-    NONE = 0, ///< NONE
-    MENU = 1, ///< MENU
-    GAME = 2, ///< GAME
-    CREDITS = 3, ///< CREDITS
-    EXIT = 4, ///< EXIT
-    ENDGAME = 5, ///< ENDGAME
-    TITLESCREEN = 6 //< TITLE SCREEN
-}; ///< Game state enumerator defining 5 game states to use
+    NONE = 0, 
+    MENU = 1, 
+    GAME = 2, 
+    CREDITS = 3, 
+    EXIT = 4, 
+    ENDGAME = 5, 
+    TITLESCREEN = 6 ,
+    CAVES = 7
+}; ///< Game state enumerator defining game states to use
+
+static string ENEMY_FOLDER = "enemy\\";
+static string PLAYER_FOLDER = "player\\";
+static string UI_FOLDER = "UI\\";
+static string ORE_FOLDER = "ores\\";
+static string MENU_FOLDER = "menu\\";
+static string MAIN_FOLDER = "main\\";
+static string ITEM_FOLDER = "item\\";
+static string ICON_FOLDER = "icons\\";
+static string HERO_FOLDER = "hero\\";
+static string WEAPON_FOLDER = "weapon\\";
 
 struct coordinates
 {
     int x = 0;
     int y = 0;
 }; ///< A useful structure containing x and y axis of an object
+
+static coordinates parseToCoordinates(SDL_Rect rect)
+{
+    return { rect.x , rect.y };
+}
 
 struct fcoordinates
 {
@@ -86,10 +102,53 @@ struct Button
 
 }; ///< An Button object structure with its parameters
 
+enum class ENEMY {
+    NONE = 0,
+    MELEE = 1,
+    SHOOTER = 2
+};
+
+enum class ITEM {
+    NONE = 0,
+    LEATHER_BOOTS = 1
+};
+
+enum class HIT
+{
+    NOHIT = 0,
+    LEFT = 1,
+    TOP = 2,
+    RIGHT = 3,
+    BOT = 4
+};
+
+enum class WEAPON
+{
+    NONE = 0,
+    PLASMA_GUN = 1,
+    LASER_SWORD = 2
+};
+
+enum class HERO
+{
+    NONE = 0,
+    JERRY = 1
+};
+
+enum class FONT {
+    NONE = 0,
+    ARCADE_CLASSIC = 1
+};
+
+enum class COLOR {
+    NONE = 0,
+    ORANGE = 1,
+    LIGHT = 2,
+    DARK = 3
+};
+
 struct UI_object
 {
     SDL_Texture* objTexture = NULL;
     SDL_Rect objRect;
 }; ///< An UI_Object object structure with its parameters
-
-#endif // DEFINES_H_INCLUDED
