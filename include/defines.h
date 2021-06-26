@@ -46,6 +46,7 @@ static string ORE_FOLDER = "ores\\";
 static string MENU_FOLDER = "menu\\";
 static string MAIN_FOLDER = "main\\";
 static string ITEM_FOLDER = "item\\";
+static string ROOMS_FOLDER = "rooms\\";
 
 struct coordinates
 {

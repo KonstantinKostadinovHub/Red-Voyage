@@ -27,6 +27,7 @@ public:
 	virtual ~CaveRoom();
 
 	string m_roomImg;
+	string m_doors;
 
 	bool isLinked;
 	bool m_isUsed;
@@ -41,7 +42,7 @@ public:
 	void update();
 	void draw();
 
-	void randomiseExits();
+	void encodeDoors();
 
 	void changeX(int i);
 

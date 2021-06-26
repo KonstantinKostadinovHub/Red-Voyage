@@ -11,8 +11,11 @@
 #include "VisualEffect.h"
 #include "ChickenBuff.h"
 #include "LeatherBoots.h"
+#include "Cave.h"
+#include "CaveRoom.h"
 
 using namespace std;
+
 /// \brief Creates models of all the objects that are later used in the session
 /** That is achieved by loading the objects from the config file once and then 
 * passing the parameters forward instead of opening files every time when we create a new instanse.
