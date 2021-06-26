@@ -80,7 +80,7 @@ void GameManager::init()
     m_saver = new Saver("saves\\session1.txt");
 
     m_configManager.init("configManager.txt");
-    m_userInterface.load("ui.txt");
+    m_userInterface.load("playerUi.txt");
     m_generator.init("generator.txt");
     readCollisionPoints("collpoints.txt");
     m_tutorial.init("tutorial.txt");
@@ -776,7 +776,7 @@ void GameManager::collision()
         {
             if (collRectRect(m_enemyBullets[i]->m_objectRect, m_players[j]->m_objRect))
             {
-                m_players[j]->m_health -= m_enemyBullets[i]->m_damage;
+                m_players[j]->takeDamage(m_enemyBullets[i]->m_damage);
                 delete m_enemyBullets[i];
                 m_enemyBullets.erase(m_enemyBullets.begin() + i);
                 m_camera.shake();

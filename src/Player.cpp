@@ -104,8 +104,8 @@ void Player::init(SDL_Renderer* renderer, string configFile)
     m_elapsed_engage = chrono::high_resolution_clock::now();
     m_engagementRate = chrono::milliseconds(m_shootCooldown);
 
-    m_playerImg = "\\player\\" + m_playerImg;
-    m_flipImg = "\\player\\" + m_flipImg;
+    m_playerImg = PLAYER_FOLDER + m_playerImg;
+    m_flipImg = PLAYER_FOLDER + m_flipImg;
 
     playerTexture = LoadTexture(m_playerImg, world.m_main_renderer);
     flipTexture = LoadTexture(m_flipImg, world.m_main_renderer);
@@ -115,9 +115,12 @@ void Player::init(SDL_Renderer* renderer, string configFile)
 
     m_maxHealth = m_health;
 
-    m_healthBar -> init(HP);
+    m_healthBar -> init(HP, &m_health, &m_maxHealth, &m_shield);
     m_camera_rect = &world.m_gameManager.m_camera.camera_rect;
     m_zoom_lvl = &world.m_gameManager.m_camera.zoom_lvl;
+
+    m_shield = 100;
+    
 
     anim = new animation;
     anim -> frames = 4;
@@ -256,7 +259,7 @@ void Player::update()
         m_health = m_maxHealth;
     }
 
-    m_healthBar -> update(m_health, m_maxHealth);
+    m_healthBar -> update();
     //! if the player is not moving than don't play the moving animation
     if(m_velocity.x == 0 && m_velocity.y == 0)
     {
@@ -343,4 +346,25 @@ void Player::draw()
     }
 
     m_healthBar -> draw(world.m_main_renderer);
+}
+
+void Player::takeDamage(float damage)
+{
+    damage -= m_armor;
+    if (damage > 0)
+    {
+        if (m_shield <= 0)
+        {
+            m_health -= damage;
+        }
+        else
+        {
+            m_shield -= damage;
+            D(m_shield);
+            if (m_shield < 0)
+            {
+                m_shield = 0;
+            }
+        }
+    }
 }

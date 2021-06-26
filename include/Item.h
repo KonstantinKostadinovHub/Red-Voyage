@@ -22,7 +22,7 @@ public:
 	Item(const Item* modelItem);
 	virtual ~Item();
 	
-	SDL_Rect getRect();
+	SDL_Rect getRect(); //< A getter that is used to protect the jectRect of the object
 	virtual void onPick(Player* player); //< The impact of the item after it is picked
 	virtual void init(string configFile);
 	void setPos(coordinates pos); //< Use after the initialization of the object

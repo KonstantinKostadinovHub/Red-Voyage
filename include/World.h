@@ -2,6 +2,7 @@
 #define WORLD_H
 
 #include "GameManager.h"
+#include "IconManager.h"
 
 using namespace std;
 
@@ -38,6 +39,7 @@ class World
         Menu m_menu;
         SoundManager* m_soundManager;
         GameManager m_gameManager;
+        IconManager* m_iconManager;
 
         bool m_quitScene;
 
