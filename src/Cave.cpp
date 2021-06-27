@@ -102,8 +102,6 @@ void Cave::initEntrance(string config)
 	string tmp;
 	stream >> tmp >> m_img;
 	stream >> tmp >> m_entranceRect.x >> m_entranceRect.y >> m_entranceRect.w >> m_entranceRect.h;
-	D(m_entranceRect.w);
-	D(m_entranceRect.x);
 
 	stream.close();
 
@@ -123,7 +121,6 @@ void Cave::init(string config)
 	stream >> tmp >> m_img;
 	stream >> tmp >> m_roomCount;
 	stream >> tmp >> buff;
-	D(m_roomCount);
 
 	stream.close();
 
@@ -166,22 +163,10 @@ void Cave::draw()
 		coordinates coor;
 		coor.x = m_roomFlow[i]->m_objRect.x + m_roomFlow[i]->m_objRect.w / 3;
 		coor.y = m_roomFlow[i]->m_objRect.y + m_roomFlow[i]->m_objRect.h / 3;
-		D(coor.x);
-		D(coor.y);
-		write(to_string(i), coor, world.m_main_renderer, 50);
-		D(i);
-
-	}
-
-	for (int i = 0; i < m_roomCount; i++)
-	{
-
-		m_rooms[i]->draw();
-		coordinates coor;
-		coor.x = m_rooms[i]->m_objRect.x + m_rooms[i]->m_objRect.w/3;
-		coor.y = m_rooms[i]->m_objRect.y + m_rooms[i]->m_objRect.h/3;
-		write(to_string(i), coor, world.m_main_renderer , 50);
-
+		write(to_string(i), coor, world.m_main_renderer, 50);	
+		/*D(i);
+		D(m_roomFlow.size());*/
+			
 	}
 
 
@@ -197,19 +182,10 @@ void Cave::draw()
 void Cave::updateEntrance()
 {
 	checkForCaveEnter(m_isInCave);
-	//D(m_entranceRect.x);
 }
 void Cave::drawEntrance()
 {
-	//SDL_RenderClear(world.m_main_renderer);
-
-
 	SDL_RenderCopy(world.m_main_renderer, m_entranceTexture, NULL, &m_entranceRect);
-
-
-	//SDL_RenderPresent(world.m_main_renderer);
-
-
 }
 
 
@@ -227,64 +203,34 @@ void Cave::checkForCaveEnter(bool& m_isInCave)
 void Cave::loadAllRoooms()
 {
 
-	CaveRoom* room;
-	for (int i = 0; i < m_roomCount; i++)
+	for (int i = 0; i < 15; i++)
 	{
-		room = new CaveRoom();
-		room->load("cave_room.txt");
-
-		room->randomiseExits();
-		m_rooms.push_back(room);
-
-		if (room->m_hasDoor.bottom)
+		
+		if (m_rooms[i]->m_hasDoor.bottom)
 		{
-			m_roomsBottom.push_back(room);
-		}
-		if (room->m_hasDoor.top)
-		{
-			m_roomsTop.push_back(room);
-		}
-		if (room->m_hasDoor.left)
-		{
-			m_roomsLeft.push_back(room);
-		}
-		if (room->m_hasDoor.right)
-		{
-			m_roomsRight.push_back(room);
-		}
-
-	}
-
-	vector<CaveRoom*> m_suitableRooms;
-
-	for (int i = 0; i < m_roomCount; i++)
-	{
-		if (m_rooms[i]->m_hasDoor.right)
-		{
-			int r = rand() % m_roomsRight.size();
-
-			m_roomFlow.push_back(m_roomsRight[r]);
-		}
-		if (m_rooms[i]->m_hasDoor.left)
-		{
-			int r = rand() % m_roomsLeft.size();
-			m_roomFlow.push_back(m_roomsLeft[r]);
+			m_roomsBottom.push_back(m_rooms[i]);
+			D(m_rooms[i]->m_roomImg);
+			D("Pushed in bottom");
 		}
 		if (m_rooms[i]->m_hasDoor.top)
 		{
-			int r = rand() % m_roomsTop.size();
-
-			m_roomFlow.push_back(m_roomsTop[r]);
+			m_roomsTop.push_back(m_rooms[i]);
+			D(m_rooms[i]->m_roomImg);
+			D("Pushed in top");
 		}
-		if (m_rooms[i]->m_hasDoor.bottom)
+		if (m_rooms[i]->m_hasDoor.left)
 		{
-			int r = rand() % m_roomsBottom.size();
-			m_roomFlow.push_back(m_roomsBottom[r]);
+			m_roomsLeft.push_back(m_rooms[i]);
+			D(m_rooms[i]->m_roomImg);
+			D("Pushed in left");
 		}
-
-		
-
+		if (m_rooms[i]->m_hasDoor.right)
+		{
+			m_roomsRight.push_back(m_rooms[i]);
+			D(m_rooms[i]->m_roomImg);
+			D("Pushed in right");
+		}
+		D("-----------------");
 	}
-
 }
 

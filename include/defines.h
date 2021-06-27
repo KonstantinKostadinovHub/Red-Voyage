@@ -49,6 +49,7 @@ static string ITEM_FOLDER = "item\\";
 static string ICON_FOLDER = "icons\\";
 static string HERO_FOLDER = "heroes\\";
 static string WEAPON_FOLDER = "weapons\\";
+static string ROOMS_FOLDER = "rooms\\";
 
 struct coordinates
 {

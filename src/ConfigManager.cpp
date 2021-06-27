@@ -60,5 +60,16 @@ void ConfigManager::init(string configFile)
     stream >> tmp;
     m_leatherBoots.init(tmp);
 
+    for (int i = 0; i < 15; i++)
+    {
+
+        CaveRoom* room = new CaveRoom;
+        stream >> tmp;
+        room->load(tmp);
+        world.m_gameManager.m_cave.m_rooms.push_back(room);
+    }
+
+
+
     stream.close();
 }

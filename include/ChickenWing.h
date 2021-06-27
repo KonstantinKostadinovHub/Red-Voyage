@@ -1,7 +1,7 @@
 #ifndef CHICKENWING_H
 #define CHICKENWING_H
 #include <SDL.h>
-#include<string>
+#include <string>
 using namespace std;
 
 class ChickenWing

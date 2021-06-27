@@ -231,6 +231,13 @@
     <ClCompile Include="src\IconManager.cpp">
       <Filter>src\UI</Filter>
     </ClCompile>
+    <ClCompile Include="src\Saver.cpp" />
+    <ClCompile Include="src\Inventory.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Item.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\ChickenWing.h">
@@ -351,6 +358,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\CaveRoom.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Saver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Inventory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Item.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
