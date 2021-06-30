@@ -82,6 +82,7 @@ public:
     void init(SDL_Renderer* renderer, string confingFile);
     void update();
     void draw();
+    void shootWithMouse();
 
     chrono::high_resolution_clock::time_point m_elapsed_engage;
     chrono::duration<float> m_engagementRate;

@@ -22,6 +22,7 @@ class Gun
 
         coordinates m_coor;
         coordinates m_oldVelocity;
+        coordinates m_directionCoor;
 
         float m_rotationAngle;
 

@@ -164,8 +164,6 @@ void GameManager::readCollisionPoints(string configFile)
 
 #pragma region MAIN
 
-
-
 void GameManager::update()
 {
     checkForPause();
@@ -223,14 +221,9 @@ void GameManager::update()
 
         cleaner();
 
-        endGameCheck();
+        endGameCheck();  
+    }
 
-        SDL_ShowCursor(SDL_DISABLE);
-    }
-    else
-    {
-        SDL_ShowCursor(SDL_ENABLE);
-    }
     m_camera.zoom();
 }
 
@@ -427,13 +420,11 @@ void GameManager::addPlayer(string configFile)
     }
 }
 
-void GameManager::addBullet(SDL_Rect rect, coordinates coor)
+void GameManager::addBullet(SDL_Rect rect, float angle)
 {
-    Bullet* bullet = new Bullet(&m_configManager.m_bullet, m_renderer, coor);
+    Bullet* bullet = new Bullet(&m_configManager.m_bullet, m_renderer, angle);
     bullet->m_objRect.x = rect.x;
     bullet->m_objRect.y = rect.y;
-    bullet->m_coor.x = rect.x;
-    bullet->m_coor.y = rect.y;
     bullet->collLine.start.x = rect.x;
     bullet->collLine.start.y = rect.y;
     bullet->collLine.finish.x = rect.x;
@@ -447,7 +438,7 @@ void GameManager::shoot()
     {
         if (m_players[i]->m_gun->m_canShoot)
         {
-            addBullet(m_players[i]->m_gun->m_objRect, m_players[i]->m_gun->m_oldVelocity);
+            addBullet(m_players[i]->m_gun->m_objRect, m_players[i]->m_gun->m_rotationAngle);
             m_soundManager->play("Shoot.mp3");
             m_players[i]->m_gun->m_elapsed_engage = chrono::high_resolution_clock::now();
         }

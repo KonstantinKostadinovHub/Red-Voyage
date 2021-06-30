@@ -124,7 +124,7 @@ public:
     void endGameCheck();
 
     void addPlayer(string configFile);
-    void addBullet(SDL_Rect rect, coordinates coor);
+    void addBullet(SDL_Rect rect, float angle);
     void addItem(ITEM type, coordinates coor);
 
     void shoot();
