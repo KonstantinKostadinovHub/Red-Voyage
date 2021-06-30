@@ -11,6 +11,7 @@ World::World()
     m_main_renderer = nullptr;
     m_main_window = nullptr;
     m_soundManager = new SoundManager;
+
 }
 
 World::~World()
@@ -35,7 +36,7 @@ void World::init()
     m_menu.load("menu.txt");
     m_soundManager -> init("soundManager.txt");
 
-   // m_soundManager -> play("Background_Music.mp3");
+    // m_soundManager -> play("Background_Music.mp3");
 
     string cursorImg = "img\\" + MENU_FOLDER + "cursor.bmp";
 
@@ -46,6 +47,9 @@ void World::init()
     loadSurface = nullptr;
     cursor = nullptr;
 
+    m_iconManager = new IconManager();
+
+    m_iconManager->init("icons.txt", m_main_renderer);
     m_gameManager.init();
 }
 

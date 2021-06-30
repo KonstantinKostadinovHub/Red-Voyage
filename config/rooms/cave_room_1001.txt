@@ -1,0 +1,2 @@
+Img: CaveRoom_1001.bmp
+Doors_T_R_B_L: 1 0 0 1

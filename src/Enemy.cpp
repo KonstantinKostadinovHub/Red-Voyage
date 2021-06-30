@@ -224,7 +224,7 @@ void Enemy::attack() {
             (player->m_objRect.y - m_objectRect.y)*(player->m_objRect.y - m_objectRect.y)) <= m_range) {
 
             if (chrono::duration_cast<chrono::milliseconds>(chrono::high_resolution_clock::now() - m_chargeTime) >= m_chargeMax) {
-                player->m_health -= m_damage;
+                player->takeDamage(m_damage);
 
                 m_chargeTime = chrono::high_resolution_clock::now();
             }

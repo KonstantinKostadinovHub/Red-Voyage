@@ -1,3 +1,3 @@
 w&h: 128 128
-texture: leatherBoots.bmp
+texture: LeatherBoots.bmp
 movementBuff: 4
