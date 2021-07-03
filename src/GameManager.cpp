@@ -911,13 +911,13 @@ bool GameManager::checkForPause()
         m_saver->saveSession();
         return true;
     }
-    else if (m_mouseIsPressed && (MouseIsInRect(*m_mouseCoordinates, resumeButton.objRect)) && m_isPaused)
+    else if (*m_mouseIsPressed && (MouseIsInRect(*m_mouseCoordinates, resumeButton.objRect)) && m_isPaused)
     {
         m_soundManager->play("Button_Click.mp3");
         m_isPaused = false;
         return false;
     }
-    if (m_mouseIsPressed && (MouseIsInRect(*m_mouseCoordinates, exitButton.objRect)))
+    if (*m_mouseIsPressed && (MouseIsInRect(*m_mouseCoordinates, exitButton.objRect)))
     {
         m_soundManager->play("Button_Click.mp3");
         world.m_quitScene = true;
