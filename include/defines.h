@@ -153,3 +153,14 @@ struct UI_object
     SDL_Texture* objTexture = NULL;
     SDL_Rect objRect;
 }; ///< An UI_Object object structure with its parameters
+
+enum class ITEM_TYPE
+{
+    NONE = 0,
+    HELMET = 1,
+    CHESTPLATE = 2,
+    LEGGINGS = 3,
+    BOOTS = 4,
+    WEAPON = 5,
+    COLLECTABLE = 6
+};

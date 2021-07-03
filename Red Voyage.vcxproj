@@ -158,6 +158,7 @@
     <ClCompile Include="src\Helper.cpp" />
     <ClCompile Include="src\IconManager.cpp" />
     <ClCompile Include="src\Item.cpp" />
+    <ClCompile Include="src\ItemManager.cpp" />
     <ClCompile Include="src\LeatherBoots.cpp" />
     <ClCompile Include="src\Menu.cpp" />
     <ClCompile Include="src\Ore.cpp" />
@@ -199,6 +200,7 @@
     <ClInclude Include="include\Helper.h" />
     <ClInclude Include="include\IconManager.h" />
     <ClInclude Include="include\Item.h" />
+    <ClInclude Include="include\ItemManager.h" />
     <ClInclude Include="include\LeatherBoots.h" />
     <ClInclude Include="include\Menu.h" />
     <ClInclude Include="include\Ore.h" />

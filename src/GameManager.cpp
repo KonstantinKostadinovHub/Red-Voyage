@@ -77,7 +77,7 @@ void GameManager::init()
     exitButton.objRect.x = 1920 / 2 + 10;
     exitButton.objRect.y = 1080 / 2 - exitButton.objRect.h / 2;
 
-    m_saver = new Saver("saves\\session1.txt");
+    m_saver = new Saver("saves\\session1.txt", "saves\\player1.txt");
 
     m_configManager.init("configManager.txt");
     m_userInterface.load("playerUi.txt");
@@ -95,6 +95,7 @@ void GameManager::initSession()
     m_food_spawner.init("food.txt");
     addPlayer("player1.txt");
     addPlayer("player2.txt");
+    m_saver->loadPlayerStats(m_players[0]);
     coordinates buff;
     buff.x = 1000;
     buff.y = 1000;

@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "ItemManager.h"
 #include "World.h"
 
 extern World world;
@@ -137,6 +138,14 @@ void Player::init(SDL_Renderer* renderer, string configFile)
     m_oldvelocity.x = m_speed;
 
     m_inSpaceship = true;
+
+    m_helmet = ITEM::NONE;
+    m_chestplate = ITEM::NONE;
+    m_leggings = ITEM::NONE;
+    m_boots = ITEM::NONE;
+    
+    m_primaryWeapon = ITEM::NONE;
+    m_secondaryWeapon = ITEM::NONE;
 }
 
 bool Player::checkForShooting()
@@ -366,5 +375,96 @@ void Player::takeDamage(float damage)
                 m_shield = 0;
             }
         }
+    }
+}
+
+void Player::saveItems(fstream& stream)
+{
+    cout << "Save armor \n";
+    /// Save the armor
+    stream << "H " << int(m_helmet) << endl;
+    stream << "C " << int(m_chestplate) << endl;
+    stream << "L " << int(m_leggings) << endl;
+    stream << "B " << int(m_boots) << endl;
+
+
+    cout << "SAVE WEAPONS \n";
+    /// Save the weapons
+    stream << "P " << int(m_primaryWeapon) << endl;
+    stream << "S " << int(m_secondaryWeapon) << endl;
+}
+
+void Player::equipItem(ITEM_TYPE type , ITEM item)
+{
+    switch (type)
+    {
+    case ITEM_TYPE::NONE:
+        cout << "ERROR: Trying to equip item with unknown type \n";
+        break;
+    case ITEM_TYPE::HELMET:
+        m_helmet = item;
+        break;
+    case ITEM_TYPE::CHESTPLATE:
+        m_chestplate = item;
+        break;
+    case ITEM_TYPE::LEGGINGS:
+        m_leggings = item;
+        break;
+    case ITEM_TYPE::BOOTS:
+        m_boots = item;
+        break;
+    case ITEM_TYPE::WEAPON:
+        m_primaryWeapon = item;
+        break;
+    case ITEM_TYPE::COLLECTABLE:
+        m_collectable.push_back(item);
+        break;
+    default:
+        break;
+    }
+}
+
+void Player::loadItems(fstream& stream)
+{
+    string tmp;
+    int buff;
+
+    stream >> tmp >> buff;
+    m_helmet = ITEM(buff);
+    stream >> tmp >> buff;
+    m_chestplate = ITEM(buff);
+    stream >> tmp >> buff;
+    m_leggings = ITEM(buff);
+    stream >> tmp >> buff;
+    m_boots = ITEM(buff);
+
+    stream >> tmp >> buff;
+    m_primaryWeapon = ITEM(buff);
+    stream >> tmp >> buff;
+    m_secondaryWeapon = ITEM(buff);
+
+    if (m_helmet != ITEM::NONE)
+    {
+        ItemManager::applyItemEffect(this, m_helmet);
+    }
+    if (m_chestplate != ITEM::NONE)
+    {
+        ItemManager::applyItemEffect(this, m_chestplate);
+    }
+    if (m_leggings != ITEM::NONE)
+    {
+        ItemManager::applyItemEffect(this, m_leggings);
+    }
+    if (m_boots != ITEM::NONE)
+    {
+        ItemManager::applyItemEffect(this, m_boots);
+    }
+    if (m_primaryWeapon != ITEM::NONE)
+    {
+        ItemManager::applyItemEffect(this, m_primaryWeapon);
+    }
+    if (m_secondaryWeapon != ITEM::NONE)
+    {
+        ItemManager::applyItemEffect(this, m_secondaryWeapon);
     }
 }

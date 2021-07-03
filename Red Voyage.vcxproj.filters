@@ -232,11 +232,11 @@
       <Filter>src\UI</Filter>
     </ClCompile>
     <ClCompile Include="src\Saver.cpp" />
-    <ClCompile Include="src\Inventory.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\Item.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ItemManager.cpp">
+      <Filter>src\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -363,11 +363,11 @@
     <ClInclude Include="include\Saver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Inventory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Item.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ItemManager.h">
+      <Filter>Header Files\Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

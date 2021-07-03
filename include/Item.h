@@ -28,6 +28,8 @@ public:
 	void setPos(coordinates pos); //< Use after the initialization of the object
 	void draw();
 protected:
+	virtual void applyEffect(Player* player);
 	SDL_Rect m_objectRect;
 	SDL_Texture* m_objectTexture;
+	ITEM_TYPE m_type;
 };
