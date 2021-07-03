@@ -40,6 +40,11 @@ void Gun::update(coordinates velocity, coordinates playerCoor, bool shootIsPress
     m_objRect.x = playerCoor.x + velocity.x * 55;
     m_objRect.y = playerCoor.y + velocity.y * 80;
 
+    m_directionCoor.x = abs(world.m_mouseCoordinates.x - m_objRect.x);
+    m_directionCoor.y = abs(world.m_mouseCoordinates.y - m_objRect.y);
+
+    m_rotationAngle = returnAngleByCoordinates(m_directionCoor);
+
     if(chrono::duration_cast<chrono::milliseconds>(chrono::high_resolution_clock::now() - m_elapsed_engage) > m_engagementRate && shootIsPressed)
     {
         m_canShoot = true;

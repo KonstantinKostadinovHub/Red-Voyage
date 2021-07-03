@@ -8,7 +8,7 @@ Bullet::Bullet()
     //ctor
 }
 
-Bullet::Bullet(const Bullet* model, SDL_Renderer* renderer, coordinates velocity)
+Bullet::Bullet(const Bullet* model, SDL_Renderer* renderer, float angle)
 {
     m_renderer = renderer;
 
@@ -20,11 +20,10 @@ Bullet::Bullet(const Bullet* model, SDL_Renderer* renderer, coordinates velocity
     m_zoom_lvl = &world.m_gameManager.m_camera.zoom_lvl;
     m_cameraRect = &world.m_gameManager.m_camera.camera_rect;
 
-    m_velocity.x = velocity.x;
-    m_velocity.y = velocity.y;
-
     m_objRect.w = model->m_objRect.w;
     m_objRect.h = model->m_objRect.h;
+
+    m_bulletAngle = angle;
 }
 
 
@@ -70,8 +69,8 @@ void Bullet::update()
         and miss the collision check.
     */
 
-    m_coor.x += (float)m_velocity.x * m_speed * SPEED_FACTOR;
-    m_coor.y += (float)m_velocity.y * m_speed * SPEED_FACTOR;
+    m_coor.x += sin(m_bulletAngle * PI / 180) * m_speed;
+    m_coor.y -= cos(m_bulletAngle * PI / 180) * m_speed;
 
     m_objRect.x = m_coor.x;
     m_objRect.y = m_coor.y;

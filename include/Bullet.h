@@ -18,8 +18,10 @@ class Bullet
 {
     public:
         Bullet();
-        Bullet(const Bullet* model, SDL_Renderer* renderer, coordinates coor);
+        Bullet(const Bullet* model, SDL_Renderer* renderer, float angle);
         virtual ~Bullet();
+
+        coordinates m_directionCoor;
 
         SDL_Renderer* m_renderer;
 
@@ -27,6 +29,8 @@ class Bullet
         string m_img;
 
         int m_health;
+
+        float m_bulletAngle;
 
         SDL_Rect* m_cameraRect;
         float* m_zoom_lvl;

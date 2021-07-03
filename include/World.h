@@ -33,7 +33,6 @@ class World
         bool m_mouseIsDoubleClicked;
         coordinates m_mouseCoordinates;
 
-
         Endgame endgame;
         Credits credits;
         Menu m_menu;

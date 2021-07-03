@@ -219,11 +219,6 @@ pair<SDL_Texture*, SDL_Rect> writeGreen(string text, coordinates coor, SDL_Rende
     return myRect;
 }
 
-float returnAngleByCoordinates(coordinates direction)
-{
-    return atan2(direction.y, direction.x) * 180 / PI;
-}
-
 void drawRectCollision(SDL_Rect rect, SDL_Renderer* renderer)
 {
 	short x2 = rect.x + rect.w;
@@ -249,4 +244,17 @@ void drawRectCollision(SDL_Rect rect, SDL_Renderer* renderer)
 void var_shake(float* a, float magnitude) {
     float b = ((static_cast<float> (rand()) / static_cast<float>(RAND_MAX)) * 2.0f - 1.0f) * magnitude;
     *a += b;
+}
+
+float returnAngleByCoordinates(coordinates direction)
+{
+    return atan2(direction.x, -1 * direction.y) * 180 / PI;
+}
+
+struct coordinates returnCoordinatesByAngle(float angle)
+{
+    coordinates direction;
+    direction.y = sin(angle * PI / 180);
+    direction.x = cos(angle * PI / 180);
+    return direction;
 }
