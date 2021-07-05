@@ -49,7 +49,7 @@ void Bullet::load(string configFile)
 
     stream.close();
 
-    m_img = "\\player\\" + m_img;
+    m_img = PLAYER_FOLDER + m_img;
 
     m_bulletTexture = LoadTexture(m_img, world.m_main_renderer);
 

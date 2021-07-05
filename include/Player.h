@@ -120,6 +120,8 @@ protected:
     void equipItem(ITEM_TYPE type, ITEM item);
     friend class Saver;
     void loadItems(fstream& stream);
+    friend class GameManager;
+    coordinates getShootingPoint();
 private:
     vector<ITEM> m_collectable;
 
@@ -130,6 +132,8 @@ private:
 
     ITEM m_primaryWeapon;
     ITEM m_secondaryWeapon;
+
+    coordinates* m_shootingPoint;
 };
 
 #endif // PLAYER_H

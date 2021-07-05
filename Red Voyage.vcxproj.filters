@@ -225,9 +225,6 @@
     <ClCompile Include="src\CaveRoom.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\TextInputField.cpp">
-      <Filter>src\Main</Filter>
-    </ClCompile>
     <ClCompile Include="src\IconManager.cpp">
       <Filter>src\UI</Filter>
     </ClCompile>
@@ -237,6 +234,12 @@
     </ClCompile>
     <ClCompile Include="src\ItemManager.cpp">
       <Filter>src\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TextInput.cpp">
+      <Filter>src\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\InputManager.cpp">
+      <Filter>src\Main</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -345,9 +348,6 @@
     <ClInclude Include="include\LeatherBoots.h">
       <Filter>Header Files\Game\PowerUps</Filter>
     </ClInclude>
-    <ClInclude Include="include\TextInputField.h">
-      <Filter>Header Files\Main</Filter>
-    </ClInclude>
     <ClInclude Include="include\IconManager.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
@@ -368,6 +368,12 @@
     </ClInclude>
     <ClInclude Include="include\ItemManager.h">
       <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="include\TextInput.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\InputManager.h">
+      <Filter>Header Files\Main</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

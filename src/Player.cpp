@@ -49,6 +49,7 @@ void Player::init(SDL_Renderer* renderer, string configFile)
     /*! After we read the configFile we check the controls of the player and then load it
     */
 
+
     if(s_move_up == "W")
     {
         move_up = SDL_SCANCODE_W;
@@ -101,6 +102,8 @@ void Player::init(SDL_Renderer* renderer, string configFile)
 
     m_gun = new Gun;
     m_gun -> init(200);
+    m_gun->setPlayerRect(&m_objRect);
+    m_shootingPoint = m_gun->getShootingPoint();
 
     m_elapsed_engage = chrono::high_resolution_clock::now();
     m_engagementRate = chrono::milliseconds(m_shootCooldown);
@@ -201,7 +204,7 @@ void Player::update()
         {
             m_velocity.x = 1;
         }
-        if(state[shoot])
+        if(world.m_mouseIsPressed)
         {
             shootIsPressed = true;
         }
@@ -467,4 +470,9 @@ void Player::loadItems(fstream& stream)
     {
         ItemManager::applyItemEffect(this, m_secondaryWeapon);
     }
+}
+
+coordinates Player::getShootingPoint()
+{
+    return *m_shootingPoint;
 }

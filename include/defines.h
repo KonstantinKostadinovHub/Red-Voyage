@@ -164,3 +164,15 @@ enum class ITEM_TYPE
     WEAPON = 5,
     COLLECTABLE = 6
 };
+
+struct Vector2
+{
+    int x;
+    int y;
+};
+
+struct Vector2f
+{
+    float x;
+    float y;
+};

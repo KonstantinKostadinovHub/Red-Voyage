@@ -14,33 +14,40 @@
 
 class Gun
 {
-    public:
-        virtual ~Gun();
-        Gun();
+public:
+    virtual ~Gun();
+    Gun();
 
-        SDL_Rect m_objRect;
+    SDL_Rect m_objRect;
 
-        coordinates m_coor;
-        coordinates m_oldVelocity;
-        coordinates m_directionCoor;
+    coordinates m_oldVelocity;
 
-        float m_rotationAngle;
+    float m_rotationAngle;
 
-        time_t m_startShootCooldown;
-        time_t m_shootCooldown;
+    time_t m_startShootCooldown;
+    time_t m_shootCooldown;
 
-        bool m_canShoot;
-        bool isPressed;
+    bool m_canShoot;
+    bool isPressed;
 
-        chrono::high_resolution_clock::time_point m_elapsed_engage;
-        chrono::duration<float> m_engagementRate;
+    chrono::high_resolution_clock::time_point m_elapsed_engage;
+    chrono::duration<float> m_engagementRate;
 
-        void init(float attackSpeed);
-        void update(coordinates, coordinates playerCoor, bool shootIsPressed);
+    void init(float attackSpeed);
+    void update(coordinates, coordinates playerCoor, bool shootIsPressed);
 
-    protected:
-
-    private:
+protected:
+    friend class Player;
+    void setPlayerRect(SDL_Rect* rect);
+    coordinates* getShootingPoint();
+        
+private:
+    coordinates* m_mouseCoor;
+    SDL_Rect* m_playerRect;
+    coordinates m_playerCenter;
+    coordinates m_direction;
+    coordinates m_shootingPoint;
+    void aim();
 };
 
 #endif // GUN_H
