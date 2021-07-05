@@ -7,6 +7,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <map>
 #include <chrono>
 #include <ctime>
 #include <cmath>
@@ -112,10 +113,27 @@ public:
     float m_shield;
 
     void takeDamage(float damage);
-
 protected:
-
+    friend class Saver;
+    void saveItems(fstream& stream);
+    friend class ItemManager;
+    void equipItem(ITEM_TYPE type, ITEM item);
+    friend class Saver;
+    void loadItems(fstream& stream);
+    friend class GameManager;
+    coordinates getShootingPoint();
 private:
+    vector<ITEM> m_collectable;
+
+    ITEM m_helmet;
+    ITEM m_chestplate;
+    ITEM m_leggings;
+    ITEM m_boots;
+
+    ITEM m_primaryWeapon;
+    ITEM m_secondaryWeapon;
+
+    coordinates* m_shootingPoint;
 };
 
 #endif // PLAYER_H
