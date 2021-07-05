@@ -1,0 +1,3 @@
+imgRect: 960 540 160 90
+padding: 10
+img: inputField.bmp
