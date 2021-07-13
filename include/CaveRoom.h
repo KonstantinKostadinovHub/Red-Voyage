@@ -13,6 +13,7 @@ struct hasDoors{
 	bool bottom;
 	bool left;
 };
+
 struct mapcoordinates {
 
 	short x;

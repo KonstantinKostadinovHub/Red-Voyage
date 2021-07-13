@@ -15,7 +15,7 @@ public:
 	TextInput();
 	virtual ~TextInput();
 
-	void init(string configFile,SDL_Renderer* renderer, SDL_Event* event, coordinates* mouseCoor, bool* mouseIsPressed);
+	void init(string configFile,SDL_Renderer* renderer, SDL_Event* event, Vector2* mouseCoor, bool* mouseIsPressed);
 	void update();
 	void draw();
 
@@ -29,6 +29,6 @@ private:
 	bool m_typing;
 
 	SDL_Event* m_event;
-	coordinates* m_mouseCoor;
+	Vector2* m_mouseCoor;
 	bool* m_mouseIsPressed;
 };

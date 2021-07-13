@@ -28,12 +28,6 @@ void Player::init(SDL_Renderer* renderer, string configFile)
     stream >> tmp >> m_objRect.w >> m_objRect.h >> m_objRect.x >> m_objRect.y;
     stream >> tmp >> m_playerImg;
     stream >> tmp >> m_speed;
-    stream >> tmp >> s_move_up;
-    stream >> tmp >> s_move_down;
-    stream >> tmp >> s_move_left;
-    stream >> tmp >> s_move_right;
-    stream >> tmp >> s_shoot;
-    stream >> tmp >> s_craft;
     stream >> tmp >> m_health;
     stream >> tmp >> HP;
     stream >> tmp >> m_shootCooldown;
@@ -48,57 +42,6 @@ void Player::init(SDL_Renderer* renderer, string configFile)
 
     /*! After we read the configFile we check the controls of the player and then load it
     */
-
-
-    if(s_move_up == "W")
-    {
-        move_up = SDL_SCANCODE_W;
-    }
-    if(s_move_down == "S")
-    {
-        move_down = SDL_SCANCODE_S;
-    }
-    if(s_move_left == "A")
-    {
-        move_left = SDL_SCANCODE_A;
-    }
-    if(s_move_right == "D")
-    {
-        move_right = SDL_SCANCODE_D;
-    }
-    if(s_craft == "E")
-    {
-        craft = SDL_SCANCODE_E;
-    }
-    if(s_shoot == "Q")
-    {
-        shoot = SDL_SCANCODE_Q;
-    }
-
-    if(s_move_up == "I")
-    {
-        move_up = SDL_SCANCODE_I;
-    }
-    if(s_move_down == "K")
-    {
-        move_down = SDL_SCANCODE_K;
-    }
-    if(s_move_left == "J")
-    {
-        move_left = SDL_SCANCODE_J;
-    }
-    if(s_move_right == "L")
-    {
-        move_right = SDL_SCANCODE_L;
-    }
-    if(s_craft == "O")
-    {
-        craft = SDL_SCANCODE_O;
-    }
-    if(s_shoot == "U")
-    {
-        shoot = SDL_SCANCODE_U;
-    }
 
     m_gun = new Gun;
     m_gun -> init(200);
@@ -125,7 +68,6 @@ void Player::init(SDL_Renderer* renderer, string configFile)
 
     m_shield = 100;
     
-
     anim = new animation;
     anim -> frames = 4;
     anim -> lastFrameUpdate = chrono::high_resolution_clock::now();
@@ -174,52 +116,29 @@ void Player::update()
     m_velocity.y = 0;
 
     checkForShooting();
-
-    const Uint8 *state = SDL_GetKeyboardState(NULL);
-
-    m_screenSpeed = m_speed * SPEED_FACTOR;
-
-    if(state != NULL)
+    
+    if (world.m_inputManager->m_shootIsPressed && !m_canShoot)
     {
-        if(state[shoot] && !m_canShoot)
-        {
-            m_gun -> m_canShoot = true;
-            
-            m_elapsed_engage = chrono::high_resolution_clock::now();
-            m_canShoot = false;
-        }
-        if(state[move_up])
-        {
-            m_velocity.y = -1;
-        }
-        else if(state[move_down])
-        {
-            m_velocity.y = 1;
-        }
-        if(state[move_left])
-        {
-            m_velocity.x = -1;
-        }
-        else if(state[move_right])
-        {
-            m_velocity.x = 1;
-        }
-        if(world.m_mouseIsPressed)
-        {
-            shootIsPressed = true;
-        }
-        else
-        {
-            shootIsPressed = false;
-        }
-        if(state[craft])
-        {
-            craftIsPressed = true;
-        }
-        else
-        {
-            craftIsPressed = false;
-        }
+        m_gun->m_canShoot = true;
+
+        m_elapsed_engage = chrono::high_resolution_clock::now();
+        m_canShoot = false;
+    }
+    if (world.m_inputManager->m_up.first)
+    {
+        m_velocity.y = -1;
+    }
+    else if (world.m_inputManager->m_down.first)
+    {
+        m_velocity.y = 1;
+    }
+    if (world.m_inputManager->m_left.first)
+    {
+        m_velocity.x = -1;
+    }
+    else if (world.m_inputManager->m_right.first)
+    {
+        m_velocity.x = 1;
     }
 
     m_objRect.x += m_velocity.x * m_speed;
@@ -261,10 +180,10 @@ void Player::update()
         }
     }
   
-    coordinates playerCoor;
+    Vector2 playerCoor;
     playerCoor.x = m_objRect.x + m_objRect.w / 2;
     playerCoor.y = m_objRect.y + m_objRect.h / 2;
-    m_gun -> update(m_velocity, playerCoor, shootIsPressed);
+    m_gun -> update(m_velocity, playerCoor, world.m_inputManager->m_shootIsPressed);
     
     if(m_health > m_maxHealth)
     {
@@ -289,7 +208,7 @@ void Player::update()
 
 	if(time(NULL) - m_lastDustEffect >= m_timeBetweenDustEffects)
 	{
-		coordinates coor;
+        Vector2 coor;
 		coor.x = m_objRect.x + m_objRect.w / 2;
 		coor.y = m_objRect.y + m_objRect.h * 8 / 10;
 		VisualEffect* dust = new VisualEffect(&(world.m_gameManager.m_configManager.m_dust), coor);
@@ -472,7 +391,7 @@ void Player::loadItems(fstream& stream)
     }
 }
 
-coordinates Player::getShootingPoint()
+Vector2 Player::getShootingPoint()
 {
     return *m_shootingPoint;
 }

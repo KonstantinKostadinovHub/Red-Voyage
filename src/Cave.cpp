@@ -160,7 +160,7 @@ void Cave::draw()
 	{
 
 		m_roomFlow[i]->draw();
-		coordinates coor;
+		Vector2 coor;
 		coor.x = m_roomFlow[i]->m_objRect.x + m_roomFlow[i]->m_objRect.w / 3;
 		coor.y = m_roomFlow[i]->m_objRect.y + m_roomFlow[i]->m_objRect.h / 3;
 		write(to_string(i), coor, world.m_main_renderer, 50);	

@@ -51,28 +51,27 @@ static string HERO_FOLDER = "heroes\\";
 static string WEAPON_FOLDER = "weapons\\";
 static string ROOMS_FOLDER = "rooms\\";
 
-struct coordinates
+struct Vector2
 {
-    int x = 0;
-    int y = 0;
-}; ///< A useful structure containing x and y axis of an object
+    int x;
+    int y;
+};
 
-static coordinates parseToCoordinates(SDL_Rect rect)
+struct Vector2f
+{
+    float x;
+    float y;
+};
+
+static Vector2 parseToCoordinates(SDL_Rect rect)
 {
     return { rect.x , rect.y };
 }
 
-struct fcoordinates
-{
-    float x = 0;
-    float y = 0;
-}; ///< A useful structure similar to coordinates but containing the x and y axis of an object in float 
-
-
 struct line
 {
-    fcoordinates start;
-    fcoordinates finish;
+    Vector2f start;
+    Vector2f finish;
 }; ///< A useful structure creating a line from coordinates
 
 enum ORE
@@ -163,16 +162,4 @@ enum class ITEM_TYPE
     BOOTS = 4,
     WEAPON = 5,
     COLLECTABLE = 6
-};
-
-struct Vector2
-{
-    int x;
-    int y;
-};
-
-struct Vector2f
-{
-    float x;
-    float y;
 };

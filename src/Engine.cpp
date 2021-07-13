@@ -64,7 +64,7 @@ bool collLineRect(line mainLine, line top, line bot, line left, line right)
     return false;
 }
 
-bool MouseIsInRect(coordinates coor , SDL_Rect rect)
+bool MouseIsInRect(Vector2 coor , SDL_Rect rect)
 {
     if(coor.x >= rect.x && coor.x <= rect.x + rect.w && coor.y >= rect.y && coor.y <= rect.y + rect.h)
     {
@@ -112,7 +112,7 @@ void restrict(SDL_Rect* rect, int zx, int zy, int zw, int zh){
 }
 
 
-void write(string text, coordinates coor, SDL_Renderer* renderer, int FONT_SIZE)
+void write(string text, Vector2 coor, SDL_Renderer* renderer, int FONT_SIZE)
 {
 
     SDL_Texture* texture;
@@ -147,7 +147,7 @@ void write(string text, coordinates coor, SDL_Renderer* renderer, int FONT_SIZE)
 
 }
 
-pair<SDL_Texture*, SDL_Rect>  writeRed(string text, coordinates coor, SDL_Renderer* renderer, int FONT_SIZE)
+pair<SDL_Texture*, SDL_Rect>  writeRed(string text, Vector2 coor, SDL_Renderer* renderer, int FONT_SIZE)
 {
 
     SDL_Texture* texture;
@@ -183,7 +183,7 @@ pair<SDL_Texture*, SDL_Rect>  writeRed(string text, coordinates coor, SDL_Render
     return myRect;
 }
 
-pair<SDL_Texture*, SDL_Rect> writeGreen(string text, coordinates coor, SDL_Renderer* renderer, int FONT_SIZE)
+pair<SDL_Texture*, SDL_Rect> writeGreen(string text, Vector2 coor, SDL_Renderer* renderer, int FONT_SIZE)
 {
 
     SDL_Texture* texture;
@@ -246,14 +246,14 @@ void var_shake(float* a, float magnitude) {
     *a += b;
 }
 
-float returnAngleByCoordinates(coordinates direction)
+float returnAngleByCoordinates(Vector2 direction)
 {
     return atan2(direction.x, -1 * direction.y) * 180 / PI;
 }
 
-struct coordinates returnCoordinatesByAngle(float angle)
+struct Vector2 returnCoordinatesByAngle(float angle)
 {
-    coordinates direction;
+    Vector2 direction;
     direction.y = sin(angle * PI / 180);
     direction.x = cos(angle * PI / 180);
     return direction;

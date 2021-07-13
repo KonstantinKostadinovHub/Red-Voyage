@@ -13,7 +13,7 @@ class Ore
 {
     public:
         Ore();
-        Ore(const Ore* model, SDL_Renderer* renderer, coordinates coor);
+        Ore(const Ore* model, SDL_Renderer* renderer, Vector2 coor);
         virtual ~Ore();
 
         SDL_Renderer* m_renderer;

@@ -14,15 +14,14 @@ GameManager::~GameManager()
 
 }
 
-
 void GameManager::init()
 {
     m_renderer = world.m_main_renderer;
     m_soundManager = world.m_soundManager;
-    m_drag = &world.m_drag;
-    m_mouseIsPressed = &world.m_mouseIsPressed;
-    m_mouseIsDoubleClicked = &world.m_mouseIsDoubleClicked;
-    m_mouseCoordinates = &world.m_mouseCoordinates;
+    m_drag = &world.m_inputManager->m_drag;
+    m_mouseIsPressed = &world.m_inputManager->m_mouseIsClicked;
+    m_mouseIsDoubleClicked = &world.m_inputManager->m_mouseIsDoubleClicked;
+    m_mouseCoordinates = &world.m_inputManager->m_mouseCoor;
     m_event = &world.m_event;
 
     m_backgroundRect = {
@@ -101,7 +100,7 @@ void GameManager::initSession()
     addPlayer("player1.txt");
     addPlayer("player2.txt");
     m_saver->loadPlayerStats(m_players[0]);
-    coordinates buff;
+    Vector2 buff;
     buff.x = 1000;
     buff.y = 1000;
     addItem(ITEM::LEATHER_BOOTS, buff);
@@ -136,8 +135,8 @@ void GameManager::readCollisionPoints(string configFile)
     ifstream file;
     file.open(configFile);
 
-    fcoordinates coor;
-    fcoordinates first;
+    Vector2f coor;
+    Vector2f first;
     line buff;
     string img;
     file >> img;
@@ -244,7 +243,6 @@ void GameManager::update()
 
             m_cave.updateEntrance();
         }
-
 
         cleaner();
 
@@ -458,7 +456,7 @@ void GameManager::addPlayer(string configFile)
     }
 }
 
-void GameManager::addBullet(coordinates coor, float angle)
+void GameManager::addBullet(Vector2 coor, float angle)
 {
     Bullet* bullet = new Bullet(&m_configManager.m_bullet, m_renderer, angle);
     bullet->m_objRect.x = coor.x;
@@ -521,7 +519,7 @@ void GameManager::cleaner()
         {
             m_bullets[i]->m_objRect.x = m_bullets[i]->collLine.finish.x;
             m_bullets[i]->m_objRect.y = m_bullets[i]->collLine.finish.y;
-            coordinates coorBuff;
+            Vector2 coorBuff;
             coorBuff.x = m_bullets[i]->m_objRect.x;
             coorBuff.y = m_bullets[i]->m_objRect.y;
             VisualEffect* explosion = new VisualEffect(&(m_configManager.m_bulletExplosion), coorBuff);
@@ -812,7 +810,7 @@ void GameManager::collision()
 
     for (int i = 0; i < m_players.size(); i++)
     {
-        if (m_players[i]->shootIsPressed)
+        if (world.m_inputManager->m_shootIsPressed)
         {
             for (int j = 0; j < m_enemies.size(); j++)
             {
@@ -946,7 +944,7 @@ void GameManager::drawShipCollision()
     }
 }
 
-void GameManager::addItem(ITEM type, coordinates coor)
+void GameManager::addItem(ITEM type, Vector2 coor)
 {
     Item* item = nullptr;
     switch (type)

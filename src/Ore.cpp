@@ -8,7 +8,7 @@ Ore::Ore()
     //ctor
 }
 
-Ore::Ore(const Ore* model, SDL_Renderer* renderer, coordinates coor)
+Ore::Ore(const Ore* model, SDL_Renderer* renderer, Vector2 coor)
 {
     m_renderer = renderer;
 

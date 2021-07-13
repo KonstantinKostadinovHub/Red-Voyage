@@ -11,7 +11,7 @@ World::World()
     m_main_renderer = nullptr;
     m_main_window = nullptr;
     m_soundManager = new SoundManager;
-
+    m_inputManager = new InputManager;
 }
 
 World::~World()
@@ -21,7 +21,6 @@ World::~World()
 
 void World::init()
 {
-
     srand(time(NULL));
 
     m_SCREEN_WIDTH = 1920;
@@ -35,6 +34,7 @@ void World::init()
 
     m_menu.load("menu.txt");
     m_soundManager -> init("soundManager.txt");
+    m_inputManager -> init("inputManager.txt");
 
     // m_soundManager -> play("Background_Music.mp3");
 
@@ -53,43 +53,6 @@ void World::init()
     m_gameManager.init();
 }
 
-void startDrag(void* input)
-{
-    World* world = (World*)input;
-    world->m_drag = true;
-}
-
-void stopDrag(void* input)
-{
-    World* world = (World*)input;
-    world->m_drag = false;
-}
-
-void World::input()
-{
-    m_mouseIsPressed = false;
-    m_mouseIsDoubleClicked = false;
-
-    SDL_PollEvent(&m_event);
-
-    if(m_event.type == SDL_MOUSEBUTTONDOWN)
-    {
-        if (m_event.button.clicks >= 2)
-        {
-            m_mouseIsDoubleClicked = true;
-        }
-
-        m_mouseIsPressed = true;
-    }
-
-    if(m_event.type == SDL_MOUSEMOTION)
-    {
-        SDL_GetGlobalMouseState(&(m_mouseCoordinates.x), &(m_mouseCoordinates.y));
-        m_mouseCoordinates.x *= m_MOUSE_MULTIPLY_X;
-        m_mouseCoordinates.y *= m_MOUSE_MULTIPLY_Y;
-    }
-}
-
 void World::improveRenderer()
 {
     SDL_DisplayMode DM;
@@ -97,8 +60,8 @@ void World::improveRenderer()
     auto desktopWidth = DM.w;
     auto desktopHeight = DM.h;
 
-    m_MOUSE_MULTIPLY_X = (double) m_SCREEN_WIDTH / (double)desktopWidth;
-    m_MOUSE_MULTIPLY_Y = (double) m_SCREEN_HEIGHT / (double)desktopHeight;
+    m_mouseMultiply.x = (double) m_SCREEN_WIDTH / (double)desktopWidth;
+    m_mouseMultiply.y = (double) m_SCREEN_HEIGHT / (double)desktopHeight;
 
     if(SDL_SetWindowFullscreen(m_main_window, SDL_WINDOW_FULLSCREEN_DESKTOP) < 0)
     {
@@ -114,4 +77,9 @@ void World::destroy()
     SDL_DestroyWindow(m_main_window);
     SDL_DestroyRenderer(m_main_renderer);
     m_soundManager -> destroyChunks();
+}
+
+void World::input()
+{
+    m_inputManager->handleInput();
 }

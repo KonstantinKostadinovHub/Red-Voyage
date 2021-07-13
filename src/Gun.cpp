@@ -19,10 +19,10 @@ void Gun::init(float attackSpeed)
     m_engagementRate = chrono::milliseconds((int)attackSpeed);
     m_elapsed_engage = chrono::high_resolution_clock::now();
     m_canShoot = false;
-    m_mouseCoor = &world.m_mouseCoordinates;
+    m_mouseCoor = &world.m_inputManager->m_mouseCoor;
 }
 
-void Gun::update(coordinates velocity, coordinates playerCoor, bool shootIsPressed)
+void Gun::update(Vector2 velocity, Vector2 playerCoor, bool shootIsPressed)
 {
     /*! We calculate the velocity and position the gun to player's coordinates.
     *    
@@ -69,7 +69,7 @@ void Gun::setPlayerRect(SDL_Rect* rect)
     m_playerRect = rect;
 }
 
-coordinates* Gun::getShootingPoint()
+Vector2* Gun::getShootingPoint()
 {
     return &m_shootingPoint;
 }

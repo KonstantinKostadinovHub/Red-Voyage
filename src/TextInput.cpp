@@ -12,7 +12,7 @@ TextInput::~TextInput()
 	SDL_DestroyTexture(m_texture);
 }
 
-void TextInput::init(string configFile, SDL_Renderer* renderer, SDL_Event* event, coordinates* mouseCoor, bool* mouseIsPressed)
+void TextInput::init(string configFile, SDL_Renderer* renderer, SDL_Event* event, Vector2* mouseCoor, bool* mouseIsPressed)
 {
 	m_event = event;
 	m_mouseIsPressed = mouseIsPressed;

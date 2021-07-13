@@ -56,7 +56,7 @@ void Generator::generateOre()
         {
             m_lastOreCreation = chrono::steady_clock::now();
 
-            coordinates coor;
+            Vector2 coor;
             coor.x = 0;
             coor.y = 0;
 
@@ -165,7 +165,7 @@ void Generator::generateEnemy()
         {
             m_lastEnemyCreation= chrono::steady_clock::now();
 
-            coordinates coor;
+            Vector2 coor;
             coor.x = rand() % m_EnemySpawnZone.w + m_EnemySpawnZone.x;
             coor.y = rand() % m_EnemySpawnZone.h + m_EnemySpawnZone.y;
 
@@ -217,7 +217,7 @@ void Generator::giveOreCoordinates(Ore* ore)
 	}
 }
 
-void Generator::generateEnemy(ENEMY type, coordinates coor, short health)
+void Generator::generateEnemy(ENEMY type, Vector2 coor, short health)
 {
     if (type == ENEMY::MELEE)
     {

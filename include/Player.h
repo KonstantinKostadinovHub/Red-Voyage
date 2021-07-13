@@ -30,12 +30,10 @@ public:
     Player();
     virtual ~Player();
 
-    coordinates m_oldCoor;
-    coordinates m_coor;
-    coordinates m_center;
-    coordinates m_velocity;
-    coordinates m_oldvelocity;
-    coordinates m_direction;
+    Vector2 m_oldCoor;
+    Vector2 m_coor;
+    Vector2 m_velocity;
+    Vector2 m_oldvelocity;
 
     int m_widthOfFrame;
 
@@ -57,31 +55,16 @@ public:
     bool m_inSpaceship = false;
 
     float m_speed;
-    float m_screenSpeed;
 
-    string s_move_up;
-    string s_move_down;
-    string s_move_left;
-    string s_move_right;
-    string s_shoot;
-    string s_craft;
     string m_playerImg;
     string HP;
     string m_configFile;
-
-    SDL_Scancode move_up;
-    SDL_Scancode move_down;
-    SDL_Scancode move_left;
-    SDL_Scancode move_right;
-    SDL_Scancode shoot;
-    SDL_Scancode craft;
 
     SDL_Rect m_objRect;
 
     void init(SDL_Renderer* renderer, string confingFile);
     void update();
     void draw();
-    void shootWithMouse();
 
     chrono::high_resolution_clock::time_point m_elapsed_engage;
     chrono::duration<float> m_engagementRate;
@@ -96,8 +79,6 @@ public:
 
     bool checkForShooting();
     bool m_canShoot;
-    bool shootIsPressed;
-    bool craftIsPressed;
     bool m_collWithDoor;
 
     line top, bot, left, right;
@@ -121,7 +102,7 @@ protected:
     friend class Saver;
     void loadItems(fstream& stream);
     friend class GameManager;
-    coordinates getShootingPoint();
+    Vector2 getShootingPoint();
 private:
     vector<ITEM> m_collectable;
 
@@ -133,7 +114,7 @@ private:
     ITEM m_primaryWeapon;
     ITEM m_secondaryWeapon;
 
-    coordinates* m_shootingPoint;
+    Vector2* m_shootingPoint;
 };
 
 #endif // PLAYER_H

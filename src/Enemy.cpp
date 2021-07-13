@@ -86,7 +86,7 @@ void Enemy::load(string config) {
 
     short tmpValX;
     short tmpValY;
-    coordinates tmpCoord;
+    Vector2 tmpCoord;
 
     while (!stream.eof()) {
         stream >> tmpValX >> tmpValY;

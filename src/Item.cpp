@@ -37,7 +37,7 @@ SDL_Rect Item::getRect()
 	return m_objectRect;
 }
 
-void Item::setPos(coordinates coor)
+void Item::setPos(Vector2 coor)
 {
 	m_objectRect.x = coor.x;
 	m_objectRect.y = coor.y;

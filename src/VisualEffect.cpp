@@ -9,7 +9,7 @@ VisualEffect::VisualEffect()
 
 }
 
-VisualEffect::VisualEffect(const VisualEffect* model, coordinates coor)
+VisualEffect::VisualEffect(const VisualEffect* model, Vector2 coor)
 {
 	anim = new animation;
 	anim->currFrame = 0;
