@@ -31,4 +31,6 @@ private:
 	SDL_Event* m_event;
 	Vector2* m_mouseCoor;
 	bool* m_mouseIsPressed;
+	time_t inputDelay, timeFromLastInput, startTime;
+
 };
