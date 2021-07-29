@@ -14,6 +14,7 @@ CaveRoom::~CaveRoom()
 {
 }
 
+#pragma region CAVEROOM_ESSENTIALS
 void CaveRoom::load(string configFile)
 {
 	configFile = "config\\" + ROOMS_FOLDER + configFile;
@@ -27,10 +28,13 @@ void CaveRoom::load(string configFile)
 
 	m_roomImg = ROOMS_FOLDER + m_roomImg;
 
-	m_objRect.w = 108;
-	m_objRect.h = 108;
-	m_objRect.x = 300;
-	m_objRect.y = 300;
+	m_objRect.w = 1080;
+	m_objRect.h = 1080;
+	m_objRect.x = (1920 - 1080) / 2;
+	m_objRect.y = 0;
+
+	m_standartDoorWidth = 200;
+
 
 	stream.close();
 
@@ -46,94 +50,4 @@ void CaveRoom::draw()
 {
 	SDL_RenderCopy(world.m_main_renderer, m_objTexture, NULL, &m_objRect);
 }
-
-void CaveRoom::encodeDoors()
-{
-	int r = rand() % 20;
-	if (r >= 10) 
-	{
-		m_hasDoor.bottom = true;
-	}
-	else
-	{
-		m_hasDoor.bottom = false;
-	}
-
-	r = rand() % 20;
-	if (r >= 10)
-	{
-		m_hasDoor.left = true;
-	}
-	else 
-	{
-		m_hasDoor.left = false;
-	}
-
-	r = rand() % 20;
-	if (r >= 10)
-	{
-		m_hasDoor.right = true;
-	}
-	else 
-	{
-		m_hasDoor.right = false;
-	}
-
-	r = rand() % 20;
-	if (r >= 10)
-	{
-		m_hasDoor.top = true;
-	}
-	else 
-	{
-		m_hasDoor.top = false;
-	}
-
-	if (!m_hasDoor.bottom && !m_hasDoor.left && !m_hasDoor.right && !m_hasDoor.top)
-	{
-		encodeDoors();
-	}
-
-	m_doors = "_" + to_string(m_hasDoor.top) + to_string(m_hasDoor.right) + to_string(m_hasDoor.bottom) + to_string(m_hasDoor.left);
-	D(m_doors);
-}
-
-void CaveRoom::changeX(int i)
-{
-	m_objRect.x += i * m_objRect.w;
-}
-
-CaveRoom CaveRoom::getNextRoom(CaveRoom& nextRoom)
-{
-	isLinked = false;
-
-	if (m_hasDoor.right && nextRoom.m_hasDoor.left)
-	{
-		nextRoom.m_objRect.x = m_objRect.x + m_objRect.w;
-		isLinked = true;
-
-	}else if (m_hasDoor.left && nextRoom.m_hasDoor.right)
-	{
-
-		nextRoom.m_objRect.x = m_objRect.x - nextRoom.m_objRect.w;
-		isLinked = true;
-
-	}else if(m_hasDoor.top && nextRoom.m_hasDoor.bottom)
-	{
-
-		nextRoom.m_objRect.y = m_objRect.y - nextRoom.m_objRect.h;
-		isLinked = true;
-
-	}
-	else if (m_hasDoor.bottom && nextRoom.m_hasDoor.top)
-	{
-
-		nextRoom.m_objRect.y = m_objRect.y + m_objRect.h;
-		isLinked = true;
-
-	}
-
-	return nextRoom;
-
-}
-
+#pragma endregion

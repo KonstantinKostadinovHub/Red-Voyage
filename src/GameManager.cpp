@@ -233,13 +233,13 @@ void GameManager::update()
             }
         }
 
-        if (world.m_gameState == CAVES)
+       /* if (world.m_gameState == CAVES)
         {
             m_cave.update();
 
-            m_cave.updateEntrance();
-        }
+        }*/
 
+        m_cave.updateEntrance();
 
         cleaner();
 
@@ -279,6 +279,8 @@ void GameManager::draw()
             chicken_wings[i]->draw();
         }
     }
+    ///CAVE ENTRANCE DRAW
+    m_cave.drawEntrance();
 
     for (int i = 0; i < m_ores.size(); i++)
     {
@@ -360,7 +362,7 @@ void GameManager::draw()
         m_helper->drawCollision(m_cave.m_entranceRect);
     }
 
-    m_userInterface.draw();
+    //m_userInterface.draw();
 
     for (int i = 0; i < m_players.size(); i++)
     {
@@ -374,13 +376,6 @@ void GameManager::draw()
         SDL_RenderCopy(m_renderer, m_pausedBackgroundTexture, NULL, NULL);
         SDL_RenderCopy(m_renderer, resumeButton.objTexture, NULL, &resumeButton.objRect);
         SDL_RenderCopy(m_renderer, exitButton.objTexture, NULL, &exitButton.objRect);
-    }
-
-    if (world.m_gameState == CAVES) 
-    {
-        m_cave.update();
-
-        m_cave.updateEntrance();
     }
 
     SDL_RenderPresent(m_renderer);
@@ -654,6 +649,8 @@ void GameManager::deleteSession()
     m_chickenCollected = 0;
     m_aluminiumCollected = 0;
     m_titaniumCollected = 0;
+
+    //delete &m_camera;
 
     m_isPaused = false;
 }

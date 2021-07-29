@@ -232,23 +232,25 @@ void Player::update()
     }
 
     m_objRect.y += m_velocity.y * m_speed;
-
-    if(world.m_gameManager.collisionWithShip(m_objRect))
+    if (world.m_gameState == GAME)
     {
-        m_objRect.y -= m_velocity.y * m_speed;
-    }
-    else
-    {
-        for(int i = 0; i < world.m_gameManager.m_ores.size(); i++)
+        if (world.m_gameManager.collisionWithShip(m_objRect))
         {
-            if(collRectRect(m_objRect, world.m_gameManager.m_ores[i]->m_rect))
+            m_objRect.y -= m_velocity.y * m_speed;
+        }
+        else
+        {
+            for (int i = 0; i < world.m_gameManager.m_ores.size(); i++)
             {
-                m_objRect.y -= m_velocity.y * m_speed;
-                break;
+                if (collRectRect(m_objRect, world.m_gameManager.m_ores[i]->m_rect))
+                {
+                    m_objRect.y -= m_velocity.y * m_speed;
+                    break;
+                }
             }
         }
     }
-  
+
     coordinates playerCoor;
     playerCoor.x = m_objRect.x + m_objRect.w / 2;
     playerCoor.y = m_objRect.y + m_objRect.h / 2;
