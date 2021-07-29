@@ -19,14 +19,16 @@ void Gun::init(float attackSpeed)
     m_engagementRate = chrono::milliseconds((int)attackSpeed);
     m_elapsed_engage = chrono::high_resolution_clock::now();
     m_canShoot = false;
+    m_mouseCoor = &world.m_inputManager->m_mouseCoor;
 }
 
-void Gun::update(coordinates velocity, coordinates playerCoor, bool shootIsPressed)
+void Gun::update(Vector2 velocity, Vector2 playerCoor, bool shootIsPressed)
 {
     /*! We calculate the velocity and position the gun to player's coordinates.
     *    
     *   We calculate the cooldown and if it is expired the player can shoot
     */
+    aim();
 
     if(velocity.x == 0 && velocity.y == 0)
     {
@@ -47,4 +49,27 @@ void Gun::update(coordinates velocity, coordinates playerCoor, bool shootIsPress
     else{
         m_canShoot = false;
     }
+}
+
+
+void Gun::aim()
+{
+    SDL_Rect presentRect = world.m_gameManager.toScreenCoordinates(*m_playerRect);
+    m_playerCenter = { presentRect.x + presentRect.w / 2, presentRect.y + presentRect.h / 2 };
+    m_direction = { m_mouseCoor->x - m_playerCenter.x, m_mouseCoor->y - m_playerCenter.y };
+
+    m_shootingPoint.x = m_playerRect->x + m_playerRect->w / 2;
+    m_shootingPoint.y = m_playerRect->y + m_playerRect->h / 2;
+
+    m_rotationAngle = returnAngleByCoordinates(m_direction);
+}
+
+void Gun::setPlayerRect(SDL_Rect* rect)
+{
+    m_playerRect = rect;
+}
+
+Vector2* Gun::getShootingPoint()
+{
+    return &m_shootingPoint;
 }

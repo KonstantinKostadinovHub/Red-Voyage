@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
 
     world.init();
     
-	world.m_gameState = GAME; // TITLESCREEN
+	world.m_gameState = MENU; // TITLESCREEN
 
     screen.load("NiTe_logo.txt", world.m_main_renderer);
 
@@ -81,9 +81,9 @@ int main(int argc, char* argv[])
                 world.m_gameManager.m_cave.draw();
                 SDL_Delay(25);
             }
+
             world.m_gameManager.m_cave.deleteSession();
             world.m_quitScene = false;
-
         }
 #pragma endregion
 

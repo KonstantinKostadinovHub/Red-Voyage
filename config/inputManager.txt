@@ -1,0 +1,5 @@
+Move_up: 26
+Move_down: 22
+Move_left: 4
+Move_right: 7
+Craft: 8

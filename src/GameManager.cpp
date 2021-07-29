@@ -14,15 +14,14 @@ GameManager::~GameManager()
 
 }
 
-
 void GameManager::init()
 {
     m_renderer = world.m_main_renderer;
     m_soundManager = world.m_soundManager;
-    m_drag = &world.m_drag;
-    m_mouseIsPressed = &world.m_mouseIsPressed;
-    m_mouseIsDoubleClicked = &world.m_mouseIsDoubleClicked;
-    m_mouseCoordinates = &world.m_mouseCoordinates;
+    m_drag = &world.m_inputManager->m_drag;
+    m_mouseIsPressed = &world.m_inputManager->m_mouseIsClicked;
+    m_mouseIsDoubleClicked = &world.m_inputManager->m_mouseIsDoubleClicked;
+    m_mouseCoordinates = &world.m_inputManager->m_mouseCoor;
     m_event = &world.m_event;
 
     m_backgroundRect = {
@@ -39,6 +38,8 @@ void GameManager::init()
     ifstream file;
 
     file.open(config);
+
+    SDL_StartTextInput();
 
     if (file.is_open())
     {
@@ -77,7 +78,7 @@ void GameManager::init()
     exitButton.objRect.x = 1920 / 2 + 10;
     exitButton.objRect.y = 1080 / 2 - exitButton.objRect.h / 2;
 
-    m_saver = new Saver("saves\\session1.txt");
+    m_saver = new Saver("saves\\session1.txt", "saves\\player1.txt");
 
     m_configManager.init("configManager.txt");
     m_userInterface.load("playerUi.txt");
@@ -86,6 +87,9 @@ void GameManager::init()
     m_tutorial.init("tutorial.txt");
     m_cave.init("cave.txt");
     m_cave.initEntrance("cave_entrance.txt");
+
+    m_enterName = new TextInput();
+    m_enterName->init("enterName.txt",world.m_main_renderer, m_event, m_mouseCoordinates, m_mouseIsPressed);
 }
 
 #pragma region INIT
@@ -95,7 +99,8 @@ void GameManager::initSession()
     m_food_spawner.init("food.txt");
     addPlayer("player1.txt");
     addPlayer("player2.txt");
-    coordinates buff;
+    m_saver->loadPlayerStats(m_players[0]);
+    Vector2 buff;
     buff.x = 1000;
     buff.y = 1000;
     addItem(ITEM::LEATHER_BOOTS, buff);
@@ -130,8 +135,8 @@ void GameManager::readCollisionPoints(string configFile)
     ifstream file;
     file.open(configFile);
 
-    fcoordinates coor;
-    fcoordinates first;
+    Vector2f coor;
+    Vector2f first;
     line buff;
     string img;
     file >> img;
@@ -165,8 +170,6 @@ void GameManager::readCollisionPoints(string configFile)
 #pragma endregion
 
 #pragma region MAIN
-
-
 
 void GameManager::update()
 {
@@ -223,6 +226,7 @@ void GameManager::update()
 
         m_camera.update();
 
+        m_enterName->update();
 
         for (int i = 0; i < m_players.size(); i++)
         {
@@ -243,14 +247,9 @@ void GameManager::update()
 
         cleaner();
 
-        endGameCheck();
+        endGameCheck();  
+    }
 
-        SDL_ShowCursor(SDL_DISABLE);
-    }
-    else
-    {
-        SDL_ShowCursor(SDL_ENABLE);
-    }
     m_camera.zoom();
 }
 
@@ -378,6 +377,9 @@ void GameManager::draw()
         SDL_RenderCopy(m_renderer, exitButton.objTexture, NULL, &exitButton.objRect);
     }
 
+
+    m_enterName->draw();
+
     SDL_RenderPresent(m_renderer);
 }
 
@@ -451,17 +453,17 @@ void GameManager::addPlayer(string configFile)
     }
 }
 
-void GameManager::addBullet(SDL_Rect rect, coordinates coor)
+void GameManager::addBullet(Vector2 coor, float angle)
 {
-    Bullet* bullet = new Bullet(&m_configManager.m_bullet, m_renderer, coor);
-    bullet->m_objRect.x = rect.x;
-    bullet->m_objRect.y = rect.y;
-    bullet->m_coor.x = rect.x;
-    bullet->m_coor.y = rect.y;
-    bullet->collLine.start.x = rect.x;
-    bullet->collLine.start.y = rect.y;
-    bullet->collLine.finish.x = rect.x;
-    bullet->collLine.finish.y = rect.y;
+    Bullet* bullet = new Bullet(&m_configManager.m_bullet, m_renderer, angle);
+    bullet->m_objRect.x = coor.x;
+    bullet->m_objRect.y = coor.y;
+    bullet->m_coor.x = bullet->m_objRect.x;
+    bullet->m_coor.y = bullet->m_objRect.y;
+    bullet->collLine.start.x = coor.x - 10;
+    bullet->collLine.start.y = coor.y - 10;
+    bullet->collLine.finish.x = coor.x;
+    bullet->collLine.finish.y = coor.y;
     m_bullets.push_back(bullet);
 }
 
@@ -471,7 +473,7 @@ void GameManager::shoot()
     {
         if (m_players[i]->m_gun->m_canShoot)
         {
-            addBullet(m_players[i]->m_gun->m_objRect, m_players[i]->m_gun->m_oldVelocity);
+            addBullet(m_players[i]->getShootingPoint(), m_players[i]->m_gun->m_rotationAngle);
             m_soundManager->play("Shoot.mp3");
             m_players[i]->m_gun->m_elapsed_engage = chrono::high_resolution_clock::now();
         }
@@ -514,7 +516,7 @@ void GameManager::cleaner()
         {
             m_bullets[i]->m_objRect.x = m_bullets[i]->collLine.finish.x;
             m_bullets[i]->m_objRect.y = m_bullets[i]->collLine.finish.y;
-            coordinates coorBuff;
+            Vector2 coorBuff;
             coorBuff.x = m_bullets[i]->m_objRect.x;
             coorBuff.y = m_bullets[i]->m_objRect.y;
             VisualEffect* explosion = new VisualEffect(&(m_configManager.m_bulletExplosion), coorBuff);
@@ -807,7 +809,7 @@ void GameManager::collision()
 
     for (int i = 0; i < m_players.size(); i++)
     {
-        if (m_players[i]->shootIsPressed)
+        if (world.m_inputManager->m_shootIsPressed)
         {
             for (int j = 0; j < m_enemies.size(); j++)
             {
@@ -916,13 +918,13 @@ bool GameManager::checkForPause()
         m_saver->saveSession();
         return true;
     }
-    else if (m_mouseIsPressed && (MouseIsInRect(*m_mouseCoordinates, resumeButton.objRect)) && m_isPaused)
+    else if (*m_mouseIsPressed && (MouseIsInRect(*m_mouseCoordinates, resumeButton.objRect) && m_isPaused) && m_isPaused)
     {
         m_soundManager->play("Button_Click.mp3");
         m_isPaused = false;
         return false;
     }
-    if (m_mouseIsPressed && (MouseIsInRect(*m_mouseCoordinates, exitButton.objRect)))
+    if (*m_mouseIsPressed && (MouseIsInRect(*m_mouseCoordinates, exitButton.objRect)) && m_isPaused)
     {
         m_soundManager->play("Button_Click.mp3");
         world.m_quitScene = true;
@@ -941,7 +943,7 @@ void GameManager::drawShipCollision()
     }
 }
 
-void GameManager::addItem(ITEM type, coordinates coor)
+void GameManager::addItem(ITEM type, Vector2 coor)
 {
     Item* item = nullptr;
     switch (type)
@@ -961,4 +963,14 @@ void GameManager::addItem(ITEM type, coordinates coor)
         fprintf(stderr, errorText.c_str());
         exit(EXIT_FAILURE);
     }
+}
+
+SDL_Rect GameManager::toScreenCoordinates(SDL_Rect rect)
+{
+    return {
+        (int)(m_camera.zoom_lvl * (double)(rect.x - m_camera.camera_rect.x)),
+        (int)(m_camera.zoom_lvl * (double)(rect.y - m_camera.camera_rect.y)),
+        (int)(m_camera.zoom_lvl * rect.w),
+        (int)(m_camera.zoom_lvl * rect.h),
+    };
 }

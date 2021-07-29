@@ -31,8 +31,6 @@ SDL_Texture* LoadTexture(string configFile, SDL_Renderer* renderer)
             SDL_Surface* loadingSurface = SDL_LoadBMP(configFile.c_str());
             texture = SDL_CreateTextureFromSurface(renderer, loadingSurface);
             SDL_FreeSurface(loadingSurface);
-
-            cout << "HERE \n";
         }
     }
     return texture;
@@ -64,7 +62,7 @@ bool collLineRect(line mainLine, line top, line bot, line left, line right)
     return false;
 }
 
-bool MouseIsInRect(coordinates coor , SDL_Rect rect)
+bool MouseIsInRect(Vector2 coor , SDL_Rect rect)
 {
     if(coor.x >= rect.x && coor.x <= rect.x + rect.w && coor.y >= rect.y && coor.y <= rect.y + rect.h)
     {
@@ -112,7 +110,7 @@ void restrict(SDL_Rect* rect, int zx, int zy, int zw, int zh){
 }
 
 
-void write(string text, coordinates coor, SDL_Renderer* renderer, int FONT_SIZE)
+void write(string text, Vector2 coor, SDL_Renderer* renderer, int FONT_SIZE)
 {
 
     SDL_Texture* texture;
@@ -147,7 +145,7 @@ void write(string text, coordinates coor, SDL_Renderer* renderer, int FONT_SIZE)
 
 }
 
-pair<SDL_Texture*, SDL_Rect>  writeRed(string text, coordinates coor, SDL_Renderer* renderer, int FONT_SIZE)
+pair<SDL_Texture*, SDL_Rect>  writeRed(string text, Vector2 coor, SDL_Renderer* renderer, int FONT_SIZE)
 {
 
     SDL_Texture* texture;
@@ -183,7 +181,7 @@ pair<SDL_Texture*, SDL_Rect>  writeRed(string text, coordinates coor, SDL_Render
     return myRect;
 }
 
-pair<SDL_Texture*, SDL_Rect> writeGreen(string text, coordinates coor, SDL_Renderer* renderer, int FONT_SIZE)
+pair<SDL_Texture*, SDL_Rect> writeGreen(string text, Vector2 coor, SDL_Renderer* renderer, int FONT_SIZE)
 {
 
     SDL_Texture* texture;
@@ -219,11 +217,6 @@ pair<SDL_Texture*, SDL_Rect> writeGreen(string text, coordinates coor, SDL_Rende
     return myRect;
 }
 
-float returnAngleByCoordinates(coordinates direction)
-{
-    return atan2(direction.y, direction.x) * 180 / PI;
-}
-
 void drawRectCollision(SDL_Rect rect, SDL_Renderer* renderer)
 {
 	short x2 = rect.x + rect.w;
@@ -249,4 +242,17 @@ void drawRectCollision(SDL_Rect rect, SDL_Renderer* renderer)
 void var_shake(float* a, float magnitude) {
     float b = ((static_cast<float> (rand()) / static_cast<float>(RAND_MAX)) * 2.0f - 1.0f) * magnitude;
     *a += b;
+}
+
+float returnAngleByCoordinates(Vector2 direction)
+{
+    return atan2(direction.x, -1 * direction.y) * 180 / PI;
+}
+
+struct Vector2 returnCoordinatesByAngle(float angle)
+{
+    Vector2 direction;
+    direction.y = sin(angle * PI / 180);
+    direction.x = cos(angle * PI / 180);
+    return direction;
 }

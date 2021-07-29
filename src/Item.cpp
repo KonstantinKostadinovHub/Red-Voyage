@@ -27,6 +27,7 @@ void Item::init(string configFile)
 
 void Item::onPick(Player* player)
 {
+	applyEffect(player); /// Don't forget to call this function when inhereting
 	/// The action that will be performed then the item is picked
 	/// Overwrite this function when inheriting
 }
@@ -36,7 +37,7 @@ SDL_Rect Item::getRect()
 	return m_objectRect;
 }
 
-void Item::setPos(coordinates coor)
+void Item::setPos(Vector2 coor)
 {
 	m_objectRect.x = coor.x;
 	m_objectRect.y = coor.y;
@@ -45,4 +46,9 @@ void Item::setPos(coordinates coor)
 void Item::draw()
 {
 	world.m_gameManager.drawObject(m_objectRect, m_objectTexture);
+}
+
+void Item::applyEffect(Player* player)
+{
+	/// Here you should type the effect that is applied to the player
 }

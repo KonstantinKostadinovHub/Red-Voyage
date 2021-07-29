@@ -21,16 +21,16 @@ void IconManager::init(string configFile, SDL_Renderer* renderer)
 
 	/// Heroes' Textures 
 	stream >> tmp;
-	tmp = UI_FOLDER + HERO_FOLDER + tmp;
+	tmp = UI_FOLDER + ICON_FOLDER + HERO_FOLDER + tmp;
 	m_jerryTexture = LoadTexture(tmp, renderer);
 
 	/// Weapons' Textures
 	stream >> tmp;
-	tmp = UI_FOLDER + WEAPON_FOLDER + tmp;
+	tmp = UI_FOLDER + ICON_FOLDER + WEAPON_FOLDER + tmp;
 	m_plasmaGunTexture = LoadTexture(tmp, renderer);
 
 	stream >> tmp;
-	tmp = UI_FOLDER + WEAPON_FOLDER + tmp;
+	tmp = UI_FOLDER + ICON_FOLDER + WEAPON_FOLDER + tmp;
 	m_laserSwordTexture = LoadTexture(tmp, renderer);
 
 	stream.close();

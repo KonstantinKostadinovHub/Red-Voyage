@@ -42,9 +42,9 @@ void Endgame::init(string config)
 
 void Endgame::update()
 {
-    if(world.m_mouseIsPressed)
+    if(world.m_inputManager->m_mouseIsClicked)
     {
-        if(MouseIsInRect(world.m_mouseCoordinates, m_proceed_button))
+        if(MouseIsInRect(world.m_inputManager->m_mouseCoor, m_proceed_button))
         {
             /// We check if the mouse is pressed on a certain button and than we redirect the 
             /// player/players either to the win screen or the loss screen depending on if he/they won or not.

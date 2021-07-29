@@ -4,18 +4,6 @@ Img: player2.bmp
 
 Speed: 10	
 
-Move_up: I
-
-Move_down: K
-
-Move_left: J
-
-Move_right: L
-
-Shoot: U
-
-Craft: O
-
 Health: 100
 
 HP: healthBar2.txt

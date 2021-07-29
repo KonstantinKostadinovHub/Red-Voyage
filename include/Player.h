@@ -7,6 +7,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <map>
 #include <chrono>
 #include <ctime>
 #include <cmath>
@@ -29,12 +30,10 @@ public:
     Player();
     virtual ~Player();
 
-    coordinates m_oldCoor;
-    coordinates m_coor;
-    coordinates m_center;
-    coordinates m_velocity;
-    coordinates m_oldvelocity;
-    coordinates m_direction;
+    Vector2 m_oldCoor;
+    Vector2 m_coor;
+    Vector2 m_velocity;
+    Vector2 m_oldvelocity;
 
     int m_widthOfFrame;
 
@@ -56,24 +55,10 @@ public:
     bool m_inSpaceship = false;
 
     float m_speed;
-    float m_screenSpeed;
 
-    string s_move_up;
-    string s_move_down;
-    string s_move_left;
-    string s_move_right;
-    string s_shoot;
-    string s_craft;
     string m_playerImg;
     string HP;
     string m_configFile;
-
-    SDL_Scancode move_up;
-    SDL_Scancode move_down;
-    SDL_Scancode move_left;
-    SDL_Scancode move_right;
-    SDL_Scancode shoot;
-    SDL_Scancode craft;
 
     SDL_Rect m_objRect;
 
@@ -94,8 +79,6 @@ public:
 
     bool checkForShooting();
     bool m_canShoot;
-    bool shootIsPressed;
-    bool craftIsPressed;
     bool m_collWithDoor;
 
     line top, bot, left, right;
@@ -111,10 +94,27 @@ public:
     float m_shield;
 
     void takeDamage(float damage);
-
 protected:
-
+    friend class Saver;
+    void saveItems(fstream& stream);
+    friend class ItemManager;
+    void equipItem(ITEM_TYPE type, ITEM item);
+    friend class Saver;
+    void loadItems(fstream& stream);
+    friend class GameManager;
+    Vector2 getShootingPoint();
 private:
+    vector<ITEM> m_collectable;
+
+    ITEM m_helmet;
+    ITEM m_chestplate;
+    ITEM m_leggings;
+    ITEM m_boots;
+
+    ITEM m_primaryWeapon;
+    ITEM m_secondaryWeapon;
+
+    Vector2* m_shootingPoint;
 };
 
 #endif // PLAYER_H

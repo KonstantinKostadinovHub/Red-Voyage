@@ -25,9 +25,11 @@ public:
 	SDL_Rect getRect(); //< A getter that is used to protect the jectRect of the object
 	virtual void onPick(Player* player); //< The impact of the item after it is picked
 	virtual void init(string configFile);
-	void setPos(coordinates pos); //< Use after the initialization of the object
+	void setPos(Vector2 pos); //< Use after the initialization of the object
 	void draw();
 protected:
+	virtual void applyEffect(Player* player);
 	SDL_Rect m_objectRect;
 	SDL_Texture* m_objectTexture;
+	ITEM_TYPE m_type;
 };

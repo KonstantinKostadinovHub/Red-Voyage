@@ -239,7 +239,7 @@ void Task::update()
 
         if(distance < 200)
         {
-            if(world.m_gameManager.m_players[i] -> craftIsPressed)
+            if(world.m_inputManager->m_craft.second)
             {
                 resetTime = false;
             }

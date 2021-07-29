@@ -49,8 +49,8 @@ class Enemy
         SDL_Rect m_animRect;
         SDL_Rect m_srcRect;
 
-        coordinates m_targetCoord;
-        vector<coordinates> m_pathCoord;
+        Vector2 m_targetCoord;
+        vector<Vector2> m_pathCoord;
         string m_pathData;
         short m_pathIndex;
 

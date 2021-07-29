@@ -47,32 +47,31 @@ static string MENU_FOLDER = "menu\\";
 static string MAIN_FOLDER = "main\\";
 static string ITEM_FOLDER = "item\\";
 static string ICON_FOLDER = "icons\\";
-static string HERO_FOLDER = "hero\\";
-static string WEAPON_FOLDER = "weapon\\";
+static string HERO_FOLDER = "heroes\\";
+static string WEAPON_FOLDER = "weapons\\";
 static string ROOMS_FOLDER = "rooms\\";
 
-struct coordinates
+struct Vector2
 {
-    int x = 0;
-    int y = 0;
-}; ///< A useful structure containing x and y axis of an object
+    int x;
+    int y;
+};
 
-static coordinates parseToCoordinates(SDL_Rect rect)
+struct Vector2f
+{
+    float x;
+    float y;
+};
+
+static Vector2 parseToCoordinates(SDL_Rect rect)
 {
     return { rect.x , rect.y };
 }
 
-struct fcoordinates
-{
-    float x = 0;
-    float y = 0;
-}; ///< A useful structure similar to coordinates but containing the x and y axis of an object in float 
-
-
 struct line
 {
-    fcoordinates start;
-    fcoordinates finish;
+    Vector2f start;
+    Vector2f finish;
 }; ///< A useful structure creating a line from coordinates
 
 enum ORE
@@ -153,3 +152,14 @@ struct UI_object
     SDL_Texture* objTexture = NULL;
     SDL_Rect objRect;
 }; ///< An UI_Object object structure with its parameters
+
+enum class ITEM_TYPE
+{
+    NONE = 0,
+    HELMET = 1,
+    CHESTPLATE = 2,
+    LEGGINGS = 3,
+    BOOTS = 4,
+    WEAPON = 5,
+    COLLECTABLE = 6
+};

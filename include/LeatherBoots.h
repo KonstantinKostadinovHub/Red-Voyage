@@ -13,8 +13,11 @@ public:
 	LeatherBoots(const LeatherBoots* model);
 	~LeatherBoots();
 
-	short m_movementBuff;
 
 	virtual void onPick(Player* player);
 	virtual void init(string configFile);
+protected:
+	friend class ItemManager;
+	void applyEffect(Player* player);
+	short m_movementBuff;
 };

@@ -40,7 +40,7 @@ class Menu
         void update(); ///<Updating function
         void draw(); ///<Drawing function
 
-        void EnlargeButtons(coordinates coor ,SDL_Rect &rect ,SDL_Rect startRect); ///<Function used to create a enlargment effect when the mouse hovers over a button
+        void EnlargeButtons(Vector2 coor ,SDL_Rect &rect ,SDL_Rect startRect); ///<Function used to create a enlargment effect when the mouse hovers over a button
 
     protected:
 

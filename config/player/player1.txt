@@ -4,18 +4,6 @@ Img: player1.bmp
 
 Speed: 10
 
-Move_up: W
-
-Move_down: S
-
-Move_left: A
-
-Move_right: D
-
-Shoot: Q
-
-Craft: E
-
 Health: 100
 
 HP: healthBar1.txt

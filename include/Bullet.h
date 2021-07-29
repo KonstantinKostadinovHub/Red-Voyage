@@ -18,8 +18,10 @@ class Bullet
 {
     public:
         Bullet();
-        Bullet(const Bullet* model, SDL_Renderer* renderer, coordinates coor);
+        Bullet(const Bullet* model, SDL_Renderer* renderer, float angle);
         virtual ~Bullet();
+
+        Vector2 m_directionCoor;
 
         SDL_Renderer* m_renderer;
 
@@ -27,6 +29,8 @@ class Bullet
         string m_img;
 
         int m_health;
+
+        float m_bulletAngle;
 
         SDL_Rect* m_cameraRect;
         float* m_zoom_lvl;
@@ -40,7 +44,7 @@ class Bullet
         int m_damage;
         int health;
 
-        coordinates m_velocity;
+        Vector2 m_velocity;
 
         SDL_Texture* m_bulletTexture;
 
@@ -49,7 +53,7 @@ class Bullet
         void draw(SDL_Renderer* renderer);
         void load(string configFile);
 
-        fcoordinates m_coor;
+        Vector2f m_coor;
 
     protected:
 

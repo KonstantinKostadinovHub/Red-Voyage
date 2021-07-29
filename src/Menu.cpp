@@ -101,18 +101,17 @@ void Menu::load(string config)
 
 void Menu::update()
 {
-
     ///Check if the mouse is pressed and then if it is on(inside) the buttons and perform their assigned actions e.g. *Go in a game or close it*
 
-    if(world.m_mouseIsPressed){
+    if(world.m_inputManager->m_mouseIsClicked){
 
-        if(MouseIsInRect(world.m_mouseCoordinates, m_exitRect)){ 
+        if(MouseIsInRect(world.m_inputManager->m_mouseCoor, m_exitRect)){
             world.m_soundManager->play("Button_Click.mp3");
             world.m_gameState = EXIT;
             world.m_quitScene = true;
         }
 
-        if(MouseIsInRect(world.m_mouseCoordinates, m_startRect)){
+        if(MouseIsInRect(world.m_inputManager->m_mouseCoor, m_startRect)){
             world.m_soundManager->play("Button_Click.mp3");
             world.m_gameState = GAME;
             world.m_quitScene = true;
@@ -144,7 +143,7 @@ void Menu::draw()
     SDL_RenderPresent(world.m_main_renderer);
 }
 
-void Menu::EnlargeButtons(coordinates coor ,SDL_Rect &rect ,SDL_Rect startRect)
+void Menu::EnlargeButtons(Vector2 coor ,SDL_Rect &rect ,SDL_Rect startRect)
 {
     ///The function accepts 3 parameters
     /**

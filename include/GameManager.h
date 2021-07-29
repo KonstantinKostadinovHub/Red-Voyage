@@ -31,6 +31,7 @@
 #include "PowerUp.h"
 #include "Saver.h"
 #include "Cave.h"
+#include "TextInput.h"
 
 class GameManager
 {
@@ -74,14 +75,16 @@ public:
     bool* m_drag;
     bool* m_mouseIsPressed;
     bool* m_mouseIsDoubleClicked;
-    coordinates* m_mouseCoordinates;
+    Uint8* m_state;
+    Vector2* m_mouseCoordinates;
 
     Camera m_camera;
-    coordinates m_directionCoor;
+    Vector2 m_directionCoor;
 
     float m_angle;
     bool m_isPaused;
 
+    TextInput* m_enterName;
     Food m_food_spawner;
     ChickenWing* chicken_wings[6];
     ConfigManager m_configManager;
@@ -126,16 +129,14 @@ public:
     void endGameCheck();
 
     void addPlayer(string configFile);
-    void addBullet(SDL_Rect rect, coordinates coor);
-    void addItem(ITEM type, coordinates coor);
+    void addBullet(Vector2 coor, float angle);
+    void addItem(ITEM type, Vector2 coor);
 
     void shoot();
 
-
     void drawObject(SDL_Rect rect, SDL_Texture* texture);
     void drawObjectWithSrc(SDL_Rect dstRect, SDL_Rect srcRect, SDL_Texture* texture);
-
-
+    SDL_Rect toScreenCoordinates(SDL_Rect rect);
 
     void drawShipCollision(); //! Draw the collision lines of the spaceship
 

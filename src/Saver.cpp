@@ -8,9 +8,10 @@ Saver::Saver()
 {
 }
 
-Saver::Saver(string location)
+Saver::Saver(string location, string playerInventoryLocation)
 {
 	m_location = location;
+	m_playerInventoryLocation = playerInventoryLocation;
 }
 
 Saver::~Saver()
@@ -19,6 +20,8 @@ Saver::~Saver()
 
 void Saver::saveSession()
 {
+	cout << "----------DATA SAVED---------- \n";
+
 	int i;
 	ofstream stream(m_location);
 	
@@ -45,6 +48,11 @@ void Saver::saveSession()
 	stream << "EOF";
 
 	stream.close();
+
+	/// TO-DO: Change after the transition to multiplayer
+	savePlayerStats(world.m_gameManager.m_players[0]);
+
+	cout << "------------------------------ \n";
 }
 
 void Saver::loadSession()
@@ -52,7 +60,7 @@ void Saver::loadSession()
 	fstream stream(m_location);
 
 	string type;
-	coordinates buffCoor;
+	Vector2 buffCoor;
 	int buffInt;
 	ENEMY buffEnemy;
 	
@@ -83,6 +91,26 @@ void Saver::loadSession()
 			break;
 		}
 	}
+
+	stream.close();
+}
+
+void Saver::savePlayerStats(Player* player)
+{
+	fstream stream(m_playerInventoryLocation);
+
+	player->saveItems(stream);
+
+	stream.close();
+
+	cout << "Saved the player stats\n";
+}
+
+void Saver::loadPlayerStats(Player* player)
+{
+	fstream stream(m_playerInventoryLocation);
+
+	player->loadItems(stream);
 
 	stream.close();
 }

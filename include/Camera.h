@@ -16,7 +16,7 @@ class Camera
         SDL_Rect camera_rect;
         SDL_Rect* player1;
         SDL_Rect* player2;
-        fcoordinates fcamera_rect;
+        Vector2f fcamera_rect;
         int following_speed = 5;
         float zoom_lvl = 2;
         float zoomMulti = 2;
