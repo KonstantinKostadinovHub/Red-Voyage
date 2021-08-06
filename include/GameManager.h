@@ -84,7 +84,6 @@ public:
     float m_angle;
     bool m_isPaused;
 
-    TextInput* m_enterName;
     Food m_food_spawner;
     ChickenWing* chicken_wings[6];
     ConfigManager m_configManager;

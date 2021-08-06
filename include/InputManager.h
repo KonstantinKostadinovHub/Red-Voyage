@@ -24,10 +24,10 @@ public:
 	Vector2 m_mouseCoor;
 	Uint8* m_keyboardState;
 	
-	pair<bool*, SDL_Scancode> m_up;
-	pair<bool*, SDL_Scancode> m_down;
-	pair<bool*, SDL_Scancode> m_left;
-	pair<bool*, SDL_Scancode> m_right;
+	pair<bool, SDL_Scancode> m_up;
+	pair<bool, SDL_Scancode> m_down;
+	pair<bool, SDL_Scancode> m_left;
+	pair<bool, SDL_Scancode> m_right;
 protected:
 	friend class World; //< this class should only be initialized by the world
 	void setMouseMultiply(Vector2f multiplier); //< multiply the mouseCoor corespondingly to the screen resolution

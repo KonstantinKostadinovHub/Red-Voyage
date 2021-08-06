@@ -89,8 +89,6 @@ void GameManager::init()
     m_cave.init("cave.txt");
     m_cave.initEntrance("cave_entrance.txt");
 
-    m_enterName = new TextInput();
-    m_enterName->init("enterName.txt",world.m_main_renderer, m_event, m_mouseCoordinates, m_mouseIsPressed);
 }
 
 #pragma region INIT
@@ -227,8 +225,6 @@ void GameManager::update()
 
         m_camera.update();
 
-        m_enterName->update();
-
         for (int i = 0; i < m_players.size(); i++)
         {
             if (collRectRect(m_players[i]->m_objRect, m_cave.m_entranceRect))
@@ -244,7 +240,6 @@ void GameManager::update()
 
             m_cave.updateEntrance();
         }
-
 
         cleaner();
 
@@ -382,8 +377,6 @@ void GameManager::draw()
 
         m_cave.updateEntrance();
     }
-
-    m_enterName->draw();
 
     SDL_RenderPresent(m_renderer);
 }
