@@ -18,12 +18,13 @@ int main(int argc, char* argv[])
 
     world.init();
     
-	world.m_gameState = GAME; // TITLESCREEN
+	world.m_gameState = MENU; // TITLESCREEN
 
     screen.load("NiTe_logo.txt", world.m_main_renderer);
 
     while(!world.m_endGame)
     {
+#pragma region TITLESCREEN_LOOP
         if (world.m_gameState == TITLESCREEN)
         {
             while (!world.m_quitScene)
@@ -34,6 +35,9 @@ int main(int argc, char* argv[])
             }
             world.m_quitScene = false;
         }
+#pragma endregion
+
+#pragma region MENU_LOOP
         if(world.m_gameState == MENU)
         {
             while(!world.m_quitScene)
@@ -45,6 +49,9 @@ int main(int argc, char* argv[])
             }
             world.m_quitScene = false;
         }
+#pragma endregion
+
+#pragma region GAME_LOOP
         if(world.m_gameState == GAME)
         {
             world.m_gameManager.initSession();
@@ -59,12 +66,14 @@ int main(int argc, char* argv[])
             world.m_gameManager.deleteSession();
             world.m_quitScene = false;
         }
+#pragma endregion
+
+#pragma region CAVES_LOOP
         if (world.m_gameState == CAVES)
         {
             SDL_ShowCursor(SDL_ENABLE);
 
             world.m_gameManager.m_cave.initSession();
-            world.m_gameManager.m_camera.init(&(world.m_gameManager.m_players[0]->m_objRect), &(world.m_gameManager.m_players[1]->m_objRect));
             while (!world.m_quitScene)
             {
                 world.input();
@@ -72,10 +81,13 @@ int main(int argc, char* argv[])
                 world.m_gameManager.m_cave.draw();
                 SDL_Delay(25);
             }
+
             world.m_gameManager.m_cave.deleteSession();
             world.m_quitScene = false;
-
         }
+#pragma endregion
+
+#pragma region CREDITS_LOOP
         if(world.m_gameState == CREDITS)
         {
             SDL_ShowCursor(SDL_ENABLE);
@@ -90,6 +102,7 @@ int main(int argc, char* argv[])
             }
             world.m_quitScene = false;
         }
+#pragma endregion
 
         if(world.m_gameState == EXIT)
         {

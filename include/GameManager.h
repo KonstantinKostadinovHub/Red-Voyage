@@ -76,10 +76,10 @@ public:
     bool* m_mouseIsPressed;
     bool* m_mouseIsDoubleClicked;
     Uint8* m_state;
-    coordinates* m_mouseCoordinates;
+    Vector2* m_mouseCoordinates;
 
     Camera m_camera;
-    coordinates m_directionCoor;
+    Vector2 m_directionCoor;
 
     float m_angle;
     bool m_isPaused;
@@ -128,16 +128,14 @@ public:
     void endGameCheck();
 
     void addPlayer(string configFile);
-    void addBullet(coordinates coor, float angle);
-    void addItem(ITEM type, coordinates coor);
+    void addBullet(Vector2 coor, float angle);
+    void addItem(ITEM type, Vector2 coor);
 
     void shoot();
-
 
     void drawObject(SDL_Rect rect, SDL_Texture* texture);
     void drawObjectWithSrc(SDL_Rect dstRect, SDL_Rect srcRect, SDL_Texture* texture);
     SDL_Rect toScreenCoordinates(SDL_Rect rect);
-
 
     void drawShipCollision(); //! Draw the collision lines of the spaceship
 

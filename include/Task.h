@@ -53,7 +53,7 @@ public:
     bool m_workingOnTask;
     bool m_doneTask;
 
-    coordinates coor;
+    Vector2 coor;
 
     void update();
     void draw();

@@ -1,20 +1,8 @@
-Player: 88 128 1000 800
+Player: 88 128 800 800
 
 Img: player2.bmp
 
 Speed: 10	
-
-Move_up: I
-
-Move_down: K
-
-Move_left: J
-
-Move_right: L
-
-Shoot: U
-
-Craft: O
 
 Health: 100
 

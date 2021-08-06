@@ -1,6 +1,6 @@
-texture: explosionSpriteSheet.bmp
-frames: 12
-timePerFrame: 30 
-widthOfFrame: 96
-heightOfPhoto: 96
+texture: ExplosionSpriteSheet.bmp
+frames: 8
+timePerFrame: 30
+widthOfFrame: 720
+heightOfPhoto: 540
 width&heightInGame: 100 100

@@ -19,7 +19,7 @@ class Food
         int spawn_cooldown;
         int wings_currently_waiting = 0;
         int max_wings_waiting;
-        coordinates spawn_points_kitchen[6];
+        Vector2 spawn_points_kitchen[6];
 
         chrono::duration<double> m_duration;
         chrono::time_point<chrono::steady_clock> last_spawned;

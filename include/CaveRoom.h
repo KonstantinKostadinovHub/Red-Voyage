@@ -13,6 +13,14 @@ struct hasDoors{
 	bool bottom;
 	bool left;
 };
+struct DoorRect {
+
+	SDL_Rect m_topRect;
+	SDL_Rect m_rightRect;
+	SDL_Rect m_bottomRect;
+	SDL_Rect m_leftRect;
+
+};
 struct mapcoordinates {
 
 	short x;
@@ -26,13 +34,17 @@ public:
 	CaveRoom();
 	virtual ~CaveRoom();
 
+	int m_standartDoorWidth;
+
 	string m_roomImg;
 	string m_doors;
 
 	bool isLinked;
 	bool m_isUsed;
+	bool m_isDefeated;
 
 	hasDoors m_hasDoor;
+	DoorRect doors;
 	mapcoordinates m_mapCoor;
 
 	SDL_Rect m_objRect;
@@ -41,14 +53,6 @@ public:
 	void load(string configFile);
 	void update();
 	void draw();
-
-	void encodeDoors();
-
-	void changeX(int i);
-
-	CaveRoom getNextRoom(CaveRoom &nextRoom);
-
-
 
 };
 

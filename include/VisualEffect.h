@@ -24,7 +24,7 @@ class VisualEffect
 {
 public:
 	VisualEffect();
-	VisualEffect(const VisualEffect* model, coordinates coor);
+	VisualEffect(const VisualEffect* model, Vector2 coor);
 	virtual ~VisualEffect();
 
 	SDL_Rect m_objectRect; //< The position of the vfx in the world

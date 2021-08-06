@@ -3,6 +3,7 @@
 
 #include "GameManager.h"
 #include "IconManager.h"
+#include "InputManager.h"
 
 using namespace std;
 
@@ -25,13 +26,7 @@ class World
 
         SDL_Event m_event;
         bool m_endGame;
-        double m_MOUSE_MULTIPLY_X;
-        double m_MOUSE_MULTIPLY_Y;
-
-        bool m_drag;
-        bool m_mouseIsPressed;
-        bool m_mouseIsDoubleClicked;
-        coordinates m_mouseCoordinates;
+        Vector2f m_mouseMultiply;
 
         Endgame endgame;
         Credits credits;
@@ -39,15 +34,16 @@ class World
         SoundManager* m_soundManager;
         GameManager m_gameManager;
         IconManager* m_iconManager;
+        InputManager* m_inputManager;
 
         bool m_quitScene;
 
         GAME_STATE m_gameState;
 
         void init();
-        void input();
         void improveRenderer();
         void destroy();
+        void input();
 
     protected:
 

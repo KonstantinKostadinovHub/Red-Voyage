@@ -12,7 +12,7 @@ Helper::Helper(vector<Player*>* players, SDL_Renderer* renderer, float* zoom, SD
 	MAX_DAMAGE = false;
 	MAX_SPEED = false;
 	MAX_ORES = true;
-	SHOW_ALL_RECTS = false;
+	SHOW_ALL_RECTS = true;
 
 	m_renderer = renderer;
 

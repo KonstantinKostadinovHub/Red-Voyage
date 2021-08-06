@@ -20,7 +20,7 @@ public:
 
     SDL_Rect m_objRect;
 
-    coordinates m_oldVelocity;
+    Vector2 m_oldVelocity;
 
     float m_rotationAngle;
 
@@ -34,19 +34,19 @@ public:
     chrono::duration<float> m_engagementRate;
 
     void init(float attackSpeed);
-    void update(coordinates, coordinates playerCoor, bool shootIsPressed);
+    void update(Vector2 velocity, Vector2 playerCoor, bool shootIsPressed);
 
 protected:
     friend class Player;
     void setPlayerRect(SDL_Rect* rect);
-    coordinates* getShootingPoint();
+    Vector2* getShootingPoint();
         
 private:
-    coordinates* m_mouseCoor;
+    Vector2* m_mouseCoor;
     SDL_Rect* m_playerRect;
-    coordinates m_playerCenter;
-    coordinates m_direction;
-    coordinates m_shootingPoint;
+    Vector2 m_playerCenter;
+    Vector2 m_direction;
+    Vector2 m_shootingPoint;
     void aim();
 };
 

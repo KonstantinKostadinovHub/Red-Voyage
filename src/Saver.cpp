@@ -60,7 +60,7 @@ void Saver::loadSession()
 	fstream stream(m_location);
 
 	string type;
-	coordinates buffCoor;
+	Vector2 buffCoor;
 	int buffInt;
 	ENEMY buffEnemy;
 	

@@ -5,6 +5,8 @@ TextInput::TextInput()
 	m_container = " ";
 	m_texture = nullptr;
 	m_typing = false;
+	timeFromLastInput = time(NULL);
+	startTime = time(NULL);
 }
 
 TextInput::~TextInput()
@@ -12,7 +14,7 @@ TextInput::~TextInput()
 	SDL_DestroyTexture(m_texture);
 }
 
-void TextInput::init(string configFile, SDL_Renderer* renderer, SDL_Event* event, coordinates* mouseCoor, bool* mouseIsPressed)
+void TextInput::init(string configFile, SDL_Renderer* renderer, SDL_Event* event, Vector2* mouseCoor, bool* mouseIsPressed)
 {
 	m_event = event;
 	m_mouseIsPressed = mouseIsPressed;
@@ -43,11 +45,19 @@ void TextInput::init(string configFile, SDL_Renderer* renderer, SDL_Event* event
 	img = UI_FOLDER + img;
 
 	m_texture = LoadTexture(img, m_renderer);
+
+	inputDelay = 1;
 }
 
 void TextInput::update()
 {
 	SDL_StartTextInput();
+
+	if (time(NULL) - startTime < inputDelay)
+	{
+		timeFromLastInput = time(NULL);
+		return;
+	}
 
 	if (*m_mouseIsPressed)
 	{
@@ -71,6 +81,7 @@ void TextInput::update()
 			else if (m_event->type == SDL_TEXTINPUT)
 			{
 				m_container += m_event->text.text;
+				startTime = time(NULL);
 			}
 		}
 		D(m_container);
