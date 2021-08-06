@@ -374,8 +374,6 @@ void GameManager::draw()
     }
 
 
-    m_enterName->draw();
-
     SDL_RenderPresent(m_renderer);
 }
 
